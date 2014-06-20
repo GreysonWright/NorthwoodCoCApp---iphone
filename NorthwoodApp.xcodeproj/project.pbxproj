@@ -1,0 +1,969 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E1D6E61194F695600819888 /* Bulletin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D6E60194F695600819888 /* Bulletin.m */; };
+		2E1D6E6F194F79A400819888 /* Sermons2010ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D6E6D194F79A400819888 /* Sermons2010ViewController.m */; };
+		2E1D6E70194F79A400819888 /* Sermons2010ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1D6E6E194F79A400819888 /* Sermons2010ViewController.xib */; };
+		2E205E90194B84770092C8BF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E205E8F194B84770092C8BF /* libxml2.dylib */; };
+		2E205E92194B84840092C8BF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E205E91194B84840092C8BF /* libxml2.dylib */; };
+		2E205E9B194B8DD90092C8BF /* SermonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E205E99194B8DD90092C8BF /* SermonsViewController.m */; };
+		2E205E9C194B8DD90092C8BF /* SermonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E205E9A194B8DD90092C8BF /* SermonsViewController.xib */; };
+		2E3472331953B7B700AC769B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3472321953B7B700AC769B /* Social.framework */; };
+		2E34723A1953BD4A00AC769B /* Telephone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472341953BD4A00AC769B /* Telephone.png */; };
+		2E34723B1953BD4A00AC769B /* Telephone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472351953BD4A00AC769B /* Telephone@2x.png */; };
+		2E34723C1953BD4A00AC769B /* Twitter_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472361953BD4A00AC769B /* Twitter_filled.png */; };
+		2E34723D1953BD4A00AC769B /* Twitter_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472371953BD4A00AC769B /* Twitter_filled@2x.png */; };
+		2E34723E1953BD4A00AC769B /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472381953BD4A00AC769B /* Twitter.png */; };
+		2E34723F1953BD4A00AC769B /* Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472391953BD4A00AC769B /* Twitter@2x.png */; };
+		2E41833A1950A77F006D52EC /* SermonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4183381950A77F006D52EC /* SermonsTableViewCell.m */; };
+		2E41833B1950A77F006D52EC /* SermonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4183391950A77F006D52EC /* SermonsTableViewCell.xib */; };
+		2E4A739C194F446900A17188 /* NewsLoggedinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A739A194F446900A17188 /* NewsLoggedinViewController.m */; };
+		2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A739B194F446900A17188 /* NewsLoggedinViewController.xib */; };
+		2E4B16AA19521D3500641710 /* DutyRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16A819521D3500641710 /* DutyRosterTableViewCell.m */; };
+		2E4B16AB19521D3500641710 /* DutyRosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B16A919521D3500641710 /* DutyRosterTableViewCell.xib */; };
+		2E4B16AF19521D5100641710 /* DutyRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16AE19521D5100641710 /* DutyRoster.m */; };
+		2E4B16B91952274000641710 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16B81952274000641710 /* Tweet.m */; };
+		2E4B16BD19522F3B00641710 /* TweetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16BB19522F3B00641710 /* TweetTableViewCell.m */; };
+		2E4B16BE19522F3B00641710 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B16BC19522F3B00641710 /* TweetTableViewCell.xib */; };
+		2E4B16C119523D9500641710 /* SermonTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16C019523D9500641710 /* SermonTitle.m */; };
+		2E4B16C419523DA000641710 /* SermonDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16C319523D9F00641710 /* SermonDate.m */; };
+		2E4B16C719523DA800641710 /* SermonPreacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16C619523DA800641710 /* SermonPreacher.m */; };
+		2E4F92A8194B4FD800BC23F2 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F92A6194B4FD800BC23F2 /* NewsViewController.m */; };
+		2E4F92A9194B4FD800BC23F2 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F92A7194B4FD800BC23F2 /* NewsViewController.xib */; };
+		2E4F92B5194B65B300BC23F2 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F92B0194B65B300BC23F2 /* TFHpple.m */; };
+		2E4F92B6194B65B300BC23F2 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F92B2194B65B300BC23F2 /* TFHppleElement.m */; };
+		2E4F92B7194B65B300BC23F2 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F92B4194B65B300BC23F2 /* XPathQuery.m */; };
+		2E52E3D81948AE0E00B46786 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3D71948AE0E00B46786 /* Foundation.framework */; };
+		2E52E3DA1948AE0E00B46786 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3D91948AE0E00B46786 /* CoreGraphics.framework */; };
+		2E52E3DC1948AE0E00B46786 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3DB1948AE0E00B46786 /* UIKit.framework */; };
+		2E52E3E21948AE0E00B46786 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E3E01948AE0E00B46786 /* InfoPlist.strings */; };
+		2E52E3E41948AE0E00B46786 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E3E31948AE0E00B46786 /* main.m */; };
+		2E52E3E81948AE0E00B46786 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E3E71948AE0E00B46786 /* AppDelegate.m */; };
+		2E52E3EA1948AE0E00B46786 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E3E91948AE0E00B46786 /* Images.xcassets */; };
+		2E52E3F11948AE0F00B46786 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3F01948AE0F00B46786 /* XCTest.framework */; };
+		2E52E3F21948AE0F00B46786 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3D71948AE0E00B46786 /* Foundation.framework */; };
+		2E52E3F31948AE0F00B46786 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3DB1948AE0E00B46786 /* UIKit.framework */; };
+		2E52E3FB1948AE0F00B46786 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E3F91948AE0F00B46786 /* InfoPlist.strings */; };
+		2E52E3FD1948AE0F00B46786 /* NorthwoodAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E3FC1948AE0F00B46786 /* NorthwoodAppTests.m */; };
+		2E52E42A1948B8F800B46786 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E4291948B8F800B46786 /* TabBarController.m */; };
+		2E52E4371948BD9800B46786 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E4351948BD9800B46786 /* HomeViewController.m */; };
+		2E52E4381948BD9800B46786 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E4361948BD9800B46786 /* HomeViewController.xib */; };
+		2E52E44B1948E19A00B46786 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E4491948E19A00B46786 /* SettingsViewController.m */; };
+		2E52E44C1948E19A00B46786 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E44A1948E19A00B46786 /* SettingsViewController.xib */; };
+		2E69A33B194E3B1A00890226 /* Sermon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33A194E3B1A00890226 /* Sermon.m */; };
+		2E69A345194E3D0C00890226 /* HomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33E194E3D0C00890226 /* HomeNavigationViewController.m */; };
+		2E69A346194E3D0C00890226 /* NewsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A340194E3D0C00890226 /* NewsNavigationViewController.m */; };
+		2E69A347194E3D0C00890226 /* SermonsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A342194E3D0C00890226 /* SermonsNavigationViewController.m */; };
+		2E69A348194E3D0C00890226 /* SettingsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A344194E3D0C00890226 /* SettingsNavigationViewController.m */; };
+		2E69A350194EBE8800890226 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E69A34F194EBE8800890226 /* Logo.png */; };
+		2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E0B195127040061423E /* PrayerListTableViewCell.m */; };
+		2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E789E0C195127040061423E /* PrayerListTableViewCell.xib */; };
+		2E789E12195130B70061423E /* PrayerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E11195130B70061423E /* PrayerList.m */; };
+		2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */; };
+		2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */; };
+		EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AED5A75DB11B4E9AA554DEBD /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2E52E3F41948AE0F00B46786 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E52E3CC1948AE0E00B46786 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E52E3D31948AE0E00B46786;
+			remoteInfo = NorthwoodApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E1D6E5F194F695600819888 /* Bulletin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bulletin.h; sourceTree = "<group>"; };
+		2E1D6E60194F695600819888 /* Bulletin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bulletin.m; sourceTree = "<group>"; };
+		2E1D6E6C194F79A400819888 /* Sermons2010ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sermons2010ViewController.h; sourceTree = "<group>"; };
+		2E1D6E6D194F79A400819888 /* Sermons2010ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sermons2010ViewController.m; sourceTree = "<group>"; };
+		2E1D6E6E194F79A400819888 /* Sermons2010ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Sermons2010ViewController.xib; sourceTree = "<group>"; };
+		2E205E8F194B84770092C8BF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		2E205E91194B84840092C8BF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		2E205E98194B8DD90092C8BF /* SermonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonsViewController.h; sourceTree = "<group>"; };
+		2E205E99194B8DD90092C8BF /* SermonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonsViewController.m; sourceTree = "<group>"; };
+		2E205E9A194B8DD90092C8BF /* SermonsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SermonsViewController.xib; sourceTree = "<group>"; };
+		2E3472321953B7B700AC769B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		2E3472341953BD4A00AC769B /* Telephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Telephone.png; path = images/Telephone.png; sourceTree = SOURCE_ROOT; };
+		2E3472351953BD4A00AC769B /* Telephone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Telephone@2x.png"; path = "images/Telephone@2x.png"; sourceTree = SOURCE_ROOT; };
+		2E3472361953BD4A00AC769B /* Twitter_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Twitter_filled.png; path = images/Twitter_filled.png; sourceTree = SOURCE_ROOT; };
+		2E3472371953BD4A00AC769B /* Twitter_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Twitter_filled@2x.png"; path = "images/Twitter_filled@2x.png"; sourceTree = SOURCE_ROOT; };
+		2E3472381953BD4A00AC769B /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Twitter.png; path = images/Twitter.png; sourceTree = SOURCE_ROOT; };
+		2E3472391953BD4A00AC769B /* Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Twitter@2x.png"; path = "images/Twitter@2x.png"; sourceTree = SOURCE_ROOT; };
+		2E4183371950A77F006D52EC /* SermonsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonsTableViewCell.h; sourceTree = "<group>"; };
+		2E4183381950A77F006D52EC /* SermonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonsTableViewCell.m; sourceTree = "<group>"; };
+		2E4183391950A77F006D52EC /* SermonsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SermonsTableViewCell.xib; sourceTree = "<group>"; };
+		2E4A7399194F446900A17188 /* NewsLoggedinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsLoggedinViewController.h; sourceTree = "<group>"; };
+		2E4A739A194F446900A17188 /* NewsLoggedinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsLoggedinViewController.m; sourceTree = "<group>"; };
+		2E4A739B194F446900A17188 /* NewsLoggedinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsLoggedinViewController.xib; sourceTree = "<group>"; };
+		2E4B16A719521D3500641710 /* DutyRosterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DutyRosterTableViewCell.h; sourceTree = "<group>"; };
+		2E4B16A819521D3500641710 /* DutyRosterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DutyRosterTableViewCell.m; sourceTree = "<group>"; };
+		2E4B16A919521D3500641710 /* DutyRosterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DutyRosterTableViewCell.xib; sourceTree = "<group>"; };
+		2E4B16AD19521D5100641710 /* DutyRoster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DutyRoster.h; sourceTree = "<group>"; };
+		2E4B16AE19521D5100641710 /* DutyRoster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DutyRoster.m; sourceTree = "<group>"; };
+		2E4B16B71952273F00641710 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		2E4B16B81952274000641710 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		2E4B16BA19522F3B00641710 /* TweetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetTableViewCell.h; sourceTree = "<group>"; };
+		2E4B16BB19522F3B00641710 /* TweetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetTableViewCell.m; sourceTree = "<group>"; };
+		2E4B16BC19522F3B00641710 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
+		2E4B16BF19523D9500641710 /* SermonTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonTitle.h; sourceTree = "<group>"; };
+		2E4B16C019523D9500641710 /* SermonTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonTitle.m; sourceTree = "<group>"; };
+		2E4B16C219523D9F00641710 /* SermonDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonDate.h; sourceTree = "<group>"; };
+		2E4B16C319523D9F00641710 /* SermonDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonDate.m; sourceTree = "<group>"; };
+		2E4B16C519523DA800641710 /* SermonPreacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonPreacher.h; sourceTree = "<group>"; };
+		2E4B16C619523DA800641710 /* SermonPreacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonPreacher.m; sourceTree = "<group>"; };
+		2E4F92A5194B4FD800BC23F2 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		2E4F92A6194B4FD800BC23F2 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		2E4F92A7194B4FD800BC23F2 /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
+		2E4F92AF194B65B300BC23F2 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		2E4F92B0194B65B300BC23F2 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		2E4F92B1194B65B300BC23F2 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		2E4F92B2194B65B300BC23F2 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		2E4F92B3194B65B300BC23F2 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		2E4F92B4194B65B300BC23F2 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		2E52E3D41948AE0E00B46786 /* NorthwoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NorthwoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E52E3D71948AE0E00B46786 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2E52E3D91948AE0E00B46786 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2E52E3DB1948AE0E00B46786 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2E52E3DF1948AE0E00B46786 /* NorthwoodApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodApp-Info.plist"; sourceTree = "<group>"; };
+		2E52E3E11948AE0E00B46786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E52E3E31948AE0E00B46786 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2E52E3E51948AE0E00B46786 /* NorthwoodApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NorthwoodApp-Prefix.pch"; sourceTree = "<group>"; };
+		2E52E3E61948AE0E00B46786 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2E52E3E71948AE0E00B46786 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2E52E3E91948AE0E00B46786 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2E52E3EF1948AE0F00B46786 /* NorthwoodAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NorthwoodAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E52E3F01948AE0F00B46786 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2E52E3F81948AE0F00B46786 /* NorthwoodAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodAppTests-Info.plist"; sourceTree = "<group>"; };
+		2E52E3FA1948AE0F00B46786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E52E3FC1948AE0F00B46786 /* NorthwoodAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NorthwoodAppTests.m; sourceTree = "<group>"; };
+		2E52E4281948B8F800B46786 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../../TabBarController.h; sourceTree = "<group>"; };
+		2E52E4291948B8F800B46786 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = ../../TabBarController.m; sourceTree = "<group>"; };
+		2E52E4341948BD9800B46786 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		2E52E4351948BD9800B46786 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		2E52E4361948BD9800B46786 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		2E52E4481948E19A00B46786 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		2E52E4491948E19A00B46786 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		2E52E44A1948E19A00B46786 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		2E69A339194E3B1A00890226 /* Sermon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sermon.h; sourceTree = "<group>"; };
+		2E69A33A194E3B1A00890226 /* Sermon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sermon.m; sourceTree = "<group>"; };
+		2E69A33D194E3D0C00890226 /* HomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationViewController.h; sourceTree = "<group>"; };
+		2E69A33E194E3D0C00890226 /* HomeNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigationViewController.m; sourceTree = "<group>"; };
+		2E69A33F194E3D0C00890226 /* NewsNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsNavigationViewController.h; sourceTree = "<group>"; };
+		2E69A340194E3D0C00890226 /* NewsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsNavigationViewController.m; sourceTree = "<group>"; };
+		2E69A341194E3D0C00890226 /* SermonsNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonsNavigationViewController.h; sourceTree = "<group>"; };
+		2E69A342194E3D0C00890226 /* SermonsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonsNavigationViewController.m; sourceTree = "<group>"; };
+		2E69A343194E3D0C00890226 /* SettingsNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsNavigationViewController.h; sourceTree = "<group>"; };
+		2E69A344194E3D0C00890226 /* SettingsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsNavigationViewController.m; sourceTree = "<group>"; };
+		2E69A34F194EBE8800890226 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = images/Logo.png; sourceTree = SOURCE_ROOT; };
+		2E789E0A195127040061423E /* PrayerListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerListTableViewCell.h; sourceTree = "<group>"; };
+		2E789E0B195127040061423E /* PrayerListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerListTableViewCell.m; sourceTree = "<group>"; };
+		2E789E0C195127040061423E /* PrayerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayerListTableViewCell.xib; sourceTree = "<group>"; };
+		2E789E10195130B70061423E /* PrayerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerList.h; sourceTree = "<group>"; };
+		2E789E11195130B70061423E /* PrayerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerList.m; sourceTree = "<group>"; };
+		2EBC92671951F8A600758A1E /* BulletinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinTableViewCell.h; sourceTree = "<group>"; };
+		2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinTableViewCell.m; sourceTree = "<group>"; };
+		2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BulletinTableViewCell.xib; sourceTree = "<group>"; };
+		3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		AED5A75DB11B4E9AA554DEBD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E52E3D11948AE0E00B46786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E3472331953B7B700AC769B /* Social.framework in Frameworks */,
+				2E205E90194B84770092C8BF /* libxml2.dylib in Frameworks */,
+				2E52E3DA1948AE0E00B46786 /* CoreGraphics.framework in Frameworks */,
+				2E52E3DC1948AE0E00B46786 /* UIKit.framework in Frameworks */,
+				2E52E3D81948AE0E00B46786 /* Foundation.framework in Frameworks */,
+				EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */,
+				2E205E92194B84840092C8BF /* libxml2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E52E3EC1948AE0F00B46786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E52E3F11948AE0F00B46786 /* XCTest.framework in Frameworks */,
+				2E52E3F31948AE0F00B46786 /* UIKit.framework in Frameworks */,
+				2E52E3F21948AE0F00B46786 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E1D6E63194F793D00819888 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E4341948BD9800B46786 /* HomeViewController.h */,
+				2E52E4351948BD9800B46786 /* HomeViewController.m */,
+				2E52E4361948BD9800B46786 /* HomeViewController.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		2E1D6E64194F794800819888 /* Sermons */ = {
+			isa = PBXGroup;
+			children = (
+				2E4B16A619520D2200641710 /* Sermon Date View */,
+				2E1D6E85194F7A0D00819888 /* Sermons Subview */,
+			);
+			name = Sermons;
+			sourceTree = "<group>";
+		};
+		2E1D6E65194F795400819888 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				2E789DF51951107B0061423E /* login view */,
+				2E789DF6195110870061423E /* loggedin view */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		2E1D6E66194F795D00819888 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E4481948E19A00B46786 /* SettingsViewController.h */,
+				2E52E4491948E19A00B46786 /* SettingsViewController.m */,
+				2E52E44A1948E19A00B46786 /* SettingsViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		2E1D6E85194F7A0D00819888 /* Sermons Subview */ = {
+			isa = PBXGroup;
+			children = (
+				2E1D6E6C194F79A400819888 /* Sermons2010ViewController.h */,
+				2E1D6E6D194F79A400819888 /* Sermons2010ViewController.m */,
+				2E1D6E6E194F79A400819888 /* Sermons2010ViewController.xib */,
+			);
+			name = "Sermons Subview";
+			sourceTree = "<group>";
+		};
+		2E41833C1950A78C006D52EC /* Cell Views */ = {
+			isa = PBXGroup;
+			children = (
+				2E4B16B6195225A900641710 /* Tweet Cell */,
+				2E789DFD19511CF60061423E /* Sermon Cell */,
+				2EBC926C1951F92700758A1E /* Bulletin Cell */,
+				2E789E0F1951270A0061423E /* Prayer List Cell */,
+				2E4B16AC19521D3A00641710 /* Duty Roster Cell */,
+			);
+			name = "Cell Views";
+			sourceTree = "<group>";
+		};
+		2E4B16A11952094100641710 /* Parsed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2E4B16A31952099400641710 /* Tweet */,
+				2E4B16A21952098C00641710 /* Sermon */,
+				2E4B16A41952099C00641710 /* Bulletin */,
+				2E4B16A5195209A300641710 /* Prayer List */,
+				2E4B16B019521D5700641710 /* Duty Roster */,
+			);
+			name = "Parsed Objects";
+			sourceTree = "<group>";
+		};
+		2E4B16A21952098C00641710 /* Sermon */ = {
+			isa = PBXGroup;
+			children = (
+				2E69A339194E3B1A00890226 /* Sermon.h */,
+				2E69A33A194E3B1A00890226 /* Sermon.m */,
+				2E4B16BF19523D9500641710 /* SermonTitle.h */,
+				2E4B16C019523D9500641710 /* SermonTitle.m */,
+				2E4B16C219523D9F00641710 /* SermonDate.h */,
+				2E4B16C319523D9F00641710 /* SermonDate.m */,
+				2E4B16C519523DA800641710 /* SermonPreacher.h */,
+				2E4B16C619523DA800641710 /* SermonPreacher.m */,
+			);
+			name = Sermon;
+			sourceTree = "<group>";
+		};
+		2E4B16A31952099400641710 /* Tweet */ = {
+			isa = PBXGroup;
+			children = (
+				2E4B16B71952273F00641710 /* Tweet.h */,
+				2E4B16B81952274000641710 /* Tweet.m */,
+			);
+			name = Tweet;
+			sourceTree = "<group>";
+		};
+		2E4B16A41952099C00641710 /* Bulletin */ = {
+			isa = PBXGroup;
+			children = (
+				2E1D6E5F194F695600819888 /* Bulletin.h */,
+				2E1D6E60194F695600819888 /* Bulletin.m */,
+			);
+			name = Bulletin;
+			sourceTree = "<group>";
+		};
+		2E4B16A5195209A300641710 /* Prayer List */ = {
+			isa = PBXGroup;
+			children = (
+				2E789E10195130B70061423E /* PrayerList.h */,
+				2E789E11195130B70061423E /* PrayerList.m */,
+			);
+			name = "Prayer List";
+			sourceTree = "<group>";
+		};
+		2E4B16A619520D2200641710 /* Sermon Date View */ = {
+			isa = PBXGroup;
+			children = (
+				2E205E98194B8DD90092C8BF /* SermonsViewController.h */,
+				2E205E99194B8DD90092C8BF /* SermonsViewController.m */,
+				2E205E9A194B8DD90092C8BF /* SermonsViewController.xib */,
+			);
+			name = "Sermon Date View";
+			sourceTree = "<group>";
+		};
+		2E4B16AC19521D3A00641710 /* Duty Roster Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E4B16A719521D3500641710 /* DutyRosterTableViewCell.h */,
+				2E4B16A819521D3500641710 /* DutyRosterTableViewCell.m */,
+				2E4B16A919521D3500641710 /* DutyRosterTableViewCell.xib */,
+			);
+			name = "Duty Roster Cell";
+			sourceTree = "<group>";
+		};
+		2E4B16B019521D5700641710 /* Duty Roster */ = {
+			isa = PBXGroup;
+			children = (
+				2E4B16AD19521D5100641710 /* DutyRoster.h */,
+				2E4B16AE19521D5100641710 /* DutyRoster.m */,
+			);
+			name = "Duty Roster";
+			sourceTree = "<group>";
+		};
+		2E4B16B6195225A900641710 /* Tweet Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E4B16BA19522F3B00641710 /* TweetTableViewCell.h */,
+				2E4B16BB19522F3B00641710 /* TweetTableViewCell.m */,
+				2E4B16BC19522F3B00641710 /* TweetTableViewCell.xib */,
+			);
+			name = "Tweet Cell";
+			sourceTree = "<group>";
+		};
+		2E4F92AE194B65B300BC23F2 /* HTML Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F92AF194B65B300BC23F2 /* TFHpple.h */,
+				2E4F92B0194B65B300BC23F2 /* TFHpple.m */,
+				2E4F92B1194B65B300BC23F2 /* TFHppleElement.h */,
+				2E4F92B2194B65B300BC23F2 /* TFHppleElement.m */,
+				2E4F92B3194B65B300BC23F2 /* XPathQuery.h */,
+				2E4F92B4194B65B300BC23F2 /* XPathQuery.m */,
+			);
+			path = "HTML Parsing";
+			sourceTree = "<group>";
+		};
+		2E52E3CB1948AE0E00B46786 = {
+			isa = PBXGroup;
+			children = (
+				2E205E91194B84840092C8BF /* libxml2.dylib */,
+				2E52E3DD1948AE0E00B46786 /* NorthwoodApp */,
+				2E52E3F61948AE0F00B46786 /* NorthwoodAppTests */,
+				2E52E3D61948AE0E00B46786 /* Frameworks */,
+				2E52E3D51948AE0E00B46786 /* Products */,
+				3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		2E52E3D51948AE0E00B46786 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E3D41948AE0E00B46786 /* NorthwoodApp.app */,
+				2E52E3EF1948AE0F00B46786 /* NorthwoodAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E52E3D61948AE0E00B46786 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E3472321953B7B700AC769B /* Social.framework */,
+				2E205E8F194B84770092C8BF /* libxml2.dylib */,
+				2E52E3D71948AE0E00B46786 /* Foundation.framework */,
+				2E52E3D91948AE0E00B46786 /* CoreGraphics.framework */,
+				2E52E3DB1948AE0E00B46786 /* UIKit.framework */,
+				2E52E3F01948AE0F00B46786 /* XCTest.framework */,
+				AED5A75DB11B4E9AA554DEBD /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E52E3DD1948AE0E00B46786 /* NorthwoodApp */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E3E61948AE0E00B46786 /* AppDelegate.h */,
+				2E52E3E71948AE0E00B46786 /* AppDelegate.m */,
+				2E4B16A11952094100641710 /* Parsed Objects */,
+				2E41833C1950A78C006D52EC /* Cell Views */,
+				2E52E4301948BD9800B46786 /* controllers */,
+				2E4F92AE194B65B300BC23F2 /* HTML Parsing */,
+				2E52E3DE1948AE0E00B46786 /* Supporting Files */,
+				2E52E3E91948AE0E00B46786 /* Images.xcassets */,
+			);
+			path = NorthwoodApp;
+			sourceTree = "<group>";
+		};
+		2E52E3DE1948AE0E00B46786 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E4471948DCF800B46786 /* images */,
+				2E52E3DF1948AE0E00B46786 /* NorthwoodApp-Info.plist */,
+				2E52E3E01948AE0E00B46786 /* InfoPlist.strings */,
+				2E52E3E31948AE0E00B46786 /* main.m */,
+				2E52E3E51948AE0E00B46786 /* NorthwoodApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2E52E3F61948AE0F00B46786 /* NorthwoodAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E3FC1948AE0F00B46786 /* NorthwoodAppTests.m */,
+				2E52E3F71948AE0F00B46786 /* Supporting Files */,
+			);
+			path = NorthwoodAppTests;
+			sourceTree = "<group>";
+		};
+		2E52E3F71948AE0F00B46786 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E3F81948AE0F00B46786 /* NorthwoodAppTests-Info.plist */,
+				2E52E3F91948AE0F00B46786 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2E52E4301948BD9800B46786 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E4331948BD9800B46786 /* view controllers */,
+				2E69A33C194E3D0C00890226 /* navigation view controllers */,
+				2E52E4321948BD9800B46786 /* other controllers */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		2E52E4321948BD9800B46786 /* other controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E4281948B8F800B46786 /* TabBarController.h */,
+				2E52E4291948B8F800B46786 /* TabBarController.m */,
+			);
+			path = "other controllers";
+			sourceTree = "<group>";
+		};
+		2E52E4331948BD9800B46786 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E1D6E63194F793D00819888 /* Home */,
+				2E1D6E64194F794800819888 /* Sermons */,
+				2E1D6E65194F795400819888 /* News */,
+				2E1D6E66194F795D00819888 /* Settings */,
+			);
+			path = "view controllers";
+			sourceTree = "<group>";
+		};
+		2E52E4471948DCF800B46786 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2E3472341953BD4A00AC769B /* Telephone.png */,
+				2E3472351953BD4A00AC769B /* Telephone@2x.png */,
+				2E3472361953BD4A00AC769B /* Twitter_filled.png */,
+				2E3472371953BD4A00AC769B /* Twitter_filled@2x.png */,
+				2E3472381953BD4A00AC769B /* Twitter.png */,
+				2E3472391953BD4A00AC769B /* Twitter@2x.png */,
+				2E69A34F194EBE8800890226 /* Logo.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		2E69A33C194E3D0C00890226 /* navigation view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E69A33D194E3D0C00890226 /* HomeNavigationViewController.h */,
+				2E69A33E194E3D0C00890226 /* HomeNavigationViewController.m */,
+				2E69A33F194E3D0C00890226 /* NewsNavigationViewController.h */,
+				2E69A340194E3D0C00890226 /* NewsNavigationViewController.m */,
+				2E69A341194E3D0C00890226 /* SermonsNavigationViewController.h */,
+				2E69A342194E3D0C00890226 /* SermonsNavigationViewController.m */,
+				2E69A343194E3D0C00890226 /* SettingsNavigationViewController.h */,
+				2E69A344194E3D0C00890226 /* SettingsNavigationViewController.m */,
+			);
+			path = "navigation view controllers";
+			sourceTree = "<group>";
+		};
+		2E789DF51951107B0061423E /* login view */ = {
+			isa = PBXGroup;
+			children = (
+				2E4F92A5194B4FD800BC23F2 /* NewsViewController.h */,
+				2E4F92A6194B4FD800BC23F2 /* NewsViewController.m */,
+				2E4F92A7194B4FD800BC23F2 /* NewsViewController.xib */,
+			);
+			name = "login view";
+			sourceTree = "<group>";
+		};
+		2E789DF6195110870061423E /* loggedin view */ = {
+			isa = PBXGroup;
+			children = (
+				2E4A7399194F446900A17188 /* NewsLoggedinViewController.h */,
+				2E4A739A194F446900A17188 /* NewsLoggedinViewController.m */,
+				2E4A739B194F446900A17188 /* NewsLoggedinViewController.xib */,
+			);
+			name = "loggedin view";
+			sourceTree = "<group>";
+		};
+		2E789DFD19511CF60061423E /* Sermon Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E4183371950A77F006D52EC /* SermonsTableViewCell.h */,
+				2E4183381950A77F006D52EC /* SermonsTableViewCell.m */,
+				2E4183391950A77F006D52EC /* SermonsTableViewCell.xib */,
+			);
+			name = "Sermon Cell";
+			sourceTree = "<group>";
+		};
+		2E789E0F1951270A0061423E /* Prayer List Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E789E0A195127040061423E /* PrayerListTableViewCell.h */,
+				2E789E0B195127040061423E /* PrayerListTableViewCell.m */,
+				2E789E0C195127040061423E /* PrayerListTableViewCell.xib */,
+			);
+			name = "Prayer List Cell";
+			sourceTree = "<group>";
+		};
+		2EBC926C1951F92700758A1E /* Bulletin Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2EBC92671951F8A600758A1E /* BulletinTableViewCell.h */,
+				2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */,
+				2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */,
+			);
+			name = "Bulletin Cell";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E52E3D31948AE0E00B46786 /* NorthwoodApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E52E4001948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodApp" */;
+			buildPhases = (
+				37F06747676A40C7980B312B /* Check Pods Manifest.lock */,
+				2E52E3D01948AE0E00B46786 /* Sources */,
+				2E52E3D11948AE0E00B46786 /* Frameworks */,
+				2E52E3D21948AE0E00B46786 /* Resources */,
+				1EC676FB78F04424ABFA5C94 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NorthwoodApp;
+			productName = NorthwoodApp;
+			productReference = 2E52E3D41948AE0E00B46786 /* NorthwoodApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E52E3EE1948AE0F00B46786 /* NorthwoodAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E52E4031948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodAppTests" */;
+			buildPhases = (
+				2E52E3EB1948AE0F00B46786 /* Sources */,
+				2E52E3EC1948AE0F00B46786 /* Frameworks */,
+				2E52E3ED1948AE0F00B46786 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E52E3F51948AE0F00B46786 /* PBXTargetDependency */,
+			);
+			name = NorthwoodAppTests;
+			productName = NorthwoodAppTests;
+			productReference = 2E52E3EF1948AE0F00B46786 /* NorthwoodAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E52E3CC1948AE0E00B46786 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = SilentDoorHinges;
+				TargetAttributes = {
+					2E52E3EE1948AE0F00B46786 = {
+						TestTargetID = 2E52E3D31948AE0E00B46786;
+					};
+				};
+			};
+			buildConfigurationList = 2E52E3CF1948AE0E00B46786 /* Build configuration list for PBXProject "NorthwoodApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2E52E3CB1948AE0E00B46786;
+			productRefGroup = 2E52E3D51948AE0E00B46786 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E52E3D31948AE0E00B46786 /* NorthwoodApp */,
+				2E52E3EE1948AE0F00B46786 /* NorthwoodAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E52E3D21948AE0E00B46786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E52E3E21948AE0E00B46786 /* InfoPlist.strings in Resources */,
+				2E34723B1953BD4A00AC769B /* Telephone@2x.png in Resources */,
+				2E34723D1953BD4A00AC769B /* Twitter_filled@2x.png in Resources */,
+				2E41833B1950A77F006D52EC /* SermonsTableViewCell.xib in Resources */,
+				2E69A350194EBE8800890226 /* Logo.png in Resources */,
+				2E52E3EA1948AE0E00B46786 /* Images.xcassets in Resources */,
+				2E205E9C194B8DD90092C8BF /* SermonsViewController.xib in Resources */,
+				2E4B16AB19521D3500641710 /* DutyRosterTableViewCell.xib in Resources */,
+				2E1D6E70194F79A400819888 /* Sermons2010ViewController.xib in Resources */,
+				2E34723A1953BD4A00AC769B /* Telephone.png in Resources */,
+				2E34723F1953BD4A00AC769B /* Twitter@2x.png in Resources */,
+				2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */,
+				2E52E4381948BD9800B46786 /* HomeViewController.xib in Resources */,
+				2E4B16BE19522F3B00641710 /* TweetTableViewCell.xib in Resources */,
+				2E52E44C1948E19A00B46786 /* SettingsViewController.xib in Resources */,
+				2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */,
+				2E4F92A9194B4FD800BC23F2 /* NewsViewController.xib in Resources */,
+				2E34723C1953BD4A00AC769B /* Twitter_filled.png in Resources */,
+				2E34723E1953BD4A00AC769B /* Twitter.png in Resources */,
+				2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E52E3ED1948AE0F00B46786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E52E3FB1948AE0F00B46786 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1EC676FB78F04424ABFA5C94 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37F06747676A40C7980B312B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E52E3D01948AE0E00B46786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E4B16AF19521D5100641710 /* DutyRoster.m in Sources */,
+				2E52E3E81948AE0E00B46786 /* AppDelegate.m in Sources */,
+				2E4F92B6194B65B300BC23F2 /* TFHppleElement.m in Sources */,
+				2E52E42A1948B8F800B46786 /* TabBarController.m in Sources */,
+				2E52E44B1948E19A00B46786 /* SettingsViewController.m in Sources */,
+				2E52E3E41948AE0E00B46786 /* main.m in Sources */,
+				2E69A346194E3D0C00890226 /* NewsNavigationViewController.m in Sources */,
+				2E69A345194E3D0C00890226 /* HomeNavigationViewController.m in Sources */,
+				2E4F92B7194B65B300BC23F2 /* XPathQuery.m in Sources */,
+				2E4B16B91952274000641710 /* Tweet.m in Sources */,
+				2E69A348194E3D0C00890226 /* SettingsNavigationViewController.m in Sources */,
+				2E41833A1950A77F006D52EC /* SermonsTableViewCell.m in Sources */,
+				2E4F92B5194B65B300BC23F2 /* TFHpple.m in Sources */,
+				2E4B16C119523D9500641710 /* SermonTitle.m in Sources */,
+				2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */,
+				2E1D6E61194F695600819888 /* Bulletin.m in Sources */,
+				2E205E9B194B8DD90092C8BF /* SermonsViewController.m in Sources */,
+				2E69A347194E3D0C00890226 /* SermonsNavigationViewController.m in Sources */,
+				2E4F92A8194B4FD800BC23F2 /* NewsViewController.m in Sources */,
+				2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */,
+				2E4B16AA19521D3500641710 /* DutyRosterTableViewCell.m in Sources */,
+				2E69A33B194E3B1A00890226 /* Sermon.m in Sources */,
+				2E52E4371948BD9800B46786 /* HomeViewController.m in Sources */,
+				2E4B16BD19522F3B00641710 /* TweetTableViewCell.m in Sources */,
+				2E4B16C419523DA000641710 /* SermonDate.m in Sources */,
+				2E789E12195130B70061423E /* PrayerList.m in Sources */,
+				2E4B16C719523DA800641710 /* SermonPreacher.m in Sources */,
+				2E4A739C194F446900A17188 /* NewsLoggedinViewController.m in Sources */,
+				2E1D6E6F194F79A400819888 /* Sermons2010ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E52E3EB1948AE0F00B46786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E52E3FD1948AE0F00B46786 /* NorthwoodAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E52E3F51948AE0F00B46786 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E52E3D31948AE0E00B46786 /* NorthwoodApp */;
+			targetProxy = 2E52E3F41948AE0F00B46786 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2E52E3E01948AE0E00B46786 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E52E3E11948AE0E00B46786 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2E52E3F91948AE0F00B46786 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E52E3FA1948AE0F00B46786 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2E52E3FE1948AE0F00B46786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2E52E3FF1948AE0F00B46786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E52E4011948AE0F00B46786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/Colours\"",
+					"\"${PODS_ROOT}/Headers/DateTools\"",
+					"\"${PODS_ROOT}/Headers/MYBlurIntroductionView\"",
+					"\"${PODS_ROOT}/Headers/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/iOSWebserviceTemplate\"",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "NorthwoodApp/NorthwoodApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2E52E4021948AE0F00B46786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/Colours\"",
+					"\"${PODS_ROOT}/Headers/DateTools\"",
+					"\"${PODS_ROOT}/Headers/MYBlurIntroductionView\"",
+					"\"${PODS_ROOT}/Headers/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/iOSWebserviceTemplate\"",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "NorthwoodApp/NorthwoodApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2E52E4041948AE0F00B46786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NorthwoodApp.app/NorthwoodApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NorthwoodAppTests/NorthwoodAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2E52E4051948AE0F00B46786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NorthwoodApp.app/NorthwoodApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
+				INFOPLIST_FILE = "NorthwoodAppTests/NorthwoodAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E52E3CF1948AE0E00B46786 /* Build configuration list for PBXProject "NorthwoodApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E52E3FE1948AE0F00B46786 /* Debug */,
+				2E52E3FF1948AE0F00B46786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E52E4001948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E52E4011948AE0F00B46786 /* Debug */,
+				2E52E4021948AE0F00B46786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E52E4031948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E52E4041948AE0F00B46786 /* Debug */,
+				2E52E4051948AE0F00B46786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E52E3CC1948AE0E00B46786 /* Project object */;
+}
