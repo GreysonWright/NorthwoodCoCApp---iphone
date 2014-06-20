@@ -20,7 +20,7 @@
 		2E34723C1953BD4A00AC769B /* Twitter_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472361953BD4A00AC769B /* Twitter_filled.png */; };
 		2E34723D1953BD4A00AC769B /* Twitter_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472371953BD4A00AC769B /* Twitter_filled@2x.png */; };
 		2E34723E1953BD4A00AC769B /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472381953BD4A00AC769B /* Twitter.png */; };
-		2E34723F1953BD4A00AC769B /* Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472391953BD4A00AC769B /* Twitter@2x.png */; };
+		2E34723F1953BD4A00AC769B /* Twitter2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3472391953BD4A00AC769B /* Twitter2x.png */; };
 		2E41833A1950A77F006D52EC /* SermonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4183381950A77F006D52EC /* SermonsTableViewCell.m */; };
 		2E41833B1950A77F006D52EC /* SermonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4183391950A77F006D52EC /* SermonsTableViewCell.xib */; };
 		2E4A739C194F446900A17188 /* NewsLoggedinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A739A194F446900A17188 /* NewsLoggedinViewController.m */; };
@@ -97,7 +97,7 @@
 		2E3472361953BD4A00AC769B /* Twitter_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Twitter_filled.png; path = images/Twitter_filled.png; sourceTree = SOURCE_ROOT; };
 		2E3472371953BD4A00AC769B /* Twitter_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Twitter_filled@2x.png"; path = "images/Twitter_filled@2x.png"; sourceTree = SOURCE_ROOT; };
 		2E3472381953BD4A00AC769B /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Twitter.png; path = images/Twitter.png; sourceTree = SOURCE_ROOT; };
-		2E3472391953BD4A00AC769B /* Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Twitter@2x.png"; path = "images/Twitter@2x.png"; sourceTree = SOURCE_ROOT; };
+		2E3472391953BD4A00AC769B /* Twitter2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Twitter2x.png; path = images/Twitter2x.png; sourceTree = SOURCE_ROOT; };
 		2E4183371950A77F006D52EC /* SermonsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonsTableViewCell.h; sourceTree = "<group>"; };
 		2E4183381950A77F006D52EC /* SermonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonsTableViewCell.m; sourceTree = "<group>"; };
 		2E4183391950A77F006D52EC /* SermonsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SermonsTableViewCell.xib; sourceTree = "<group>"; };
@@ -488,7 +488,7 @@
 				2E3472361953BD4A00AC769B /* Twitter_filled.png */,
 				2E3472371953BD4A00AC769B /* Twitter_filled@2x.png */,
 				2E3472381953BD4A00AC769B /* Twitter.png */,
-				2E3472391953BD4A00AC769B /* Twitter@2x.png */,
+				2E3472391953BD4A00AC769B /* Twitter2x.png */,
 				2E69A34F194EBE8800890226 /* Logo.png */,
 			);
 			path = images;
@@ -608,6 +608,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = SilentDoorHinges;
 				TargetAttributes = {
+					2E52E3D31948AE0E00B46786 = {
+						DevelopmentTeam = 2SP6H22NCZ;
+					};
 					2E52E3EE1948AE0F00B46786 = {
 						TestTargetID = 2E52E3D31948AE0E00B46786;
 					};
@@ -646,7 +649,7 @@
 				2E4B16AB19521D3500641710 /* DutyRosterTableViewCell.xib in Resources */,
 				2E1D6E70194F79A400819888 /* Sermons2010ViewController.xib in Resources */,
 				2E34723A1953BD4A00AC769B /* Telephone.png in Resources */,
-				2E34723F1953BD4A00AC769B /* Twitter@2x.png in Resources */,
+				2E34723F1953BD4A00AC769B /* Twitter2x.png in Resources */,
 				2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */,
 				2E52E4381948BD9800B46786 /* HomeViewController.xib in Resources */,
 				2E4B16BE19522F3B00641710 /* TweetTableViewCell.xib in Resources */,
@@ -853,6 +856,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -866,6 +871,7 @@
 				);
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -876,6 +882,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -889,6 +897,7 @@
 				);
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

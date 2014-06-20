@@ -72,6 +72,7 @@
     [cell fillWithData:thisTweet];
     return cell;
 }
+
 - (IBAction)twitterButtonPressed:(id)sender {
 	if (![[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=northwoodcoc"]]) {
         
