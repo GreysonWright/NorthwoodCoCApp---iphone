@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E52E3D31948AE0E00B46786"
                BuildableName = "NorthwoodApp.app"
-               BlueprintName = "NorthwoodApp"
-               ReferencedContainer = "container:NorthwoodApp.xcodeproj">
+               BlueprintName = "NorthwoodCoC"
+               ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E52E3EE1948AE0F00B46786"
                BuildableName = "NorthwoodAppTests.xctest"
-               BlueprintName = "NorthwoodAppTests"
-               ReferencedContainer = "container:NorthwoodApp.xcodeproj">
+               BlueprintName = "NorthwoodCoCTests"
+               ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E52E3D31948AE0E00B46786"
             BuildableName = "NorthwoodApp.app"
-            BlueprintName = "NorthwoodApp"
-            ReferencedContainer = "container:NorthwoodApp.xcodeproj">
+            BlueprintName = "NorthwoodCoC"
+            ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E52E3D31948AE0E00B46786"
             BuildableName = "NorthwoodApp.app"
-            BlueprintName = "NorthwoodApp"
-            ReferencedContainer = "container:NorthwoodApp.xcodeproj">
+            BlueprintName = "NorthwoodCoC"
+            ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E52E3D31948AE0E00B46786"
             BuildableName = "NorthwoodApp.app"
-            BlueprintName = "NorthwoodApp"
-            ReferencedContainer = "container:NorthwoodApp.xcodeproj">
+            BlueprintName = "NorthwoodCoC"
+            ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

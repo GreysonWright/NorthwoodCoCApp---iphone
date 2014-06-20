@@ -129,20 +129,20 @@
 		2E4F92B2194B65B300BC23F2 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		2E4F92B3194B65B300BC23F2 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		2E4F92B4194B65B300BC23F2 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
-		2E52E3D41948AE0E00B46786 /* NorthwoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NorthwoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E52E3D41948AE0E00B46786 /* NorthwoodCoC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NorthwoodCoC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E52E3D71948AE0E00B46786 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2E52E3D91948AE0E00B46786 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2E52E3DB1948AE0E00B46786 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2E52E3DF1948AE0E00B46786 /* NorthwoodApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodApp-Info.plist"; sourceTree = "<group>"; };
+		2E52E3DF1948AE0E00B46786 /* NorthwoodCoC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodCoC-Info.plist"; sourceTree = "<group>"; };
 		2E52E3E11948AE0E00B46786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E52E3E31948AE0E00B46786 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2E52E3E51948AE0E00B46786 /* NorthwoodApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NorthwoodApp-Prefix.pch"; sourceTree = "<group>"; };
+		2E52E3E51948AE0E00B46786 /* NorthwoodCoC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NorthwoodCoC-Prefix.pch"; sourceTree = "<group>"; };
 		2E52E3E61948AE0E00B46786 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2E52E3E71948AE0E00B46786 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2E52E3E91948AE0E00B46786 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		2E52E3EF1948AE0F00B46786 /* NorthwoodAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NorthwoodAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E52E3EF1948AE0F00B46786 /* NorthwoodCoCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NorthwoodCoCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E52E3F01948AE0F00B46786 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		2E52E3F81948AE0F00B46786 /* NorthwoodAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodAppTests-Info.plist"; sourceTree = "<group>"; };
+		2E52E3F81948AE0F00B46786 /* NorthwoodCoCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodCoCTests-Info.plist"; sourceTree = "<group>"; };
 		2E52E3FA1948AE0F00B46786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E52E3FC1948AE0F00B46786 /* NorthwoodAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NorthwoodAppTests.m; sourceTree = "<group>"; };
 		2E52E4281948B8F800B46786 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../../TabBarController.h; sourceTree = "<group>"; };
@@ -390,8 +390,8 @@
 		2E52E3D51948AE0E00B46786 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E52E3D41948AE0E00B46786 /* NorthwoodApp.app */,
-				2E52E3EF1948AE0F00B46786 /* NorthwoodAppTests.xctest */,
+				2E52E3D41948AE0E00B46786 /* NorthwoodCoC.app */,
+				2E52E3EF1948AE0F00B46786 /* NorthwoodCoCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -429,10 +429,10 @@
 			isa = PBXGroup;
 			children = (
 				2E52E4471948DCF800B46786 /* images */,
-				2E52E3DF1948AE0E00B46786 /* NorthwoodApp-Info.plist */,
+				2E52E3DF1948AE0E00B46786 /* NorthwoodCoC-Info.plist */,
 				2E52E3E01948AE0E00B46786 /* InfoPlist.strings */,
 				2E52E3E31948AE0E00B46786 /* main.m */,
-				2E52E3E51948AE0E00B46786 /* NorthwoodApp-Prefix.pch */,
+				2E52E3E51948AE0E00B46786 /* NorthwoodCoC-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -449,7 +449,7 @@
 		2E52E3F71948AE0F00B46786 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2E52E3F81948AE0F00B46786 /* NorthwoodAppTests-Info.plist */,
+				2E52E3F81948AE0F00B46786 /* NorthwoodCoCTests-Info.plist */,
 				2E52E3F91948AE0F00B46786 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -567,9 +567,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2E52E3D31948AE0E00B46786 /* NorthwoodApp */ = {
+		2E52E3D31948AE0E00B46786 /* NorthwoodCoC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E52E4001948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodApp" */;
+			buildConfigurationList = 2E52E4001948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodCoC" */;
 			buildPhases = (
 				37F06747676A40C7980B312B /* Check Pods Manifest.lock */,
 				2E52E3D01948AE0E00B46786 /* Sources */,
@@ -581,14 +581,14 @@
 			);
 			dependencies = (
 			);
-			name = NorthwoodApp;
+			name = NorthwoodCoC;
 			productName = NorthwoodApp;
-			productReference = 2E52E3D41948AE0E00B46786 /* NorthwoodApp.app */;
+			productReference = 2E52E3D41948AE0E00B46786 /* NorthwoodCoC.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2E52E3EE1948AE0F00B46786 /* NorthwoodAppTests */ = {
+		2E52E3EE1948AE0F00B46786 /* NorthwoodCoCTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E52E4031948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodAppTests" */;
+			buildConfigurationList = 2E52E4031948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodCoCTests" */;
 			buildPhases = (
 				2E52E3EB1948AE0F00B46786 /* Sources */,
 				2E52E3EC1948AE0F00B46786 /* Frameworks */,
@@ -599,9 +599,9 @@
 			dependencies = (
 				2E52E3F51948AE0F00B46786 /* PBXTargetDependency */,
 			);
-			name = NorthwoodAppTests;
+			name = NorthwoodCoCTests;
 			productName = NorthwoodAppTests;
-			productReference = 2E52E3EF1948AE0F00B46786 /* NorthwoodAppTests.xctest */;
+			productReference = 2E52E3EF1948AE0F00B46786 /* NorthwoodCoCTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -621,7 +621,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2E52E3CF1948AE0E00B46786 /* Build configuration list for PBXProject "NorthwoodApp" */;
+			buildConfigurationList = 2E52E3CF1948AE0E00B46786 /* Build configuration list for PBXProject "NorthwoodCoC" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -633,8 +633,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2E52E3D31948AE0E00B46786 /* NorthwoodApp */,
-				2E52E3EE1948AE0F00B46786 /* NorthwoodAppTests */,
+				2E52E3D31948AE0E00B46786 /* NorthwoodCoC */,
+				2E52E3EE1948AE0F00B46786 /* NorthwoodCoCTests */,
 			);
 		};
 /* End PBXProject section */
@@ -761,7 +761,7 @@
 /* Begin PBXTargetDependency section */
 		2E52E3F51948AE0F00B46786 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2E52E3D31948AE0E00B46786 /* NorthwoodApp */;
+			target = 2E52E3D31948AE0E00B46786 /* NorthwoodCoC */;
 			targetProxy = 2E52E3F41948AE0F00B46786 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -865,7 +865,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers\"",
 					"\"${PODS_ROOT}/Headers/Colours\"",
@@ -875,8 +875,8 @@
 					"\"${PODS_ROOT}/Headers/iOSWebserviceTemplate\"",
 					"$(SDKROOT)/usr/include/libxml2",
 				);
-				INFOPLIST_FILE = "NorthwoodApp/NorthwoodApp-Info.plist";
-				PRODUCT_NAME = NorthwoodApp;
+				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
+				PRODUCT_NAME = NorthwoodCoC;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -891,7 +891,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers\"",
 					"\"${PODS_ROOT}/Headers/Colours\"",
@@ -901,8 +901,8 @@
 					"\"${PODS_ROOT}/Headers/iOSWebserviceTemplate\"",
 					"$(SDKROOT)/usr/include/libxml2",
 				);
-				INFOPLIST_FILE = "NorthwoodApp/NorthwoodApp-Info.plist";
-				PRODUCT_NAME = NorthwoodApp;
+				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
+				PRODUCT_NAME = NorthwoodCoC;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -923,8 +923,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "NorthwoodAppTests/NorthwoodAppTests-Info.plist";
-				PRODUCT_NAME = NorthwoodAppTests;
+				INFOPLIST_FILE = "NorthwoodAppTests/NorthwoodCoCTests-Info.plist";
+				PRODUCT_NAME = NorthwoodCoCTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -941,8 +941,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
-				INFOPLIST_FILE = "NorthwoodAppTests/NorthwoodAppTests-Info.plist";
-				PRODUCT_NAME = NorthwoodAppTests;
+				INFOPLIST_FILE = "NorthwoodAppTests/NorthwoodCoCTests-Info.plist";
+				PRODUCT_NAME = NorthwoodCoCTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -951,7 +951,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E52E3CF1948AE0E00B46786 /* Build configuration list for PBXProject "NorthwoodApp" */ = {
+		2E52E3CF1948AE0E00B46786 /* Build configuration list for PBXProject "NorthwoodCoC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E52E3FE1948AE0F00B46786 /* Debug */,
@@ -960,7 +960,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E52E4001948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodApp" */ = {
+		2E52E4001948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodCoC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E52E4011948AE0F00B46786 /* Debug */,
@@ -969,7 +969,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E52E4031948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodAppTests" */ = {
+		2E52E4031948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodCoCTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2E52E4041948AE0F00B46786 /* Debug */,
