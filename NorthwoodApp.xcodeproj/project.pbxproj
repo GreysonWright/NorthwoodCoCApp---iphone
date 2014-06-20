@@ -25,6 +25,7 @@
 		2E41833B1950A77F006D52EC /* SermonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4183391950A77F006D52EC /* SermonsTableViewCell.xib */; };
 		2E4A739C194F446900A17188 /* NewsLoggedinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4A739A194F446900A17188 /* NewsLoggedinViewController.m */; };
 		2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4A739B194F446900A17188 /* NewsLoggedinViewController.xib */; };
+		2E4AB21019549E69000010F5 /* TweetURLS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4AB20F19549E69000010F5 /* TweetURLS.m */; };
 		2E4B16AA19521D3500641710 /* DutyRosterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16A819521D3500641710 /* DutyRosterTableViewCell.m */; };
 		2E4B16AB19521D3500641710 /* DutyRosterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B16A919521D3500641710 /* DutyRosterTableViewCell.xib */; };
 		2E4B16AF19521D5100641710 /* DutyRoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16AE19521D5100641710 /* DutyRoster.m */; };
@@ -104,6 +105,8 @@
 		2E4A7399194F446900A17188 /* NewsLoggedinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsLoggedinViewController.h; sourceTree = "<group>"; };
 		2E4A739A194F446900A17188 /* NewsLoggedinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsLoggedinViewController.m; sourceTree = "<group>"; };
 		2E4A739B194F446900A17188 /* NewsLoggedinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsLoggedinViewController.xib; sourceTree = "<group>"; };
+		2E4AB20E19549E69000010F5 /* TweetURLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetURLS.h; sourceTree = "<group>"; };
+		2E4AB20F19549E69000010F5 /* TweetURLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetURLS.m; sourceTree = "<group>"; };
 		2E4B16A719521D3500641710 /* DutyRosterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DutyRosterTableViewCell.h; sourceTree = "<group>"; };
 		2E4B16A819521D3500641710 /* DutyRosterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DutyRosterTableViewCell.m; sourceTree = "<group>"; };
 		2E4B16A919521D3500641710 /* DutyRosterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DutyRosterTableViewCell.xib; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 			children = (
 				2E4B16B71952273F00641710 /* Tweet.h */,
 				2E4B16B81952274000641710 /* Tweet.m */,
+				2E4AB20E19549E69000010F5 /* TweetURLS.h */,
+				2E4AB20F19549E69000010F5 /* TweetURLS.m */,
 			);
 			name = Tweet;
 			sourceTree = "<group>";
@@ -737,6 +742,7 @@
 				2E4B16C419523DA000641710 /* SermonDate.m in Sources */,
 				2E789E12195130B70061423E /* PrayerList.m in Sources */,
 				2E4B16C719523DA800641710 /* SermonPreacher.m in Sources */,
+				2E4AB21019549E69000010F5 /* TweetURLS.m in Sources */,
 				2E4A739C194F446900A17188 /* NewsLoggedinViewController.m in Sources */,
 				2E1D6E6F194F79A400819888 /* Sermons2010ViewController.m in Sources */,
 			);
@@ -870,7 +876,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NorthwoodApp;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -896,7 +902,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NorthwoodApp;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -918,7 +924,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "NorthwoodAppTests/NorthwoodAppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NorthwoodAppTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -936,7 +942,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodApp-Prefix.pch";
 				INFOPLIST_FILE = "NorthwoodAppTests/NorthwoodAppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NorthwoodAppTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

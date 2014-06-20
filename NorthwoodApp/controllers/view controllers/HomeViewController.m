@@ -13,7 +13,8 @@
 @import Social;
 
 @interface HomeViewController (){
-	NSMutableArray *_objects;
+	NSMutableArray *_contentObjects;
+	NSMutableArray *_URLObjects;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -29,8 +30,10 @@
     if (self) {
         self.title=@"Home";
 		self.tabBarItem.title=self.title;
-		_objects = [[NSMutableArray alloc]init];
-		_objects = [Tweet tweetObjects];
+		_contentObjects = [[NSMutableArray alloc]init];
+		_URLObjects = [[NSMutableArray alloc]init];
+		_contentObjects = [Tweet tweetObjects];
+		_URLObjects = [TweetURLS URLObjects];
     }
     return self;
 }
@@ -54,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return _contentObjects.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -64,7 +67,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    Tweet *thisTweet = [_objects objectAtIndex:indexPath.row];
+    Tweet *thisTweet = [_contentObjects objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[TweetTableViewCell alloc]init];
     }
