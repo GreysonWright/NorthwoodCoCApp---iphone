@@ -50,7 +50,9 @@
 
 - (IBAction)logginButtonTapped:(id)sender {
 	NewsLoggedinViewController *newsLoggedinView = [[NewsLoggedinViewController alloc]init];
-	[self.navigationController pushViewController:newsLoggedinView animated:YES];
+	//[self.navigationController pushViewController:newsLoggedinView animated:YES];
+	//[self.navigationController presentModalViewController:newsLoggedinView animated:YES]; //this changes the root view controller e.e
+	newsLoggedinView.title=@"Bulletins";
 }
 
 @end
