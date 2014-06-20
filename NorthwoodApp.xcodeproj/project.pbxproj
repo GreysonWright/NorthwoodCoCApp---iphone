@@ -34,8 +34,6 @@
 		2E4B16C119523D9500641710 /* SermonTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16C019523D9500641710 /* SermonTitle.m */; };
 		2E4B16C419523DA000641710 /* SermonDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16C319523D9F00641710 /* SermonDate.m */; };
 		2E4B16C719523DA800641710 /* SermonPreacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4B16C619523DA800641710 /* SermonPreacher.m */; };
-		2E4F92A8194B4FD800BC23F2 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F92A6194B4FD800BC23F2 /* NewsViewController.m */; };
-		2E4F92A9194B4FD800BC23F2 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E4F92A7194B4FD800BC23F2 /* NewsViewController.xib */; };
 		2E4F92B5194B65B300BC23F2 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F92B0194B65B300BC23F2 /* TFHpple.m */; };
 		2E4F92B6194B65B300BC23F2 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F92B2194B65B300BC23F2 /* TFHppleElement.m */; };
 		2E4F92B7194B65B300BC23F2 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4F92B4194B65B300BC23F2 /* XPathQuery.m */; };
@@ -65,6 +63,8 @@
 		2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E0B195127040061423E /* PrayerListTableViewCell.m */; };
 		2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E789E0C195127040061423E /* PrayerListTableViewCell.xib */; };
 		2E789E12195130B70061423E /* PrayerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E11195130B70061423E /* PrayerList.m */; };
+		2E8536D019540D1900C8864E /* LogginginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8536CE19540D1900C8864E /* LogginginViewController.m */; };
+		2E8536D119540D1900C8864E /* LogginginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8536CF19540D1900C8864E /* LogginginViewController.xib */; };
 		2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */; };
 		2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */; };
 		EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AED5A75DB11B4E9AA554DEBD /* libPods.a */; };
@@ -120,9 +120,6 @@
 		2E4B16C319523D9F00641710 /* SermonDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonDate.m; sourceTree = "<group>"; };
 		2E4B16C519523DA800641710 /* SermonPreacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonPreacher.h; sourceTree = "<group>"; };
 		2E4B16C619523DA800641710 /* SermonPreacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonPreacher.m; sourceTree = "<group>"; };
-		2E4F92A5194B4FD800BC23F2 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
-		2E4F92A6194B4FD800BC23F2 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
-		2E4F92A7194B4FD800BC23F2 /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 		2E4F92AF194B65B300BC23F2 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		2E4F92B0194B65B300BC23F2 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
 		2E4F92B1194B65B300BC23F2 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
@@ -169,6 +166,9 @@
 		2E789E0C195127040061423E /* PrayerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayerListTableViewCell.xib; sourceTree = "<group>"; };
 		2E789E10195130B70061423E /* PrayerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerList.h; sourceTree = "<group>"; };
 		2E789E11195130B70061423E /* PrayerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerList.m; sourceTree = "<group>"; };
+		2E8536CD19540D1900C8864E /* LogginginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogginginViewController.h; sourceTree = "<group>"; };
+		2E8536CE19540D1900C8864E /* LogginginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogginginViewController.m; sourceTree = "<group>"; };
+		2E8536CF19540D1900C8864E /* LogginginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogginginViewController.xib; sourceTree = "<group>"; };
 		2EBC92671951F8A600758A1E /* BulletinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinTableViewCell.h; sourceTree = "<group>"; };
 		2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinTableViewCell.m; sourceTree = "<group>"; };
 		2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BulletinTableViewCell.xib; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		2E1D6E65194F795400819888 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				2E789DF51951107B0061423E /* login view */,
+				2E8536D219540D1C00C8864E /* login view */,
 				2E789DF6195110870061423E /* loggedin view */,
 			);
 			name = News;
@@ -509,16 +509,6 @@
 			path = "navigation view controllers";
 			sourceTree = "<group>";
 		};
-		2E789DF51951107B0061423E /* login view */ = {
-			isa = PBXGroup;
-			children = (
-				2E4F92A5194B4FD800BC23F2 /* NewsViewController.h */,
-				2E4F92A6194B4FD800BC23F2 /* NewsViewController.m */,
-				2E4F92A7194B4FD800BC23F2 /* NewsViewController.xib */,
-			);
-			name = "login view";
-			sourceTree = "<group>";
-		};
 		2E789DF6195110870061423E /* loggedin view */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +537,16 @@
 				2E789E0C195127040061423E /* PrayerListTableViewCell.xib */,
 			);
 			name = "Prayer List Cell";
+			sourceTree = "<group>";
+		};
+		2E8536D219540D1C00C8864E /* login view */ = {
+			isa = PBXGroup;
+			children = (
+				2E8536CD19540D1900C8864E /* LogginginViewController.h */,
+				2E8536CE19540D1900C8864E /* LogginginViewController.m */,
+				2E8536CF19540D1900C8864E /* LogginginViewController.xib */,
+			);
+			name = "login view";
 			sourceTree = "<group>";
 		};
 		2EBC926C1951F92700758A1E /* Bulletin Cell */ = {
@@ -654,8 +654,8 @@
 				2E52E4381948BD9800B46786 /* HomeViewController.xib in Resources */,
 				2E4B16BE19522F3B00641710 /* TweetTableViewCell.xib in Resources */,
 				2E52E44C1948E19A00B46786 /* SettingsViewController.xib in Resources */,
+				2E8536D119540D1900C8864E /* LogginginViewController.xib in Resources */,
 				2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */,
-				2E4F92A9194B4FD800BC23F2 /* NewsViewController.xib in Resources */,
 				2E34723C1953BD4A00AC769B /* Twitter_filled.png in Resources */,
 				2E34723E1953BD4A00AC769B /* Twitter.png in Resources */,
 				2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */,
@@ -723,12 +723,12 @@
 				2E69A348194E3D0C00890226 /* SettingsNavigationViewController.m in Sources */,
 				2E41833A1950A77F006D52EC /* SermonsTableViewCell.m in Sources */,
 				2E4F92B5194B65B300BC23F2 /* TFHpple.m in Sources */,
+				2E8536D019540D1900C8864E /* LogginginViewController.m in Sources */,
 				2E4B16C119523D9500641710 /* SermonTitle.m in Sources */,
 				2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */,
 				2E1D6E61194F695600819888 /* Bulletin.m in Sources */,
 				2E205E9B194B8DD90092C8BF /* SermonsViewController.m in Sources */,
 				2E69A347194E3D0C00890226 /* SermonsNavigationViewController.m in Sources */,
-				2E4F92A8194B4FD800BC23F2 /* NewsViewController.m in Sources */,
 				2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */,
 				2E4B16AA19521D3500641710 /* DutyRosterTableViewCell.m in Sources */,
 				2E69A33B194E3B1A00890226 /* Sermon.m in Sources */,

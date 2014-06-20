@@ -12,7 +12,7 @@
 #import "HomeNavigationViewController.h"
 #import "SermonsViewController.h"
 #import "SermonsNavigationViewController.h"
-#import "NewsViewController.h"
+#import "NewsLoggedinViewController.h"
 #import "NewsNavigationViewController.h"
 #import "SettingsViewController.h"
 #import "SettingsNavigationViewController.h"
@@ -29,7 +29,7 @@
 		//views
 	HomeViewController *homeView = [[HomeViewController alloc] init];
 	SermonsViewController *sermonsView=[[SermonsViewController alloc]init];
-	NewsViewController *newsView=[[NewsViewController alloc] init];
+	NewsLoggedinViewController *newsView=[[NewsLoggedinViewController alloc] init];
 	SettingsViewController *settingsView=[[SettingsViewController alloc]init];
 		
 		//navs

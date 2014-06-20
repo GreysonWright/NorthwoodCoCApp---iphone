@@ -14,6 +14,7 @@
 #import "PrayerListTableViewCell.h"
 #import "DutyRoster.h"
 #import "DutyRosterTableViewCell.h"
+#import "LogginginViewController.h"
 
 @interface NewsLoggedinViewController (){
 	NSMutableArray *_bulletinObjects;
@@ -27,19 +28,18 @@
 @end
 
 @implementation NewsLoggedinViewController
+static BOOL loggedin;
+
 
 - (IBAction)segmentsChanged:(id)sender {
 	if(self.segmentController.selectedSegmentIndex == 0){
 		_selectedSegment = 0;
-		self.title = @"Bulletins";
 	}
 	else if(self.segmentController.selectedSegmentIndex == 1){
 		_selectedSegment = 1;
-		self.title = @"Prayer List";
 	}
 	else if(self.segmentController.selectedSegmentIndex == 2){
 		_selectedSegment = 2;
-		self.title = @"DutyRoster";
 	}
 	[self.tableView reloadData];
 	[self.tableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
@@ -47,7 +47,6 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-	self.title = @"Bulletins";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		_bulletinObjects = [[NSMutableArray alloc]init];
@@ -57,6 +56,8 @@
 		_prayerListObjects = [PrayerList prayerListObjects];
 		_dutyRosterObjects = [DutyRoster dutyRosterObjects];
 		_selectedSegment = 0;
+		self.title=@"Members";
+		self.tabBarItem.title=self.title;
     }
     return self;
 }
@@ -64,7 +65,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self.tableView reloadData];
+	if(loggedin == false){
+		LogginginViewController *logginView = [[LogginginViewController alloc]init];
+		[self presentViewController:logginView animated:YES completion:nil];
+	}
+	else if(loggedin==true){
+		[self.tableView reloadData];
+	}
 }
 
 - (void)didReceiveMemoryWarning
