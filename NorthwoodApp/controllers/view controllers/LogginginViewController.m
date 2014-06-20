@@ -8,6 +8,7 @@
 
 #import "LogginginViewController.h"
 #import "NewsLoggedinViewController.h"
+#import "AppDelegate.h"
 
 @interface LogginginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameBox;
@@ -21,6 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+		
     }
     return self;
 }
@@ -28,7 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	self.usernameBox.delegate = self;
+	self.passwordBox.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,10 +41,19 @@
 }
 - (IBAction)loginButtonTapped:(id)sender {
 	[self dismissViewControllerAnimated:YES completion:nil];
+	[NewsLoggedinViewController setLoggedin:YES];
 }
 - (IBAction)cancelButtonTapped:(id)sender {
 	[self dismissViewControllerAnimated:YES completion:nil];
-	self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:0];
+	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+	appDelegate.tabBar.selectedIndex=0;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField;
+{
+	
+	[textField resignFirstResponder];
+    return NO;
 }
 
 @end

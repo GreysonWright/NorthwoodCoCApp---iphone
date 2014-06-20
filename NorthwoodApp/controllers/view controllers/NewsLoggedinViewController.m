@@ -62,16 +62,23 @@ static BOOL loggedin;
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	if(loggedin == false){
+-(void)viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:YES];
+	if(loggedin == NO){
 		LogginginViewController *logginView = [[LogginginViewController alloc]init];
 		[self presentViewController:logginView animated:YES completion:nil];
 	}
-	else if(loggedin==true){
+	else if(loggedin == YES){
 		[self.tableView reloadData];
+		
 	}
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,7 +95,7 @@ static BOOL loggedin;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	int returnThis;
+	NSInteger returnThis;
 	if(_selectedSegment == 0){
 		returnThis = _bulletinObjects.count;
 	}
@@ -155,4 +162,17 @@ static BOOL loggedin;
     return returnThis;
 }
 
++(void)setLoggedin:(BOOL)newLoggedin{
+	loggedin = newLoggedin;
+}
+
++(BOOL)getLoggedin{
+	return loggedin;
+}
+
+-(void)settingsTitleButtonTapped{
+	loggedin = NO;
+	LogginginViewController *logginView = [[LogginginViewController alloc]init];
+	[self presentViewController:logginView animated:YES completion:nil];
+}
 @end
