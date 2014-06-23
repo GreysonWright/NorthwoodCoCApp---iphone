@@ -1,18 +1,18 @@
 //
-//  SettingsNavigationViewController.m
-//  NorthwoodApp
+//  ContactUsNavigationViewController.m
+//  NorthwoodCoC
 //
-//  Created by greyson on 6/11/14.
+//  Created by greyson on 6/21/14.
 //  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
 //
 
-#import "SettingsNavigationViewController.h"
+#import "ContactUsNavigationViewController.h"
 
-@interface SettingsNavigationViewController ()
+@interface ContactUsNavigationViewController ()
 
 @end
 
-@implementation SettingsNavigationViewController
+@implementation ContactUsNavigationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
