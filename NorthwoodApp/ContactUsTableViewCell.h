@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContactUs.h"
 
 @interface ContactUsTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *emailLabel;
+
+-(void)fillTitleWithData:(ContactUs*)contact;
+-(void)fillNameWithData:(ContactUs*)contact;
+-(void)fillEmailWithData:(ContactUs*)contact;
 
 @end

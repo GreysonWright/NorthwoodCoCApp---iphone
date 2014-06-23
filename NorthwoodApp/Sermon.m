@@ -13,6 +13,9 @@
 
 @synthesize link = _link;
 @synthesize yearPart = _yearPart;
+@synthesize titleContent = _titleContent;
+@synthesize dateContent = _dateContent;
+@synthesize preacherContent = _preacherContent;
 
 static NSString *finalURL;
 
@@ -23,7 +26,7 @@ static NSString *finalURL;
 	
     TFHpple *sermonsParser = [TFHpple hppleWithHTMLData:sermonsHtmlData];
 	
-    NSString *sermonsXpathQueryString = @"//tr[@class='light']/td | //tr[@class='dark']/td";
+    NSString *sermonsXpathQueryString = @"//tr[@class='light']/td[4] | //tr[@class='dark']/td[4]";
     NSArray *sermonsNodes = [sermonsParser searchWithXPathQuery:sermonsXpathQueryString];
 	
     NSMutableArray *newSermons = [[NSMutableArray alloc] initWithCapacity:0];
@@ -33,7 +36,13 @@ static NSString *finalURL;
         Sermon *sermon = [[Sermon alloc] init];
         [newSermons addObject:sermon];
 		
-		sermon.link = [element objectForKey:@"href"]; //use this to get the url hopefully
+		if(sermonsNodes !=nil){
+			sermon.link = [element objectForKey:@"/a/href"];
+			NSLog(sermon.link);
+		}
+		else{
+			sermon.link = @"N/A";
+		}
     }
 	
     return newSermons;
@@ -49,5 +58,72 @@ static NSString *finalURL;
 
 +(NSString*)getFinalURL{
 	return finalURL;
+}
+
++(NSMutableArray*)sermonTitleObjects{
+	NSURL *sermonsUrl = [NSURL URLWithString:finalURL];
+    NSData *sermonsHtmlData = [NSData dataWithContentsOfURL:sermonsUrl];
+	
+    TFHpple *sermonsParser = [TFHpple hppleWithHTMLData:sermonsHtmlData];
+	
+    NSString *sermonsXpathQueryString = @"//tr[@class='light']/td[2] | //tr[@class='dark']/td[2]";
+    NSArray *sermonsNodes = [sermonsParser searchWithXPathQuery:sermonsXpathQueryString];
+	
+    NSMutableArray *newSermons = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in sermonsNodes) {
+        
+        Sermon *sermon = [[Sermon alloc] init];
+        [newSermons addObject:sermon];
+		
+		sermon.titleContent = [[element firstChild] content];
+    }
+	
+    return newSermons;
+}
+
++(NSMutableArray*)sermonDateObjects{
+	NSURL *sermonsUrl = [NSURL URLWithString:finalURL];
+    NSData *sermonsHtmlData = [NSData dataWithContentsOfURL:sermonsUrl];
+	
+    TFHpple *sermonsParser = [TFHpple hppleWithHTMLData:sermonsHtmlData];
+	
+    NSString *sermonsXpathQueryString = @"//tr[@class='light']/td[1] | //tr[@class='dark']/td[1]";
+    NSArray *sermonsNodes = [sermonsParser searchWithXPathQuery:sermonsXpathQueryString];
+	
+    NSMutableArray *newSermons = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in sermonsNodes) {
+        
+        Sermon *sermon = [[Sermon alloc] init];
+        [newSermons addObject:sermon];
+		
+		sermon.dateContent = [[element firstChild] content];
+    }
+	
+    return newSermons;
+}
+
+
++(NSMutableArray*)sermonPreacherObjects{
+	NSURL *sermonsUrl = [NSURL URLWithString:finalURL];
+    NSData *sermonsHtmlData = [NSData dataWithContentsOfURL:sermonsUrl];
+	
+    TFHpple *sermonsParser = [TFHpple hppleWithHTMLData:sermonsHtmlData];
+	
+    NSString *sermonsXpathQueryString = @"//tr[@class='light']/td[3] | //tr[@class='dark']/td[3]";
+    NSArray *sermonsNodes = [sermonsParser searchWithXPathQuery:sermonsXpathQueryString];
+	
+    NSMutableArray *newSermons = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in sermonsNodes) {
+        
+        Sermon *sermon = [[Sermon alloc] init];
+        [newSermons addObject:sermon];
+		
+		sermon.preacherContent = [[element firstChild] content];
+    }
+	
+    return newSermons;
 }
 @end

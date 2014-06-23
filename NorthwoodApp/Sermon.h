@@ -12,9 +12,16 @@
 @interface Sermon : NSObject
 
 @property (nonatomic, copy) NSString *link;
+@property (nonatomic, copy) NSString *titleContent;
+@property (nonatomic, copy) NSString *dateContent;
+@property (nonatomic, copy) NSString *preacherContent;
 @property NSString *yearPart;
 
 +(NSMutableArray*)sermonObjects;
 +(void)makeFinalURLWith:(NSString*)yearInput;
 +(NSString*)getFinalURL;
++(NSMutableArray*)sermonTitleObjects;
++(NSMutableArray*)sermonDateObjects;
++(NSMutableArray*)sermonPreacherObjects;
+
 @end

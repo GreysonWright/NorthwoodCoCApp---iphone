@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "NewsLoggedinViewController.h"
 #import "TFHpple.h"
 #import "Bulletin.h"
@@ -15,11 +16,20 @@
 #import "DutyRoster.h"
 #import "DutyRosterTableViewCell.h"
 #import "LogginginViewController.h"
+#import "Directory.h"
+#import "DirectoryTableViewCell.h"
+#import "UniversalWebViewViewController.h"
 
 @interface NewsLoggedinViewController (){
 	NSMutableArray *_bulletinObjects;
 	NSMutableArray *_prayerListObjects;
 	NSMutableArray *_dutyRosterObjects;
+	NSMutableArray *_nameObjects;
+	NSMutableArray *_titleObjects;
+	NSMutableArray *_phoneObjects;
+	NSMutableArray *_emailObjects;
+	NSMutableArray *_addressObjects;
+	NSMutableArray *_linksForWebView;
 	NSString *_bulletinEndURL;
 	int _selectedSegment;
 }
@@ -41,6 +51,9 @@ static BOOL loggedin;
 	else if(self.segmentController.selectedSegmentIndex == 2){
 		_selectedSegment = 2;
 	}
+	else if (self.segmentController.selectedSegmentIndex == 3){
+		_selectedSegment = 3;
+	}
 	[self.tableView reloadData];
 	[self.tableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
@@ -52,9 +65,20 @@ static BOOL loggedin;
 		_bulletinObjects = [[NSMutableArray alloc]init];
 		_prayerListObjects = [[NSMutableArray alloc]init];
 		_dutyRosterObjects = [[NSMutableArray alloc]init];
+		_nameObjects = [[NSMutableArray alloc]init];
+		_titleObjects = [[NSMutableArray alloc]init];
+		_phoneObjects = [[NSMutableArray alloc]init];
+		_emailObjects = [[NSMutableArray alloc]init];
+		_addressObjects = [[NSMutableArray alloc]init];
+		_linksForWebView = [[NSMutableArray alloc]init];
 		_bulletinObjects = [Bulletin bulletinObject];
 		_prayerListObjects = [PrayerList prayerListObjects];
 		_dutyRosterObjects = [DutyRoster dutyRosterObjects];
+		_nameObjects = [Directory nameObjects];
+		_titleObjects = [Directory titleObjects];
+		_phoneObjects = [Directory phoneObjects];
+		_emailObjects = [Directory emailObjects];
+		_addressObjects = [Directory adressObjects];
 		_selectedSegment = 0;
 		self.title=@"Members";
 		self.tabBarItem.title=self.title;
@@ -65,8 +89,11 @@ static BOOL loggedin;
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:YES];
 	if(loggedin == NO){
+		self.segmentController.selectedSegmentIndex = 0;
+		_selectedSegment = 0;
 		LogginginViewController *logginView = [[LogginginViewController alloc]init];
 		[self presentViewController:logginView animated:YES completion:nil];
+		[self.tableView reloadData];
 	}
 	else if(loggedin == YES){
 		[self.tableView reloadData];
@@ -78,7 +105,7 @@ static BOOL loggedin;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
+	self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,9 +132,11 @@ static BOOL loggedin;
 	else if(_selectedSegment == 2){
 		returnThis = _dutyRosterObjects.count;
 	}
+	else if (_selectedSegment == 3){
+		returnThis = _nameObjects.count;
+	}
     return returnThis;
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 	int returnThis;
@@ -120,7 +149,28 @@ static BOOL loggedin;
 	else if(_selectedSegment == 2){
 		returnThis = 700;
 	}
+	else if (_selectedSegment == 3){
+		returnThis = 109;
+	}
 	return returnThis;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	if(_selectedSegment == 0){
+		UniversalWebViewViewController *webView= [[UniversalWebViewViewController alloc]init];
+		[webView loadBulletinPDF:[_linksForWebView objectAtIndex:indexPath.row]];
+		[self.navigationController pushViewController:webView animated:YES];
+	}
+	else if(_selectedSegment == 1){
+		NSLog(@"do nothing");
+	}
+	else if(_selectedSegment == 2){
+		NSLog(@"do nothing");
+	}
+	else if (_selectedSegment == 3){
+		NSLog(@"do nothing");
+	}
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,10 +183,10 @@ static BOOL loggedin;
 		
 		if (cell == nil) {
 			cell = [[BulletinTableViewCell alloc] init];
-			
 		}
 		[cell fillWithData:thisBulletin];
-		returnThis=cell;
+		[_linksForWebView addObject:thisBulletin.bulletinLink];
+		returnThis = cell;
 	}
 	
 	else if(_selectedSegment == 1){ //prayerlist
@@ -159,6 +209,25 @@ static BOOL loggedin;
 		returnThis = cell;
 	}
 	
+	else if (_selectedSegment == 3){
+		DirectoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DirectoryCell"];
+		Directory *thisName = [_nameObjects objectAtIndex:indexPath.row];
+		Directory *thisTitle = [_titleObjects objectAtIndex:indexPath.row];
+		Directory *thisPhone = [_phoneObjects objectAtIndex:indexPath.row];
+		Directory *thisEmail = [_emailObjects objectAtIndex:indexPath.row];
+		Directory *thisAddress = [_addressObjects objectAtIndex:indexPath.row];
+		if (cell == nil) {
+			cell = [[DirectoryTableViewCell alloc] init];
+		}
+		[cell fillNameWithData:thisName];
+		[cell fillTitleWithData:thisTitle];
+		[cell fillPhoneWithData:thisPhone];
+		[cell fillEmailWithData:thisEmail];
+		[cell fillAddressWithData:thisAddress];
+		
+		returnThis = cell;
+	}
+	
     return returnThis;
 }
 
@@ -170,9 +239,20 @@ static BOOL loggedin;
 	return loggedin;
 }
 
--(void)settingsTitleButtonTapped{
-	loggedin = NO;
-	LogginginViewController *logginView = [[LogginginViewController alloc]init];
-	[self presentViewController:logginView animated:YES completion:nil];
+-(void)logoutTitleButtonTapped{
+	UIAlertView *loggoutWarning = [[UIAlertView alloc]initWithTitle:@"logout?" message:@"Are you sure you would like to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+    [loggoutWarning show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if(buttonIndex == 0){
+		NSLog(@"User cancelled logout");
+	}
+	else{
+		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
+		loggedin = NO;
+		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+		appDelegate.tabBar.selectedIndex=0;
+	}
 }
 @end

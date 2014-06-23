@@ -10,6 +10,7 @@
 #import "TFHpple.h"
 #import "Sermon.h"
 #import "Sermons2010ViewController.h"
+#import "SermonDateTableViewCell.h"
 
 @interface SermonsViewController (){
 	NSMutableArray *_years;
@@ -59,20 +60,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
-    // Return the number of rows in the section.
     return _years.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-	
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    SermonDateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DateCell"];
+	NSString *newYear = [_years objectAtIndex:indexPath.row];
+    if (cell==nil) {
+		cell = [[SermonDateTableViewCell alloc] init];
     }
-	
-	cell.textLabel.text = [_years objectAtIndex:indexPath.row];
+	[cell fillCellWithDates:newYear];
+	NSLog(newYear);
 	
     return cell;
 }

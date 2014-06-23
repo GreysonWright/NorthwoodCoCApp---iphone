@@ -13,5 +13,7 @@
 @property (nonatomic, copy) NSString *tweetContent;
 
 +(NSMutableArray*)tweetObjects;
++(NSMutableArray*)URLObjects;
++(NSString*)getURLs;
 
 @end

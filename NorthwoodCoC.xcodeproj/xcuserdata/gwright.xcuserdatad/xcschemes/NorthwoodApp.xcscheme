@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E52E3D31948AE0E00B46786"
-               BuildableName = "NorthwoodApp.app"
+               BuildableName = "NorthwoodCoC.app"
                BlueprintName = "NorthwoodCoC"
                ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2E52E3EE1948AE0F00B46786"
-               BuildableName = "NorthwoodAppTests.xctest"
+               BuildableName = "NorthwoodCoCTests.xctest"
                BlueprintName = "NorthwoodCoCTests"
                ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E52E3D31948AE0E00B46786"
-            BuildableName = "NorthwoodApp.app"
+            BuildableName = "NorthwoodCoC.app"
             BlueprintName = "NorthwoodCoC"
             ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E52E3D31948AE0E00B46786"
-            BuildableName = "NorthwoodApp.app"
+            BuildableName = "NorthwoodCoC.app"
             BlueprintName = "NorthwoodCoC"
             ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2E52E3D31948AE0E00B46786"
-            BuildableName = "NorthwoodApp.app"
+            BuildableName = "NorthwoodCoC.app"
             BlueprintName = "NorthwoodCoC"
             ReferencedContainer = "container:NorthwoodCoC.xcodeproj">
          </BuildableReference>

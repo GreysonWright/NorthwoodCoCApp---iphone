@@ -36,7 +36,7 @@
 	NSURL *url = [NSURL URLWithString:urlAddress];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
 	[self.webView loadRequest:requestObj];
-	
+	self.webView.scalesPageToFit = YES;
 }
 
 -(void)fillWithData:(DutyRoster*)dutyRoster{

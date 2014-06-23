@@ -10,6 +10,14 @@
 
 @implementation ContactUsTableViewCell
 
+-(instancetype)init{
+    self=[super init];
+    //init is such a way that the xib file actually works
+    self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ContactUsTableViewCell class]) owner:nil options:nil][0];
+    
+    return self;
+}
+
 - (void)awakeFromNib
 {
     // Initialization code
@@ -21,5 +29,22 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)emailButtonTapped:(id)sender {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"mailto:" stringByAppendingString:self.emailLabel.text]]];
+}
 
+-(void)fillTitleWithData:(ContactUs*)contact{
+	self.titleLabel.text = contact.title;
+	//self.nameLabel.text = contact.name;
+}
+
+-(void)fillNameWithData:(ContactUs*)contact{
+	self.nameLabel.text = contact.name;
+	
+}
+
+-(void)fillEmailWithData:(ContactUs*)contact{
+	NSString *stringWithoutMailto = [contact.email stringByReplacingOccurrencesOfString:@"mailto:" withString:@""];
+	self.emailLabel.text = stringWithoutMailto;
+}
 @end

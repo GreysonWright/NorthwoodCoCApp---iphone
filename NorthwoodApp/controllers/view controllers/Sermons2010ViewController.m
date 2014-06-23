@@ -10,12 +10,15 @@
 #import "Sermon.h"
 #import "TFHpple.h"
 #import "SermonsTableViewCell.h"
+#import "UniversalWebViewViewController.h"
 
 @interface Sermons2010ViewController (){
-	NSMutableArray *_objects;
+	NSMutableArray *_linkObjects;
 	NSMutableArray *_dateObjects;
 	NSMutableArray *_titleObjects;
 	NSMutableArray *_preacherObjects;
+	NSMutableArray *_linksForWebView;
+	NSInteger _indexPathRow;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -27,14 +30,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		_objects = [[NSMutableArray alloc]init];
+		_linkObjects = [[NSMutableArray alloc]init];
 		_preacherObjects = [[NSMutableArray alloc]init];
 		_titleObjects = [[NSMutableArray alloc]init];
 		_dateObjects = [[NSMutableArray alloc]init];
-		_objects = [Sermon sermonObjects];
-		_dateObjects = [SermonDate sermonObjects];
-		_titleObjects = [SermonTitle sermonObjects];
-		_preacherObjects = [SermonPreacher sermonObjects];
+		_linksForWebView = [[NSMutableArray alloc]init];
+		_linkObjects = [Sermon sermonObjects];
+		_dateObjects = [Sermon sermonDateObjects];
+		_titleObjects = [Sermon sermonTitleObjects];
+		_preacherObjects = [Sermon sermonPreacherObjects];
     }
     return self;
 }
@@ -60,26 +64,53 @@
     return _titleObjects.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	return 73;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if(self.title !=@"2012"){
+	UIAlertView *loggoutWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+    [loggoutWarning show];
+	_indexPathRow = indexPath.row;
+	}
+	else{
+		UIAlertView *loggoutWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Sorry, the audio in 2012 is download only. If you would like to listen to the audio please download it at www.justchristians.info/Sermons/2012Sermons." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+		[loggoutWarning show];
+	}
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	SermonsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SermonCell"];
-	Sermon *sermon = [_objects objectAtIndex:indexPath.row];
-	SermonTitle *sermonTitle = [_titleObjects objectAtIndex:indexPath.row];
-	SermonDate *sermonDate = [_dateObjects objectAtIndex:indexPath.row];
-	SermonPreacher *sermonPreacher = [_preacherObjects objectAtIndex:indexPath.row];
+	Sermon *sermonLink = [_linkObjects objectAtIndex:indexPath.row];
+	Sermon *sermonPreacher = [_preacherObjects objectAtIndex:indexPath.row];
+	Sermon *sermonTitle = [_titleObjects objectAtIndex:indexPath.row];
+	Sermon *sermonDate = [_dateObjects objectAtIndex:indexPath.row];
     if (cell==nil) {
 		cell = [[SermonsTableViewCell alloc] init];
     }
-	[cell getLinkWithData:sermon];
+	[cell getLinkWithData:sermonLink];
 	[cell fillSermonWithData:sermonTitle];
 	[cell fillDateWithData:sermonDate];
 	[cell fillNameWithData:sermonPreacher];
+	//[_linksForWebView addObject:sermonLink.link];
 	
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	return 73;
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if(buttonIndex == 0){
+		NSLog(@"user did not play audio");
+	}
+	else{
+		UniversalWebViewViewController *webView = [[UniversalWebViewViewController alloc]init];
+		[self.navigationController pushViewController:webView animated:YES];
+		[webView loadSermonAudio:[_linksForWebView objectAtIndex:_indexPathRow]];
+		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
+	}
 }
 
 @end

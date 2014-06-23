@@ -10,4 +10,12 @@
 
 @interface ContactUs : NSObject
 
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *email;
+
++(NSMutableArray*)titleObjects;
++(NSMutableArray*)emailObjects;
++(NSMutableArray*)nameObjects;
+
 @end

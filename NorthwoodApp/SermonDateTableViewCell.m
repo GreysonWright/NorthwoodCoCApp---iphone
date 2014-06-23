@@ -10,6 +10,14 @@
 
 @implementation SermonDateTableViewCell
 
+-(instancetype)init{
+    self=[super init];
+    //init is such a way that the xib file actually works
+    self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([SermonDateTableViewCell class]) owner:nil options:nil][0];
+    
+    return self;
+}
+
 - (void)awakeFromNib
 {
     // Initialization code
@@ -20,6 +28,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)fillCellWithDates:(NSString*)inputYear{
+	self.yearLabel.text = inputYear;
 }
 
 @end

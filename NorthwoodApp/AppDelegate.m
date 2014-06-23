@@ -14,8 +14,8 @@
 #import "SermonsNavigationViewController.h"
 #import "NewsLoggedinViewController.h"
 #import "NewsNavigationViewController.h"
-#import "SettingsViewController.h"
-#import "SettingsNavigationViewController.h"
+#import "ContactUsViewController.h"
+#import "ContactUsNavigationViewController.h"
 
 @implementation AppDelegate
 
@@ -30,20 +30,20 @@
 	HomeViewController *homeView = [[HomeViewController alloc] init];
 	SermonsViewController *sermonsView=[[SermonsViewController alloc]init];
 	NewsLoggedinViewController *newsView=[[NewsLoggedinViewController alloc] init];
-	SettingsViewController *settingsView=[[SettingsViewController alloc]init];
+	ContactUsViewController *contactUsView=[[ContactUsViewController alloc]init];
 		
 		//navs
 	HomeNavigationViewController *homeNav=[[HomeNavigationViewController alloc]initWithRootViewController:homeView];
 	SermonsNavigationViewController *sermonsNav=[[SermonsNavigationViewController alloc] initWithRootViewController:sermonsView];
 	NewsNavigationViewController *newsNav=[[NewsNavigationViewController alloc]initWithRootViewController:newsView];
-	SettingsNavigationViewController *settingsNav=[[SettingsNavigationViewController alloc]initWithRootViewController:settingsView];
+	ContactUsNavigationViewController *contactUsNav=[[ContactUsNavigationViewController alloc]initWithRootViewController:contactUsView];
 		
 		//tabBar
 	self.tabBar=[[TabBarController alloc]init];
 	self.tabBar.tabBar.translucent=NO;
-	self.tabBar.tabBar.barStyle = UIBarStyleBlack;
-	self.tabBar.tabBar.tintColor=[UIColor whiteColor];
-	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, settingsNav]]; //keep settings view last
+	self.tabBar.tabBar.barTintColor = [UIColor colorWithRed:37.0/255.0f green:37.0/255.0f blue:38.0/255.0f alpha:1];
+	self.tabBar.tabBar.tintColor = [UIColor whiteColor];
+	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, contactUsNav]];
 	[self.window setRootViewController:self.tabBar];
 	
     return YES;

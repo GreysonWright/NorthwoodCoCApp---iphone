@@ -10,4 +10,8 @@
 
 @interface SermonDateTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *yearLabel;
+
+-(void)fillCellWithDates:(NSString*)inputYear;
+
 @end
