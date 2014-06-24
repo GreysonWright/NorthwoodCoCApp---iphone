@@ -18,6 +18,7 @@
 	NSMutableArray *_titleObjects;
 	NSMutableArray *_preacherObjects;
 	NSMutableArray *_linksForWebView;
+	NSMutableArray *_sermonsForWebView;
 	NSInteger _indexPathRow;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -35,6 +36,7 @@
 		_titleObjects = [[NSMutableArray alloc]init];
 		_dateObjects = [[NSMutableArray alloc]init];
 		_linksForWebView = [[NSMutableArray alloc]init];
+		_sermonsForWebView = [[NSMutableArray alloc]init];
 		_linkObjects = [Sermon sermonObjects];
 		_dateObjects = [Sermon sermonDateObjects];
 		_titleObjects = [Sermon sermonTitleObjects];
@@ -71,8 +73,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if(self.title !=@"2012"){
-	UIAlertView *loggoutWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
-    [loggoutWarning show];
+	UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+    [playBackWarning show];
 	_indexPathRow = indexPath.row;
 	}
 	else{
@@ -96,7 +98,8 @@
 	[cell fillSermonWithData:sermonTitle];
 	[cell fillDateWithData:sermonDate];
 	[cell fillNameWithData:sermonPreacher];
-	//[_linksForWebView addObject:sermonLink.link];
+	[_linksForWebView addObject:sermonLink.link];
+	[_sermonsForWebView addObject:sermonTitle.titleContent];
 	
     return cell;
 }
@@ -110,6 +113,7 @@
 		[self.navigationController pushViewController:webView animated:YES];
 		[webView loadSermonAudio:[_linksForWebView objectAtIndex:_indexPathRow]];
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
+		webView.title = [_sermonsForWebView objectAtIndex:_indexPathRow];
 	}
 }
 

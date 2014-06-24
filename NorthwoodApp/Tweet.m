@@ -12,6 +12,7 @@
 @implementation Tweet
 
 @synthesize tweetContent = _tweetContent;
+@synthesize date = _date;
 
 static NSString *tweetURL;
 
@@ -32,6 +33,7 @@ static NSString *tweetURL;
         [newtweets addObject:tweet];
 		
 		tweet.tweetContent = [[element firstTextChild]content];
+		tweetURL = [element objectForKey:@"title"];
     }
 	
     return newtweets;
@@ -43,7 +45,7 @@ static NSString *tweetURL;
 	
     TFHpple *tweetsParser = [TFHpple hppleWithHTMLData:tweetsHtmlData];
 	
-    NSString *tweetsXpathQueryString = @"//*//div[@class='ProfileTweet-contents']/p/a/span[3]";
+    NSString *tweetsXpathQueryString = @"//div[@class='StreamItem js-stream-item']/div/div[2]/p/a";
     NSArray *tweetsNodes = [tweetsParser searchWithXPathQuery:tweetsXpathQueryString];
 	
     NSMutableArray *newtweets = [[NSMutableArray alloc] initWithCapacity:0];
@@ -53,8 +55,30 @@ static NSString *tweetURL;
         Tweet *tweet = [[Tweet alloc] init];
         [newtweets addObject:tweet];
 		
-		tweetURL = [[element firstTextChild]content];
+		tweetURL = [element objectForKey:@"title"];
     }
+    return newtweets;
+}
+
++(NSMutableArray*)dateObjects{
+	NSURL *tweetsUrl = [NSURL URLWithString:@"https://twitter.com/northwoodcoc"];
+    NSData *tweetsHtmlData = [NSData dataWithContentsOfURL:tweetsUrl];
+	
+    TFHpple *tweetsParser = [TFHpple hppleWithHTMLData:tweetsHtmlData];
+	
+    NSString *tweetsXpathQueryString = @"//div[@class='StreamItem js-stream-item']/div/div[1]/div/span[2]/a/span";
+    NSArray *tweetsNodes = [tweetsParser searchWithXPathQuery:tweetsXpathQueryString];
+	
+    NSMutableArray *newtweets = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in tweetsNodes) {
+        
+        Tweet *tweet = [[Tweet alloc] init];
+        [newtweets addObject:tweet];
+		
+		tweet.date = [[element firstTextChild]content];
+    }
+	
     return newtweets;
 }
 

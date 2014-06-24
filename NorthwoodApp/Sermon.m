@@ -18,6 +18,7 @@
 @synthesize preacherContent = _preacherContent;
 
 static NSString *finalURL;
+static NSString *sermonYear;
 
 +(NSMutableArray*)sermonObjects{
 	
@@ -26,7 +27,7 @@ static NSString *finalURL;
 	
     TFHpple *sermonsParser = [TFHpple hppleWithHTMLData:sermonsHtmlData];
 	
-    NSString *sermonsXpathQueryString = @"//tr[@class='light']/td[4] | //tr[@class='dark']/td[4]";
+    NSString *sermonsXpathQueryString = @"//tr[@class='light']/td[4]/a | //tr[@class='dark']/td[4]/a";
     NSArray *sermonsNodes = [sermonsParser searchWithXPathQuery:sermonsXpathQueryString];
 	
     NSMutableArray *newSermons = [[NSMutableArray alloc] initWithCapacity:0];
@@ -36,13 +37,8 @@ static NSString *finalURL;
         Sermon *sermon = [[Sermon alloc] init];
         [newSermons addObject:sermon];
 		
-		if(sermonsNodes !=nil){
-			sermon.link = [element objectForKey:@"/a/href"];
-			NSLog(sermon.link);
-		}
-		else{
-			sermon.link = @"N/A";
-		}
+		sermon.link = [element objectForKey:@"href"];
+		//NSLog(sermon.link);
     }
 	
     return newSermons;
@@ -53,6 +49,7 @@ static NSString *finalURL;
 	NSString *secondString = [firstString stringByAppendingString:yearInput];
 	NSString *wholeURL = [secondString stringByAppendingString:@"Sermons/"];
 	finalURL = wholeURL;
+	sermonYear = yearInput;
 	NSLog(finalURL);
 }
 
@@ -125,5 +122,10 @@ static NSString *finalURL;
     }
 	
     return newSermons;
+}
+
++(NSString*)getSermonYear{
+	NSString  *returnThis = [sermonYear stringByAppendingString:@"Sermons/"];
+	return returnThis;
 }
 @end

@@ -37,4 +37,9 @@
 		self.contentLabel.text = tweet.tweetContent;
 }
 
+-(void)fillDateWithData:(Tweet*)tweet{
+	NSString *realTweet = [tweet.date stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+	self.dateLabel.text = realTweet;
+}
+
 @end

@@ -7,10 +7,12 @@
 //
 
 #import "UniversalWebViewViewController.h"
+#import "Sermon.h"
 
 @interface UniversalWebViewViewController (){
 	NSString *_url;
 	NSString *_title;
+	BOOL _scaleToFit;
 }
 @end
 
@@ -32,7 +34,13 @@
 	NSLog(_url);
 	[self.webView loadRequest:requestObj];
 	self.title = _title;
+	if(_scaleToFit == YES){
 	self.webView.scalesPageToFit = YES;
+		_scaleToFit=NO;
+	}
+	else if(_scaleToFit == NO){
+		NSLog(@"no zoom");
+	}
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,17 +51,20 @@
 
 -(void)loadSermonAudio:(NSString*)URL{
 	
-	NSString *urlAddress = [@"http://www.justchristians.info" stringByAppendingString:URL];
-	NSString *finalURL = [urlAddress stringByReplacingOccurrencesOfString:@"." withString:@""];
-	NSString *refinedFinalURL = [finalURL stringByReplacingOccurrencesOfString:@" " withString:@"%"];
-	_url = refinedFinalURL;
-	_title = URL;
+	NSString *urlAddress = [@"http://www.justchristians.info/Sermons/" stringByAppendingString:[Sermon getSermonYear]];
+	NSString *nextURL = [urlAddress stringByAppendingString:URL];
+	NSString *finalURL = [nextURL stringByReplacingOccurrencesOfString:@"./" withString:@""];
+	NSString *refinedFinalURL = [finalURL stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+	NSString *secondRefinedURL = [refinedFinalURL stringByReplacingOccurrencesOfString:@"\n" withString:@"%20"];
+	_url = secondRefinedURL;
+	_scaleToFit = YES;
 }
 
 -(void)loadBulletinPDF:(NSString*)URL{
 	NSString *urlAddress = [@"http://www.justchristians.info/Bulletins/" stringByAppendingString:URL];
 	_url = urlAddress;
 	_title = URL;
+	_scaleToFit = YES;
 }
 
 @end

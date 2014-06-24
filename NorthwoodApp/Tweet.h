@@ -11,9 +11,10 @@
 @interface Tweet : NSObject
 
 @property (nonatomic, copy) NSString *tweetContent;
-
+@property (nonatomic, copy) NSString *date;
 +(NSMutableArray*)tweetObjects;
 +(NSMutableArray*)URLObjects;
++(NSMutableArray*)dateObjects;
 +(NSString*)getURLs;
 
 @end

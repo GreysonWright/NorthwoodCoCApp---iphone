@@ -16,6 +16,8 @@
 #import "NewsNavigationViewController.h"
 #import "ContactUsViewController.h"
 #import "ContactUsNavigationViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @implementation AppDelegate
 
@@ -25,6 +27,16 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor yellowColor];
     [self.window makeKeyAndVisible];
+	
+	[[AVAudioSession sharedInstance] setDelegate:self];
+	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+	[[AVAudioSession sharedInstance] setActive:YES error:nil];
+	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+	
+	UInt32 size = sizeof(CFStringRef);
+	CFStringRef route;
+	AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &size, &route);
+	NSLog(@"route = %@", route);
 	
 		//views
 	HomeViewController *homeView = [[HomeViewController alloc] init];
