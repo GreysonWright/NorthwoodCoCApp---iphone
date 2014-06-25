@@ -26,7 +26,7 @@
                         <action selector="twitterButtonPressed:" destination="-1" eventType="touchUpInside" id="jis-qV-8A4"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NorthwoodCoC White Text.png" translatesAutoresizingMaskIntoConstraints="NO" id="pJU-tR-UXg">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="northwoodlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="pJU-tR-UXg">
                     <rect key="frame" x="48" y="67" width="208" height="82"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.1764705882" green="0.1764705882" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,7 +63,7 @@
         </view>
     </objects>
     <resources>
-        <image name="NorthwoodCoC White Text.png" width="270" height="122"/>
         <image name="Twitter2x.png" width="50" height="50"/>
+        <image name="northwoodlogo.png" width="270" height="122"/>
     </resources>
 </document>
