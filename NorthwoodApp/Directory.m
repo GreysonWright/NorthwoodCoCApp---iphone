@@ -8,7 +8,7 @@
 
 #import "Directory.h"
 
-@implementation Directory
+@implementation Directory //@#$!@#$!@#$!#@$get pics for directory
 
 @synthesize nameValue = _nameValue;
 @synthesize titleValue = _titleValue;

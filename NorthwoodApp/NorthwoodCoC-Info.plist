@@ -36,6 +36,13 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string></string>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchImages</key>
 	<array>
 		<dict>
@@ -62,10 +69,6 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string></string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

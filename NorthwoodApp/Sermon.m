@@ -114,7 +114,7 @@ static NSString *sermonYear;
     NSMutableArray *newSermons = [[NSMutableArray alloc] initWithCapacity:0];
 	
     for (TFHppleElement *element in sermonsNodes) {
-        
+		
         Sermon *sermon = [[Sermon alloc] init];
         [newSermons addObject:sermon];
 		

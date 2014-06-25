@@ -164,7 +164,6 @@
 		2E52E4481948E19A00B46786 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		2E52E4491948E19A00B46786 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		2E52E44A1948E19A00B46786 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
-		2E52E5681959F57000CC0BD4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2E52E56A1959F7A800CC0BD4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2E52E56C1959F95100CC0BD4 /* BigTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigTweetViewController.h; sourceTree = "<group>"; };
 		2E52E56D1959F95100CC0BD4 /* BigTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigTweetViewController.m; sourceTree = "<group>"; };
@@ -252,9 +251,7 @@
 				2E52E4341948BD9800B46786 /* HomeViewController.h */,
 				2E52E4351948BD9800B46786 /* HomeViewController.m */,
 				2E52E4361948BD9800B46786 /* HomeViewController.xib */,
-				2E52E56C1959F95100CC0BD4 /* BigTweetViewController.h */,
-				2E52E56D1959F95100CC0BD4 /* BigTweetViewController.m */,
-				2E52E56E1959F95100CC0BD4 /* BigTweetViewController.xib */,
+				2E4BC850195A7832009D30FA /* Tweet Sub View */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -419,6 +416,16 @@
 			name = "Tweet Cell";
 			sourceTree = "<group>";
 		};
+		2E4BC850195A7832009D30FA /* Tweet Sub View */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E56C1959F95100CC0BD4 /* BigTweetViewController.h */,
+				2E52E56D1959F95100CC0BD4 /* BigTweetViewController.m */,
+				2E52E56E1959F95100CC0BD4 /* BigTweetViewController.xib */,
+			);
+			name = "Tweet Sub View";
+			sourceTree = "<group>";
+		};
 		2E4F92AE194B65B300BC23F2 /* HTML Parsing */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,7 +465,6 @@
 			isa = PBXGroup;
 			children = (
 				2E52E56A1959F7A800CC0BD4 /* AVFoundation.framework */,
-				2E52E5681959F57000CC0BD4 /* AudioToolbox.framework */,
 				2E3472321953B7B700AC769B /* Social.framework */,
 				2E205E8F194B84770092C8BF /* libxml2.dylib */,
 				2E52E3D71948AE0E00B46786 /* Foundation.framework */,

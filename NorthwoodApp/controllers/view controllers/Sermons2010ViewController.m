@@ -72,7 +72,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if(self.title !=@"2012"){
+	if(self.title !=@"2012" && self.title !=@"2011"){
 	UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
     [playBackWarning show];
 	_indexPathRow = indexPath.row;
@@ -87,18 +87,24 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	SermonsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SermonCell"];
-	Sermon *sermonLink = [_linkObjects objectAtIndex:indexPath.row];
 	Sermon *sermonPreacher = [_preacherObjects objectAtIndex:indexPath.row];
 	Sermon *sermonTitle = [_titleObjects objectAtIndex:indexPath.row];
 	Sermon *sermonDate = [_dateObjects objectAtIndex:indexPath.row];
     if (cell==nil) {
 		cell = [[SermonsTableViewCell alloc] init];
     }
-	[cell getLinkWithData:sermonLink];
+	if(self.title != @"2012" && self.title != @"2011"){
+		Sermon *sermonLink = [_linkObjects objectAtIndex:indexPath.row];
+		[cell getLinkWithData:sermonLink];
+	[_linksForWebView addObject:sermonLink.link];
+	}
+	
+	else
+		NSLog(@"2012 or 2011");
+		
 	[cell fillSermonWithData:sermonTitle];
 	[cell fillDateWithData:sermonDate];
 	[cell fillNameWithData:sermonPreacher];
-	[_linksForWebView addObject:sermonLink.link];
 	[_sermonsForWebView addObject:sermonTitle.titleContent];
 	
     return cell;
@@ -110,10 +116,10 @@
 	}
 	else{
 		UniversalWebViewViewController *webView = [[UniversalWebViewViewController alloc]init];
+		webView.title = [_sermonsForWebView objectAtIndex:_indexPathRow];
 		[self.navigationController pushViewController:webView animated:YES];
 		[webView loadSermonAudio:[_linksForWebView objectAtIndex:_indexPathRow]];
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
-		webView.title = [_sermonsForWebView objectAtIndex:_indexPathRow];
 	}
 }
 

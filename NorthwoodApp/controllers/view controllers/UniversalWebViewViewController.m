@@ -50,7 +50,12 @@
 }
 
 -(void)loadSermonAudio:(NSString*)URL{
-	
+	if([URL rangeOfString:@"2009"].location != NSNotFound  || [URL rangeOfString:@"2010"].location != NSNotFound){
+		NSString *urlAddress = [@"http://www.justchristians.info" stringByAppendingString:URL];
+		NSString *refinedFinalURL = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+		_url = refinedFinalURL;
+	}
+	else if([URL rangeOfString:@"2009"].location == NSNotFound  || [URL rangeOfString:@"2010"].location == NSNotFound){
 	NSString *urlAddress = [@"http://www.justchristians.info/Sermons/" stringByAppendingString:[Sermon getSermonYear]];
 	NSString *nextURL = [urlAddress stringByAppendingString:URL];
 	NSString *finalURL = [nextURL stringByReplacingOccurrencesOfString:@"./" withString:@""];
@@ -58,6 +63,7 @@
 	NSString *secondRefinedURL = [refinedFinalURL stringByReplacingOccurrencesOfString:@"\n" withString:@"%20"];
 	_url = secondRefinedURL;
 	_scaleToFit = YES;
+	}
 }
 
 -(void)loadBulletinPDF:(NSString*)URL{
