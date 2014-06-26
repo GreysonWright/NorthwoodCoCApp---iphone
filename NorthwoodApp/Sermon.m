@@ -38,7 +38,7 @@ static NSString *sermonYear;
         [newSermons addObject:sermon];
 		
 		sermon.link = [element objectForKey:@"href"];
-		//NSLog(sermon.link);
+		NSLog(sermon.link);
     }
 	
     return newSermons;

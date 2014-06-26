@@ -27,13 +27,12 @@ static NSString *tweetURL;
 	
     NSMutableArray *newtweets = [[NSMutableArray alloc] initWithCapacity:0];
 	
-    for (TFHppleElement *element in tweetsNodes) {
-        
+    for (int i = 0; i<tweetsNodes.count; i++) {
+        TFHppleElement *element = [tweetsNodes objectAtIndex:i];
         Tweet *tweet = [[Tweet alloc] init];
         [newtweets addObject:tweet];
 		
 		tweet.tweetContent = [[element firstTextChild]content];
-		tweetURL = [element objectForKey:@"title"];
     }
 	
     return newtweets;
@@ -45,17 +44,18 @@ static NSString *tweetURL;
 	
     TFHpple *tweetsParser = [TFHpple hppleWithHTMLData:tweetsHtmlData];
 	
-    NSString *tweetsXpathQueryString = @"//div[@class='StreamItem js-stream-item']/div/div[2]/p/a";
+    NSString *tweetsXpathQueryString = @"//div[@class='ProfileTweet-contents']";//div[@class='StreamItem js-stream-item']/div/div[2]/p/a
     NSArray *tweetsNodes = [tweetsParser searchWithXPathQuery:tweetsXpathQueryString];
 	
     NSMutableArray *newtweets = [[NSMutableArray alloc] initWithCapacity:0];
 	
-    for (TFHppleElement *element in tweetsNodes) {
+   for (TFHppleElement *element in tweetsNodes) {
         
-        Tweet *tweet = [[Tweet alloc] init];
-        [newtweets addObject:tweet];
+	   Tweet *tweet = [[Tweet alloc] init];
+	   [newtweets addObject:tweet];
 		
-		tweetURL = [element objectForKey:@"title"];
+	   //tweetURL = [element objectForKey:@"title"];
+	   tweetURL = [[element firstChildWithTagName:@"p"]content];
     }
     return newtweets;
 }

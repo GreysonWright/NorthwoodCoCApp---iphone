@@ -11,6 +11,7 @@
 #import "Tweet.h"
 #import "TweetTableViewCell.h"
 #import "BigTweetViewController.h"
+#import "SettingsViewController.h"
 
 @interface HomeViewController (){
 	NSMutableArray *_contentObjects;
@@ -41,6 +42,7 @@
 		_contentObjects = [Tweet tweetObjects];
 		_URLObjects = [Tweet URLObjects];
 		_dateObjects = [Tweet dateObjects];
+		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }
     return self;
 }
@@ -110,4 +112,8 @@
     }
 }
 
+-(void)settingsTitleButtonTapped{
+	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+	[self.navigationController pushViewController:settingsView animated:YES];
+}
 @end

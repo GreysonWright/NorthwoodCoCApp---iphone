@@ -8,6 +8,7 @@
 
 #import "UniversalWebViewViewController.h"
 #import "Sermon.h"
+#import "SettingsViewController.h"
 
 @interface UniversalWebViewViewController (){
 	NSString *_url;
@@ -73,4 +74,8 @@
 	_scaleToFit = YES;
 }
 
+-(void)settingsTitleButtonTapped{
+	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+	[self.navigationController pushViewController:settingsView animated:YES];
+}
 @end

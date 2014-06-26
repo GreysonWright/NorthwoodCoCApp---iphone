@@ -19,6 +19,7 @@
 #import "Directory.h"
 #import "DirectoryTableViewCell.h"
 #import "UniversalWebViewViewController.h"
+#import "SettingsViewController.h"
 
 @interface NewsLoggedinViewController (){
 	NSMutableArray *_bulletinObjects;
@@ -82,6 +83,7 @@ static BOOL loggedin;
 		_selectedSegment = 0;
 		self.title=@"Members";
 		self.tabBarItem.title=self.title;
+		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }
     return self;
 }
@@ -254,5 +256,10 @@ static BOOL loggedin;
 		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 		appDelegate.tabBar.selectedIndex=0;
 	}
+}
+
+-(void)settingsTitleButtonTapped{
+	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+	[self.navigationController pushViewController:settingsView animated:YES];
 }
 @end

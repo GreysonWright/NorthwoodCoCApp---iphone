@@ -9,6 +9,7 @@
 #import "ContactUsViewController.h"
 #import "ContactUs.h"
 #import "ContactUsTableViewCell.h"
+#import "SettingsViewController.h"
 
 @interface ContactUsViewController (){
 	NSMutableArray *_titleObjects;
@@ -32,6 +33,7 @@
 		_titleObjects = [ContactUs titleObjects];
 		_nameObjects = [ContactUs nameObjects];
 		_emailObjects = [ContactUs emailObjects];
+		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }
     return self;
 }
@@ -86,5 +88,10 @@
 	[cell fillEmailWithData:contactEmail];
 	
     return cell;
+}
+
+-(void)settingsTitleButtonTapped{
+	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+	[self.navigationController pushViewController:settingsView animated:YES];
 }
 @end

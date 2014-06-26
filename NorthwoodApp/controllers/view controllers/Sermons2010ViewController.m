@@ -11,6 +11,7 @@
 #import "TFHpple.h"
 #import "SermonsTableViewCell.h"
 #import "UniversalWebViewViewController.h"
+#import "SettingsViewController.h"
 
 @interface Sermons2010ViewController (){
 	NSMutableArray *_linkObjects;
@@ -41,6 +42,7 @@
 		_dateObjects = [Sermon sermonDateObjects];
 		_titleObjects = [Sermon sermonTitleObjects];
 		_preacherObjects = [Sermon sermonPreacherObjects];
+		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }
     return self;
 }
@@ -73,13 +75,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if(self.title !=@"2012" && self.title !=@"2011"){
-	UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
-    [playBackWarning show];
-	_indexPathRow = indexPath.row;
+		if([_linksForWebView objectAtIndex:indexPath.row] != @"none" && [_linksForWebView objectAtIndex:indexPath.row] != @"N/A"){
+			
+			UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+			[playBackWarning show];
+			NSLog([_linksForWebView objectAtIndex:indexPath.row]);
+		}
+		else{
+			UIAlertView *noLinkWarning = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Unfortunately the sermon selected does not have audio." delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+			[noLinkWarning show];
+		}
+		_indexPathRow = indexPath.row;
 	}
 	else{
-		UIAlertView *loggoutWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Sorry, the audio in 2012 is download only. If you would like to listen to the audio please download it at www.justchristians.info/Sermons/2012Sermons." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-		[loggoutWarning show];
+		UIAlertView *noAudio = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Sorry, the audio in 2012 is download only. If you would like to listen to the audio please download it at www.justchristians.info/" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+		[noAudio show];
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -96,7 +106,7 @@
 	if(self.title != @"2012" && self.title != @"2011"){
 		Sermon *sermonLink = [_linkObjects objectAtIndex:indexPath.row];
 		[cell getLinkWithData:sermonLink];
-	[_linksForWebView addObject:sermonLink.link];
+		[_linksForWebView addObject:sermonLink.link];
 	}
 	
 	else
@@ -123,4 +133,8 @@
 	}
 }
 
+-(void)settingsTitleButtonTapped{
+	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+	[self.navigationController pushViewController:settingsView animated:YES];
+}
 @end

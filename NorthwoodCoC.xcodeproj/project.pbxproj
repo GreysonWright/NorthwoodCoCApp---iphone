@@ -473,7 +473,7 @@
 				2E52E3E71948AE0E00B46786 /* AppDelegate.m */,
 				2E4B16A11952094100641710 /* Models */,
 				2E41833C1950A78C006D52EC /* Cell Views */,
-				2E52E4301948BD9800B46786 /* controllers */,
+				2E52E4301948BD9800B46786 /* Controllers */,
 				2E4F92AE194B65B300BC23F2 /* HTML Parsing */,
 				2E52E3DE1948AE0E00B46786 /* Supporting Files */,
 				2E52E3E91948AE0E00B46786 /* Images.xcassets */,
@@ -511,13 +511,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2E52E4301948BD9800B46786 /* controllers */ = {
+		2E52E4301948BD9800B46786 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2E52E4331948BD9800B46786 /* view controllers */,
-				2E69A33C194E3D0C00890226 /* navigation view controllers */,
+				2E52E4331948BD9800B46786 /* View Controllers */,
+				2E69A33C194E3D0C00890226 /* Navigation Controllers */,
 				2E52E4321948BD9800B46786 /* other controllers */,
 			);
+			name = Controllers;
 			path = controllers;
 			sourceTree = "<group>";
 		};
@@ -530,7 +531,7 @@
 			path = "other controllers";
 			sourceTree = "<group>";
 		};
-		2E52E4331948BD9800B46786 /* view controllers */ = {
+		2E52E4331948BD9800B46786 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				2E1D6E66194F795D00819888 /* Settings */,
@@ -540,6 +541,7 @@
 				2E9CD72219562B2200822E1D /* Contact us */,
 				2E3F6B2C1957DE6E00EE95B1 /* Universal Web View */,
 			);
+			name = "View Controllers";
 			path = "view controllers";
 			sourceTree = "<group>";
 		};
@@ -561,18 +563,51 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		2E69A33C194E3D0C00890226 /* navigation view controllers */ = {
+		2E614501195BE0310015F7BD /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				2E69A33D194E3D0C00890226 /* HomeNavigationViewController.h */,
 				2E69A33E194E3D0C00890226 /* HomeNavigationViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		2E614502195BE0390015F7BD /* Members */ = {
+			isa = PBXGroup;
+			children = (
 				2E69A33F194E3D0C00890226 /* NewsNavigationViewController.h */,
 				2E69A340194E3D0C00890226 /* NewsNavigationViewController.m */,
+			);
+			name = Members;
+			sourceTree = "<group>";
+		};
+		2E614503195BE03F0015F7BD /* Sermons */ = {
+			isa = PBXGroup;
+			children = (
 				2E69A341194E3D0C00890226 /* SermonsNavigationViewController.h */,
 				2E69A342194E3D0C00890226 /* SermonsNavigationViewController.m */,
+			);
+			name = Sermons;
+			sourceTree = "<group>";
+		};
+		2E614504195BE0450015F7BD /* Contact */ = {
+			isa = PBXGroup;
+			children = (
 				2E9CD72319562C0C00822E1D /* ContactUsNavigationViewController.h */,
 				2E9CD72419562C0C00822E1D /* ContactUsNavigationViewController.m */,
 			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		2E69A33C194E3D0C00890226 /* Navigation Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E614501195BE0310015F7BD /* Home */,
+				2E614502195BE0390015F7BD /* Members */,
+				2E614503195BE03F0015F7BD /* Sermons */,
+				2E614504195BE0450015F7BD /* Contact */,
+			);
+			name = "Navigation Controllers";
 			path = "navigation view controllers";
 			sourceTree = "<group>";
 		};

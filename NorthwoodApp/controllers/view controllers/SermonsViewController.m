@@ -11,6 +11,7 @@
 #import "Sermon.h"
 #import "Sermons2010ViewController.h"
 #import "SermonDateTableViewCell.h"
+#import "SettingsViewController.h"
 
 @interface SermonsViewController (){
 	NSMutableArray *_years;
@@ -34,6 +35,7 @@
 		[_years addObject:@"2012"];
 		[_years addObject:@"2013"];
 		[_years addObject:@"2014"];
+		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
         // Custom initialization
     }
     return self;
@@ -122,4 +124,8 @@
 	}
 }
 
+-(void)settingsTitleButtonTapped{
+	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+	[self.navigationController pushViewController:settingsView animated:YES];
+}
 @end
