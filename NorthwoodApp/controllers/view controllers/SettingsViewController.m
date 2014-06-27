@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+
 @property (strong, nonatomic) IBOutlet UILabel *pushLabel;
 @property (strong, nonatomic) IBOutlet UILabel *groupLabel;
 @property (strong, nonatomic) IBOutlet UILabel *eventLabel;
@@ -24,27 +25,47 @@
 
 @implementation SettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		self.title=@"4";
+		self.title=@"Settings";
 		self.tabBarItem.title=self.title;
 		
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-	
-    // Do any additional setup after loading the view from its nib.
+- (void)viewDidLoad{
+	[self loadState];
+	[super viewDidLoad];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)saveState{
+	
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults]; //make it save the enabled thing to
+	
+	[userDefaults setBool:self.pushSwitch.isOn forKey:@"pushSwitch"];
+	[userDefaults setBool:self.groupSwitch.isOn forKey:@"groupSwitch"];
+	[userDefaults setBool:self.eventSwitch.isOn forKey:@"eventSwitch"];
+	[userDefaults setBool:self.tweetSwitch.isOn forKey:@"tweetSwitch"];
+	[userDefaults setBool:self.dutySwitch.isOn forKey:@"dutySwitch"];
+	
+	[userDefaults synchronize];
+}
+
+-(void)loadState{
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	
+	[self.pushSwitch setOn:[userDefaults boolForKey:@"pushSwitch"] animated:YES];
+	[self.groupSwitch setOn:[userDefaults boolForKey:@"groupSwitch"] animated:YES];
+	[self.eventSwitch setOn:[userDefaults boolForKey:@"eventSwitch"] animated:YES];
+	[self.tweetSwitch setOn:[userDefaults boolForKey:@"tweetSwitch"] animated:YES];
+	[self.dutySwitch setOn:[userDefaults boolForKey:@"dutySwitch"] animated:YES];
 }
 
 -(void)objectsEnabled:(BOOL)input{
@@ -63,13 +84,19 @@
 		[self objectsEnabled:YES];
 	else
 		[self objectsEnabled:NO];
+	
+	[self saveState];
 }
+
 - (IBAction)groupSwitchChanged:(id)sender {
 }
+
 - (IBAction)eventSwitchChanged:(id)sender {
 }
+
 - (IBAction)tweetSwitchChanged:(id)sender {
 }
+
 - (IBAction)dutySwitchChanged:(id)sender {
 }
 @end

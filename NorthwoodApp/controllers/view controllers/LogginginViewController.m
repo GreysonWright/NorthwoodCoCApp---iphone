@@ -39,10 +39,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)loginButtonTapped:(id)sender {
+	
 	[self dismissViewControllerAnimated:YES completion:nil];
 	[NewsLoggedinViewController setLoggedin:YES];
 }
+
 - (IBAction)cancelButtonTapped:(id)sender {
 	[self dismissViewControllerAnimated:YES completion:nil];
 	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
