@@ -13,6 +13,7 @@
 
 @synthesize tweetContent = _tweetContent;
 @synthesize date = _date;
+@synthesize URL = _URL;
 
 static NSString *tweetURL;
 int tweetCount;
@@ -35,34 +36,18 @@ int tweetCount;
         [newtweets addObject:tweet];
 		
 		tweet.tweetContent = [[element firstTextChild]content];
+		
+		if([[element firstChildWithTagName:@"a"] objectForKey:@"title"] == nil)
+			tweet.URL = @"none";
+		//NSLog(@"nil");
+		else
+			//NSLog(@"pew");
+			tweet.URL = [[element firstChildWithTagName:@"a"] objectForKey:@"title"]; //put this into an array and it worx
     }
 	
     return newtweets;
 }
 
-+(NSMutableArray*)URLObjects{
-	NSURL *tweetsUrl = [NSURL URLWithString:@"https://twitter.com/northwoodcoc"]; //*[@id="stream-item-tweet-433720654546747392"]/div/div[1]/div/span[2]/a
-    NSData *tweetsHtmlData = [NSData dataWithContentsOfURL:tweetsUrl];
-	
-    TFHpple *tweetsParser = [TFHpple hppleWithHTMLData:tweetsHtmlData];
-	
-    NSString *tweetsXpathQueryString = @"//div[@class='ProfileTweet-contents']/p";//div[@class='StreamItem js-stream-item']/div/div[2]/p/a
-    NSArray *tweetsNodes = [tweetsParser searchWithXPathQuery:tweetsXpathQueryString];
-	
-    NSMutableArray *newtweets = [[NSMutableArray alloc] initWithCapacity:0];
-	
-	for (int i = 0; i<tweetsNodes.count; i++) {
-        TFHppleElement *element = [tweetsNodes objectAtIndex:i];
-        Tweet *tweet = [[Tweet alloc] init];
-        [newtweets addObject:tweet];
-		if(element != nil)
-			tweetsUrl = @"none";
-		else
-			tweetURL = [element objectForKey:@"title"];
-		//tweetURL = [[element firstChildWithTagName:@"p"]content];
-    }
-    return newtweets;
-}
 
 +(NSMutableArray*)dateObjects{
 	NSURL *tweetsUrl = [NSURL URLWithString:@"https://twitter.com/northwoodcoc"];

@@ -15,7 +15,7 @@
 
 @interface HomeViewController (){
 	NSMutableArray *_contentObjects;
-	NSMutableArray *_URLObjects;
+	//NSMutableArray *_URLObjects;
 	NSMutableArray *_dateObjects;
 	NSMutableArray *_tweetContent;
 	NSMutableArray *_tweetDates;
@@ -35,12 +35,12 @@
 		self.title = @"Home";
 		self.tabBarItem.title=self.title;
 		_contentObjects = [[NSMutableArray alloc]init];
-		_URLObjects = [[NSMutableArray alloc]init];
+		//_URLObjects = [[NSMutableArray alloc]init];
 		_dateObjects = [[NSMutableArray alloc]init];
 		_tweetContent = [[NSMutableArray alloc]init];
 		_tweetDates = [[NSMutableArray alloc]init];
 		_contentObjects = [Tweet tweetObjects];
-		_URLObjects = [Tweet URLObjects];
+		//_URLObjects = [Tweet URLObjects];
 		_dateObjects = [Tweet dateObjects];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }

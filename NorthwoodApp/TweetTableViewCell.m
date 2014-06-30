@@ -31,8 +31,8 @@
 }
 
 -(void)fillWithData:(Tweet*)tweet{
-	if([Tweet getURLs] != nil)
-		self.contentLabel.text = [tweet.tweetContent stringByAppendingString:[Tweet getURLs]];
+	if(tweet.URL != @"none")
+		self.contentLabel.text = [tweet.tweetContent stringByAppendingString:tweet.URL];
 	else
 		self.contentLabel.text = tweet.tweetContent;
 }
