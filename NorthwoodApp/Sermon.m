@@ -38,7 +38,7 @@ static NSString *sermonYear;
         [newSermons addObject:sermon];
 		
 		sermon.link = [element objectForKey:@"href"];
-		NSLog(sermon.link);
+		//NSLog(sermon.link);
     }
 	
     return newSermons;
@@ -50,7 +50,7 @@ static NSString *sermonYear;
 	NSString *wholeURL = [secondString stringByAppendingString:@"Sermons/"];
 	finalURL = wholeURL;
 	sermonYear = yearInput;
-	NSLog(finalURL);
+	//NSLog(finalURL);
 }
 
 +(NSString*)getFinalURL{

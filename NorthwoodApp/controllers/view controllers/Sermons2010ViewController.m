@@ -22,6 +22,7 @@
 	NSMutableArray *_sermonsForWebView;
 	NSInteger _indexPathRow;
 }
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -75,17 +76,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if(self.title !=@"2012" && self.title !=@"2011"){
-		if([_linksForWebView objectAtIndex:indexPath.row] != @"none" && [_linksForWebView objectAtIndex:indexPath.row] != @"N/A"){
+		if(![[_linksForWebView objectAtIndex:indexPath.row]  isEqual: @"none"] && ![[_linksForWebView objectAtIndex:indexPath.row]  isEqual: @"N/A"]){
 			
 			UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
 			[playBackWarning show];
-			NSLog([_linksForWebView objectAtIndex:indexPath.row]);
+			//NSLog([_linksForWebView objectAtIndex:indexPath.row]);
 		}
 		else{
 			UIAlertView *noLinkWarning = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Unfortunately the sermon selected does not have audio." delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
 			[noLinkWarning show];
 		}
 		_indexPathRow = indexPath.row;
+		
 	}
 	else{
 		UIAlertView *noAudio = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Sorry, the audio in 2012 is download only. If you would like to listen to the audio please download it at www.justchristians.info/" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];

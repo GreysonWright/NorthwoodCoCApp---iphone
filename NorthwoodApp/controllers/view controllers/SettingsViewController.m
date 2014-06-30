@@ -38,6 +38,8 @@
 - (void)viewDidLoad{
 	[self loadState];
 	[super viewDidLoad];
+	if(self.pushSwitch.isOn == NO)
+		[self objectsEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -89,14 +91,18 @@
 }
 
 - (IBAction)groupSwitchChanged:(id)sender {
+	[self saveState];
 }
 
 - (IBAction)eventSwitchChanged:(id)sender {
+	[self saveState];
 }
 
 - (IBAction)tweetSwitchChanged:(id)sender {
+	[self saveState];
 }
 
 - (IBAction)dutySwitchChanged:(id)sender {
+	[self saveState];
 }
 @end

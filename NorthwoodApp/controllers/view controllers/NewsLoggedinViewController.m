@@ -82,7 +82,6 @@ static BOOL loggedin;
 		_addressObjects = [Directory adressObjects];
 		_selectedSegment = 0;
 		self.title=@"Members";
-		self.tabBarItem.title=self.title;
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }
     return self;
@@ -90,6 +89,7 @@ static BOOL loggedin;
 
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:YES];
+	loggedin = [[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"];
 	if(loggedin == NO){
 		self.segmentController.selectedSegmentIndex = 0;
 		_selectedSegment = 0;
@@ -99,7 +99,6 @@ static BOOL loggedin;
 	}
 	else if(loggedin == YES){
 		[self.tableView reloadData];
-		
 	}
 }
 
@@ -179,7 +178,8 @@ static BOOL loggedin;
 	UITableViewCell *returnThis;
 	
 	if(_selectedSegment == 0){ //bulletin
-	
+			self.navigationController.navigationBar.topItem.title = [@"Welcome, " stringByAppendingString:[[NSUserDefaults standardUserDefaults]objectForKey:@"username"]];
+			
 		BulletinTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BulletinCell"];
 		Bulletin *thisBulletin = [_bulletinObjects objectAtIndex:indexPath.row];
 		
@@ -253,6 +253,9 @@ static BOOL loggedin;
 	else{
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
 		loggedin = NO;
+		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loggedIn"];
+		[[NSUserDefaults standardUserDefaults] setObject:@"Members" forKey:@"username"];
+		[[NSUserDefaults standardUserDefaults]synchronize];
 		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 		appDelegate.tabBar.selectedIndex=0;
 	}

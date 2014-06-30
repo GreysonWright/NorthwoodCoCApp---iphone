@@ -64,6 +64,7 @@
 {
     return _years.count;
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SermonDateTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DateCell"];
 	NSString *newYear = [_years objectAtIndex:indexPath.row];
@@ -71,7 +72,7 @@
 		cell = [[SermonDateTableViewCell alloc] init];
     }
 	[cell fillCellWithDates:newYear];
-	NSLog(newYear);
+	//NSLog(newYear);
 	
     return cell;
 }
@@ -85,7 +86,6 @@
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 		[self.navigationController pushViewController:sermons2010View animated:YES];
 		sermons2010View.title=@"2009";
-		
 	}
 	if(row==1){
 		[Sermon makeFinalURLWith:@"2010"];
