@@ -123,7 +123,7 @@
 }
 
 -(void)requestTitleButtonTapped{
-	if([NewsLoggedinViewController getLoggedin] == YES){
+	if([[NSUserDefaults standardUserDefaults] boolForKey:@"loggedIn"] == YES){
 	MailRequestViewController *requestView = [[MailRequestViewController alloc]init];
 	[self.navigationController pushViewController:requestView animated:YES];
 	}

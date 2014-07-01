@@ -90,7 +90,7 @@
 		
 	}
 	else{
-		UIAlertView *noAudio = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Sorry, the audio in 2012 is download only. If you would like to listen to the audio please download it at www.justchristians.info/" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+		UIAlertView *noAudio = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Sorry, the audio in 2012 is download only. If you would like to listen to the audio please download it at www.justchristians.info/" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
 		[noAudio show];
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];

@@ -47,21 +47,13 @@
 		[wrongLogin show];
 		
 	}
-	else if([MailRequestViewController getRequest] == YES){
-		[self dismissViewControllerAnimated:YES completion:nil];
-		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
-		[[NSUserDefaults standardUserDefaults] setObject:[self.usernameBox text] forKey:@"username"];
-		[[NSUserDefaults standardUserDefaults]synchronize];
-		MailRequestViewController *requestView = [[MailRequestViewController alloc]init];
-		[self.navigationController pushViewController:requestView animated:YES];
-		[MailRequestViewController setRequesting:NO];
-	}
+	
 	else{
 		[self dismissViewControllerAnimated:YES completion:nil];
 		[NewsLoggedinViewController setLoggedin:YES];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
 		[[NSUserDefaults standardUserDefaults] setObject:[self.usernameBox text] forKey:@"username"];
-		[[NSUserDefaults standardUserDefaults]synchronize];
+		[[NSUserDefaults standardUserDefaults] synchronize];
 	}
 }
 
