@@ -31,6 +31,7 @@ static NSString *viewText;
 {
     [super viewDidLoad];
     self.textView.text = viewText;
+	self.textView.dataDetectorTypes = UIDataDetectorTypeLink;
 }
 
 - (void)didReceiveMemoryWarning
