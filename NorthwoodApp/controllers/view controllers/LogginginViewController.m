@@ -9,6 +9,7 @@
 #import "LogginginViewController.h"
 #import "NewsLoggedinViewController.h"
 #import "AppDelegate.h"
+#import "MailRequestViewController.h"
 
 @interface LogginginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameBox;
@@ -45,6 +46,15 @@
 		UIAlertView *wrongLogin = [[UIAlertView alloc]initWithTitle:@"Login Error" message:@"The username or password provided was incorrect." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
 		[wrongLogin show];
 		
+	}
+	else if([MailRequestViewController getRequest] == YES){
+		[self dismissViewControllerAnimated:YES completion:nil];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
+		[[NSUserDefaults standardUserDefaults] setObject:[self.usernameBox text] forKey:@"username"];
+		[[NSUserDefaults standardUserDefaults]synchronize];
+		MailRequestViewController *requestView = [[MailRequestViewController alloc]init];
+		[self.navigationController pushViewController:requestView animated:YES];
+		[MailRequestViewController setRequesting:NO];
 	}
 	else{
 		[self dismissViewControllerAnimated:YES completion:nil];

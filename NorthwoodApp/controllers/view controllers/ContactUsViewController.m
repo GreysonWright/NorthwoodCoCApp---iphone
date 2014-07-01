@@ -10,6 +10,9 @@
 #import "ContactUs.h"
 #import "ContactUsTableViewCell.h"
 #import "SettingsViewController.h"
+#import "MailRequestViewController.h"
+#import "LogginginViewController.h"
+#import "NewsLoggedinViewController.h"
 
 @interface ContactUsViewController (){
 	NSMutableArray *_titleObjects;
@@ -20,7 +23,6 @@
 @end
 
 @implementation ContactUsViewController
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,6 +36,8 @@
 		_nameObjects = [ContactUs nameObjects];
 		_emailObjects = [ContactUs emailObjects];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
+		
+		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
     }
     return self;
 }
@@ -93,5 +97,17 @@
 -(void)settingsTitleButtonTapped{
 	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
 	[self.navigationController pushViewController:settingsView animated:YES];
+}
+
+-(void)requestTitleButtonTapped{
+	if([NewsLoggedinViewController getLoggedin]){
+		MailRequestViewController *requestView = [[MailRequestViewController alloc]init];
+		[self.navigationController pushViewController:requestView animated:YES];
+	}
+	else{
+		[MailRequestViewController setRequesting:YES];
+		LogginginViewController *loginView = [[LogginginViewController alloc]init];
+		[self presentViewController:loginView animated:YES completion:NULL];
+	}
 }
 @end

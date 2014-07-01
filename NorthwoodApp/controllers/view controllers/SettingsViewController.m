@@ -15,11 +15,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *eventLabel;
 @property (strong, nonatomic) IBOutlet UILabel *tweetLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dutyLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dailyVerseLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *pushSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *groupSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *eventSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *tweetSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *dutySwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *dailyVerse;
 
 @end
 
@@ -56,7 +58,7 @@
 	[userDefaults setBool:self.eventSwitch.isOn forKey:@"eventSwitch"];
 	[userDefaults setBool:self.tweetSwitch.isOn forKey:@"tweetSwitch"];
 	[userDefaults setBool:self.dutySwitch.isOn forKey:@"dutySwitch"];
-	
+	[userDefaults setBool:self.dailyVerse.isOn forKey:@"verseSwitch"];
 	[userDefaults synchronize];
 }
 
@@ -68,6 +70,7 @@
 	[self.eventSwitch setOn:[userDefaults boolForKey:@"eventSwitch"] animated:YES];
 	[self.tweetSwitch setOn:[userDefaults boolForKey:@"tweetSwitch"] animated:YES];
 	[self.dutySwitch setOn:[userDefaults boolForKey:@"dutySwitch"] animated:YES];
+	[self.dailyVerse setOn:[userDefaults boolForKey:@"verseSwitch"] animated:YES];
 }
 
 -(void)objectsEnabled:(BOOL)input{
@@ -79,6 +82,8 @@
 	self.tweetLabel.enabled = input;
 	self.dutySwitch.enabled = input;
 	self.dutyLabel.enabled = input;
+	self.dailyVerse.enabled = input;
+	self.dailyVerseLabel.enabled = input;
 }
 
 - (IBAction)pushSwitchChanged:(id)sender {
@@ -103,6 +108,10 @@
 }
 
 - (IBAction)dutySwitchChanged:(id)sender {
+	[self saveState];
+}
+
+- (IBAction)verseSwitchChanged:(id)sender {
 	[self saveState];
 }
 @end

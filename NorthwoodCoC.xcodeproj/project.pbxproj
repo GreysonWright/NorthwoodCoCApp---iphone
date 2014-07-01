@@ -60,6 +60,8 @@
 		2E52E56B1959F7A800CC0BD4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E56A1959F7A800CC0BD4 /* AVFoundation.framework */; };
 		2E52E56F1959F95100CC0BD4 /* BigTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E56D1959F95100CC0BD4 /* BigTweetViewController.m */; };
 		2E52E5701959F95100CC0BD4 /* BigTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E56E1959F95100CC0BD4 /* BigTweetViewController.xib */; };
+		2E5B18F01962588300E96F61 /* MailRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5B18EE1962588300E96F61 /* MailRequestViewController.m */; };
+		2E5B18F11962588300E96F61 /* MailRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */; };
 		2E69A33B194E3B1A00890226 /* Sermon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33A194E3B1A00890226 /* Sermon.m */; };
 		2E69A345194E3D0C00890226 /* HomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33E194E3D0C00890226 /* HomeNavigationViewController.m */; };
 		2E69A346194E3D0C00890226 /* NewsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A340194E3D0C00890226 /* NewsNavigationViewController.m */; };
@@ -171,6 +173,9 @@
 		2E52E56C1959F95100CC0BD4 /* BigTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigTweetViewController.h; sourceTree = "<group>"; };
 		2E52E56D1959F95100CC0BD4 /* BigTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigTweetViewController.m; sourceTree = "<group>"; };
 		2E52E56E1959F95100CC0BD4 /* BigTweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTweetViewController.xib; sourceTree = "<group>"; };
+		2E5B18ED1962588300E96F61 /* MailRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailRequestViewController.h; sourceTree = "<group>"; };
+		2E5B18EE1962588300E96F61 /* MailRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailRequestViewController.m; sourceTree = "<group>"; };
+		2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailRequestViewController.xib; sourceTree = "<group>"; };
 		2E69A339194E3B1A00890226 /* Sermon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sermon.h; sourceTree = "<group>"; };
 		2E69A33A194E3B1A00890226 /* Sermon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sermon.m; sourceTree = "<group>"; };
 		2E69A33D194E3D0C00890226 /* HomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationViewController.h; sourceTree = "<group>"; };
@@ -534,6 +539,7 @@
 		2E52E4331948BD9800B46786 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E5B18F21962588900E96F61 /* Mail Request */,
 				2E1D6E66194F795D00819888 /* Settings */,
 				2E1D6E63194F793D00819888 /* Home */,
 				2E1D6E64194F794800819888 /* Sermons */,
@@ -561,6 +567,16 @@
 				2E3472391953BD4A00AC769B /* Twitter2x.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		2E5B18F21962588900E96F61 /* Mail Request */ = {
+			isa = PBXGroup;
+			children = (
+				2E5B18ED1962588300E96F61 /* MailRequestViewController.h */,
+				2E5B18EE1962588300E96F61 /* MailRequestViewController.m */,
+				2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */,
+			);
+			name = "Mail Request";
 			sourceTree = "<group>";
 		};
 		2E614501195BE0310015F7BD /* Home */ = {
@@ -807,6 +823,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E5B18F11962588300E96F61 /* MailRequestViewController.xib in Resources */,
 				2E52E3E21948AE0E00B46786 /* InfoPlist.strings in Resources */,
 				2E4BC862195AA29B009D30FA /* NorthwoodSplash960.png in Resources */,
 				2E6CD0BF19568BD4007B7BF8 /* ContactUsTableViewCell.xib in Resources */,
@@ -902,6 +919,7 @@
 				2E52E56F1959F95100CC0BD4 /* BigTweetViewController.m in Sources */,
 				2E9CD7281956437400822E1D /* Directory.m in Sources */,
 				2E4F92B7194B65B300BC23F2 /* XPathQuery.m in Sources */,
+				2E5B18F01962588300E96F61 /* MailRequestViewController.m in Sources */,
 				2E4B16B91952274000641710 /* Tweet.m in Sources */,
 				2E41833A1950A77F006D52EC /* SermonsTableViewCell.m in Sources */,
 				2E3F6B2A1957DE6500EE95B1 /* UniversalWebViewViewController.m in Sources */,
