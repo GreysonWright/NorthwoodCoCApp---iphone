@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) IBOutlet UITextField *blind;
+@property (strong, nonatomic) IBOutlet UIButton *submitButton;
 
 @end
 
@@ -39,6 +40,22 @@ static BOOL requesting;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"done" style:UIBarButtonItemStylePlain target:self action:@selector(doneTitleButtonTapped)];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if([textView.text  isEqual: @""]){
+		self.blind.hidden = NO;
+		self.submitButton.enabled = NO;
+	}
+	
+	else{
+		self.blind.hidden = YES;
+		self.submitButton.enabled = YES;
+	}
+}
+
 - (IBAction)submitButtonPressed:(id)sender {
 	
 	NSLog(@"submit stuff yayayaya");
@@ -49,13 +66,17 @@ static BOOL requesting;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	[self.navigationController popToRootViewControllerAnimated:YES];
 	/*if(buttonIndex == 0){
-		NSLog(@"User cancelled logout");
+		NSLog(@"i dont remember what this does");
 	}
 	else{
 		NSLog(@"impossible");
 	} */
 }
 
+-(void)doneTitleButtonTapped{
+	[self.textView resignFirstResponder];
+	self.navigationItem.rightBarButtonItem = nil;
+}
 
 +(BOOL)getRequest{
 	return requesting;

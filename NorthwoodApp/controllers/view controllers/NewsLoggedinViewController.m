@@ -161,6 +161,7 @@ static BOOL loggedin;
 		UniversalWebViewViewController *webView= [[UniversalWebViewViewController alloc]init];
 		[webView loadBulletinPDF:[_linksForWebView objectAtIndex:indexPath.row]];
 		[self.navigationController pushViewController:webView animated:YES];
+		NSLog(@"%d", indexPath.row);
 	}
 	else if(_selectedSegment == 1){
 		NSLog(@"do nothing");
@@ -258,6 +259,7 @@ static BOOL loggedin;
 		[[NSUserDefaults standardUserDefaults]synchronize];
 		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 		appDelegate.tabBar.selectedIndex=0;
+
 	}
 }
 

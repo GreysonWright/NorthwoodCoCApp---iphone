@@ -45,7 +45,6 @@
 	if([self.usernameBox.text  isEqual: @""] && [self.passwordBox.text  isEqual: @""]){
 		UIAlertView *wrongLogin = [[UIAlertView alloc]initWithTitle:@"Login Error" message:@"The username or password provided was incorrect." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
 		[wrongLogin show];
-		
 	}
 	
 	else{

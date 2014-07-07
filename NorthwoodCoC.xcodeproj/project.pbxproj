@@ -521,31 +521,32 @@
 			children = (
 				2E52E4331948BD9800B46786 /* View Controllers */,
 				2E69A33C194E3D0C00890226 /* Navigation Controllers */,
-				2E52E4321948BD9800B46786 /* other controllers */,
+				2E52E4321948BD9800B46786 /* tab bar controller */,
 			);
 			name = Controllers;
 			path = controllers;
 			sourceTree = "<group>";
 		};
-		2E52E4321948BD9800B46786 /* other controllers */ = {
+		2E52E4321948BD9800B46786 /* tab bar controller */ = {
 			isa = PBXGroup;
 			children = (
 				2E52E4281948B8F800B46786 /* TabBarController.h */,
 				2E52E4291948B8F800B46786 /* TabBarController.m */,
 			);
+			name = "tab bar controller";
 			path = "other controllers";
 			sourceTree = "<group>";
 		};
 		2E52E4331948BD9800B46786 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E3F6B2C1957DE6E00EE95B1 /* Universal Web View */,
 				2E5B18F21962588900E96F61 /* Mail Request */,
 				2E1D6E66194F795D00819888 /* Settings */,
 				2E1D6E63194F793D00819888 /* Home */,
 				2E1D6E64194F794800819888 /* Sermons */,
 				2E1D6E65194F795400819888 /* Members */,
 				2E9CD72219562B2200822E1D /* Contact us */,
-				2E3F6B2C1957DE6E00EE95B1 /* Universal Web View */,
 			);
 			name = "View Controllers";
 			path = "view controllers";
@@ -1069,8 +1070,10 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = NorthwoodCoC;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "B1CBF692-B1A6-4CB1-97DA-9E947CB208F7";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1093,8 +1096,10 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = NorthwoodCoC;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "B1CBF692-B1A6-4CB1-97DA-9E947CB208F7";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

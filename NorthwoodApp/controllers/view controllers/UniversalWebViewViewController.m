@@ -36,7 +36,7 @@
 	[self.webView loadRequest:requestObj];
 	self.title = _title;
 	if(_scaleToFit == YES){
-	self.webView.scalesPageToFit = YES;
+		self.webView.scalesPageToFit = YES;
 		_scaleToFit=NO;
 	}
 	else if(_scaleToFit == NO){

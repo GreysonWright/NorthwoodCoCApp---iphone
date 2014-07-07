@@ -28,16 +28,6 @@
     self.window.backgroundColor = [UIColor yellowColor];
     [self.window makeKeyAndVisible];
 	
-	/*[[AVAudioSession sharedInstance] setDelegate:self];
-	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-	[[AVAudioSession sharedInstance] setActive:YES error:nil];
-	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-	
-	UInt32 size = sizeof(CFStringRef);
-	CFStringRef route;
-	AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &size, &route);
-	NSLog(@"route = %@", route); */
-	
 	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
 	
 	NSError *setCategoryError = nil;
