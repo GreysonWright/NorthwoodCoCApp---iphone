@@ -3,7 +3,7 @@
 //  NorthwoodCoC
 //
 //  Created by greyson on 6/21/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "ContactUsTableViewCell.h"

@@ -3,7 +3,7 @@
 //  NorthwoodApp
 //
 //  Created by greyson on 6/17/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "PrayerListTableViewCell.h"
@@ -12,7 +12,6 @@
 
 -(instancetype)init{
     self=[super init];
-    //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PrayerListTableViewCell class]) owner:nil options:nil][0];
     
     return self;

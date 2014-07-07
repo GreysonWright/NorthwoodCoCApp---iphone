@@ -782,8 +782,9 @@
 		2E52E3CC1948AE0E00B46786 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = SilentDoorHinges;
+				ORGANIZATIONNAME = "Greyson Wright";
 				TargetAttributes = {
 					2E52E3D31948AE0E00B46786 = {
 						DevelopmentTeam = 2SP6H22NCZ;
