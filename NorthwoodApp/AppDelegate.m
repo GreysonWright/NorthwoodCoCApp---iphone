@@ -21,6 +21,36 @@
 
 @implementation AppDelegate
 
+int _alert;
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if(buttonIndex == 0){
+		if(_alert == 0){
+			NSLog(@"no push notifications");
+			UIAlertView *currentLocationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"\"Northwood\" would like to use your current location." delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+			[currentLocationAlert show];
+			_alert = 1;
+		}
+		else if(_alert == 1){
+			NSLog(@"do nothing");
+		}
+	}
+	else{
+		if(_alert == 0){
+			NSLog(@"push notifications enabled");
+			UIAlertView *currentLocationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"\"Northwood\" would like to use your current location." delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+			[currentLocationAlert show];
+			_alert = 1;
+		}
+		else if(_alert == 1){
+			NSLog(@"do stuff");
+		}
+	}
+	
+	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notFirstLaunch"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -62,6 +92,12 @@
 	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, contactUsNav]];
 	[self.window setRootViewController:self.tabBar];
 	
+	if([[NSUserDefaults standardUserDefaults] boolForKey:@"notFirstLaunch"] == NO){
+		UIAlertView *pushNotificationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"Would You like to receive push notifications?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+		[pushNotificationAlert show];
+		_alert = 0;
+
+	}
     return YES;
 }
 
