@@ -44,14 +44,14 @@
         ContactUs *contact = [[ContactUs alloc] init];
         [newcontact addObject:contact];
 		
-		contact.title = [[element firstChild]content]; //use this to get the url hopefully
+		contact.title = [[element firstChild]content];
 		
 		/*for (TFHppleElement *element2 in contactNodes2) {
 			
 			ContactUs *contact2 = [[ContactUs alloc] init];
 			[newcontact addObject:contact2];
 			
-			contact2.name = [[element2 firstChild]content]; //use this to get the url hopefully
+			contact2.name = [[element2 firstChild]content];
 		} */
     }
 	
@@ -75,7 +75,7 @@
         ContactUs *contact = [[ContactUs alloc] init];
         [newcontact addObject:contact];
 		
-		contact.name = [[element firstChild]content]; //use this to get the url hopefully
+		contact.name = [[element firstChild]content];
     }
 	
     return newcontact;
@@ -99,7 +99,7 @@
         ContactUs *contact = [[ContactUs alloc] init];
         [newcontact addObject:contact];
 		
-		contact.email = [element objectForKey:@"href"]; //use this to get the url hopefully
+		contact.email = [element objectForKey:@"href"];
     }
 	
     return newcontact;

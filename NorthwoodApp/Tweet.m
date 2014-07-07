@@ -42,7 +42,7 @@ int tweetCount;
 		//NSLog(@"nil");
 		else
 			//NSLog(@"pew");
-			tweet.URL = [[element firstChildWithTagName:@"a"] objectForKey:@"title"]; //put this into an array and it worx
+			tweet.URL = [[element firstChildWithTagName:@"a"] objectForKey:@"title"];
     }
 	
     return newtweets;

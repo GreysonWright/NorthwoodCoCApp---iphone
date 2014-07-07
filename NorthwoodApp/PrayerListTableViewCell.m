@@ -32,7 +32,7 @@
 }
 
 -(void)loadWebPage:(NSString*)URL{
-	NSLog(URL);
+	//NSLog(URL);
 	NSString *urlAddress = [@"http://www.justchristians.info" stringByAppendingString:URL];
 	NSURL *url = [NSURL URLWithString:urlAddress];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];

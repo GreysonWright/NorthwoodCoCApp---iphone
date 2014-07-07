@@ -83,6 +83,7 @@
 		2E9CD72119562B1B00822E1D /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9CD71F19562B1B00822E1D /* ContactUsViewController.xib */; };
 		2E9CD72519562C0C00822E1D /* ContactUsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CD72419562C0C00822E1D /* ContactUsNavigationViewController.m */; };
 		2E9CD7281956437400822E1D /* Directory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CD7271956437400822E1D /* Directory.m */; };
+		2E9EFB5D196B4F4C003E7468 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */; };
 		2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */; };
 		2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */; };
 		EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AED5A75DB11B4E9AA554DEBD /* libPods.a */; };
@@ -211,6 +212,7 @@
 		2E9CD72419562C0C00822E1D /* ContactUsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsNavigationViewController.m; sourceTree = "<group>"; };
 		2E9CD7261956437400822E1D /* Directory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Directory.h; sourceTree = "<group>"; };
 		2E9CD7271956437400822E1D /* Directory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Directory.m; sourceTree = "<group>"; };
+		2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2EA33E451955FA4D004E222D /* NorthwoodCoC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NorthwoodCoC.entitlements; sourceTree = "<group>"; };
 		2EBC92671951F8A600758A1E /* BulletinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinTableViewCell.h; sourceTree = "<group>"; };
 		2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinTableViewCell.m; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 		2E52E3CB1948AE0E00B46786 = {
 			isa = PBXGroup;
 			children = (
+				2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */,
 				2EA33E451955FA4D004E222D /* NorthwoodCoC.entitlements */,
 				2E205E91194B84840092C8BF /* libxml2.dylib */,
 				2E52E3DD1948AE0E00B46786 /* NorthwoodApp */,
@@ -838,6 +841,7 @@
 				2E205E9C194B8DD90092C8BF /* SermonsViewController.xib in Resources */,
 				2E4B16AB19521D3500641710 /* DutyRosterTableViewCell.xib in Resources */,
 				2E3F6B2B1957DE6500EE95B1 /* UniversalWebViewViewController.xib in Resources */,
+				2E9EFB5D196B4F4C003E7468 /* Default-568h@2x.png in Resources */,
 				2E1D6E70194F79A400819888 /* Sermons2010ViewController.xib in Resources */,
 				2E52E5701959F95100CC0BD4 /* BigTweetViewController.xib in Resources */,
 				2E4BC857195A9AB7009D30FA /* NorthwoodCoCIcon80x80.png in Resources */,
