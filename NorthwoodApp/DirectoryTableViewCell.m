@@ -31,23 +31,23 @@
     // Configure the view for the selected state
 }
 
--(void)fillNameWithData:(Directory*)name{
+-(void)fillNameWithData:(NSString*)name{
 	self.nameLabel.text = name;
 }
 
--(void)fillTitleWithData:(Directory*)title{
+-(void)fillTitleWithData:(NSString*)title{
 	self.titleLabel.text = title;
 }
 
--(void)fillPhoneWithData:(Directory*)phone{
+-(void)fillPhoneWithData:(NSString*)phone{
 	self.phoneLabel.text = phone;
 }
 
--(void)fillEmailWithData:(Directory*)email{
+-(void)fillEmailWithData:(NSString*)email{
 	self.emailLabel.text = email;
 }
 
--(void)fillAddressWithData:(Directory*)address{
+-(void)fillAddressWithData:(NSString*)address{
 	self.addressLabel.text = address;
 }
 

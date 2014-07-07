@@ -48,7 +48,7 @@
 
 -(void)getLinkWithData:(Sermon*)link{
 	_sermonURL = link.link;
-	NSLog(link.link);
+	//NSLog(link.link);
 }
 
 

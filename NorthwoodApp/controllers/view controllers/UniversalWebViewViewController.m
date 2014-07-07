@@ -32,7 +32,7 @@
     [super viewDidLoad];
 	NSURL *url = [NSURL URLWithString:_url];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-	NSLog(_url);
+	//NSLog(_url);
 	[self.webView loadRequest:requestObj];
 	self.title = _title;
 	if(_scaleToFit == YES){

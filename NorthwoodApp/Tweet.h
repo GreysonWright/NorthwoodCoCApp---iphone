@@ -14,7 +14,6 @@
 @property (nonatomic, copy) NSString *date;
 @property (nonatomic, copy) NSString *URL;
 +(NSMutableArray*)tweetObjects;
-+(NSMutableArray*)URLObjects;
 +(NSMutableArray*)dateObjects;
 +(NSString*)getURLs;
 
