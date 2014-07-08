@@ -38,12 +38,10 @@
 		self.title = @"Home";
 		self.tabBarItem.title=self.title;
 		_contentObjects = [[NSMutableArray alloc]init];
-		//_URLObjects = [[NSMutableArray alloc]init];
 		_dateObjects = [[NSMutableArray alloc]init];
 		_tweetContent = [[NSMutableArray alloc]init];
 		_tweetDates = [[NSMutableArray alloc]init];
 		_contentObjects = [Tweet tweetObjects];
-		//_URLObjects = [Tweet URLObjects];
 		_dateObjects = [Tweet dateObjects];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
@@ -55,13 +53,13 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
 	
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:YES];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

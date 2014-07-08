@@ -10,6 +10,7 @@
 #import "NewsLoggedinViewController.h"
 #import "AppDelegate.h"
 #import "MailRequestViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LogginginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameBox;

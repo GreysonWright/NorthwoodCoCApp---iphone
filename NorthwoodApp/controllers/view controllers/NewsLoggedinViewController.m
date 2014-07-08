@@ -95,10 +95,11 @@ static BOOL loggedin;
 		_selectedSegment = 0;
 		LogginginViewController *logginView = [[LogginginViewController alloc]init];
 		[self presentViewController:logginView animated:YES completion:nil];
-		[self.tableView reloadData];
+		//[self.tableView reloadData];
 	}
 	else if(loggedin == YES){
-		[self.tableView reloadData];
+		//[self.tableView reloadData];
+		NSLog(@"do nothing");
 	}
 }
 

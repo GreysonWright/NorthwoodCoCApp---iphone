@@ -253,9 +253,7 @@
 		2E1D6E63194F793D00819888 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				2E52E4341948BD9800B46786 /* HomeViewController.h */,
-				2E52E4351948BD9800B46786 /* HomeViewController.m */,
-				2E52E4361948BD9800B46786 /* HomeViewController.xib */,
+				2E632A8E196C811000B18C66 /* Home View */,
 				2E4BC850195A7832009D30FA /* Tweet Sub View */,
 			);
 			name = Home;
@@ -617,6 +615,16 @@
 				2E9CD72419562C0C00822E1D /* ContactUsNavigationViewController.m */,
 			);
 			name = Contact;
+			sourceTree = "<group>";
+		};
+		2E632A8E196C811000B18C66 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				2E52E4341948BD9800B46786 /* HomeViewController.h */,
+				2E52E4351948BD9800B46786 /* HomeViewController.m */,
+				2E52E4361948BD9800B46786 /* HomeViewController.xib */,
+			);
+			name = "Home View";
 			sourceTree = "<group>";
 		};
 		2E69A33C194E3D0C00890226 /* Navigation Controllers */ = {
