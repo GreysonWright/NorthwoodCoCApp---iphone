@@ -16,11 +16,12 @@
                     <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2q6-hB-nqi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="417"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1764705882" green="0.1764705882" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                     </webView>
                 </subviews>
-                <color key="backgroundColor" red="0.1764705882" green="0.1764705882" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="webView" destination="2q6-hB-nqi" id="ITR-l2-NgX"/>
             </connections>

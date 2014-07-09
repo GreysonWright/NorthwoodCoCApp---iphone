@@ -19,7 +19,7 @@
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Sp-nC-9Eb">
                     <rect key="frame" x="0.0" y="66" width="320" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.1764705882" green="0.1764705882" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <segments>
                         <segment title="Bulletins"/>
                         <segment title="Prayer List"/>
@@ -33,16 +33,16 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="iNK-v9-B0J">
                     <rect key="frame" x="0.0" y="102" width="320" height="418"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.1764705882" green="0.1764705882" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <color key="sectionIndexBackgroundColor" red="0.1764705882" green="0.1764705882" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="14p-Qc-6Ut"/>
                         <outlet property="delegate" destination="-1" id="mSX-Gu-KrF"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.1764705882" green="0.1764705882" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

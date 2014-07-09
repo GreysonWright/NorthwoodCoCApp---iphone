@@ -87,7 +87,8 @@ int _alert;
 		//tabBar
 	self.tabBar=[[TabBarController alloc]init];
 	self.tabBar.tabBar.translucent=NO;
-	self.tabBar.tabBar.barTintColor = [UIColor colorWithRed:37.0/255.0f green:37.0/255.0f blue:38.0/255.0f alpha:1];
+	self.tabBar.tabBar.barTintColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
+	
 	self.tabBar.tabBar.tintColor = [UIColor whiteColor];
 	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, contactUsNav]];
 	[self.window setRootViewController:self.tabBar];

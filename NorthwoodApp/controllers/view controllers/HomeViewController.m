@@ -18,7 +18,6 @@
 
 @interface HomeViewController (){
 	NSMutableArray *_contentObjects;
-	//NSMutableArray *_URLObjects;
 	NSMutableArray *_dateObjects;
 	NSMutableArray *_tweetContent;
 	NSMutableArray *_tweetDates;
