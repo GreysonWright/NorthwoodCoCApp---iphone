@@ -29,8 +29,34 @@
 
 @implementation Sermons2010ViewController
 
+/*-(void)loadingViewSetup{
+	if(!_loadingView)
+	{
+		_loadingView = [[UIView alloc] initWithFrame:self.view.frame];
+		[_loadingView setBackgroundColor:[UIColor blackColor]];
+		
+		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+		[indicator setFrame:CGRectMake(( 10), ( 10), 300, 400)];
+		
+		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((110), (130), 100, 30)];
+		loadingLabel.textColor = [UIColor whiteColor];
+		[loadingLabel setTextAlignment:UITextAlignmentCenter];
+		loadingLabel.text = @"Loading";
+		
+		// you will probably need to adjust those frame values to get it centered
+		
+		[_loadingView addSubview:indicator];
+		[_loadingView addSubview:loadingLabel];
+		
+		[indicator startAnimating];
+	}
+	
+	[self.tableView addSubview:_loadingView];
+} */
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+	NSLog(@"initwithnibname");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		_linkObjects = [[NSMutableArray alloc]init];
@@ -51,7 +77,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self.tableView reloadData];
+	NSLog(@"view did load");
+	/*dispatch_async(dispatch_get_main_queue(), ^{
+	
+		[self loadingViewSetup];
+		
+	}); */
+	
+	dispatch_async(dispatch_get_main_queue(), ^{
+		
+		[self.tableView reloadData];
+			
+	});
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,7 +134,8 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+   
+	NSLog(@"table view");
 	SermonsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SermonCell"];
 	Sermon *sermonPreacher = [_preacherObjects objectAtIndex:indexPath.row];
 	Sermon *sermonTitle = [_titleObjects objectAtIndex:indexPath.row];
@@ -113,7 +151,6 @@
 	
 	else
 		NSLog(@"2012 or 2011");
-		
 	[cell fillSermonWithData:sermonTitle];
 	[cell fillDateWithData:sermonDate];
 	[cell fillNameWithData:sermonPreacher];

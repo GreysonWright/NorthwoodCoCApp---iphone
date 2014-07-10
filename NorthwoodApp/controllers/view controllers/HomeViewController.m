@@ -23,12 +23,15 @@
 	NSMutableArray *_tweetDates;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property UIRefreshControl *refreshControl;
 
 @end
 
 @implementation HomeViewController
 
-
+-(void)loadStuff{
+	[self.refreshControl endRefreshing];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,13 +55,14 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	//[self.tableView reloadData];
+	self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableView.frame.size.width, 60)];
+    [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 	
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:YES];
-	//[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

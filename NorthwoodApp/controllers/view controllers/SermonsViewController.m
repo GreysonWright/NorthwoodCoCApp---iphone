@@ -17,10 +17,35 @@
 	NSMutableArray *_years;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIView *loadingView;
 
 @end
 
-@implementation SermonsViewController //push to a webview with the like with the sound
+@implementation SermonsViewController
+
+-(void)loadingViewSetup{
+	if(!_loadingView)
+	{
+		_loadingView = [[UIView alloc] initWithFrame:self.view.frame];
+		_loadingView.alpha = .85;
+		[_loadingView setBackgroundColor:[UIColor blackColor]];
+		
+		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+		
+		[indicator setFrame:CGRectMake(( 10), ( 10), 300, 400)];
+		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (130), 320, 30)];
+		loadingLabel.textColor = [UIColor whiteColor];
+		[loadingLabel setTextAlignment:UITextAlignmentCenter];
+		loadingLabel.text = @"Loading";
+		
+		[_loadingView addSubview:indicator];
+		[_loadingView addSubview:loadingLabel];
+		
+		[indicator startAnimating];
+	}
+	
+	[self.tableView addSubview:_loadingView];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,7 +61,6 @@
 		[_years addObject:@"2013"];
 		[_years addObject:@"2014"];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
-        // Custom initialization
     }
     return self;
 }
@@ -77,51 +101,63 @@
     return cell;
 }
 
+
+
+-(void)viewDidDisappear:(BOOL)animated{
+	[_loadingView removeFromSuperview];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = [indexPath row];
-	if(row==0){
-		[Sermon makeFinalURLWith:@"2009"];
-		Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-		[self.navigationController pushViewController:sermons2010View animated:YES];
-		sermons2010View.title=@"2009";
-	}
-	if(row==1){
-		[Sermon makeFinalURLWith:@"2010"];
-		Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-		[self.navigationController pushViewController:sermons2010View animated:YES];
-		sermons2010View.title=@"2010";
-	}
-	if(row==2){
-		[Sermon makeFinalURLWith:@"2011"];
-		Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-		[self.navigationController pushViewController:sermons2010View animated:YES];
-		sermons2010View.title=@"2011";
-	}
-	if(row==3){
-		[Sermon makeFinalURLWith:@"2012"];
-		Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-		[self.navigationController pushViewController:sermons2010View animated:YES];
-		sermons2010View.title=@"2012";
-	}
-	if(row==4){
-		[Sermon makeFinalURLWith:@"2013"];
-		Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-		[self.navigationController pushViewController:sermons2010View animated:YES];
-		sermons2010View.title=@"2013";
-	}
-	if(row==5){
-		[Sermon makeFinalURLWith:@"2014"];
-		Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-		[self.navigationController pushViewController:sermons2010View animated:YES];
-		sermons2010View.title=@"2014";
-	}
+	
+	[self loadingViewSetup];
+	
+	dispatch_async(dispatch_get_main_queue(), ^{
+		NSInteger row = [indexPath row];
+		
+		if(row==0){
+			[Sermon makeFinalURLWith:@"2009"];
+			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
+			[tableView deselectRowAtIndexPath:indexPath animated:YES];
+			[self.navigationController pushViewController:sermons2010View animated:YES];
+			sermons2010View.title=@"2009";
+		}
+		else if(row==1){
+			[Sermon makeFinalURLWith:@"2010"];
+			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
+			[tableView deselectRowAtIndexPath:indexPath animated:YES];
+			[self.navigationController pushViewController:sermons2010View animated:YES];
+			sermons2010View.title=@"2010";
+		}
+		if(row==2){
+			[Sermon makeFinalURLWith:@"2011"];
+			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
+			[tableView deselectRowAtIndexPath:indexPath animated:YES];
+			[self.navigationController pushViewController:sermons2010View animated:YES];
+			sermons2010View.title=@"2011";
+		}
+		if(row==3){
+			[Sermon makeFinalURLWith:@"2012"];
+			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
+			[tableView deselectRowAtIndexPath:indexPath animated:YES];
+			[self.navigationController pushViewController:sermons2010View animated:YES];
+			sermons2010View.title=@"2012";
+		}
+		if(row==4){
+			[Sermon makeFinalURLWith:@"2013"];
+			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
+			[tableView deselectRowAtIndexPath:indexPath animated:YES];
+			[self.navigationController pushViewController:sermons2010View animated:YES];
+			sermons2010View.title=@"2013";
+		}
+		if(row==5){
+			[Sermon makeFinalURLWith:@"2014"];
+			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
+			[tableView deselectRowAtIndexPath:indexPath animated:YES];
+			[self.navigationController pushViewController:sermons2010View animated:YES];
+			sermons2010View.title=@"2014";
+		}
+	});
 }
 
 -(void)settingsTitleButtonTapped{
