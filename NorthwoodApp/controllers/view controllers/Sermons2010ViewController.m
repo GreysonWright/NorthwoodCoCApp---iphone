@@ -24,39 +24,25 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property UIRefreshControl *refreshControl;
 
 @end
 
 @implementation Sermons2010ViewController
 
-/*-(void)loadingViewSetup{
-	if(!_loadingView)
-	{
-		_loadingView = [[UIView alloc] initWithFrame:self.view.frame];
-		[_loadingView setBackgroundColor:[UIColor blackColor]];
-		
-		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-		[indicator setFrame:CGRectMake(( 10), ( 10), 300, 400)];
-		
-		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((110), (130), 100, 30)];
-		loadingLabel.textColor = [UIColor whiteColor];
-		[loadingLabel setTextAlignment:UITextAlignmentCenter];
-		loadingLabel.text = @"Loading";
-		
-		// you will probably need to adjust those frame values to get it centered
-		
-		[_loadingView addSubview:indicator];
-		[_loadingView addSubview:loadingLabel];
-		
-		[indicator startAnimating];
-	}
-	
-	[self.tableView addSubview:_loadingView];
-} */
+-(void)loadStuff{
+	dispatch_async(dispatch_get_main_queue(), ^{
+		_linkObjects = [Sermon sermonObjects];
+		_dateObjects = [Sermon sermonDateObjects];
+		_titleObjects = [Sermon sermonTitleObjects];
+		_preacherObjects = [Sermon sermonPreacherObjects];
+	});
+	[self.tableView reloadData];
+	[self.refreshControl endRefreshing];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-	NSLog(@"initwithnibname");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		_linkObjects = [[NSMutableArray alloc]init];
@@ -77,9 +63,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSLog(@"view did load");
-	
-	[self.tableView reloadData];
+	self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableView.frame.size.width, 60)];
+    [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,17 +94,16 @@
 			
 			UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
 			[playBackWarning show];
-			//NSLog([_linksForWebView objectAtIndex:indexPath.row]);
 		}
 		else{
-			UIAlertView *noLinkWarning = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Unfortunately the sermon selected does not have audio." delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
+			UIAlertView *noLinkWarning = [[UIAlertView alloc]initWithTitle:@"" message:@"Unfortunately the sermon selected does not have audio." delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
 			[noLinkWarning show];
 		}
 		_indexPathRow = indexPath.row;
 		
 	}
 	else{
-		UIAlertView *noAudio = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Sorry, the audio in 2012 is download only. If you would like to listen to the audio please download it at www.justchristians.info/" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+		UIAlertView *noAudio = [[UIAlertView alloc]initWithTitle:@"" message:@"Sorry, the audio in 2012 and 2011 is download only. If you would like to listen to the audio please download it at www.justchristians.info/" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
 		[noAudio show];
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -126,7 +111,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
    
-	NSLog(@"table view");
 	SermonsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SermonCell"];
 	Sermon *sermonPreacher = [_preacherObjects objectAtIndex:indexPath.row];
 	Sermon *sermonTitle = [_titleObjects objectAtIndex:indexPath.row];
@@ -142,6 +126,7 @@
 	
 	else
 		NSLog(@"2012 or 2011");
+	
 	[cell fillSermonWithData:sermonTitle];
 	[cell fillDateWithData:sermonDate];
 	[cell fillNameWithData:sermonPreacher];
@@ -156,10 +141,10 @@
 	}
 	else{
 		UniversalWebViewViewController *webView = [[UniversalWebViewViewController alloc]init];
-		webView.title = [_sermonsForWebView objectAtIndex:_indexPathRow];
 		[self.navigationController pushViewController:webView animated:YES];
 		[webView loadSermonAudio:[_linksForWebView objectAtIndex:_indexPathRow]];
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
+		webView.title = [[_sermonsForWebView objectAtIndex:_indexPathRow] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 	}
 }
 

@@ -13,7 +13,7 @@
 @interface UniversalWebViewViewController (){
 	NSString *_url;
 	NSString *_title;
-	BOOL _scaleToFit;
+	BOOL getTitle;
 }
 @end
 
@@ -23,6 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+		
     }
     return self;
 }
@@ -34,14 +35,9 @@
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
 	//NSLog(_url);
 	[self.webView loadRequest:requestObj];
-	self.title = _title;
-	if(_scaleToFit == YES){
-		self.webView.scalesPageToFit = YES;
-		_scaleToFit=NO;
-	}
-	else if(_scaleToFit == NO){
-		NSLog(@"no zoom");
-	}
+	
+	if(getTitle ==YES)
+		self.title = _title;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,6 +47,7 @@
 }
 
 -(void)loadSermonAudio:(NSString*)URL{
+	getTitle = NO;
 	if([URL rangeOfString:@"2009"].location != NSNotFound  || [URL rangeOfString:@"2010"].location != NSNotFound){
 		NSString *urlAddress = [@"http://www.justchristians.info" stringByAppendingString:URL];
 		NSString *refinedFinalURL = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -63,15 +60,14 @@
 	NSString *refinedFinalURL = [finalURL stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 	NSString *secondRefinedURL = [refinedFinalURL stringByReplacingOccurrencesOfString:@"\n" withString:@"%20"];
 	_url = secondRefinedURL;
-	_scaleToFit = YES;
 	}
 }
 
 -(void)loadBulletinPDF:(NSString*)URL{
+	getTitle = YES;
 	NSString *urlAddress = [@"http://www.justchristians.info/Bulletins/" stringByAppendingString:URL];
 	_url = urlAddress;
 	_title = URL;
-	_scaleToFit = YES;
 }
 
 -(void)settingsTitleButtonTapped{

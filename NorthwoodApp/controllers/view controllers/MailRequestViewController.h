@@ -12,5 +12,4 @@
 
 +(BOOL)getRequest;
 +(void)setRequesting:(BOOL)request;
-
 @end

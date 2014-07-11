@@ -31,10 +31,13 @@
 
 -(void)loadStuff{
 	dispatch_async(dispatch_get_main_queue(), ^{
+		_contentObjects = nil;
+		_dateObjects = nil;
 		_contentObjects = [Tweet tweetObjects];
 		_dateObjects = [Tweet dateObjects];
 	});
-		[self.refreshControl endRefreshing];
+	[self.tableView reloadData];
+	[self.refreshControl endRefreshing];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -100,12 +103,12 @@
 	Tweet *tweetDate = [_dateObjects objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[TweetTableViewCell alloc]init];
+		[cell fillWithData:thisTweet];
+		[cell fillDateWithData:tweetDate];
+		[_tweetContent addObject:cell.contentLabel.text];
+		[_tweetDates addObject:tweetDate.date];
     }
 	
-    [cell fillWithData:thisTweet];
-	[cell fillDateWithData:tweetDate];
-	[_tweetContent addObject:cell.contentLabel.text];
-	[_tweetDates addObject:tweetDate.date];
     return cell;
 }
 

@@ -34,27 +34,36 @@
 	NSString *_bulletinEndURL;
 	int _selectedSegment;
 }
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController; //add a directory button
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property UIRefreshControl* refreshControl;
+
 @end
 
 @implementation NewsLoggedinViewController
 static BOOL loggedin;
 
+-(void)loadStuff{
+	dispatch_async(dispatch_get_main_queue(), ^{
+		if(_selectedSegment == 0){
+			_bulletinObjects = nil;
+			_bulletinObjects = [Bulletin bulletinObject];
+		}
+		else if(_selectedSegment == 3){
+			_nameObjects = [Directory nameObjects];
+			_titleObjects = [Directory titleObjects];
+			_phoneObjects = [Directory phoneObjects];
+			_emailObjects = [Directory emailObjects];
+			_addressObjects = [Directory adressObjects];
+		}
+	});
+	[self.tableView reloadData];
+	[self.refreshControl endRefreshing];
+}
 
 - (IBAction)segmentsChanged:(id)sender {
-	if(self.segmentController.selectedSegmentIndex == 0){
-		_selectedSegment = 0;
-	}
-	else if(self.segmentController.selectedSegmentIndex == 1){
-		_selectedSegment = 1;
-	}
-	else if(self.segmentController.selectedSegmentIndex == 2){
-		_selectedSegment = 2;
-	}
-	else if (self.segmentController.selectedSegmentIndex == 3){
-		_selectedSegment = 3;
-	}
+	_selectedSegment = self.segmentController.selectedSegmentIndex;
 	[self.tableView reloadData];
 	[self.tableView scrollRectToVisible:CGRectMake(0, 0, 320, 125) animated:NO];
 }
@@ -95,10 +104,8 @@ static BOOL loggedin;
 		_selectedSegment = 0;
 		LogginginViewController *logginView = [[LogginginViewController alloc]init];
 		[self presentViewController:logginView animated:YES completion:nil];
-		//[self.tableView reloadData];
 	}
 	else if(loggedin == YES){
-		//[self.tableView reloadData];
 		NSLog(@"do nothing");
 	}
 }
@@ -107,6 +114,10 @@ static BOOL loggedin;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableView.frame.size.width, 60)];
+    [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 	self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
 }
 
@@ -162,7 +173,8 @@ static BOOL loggedin;
 		UniversalWebViewViewController *webView= [[UniversalWebViewViewController alloc]init];
 		[webView loadBulletinPDF:[_linksForWebView objectAtIndex:indexPath.row]];
 		[self.navigationController pushViewController:webView animated:YES];
-		NSLog(@"%d", indexPath.row);
+		NSLog(@"linksforwebview %d",_linksForWebView.count);
+		NSLog(@"_bulletinobjects %d", _bulletinObjects.count);
 	}
 	else if(_selectedSegment == 1){
 		NSLog(@"do nothing");
@@ -179,7 +191,7 @@ static BOOL loggedin;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *returnThis;
 	
-	if(_selectedSegment == 0){ //bulletin
+	if(_selectedSegment == 0){ //bulletins
 			self.navigationController.navigationBar.topItem.title = [@"Welcome, " stringByAppendingString:[[NSUserDefaults standardUserDefaults]objectForKey:@"username"]];
 			
 		BulletinTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BulletinCell"];
@@ -187,9 +199,11 @@ static BOOL loggedin;
 		
 		if (cell == nil) {
 			cell = [[BulletinTableViewCell alloc] init];
+			[_linksForWebView addObject:thisBulletin.bulletinLink];
 		}
 		[cell fillWithData:thisBulletin];
-		[_linksForWebView addObject:thisBulletin.bulletinLink];
+		
+		
 		returnThis = cell;
 	}
 	
@@ -203,7 +217,7 @@ static BOOL loggedin;
 		returnThis = cell;
 	}
 	
-	else if(_selectedSegment == 2){
+	else if(_selectedSegment == 2){//roster
 		DutyRosterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DutyRosterCell"];
 		DutyRoster *thisDutyRoster = [_dutyRosterObjects objectAtIndex:indexPath.row];
 		if (cell==nil) {
@@ -213,7 +227,7 @@ static BOOL loggedin;
 		returnThis = cell;
 	}
 	
-	else if (_selectedSegment == 3){
+	else if (_selectedSegment == 3){//directory
 		DirectoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DirectoryCell"];
 		Directory *thisName = [_nameObjects objectAtIndex:indexPath.row];
 		Directory *thisTitle = [_titleObjects objectAtIndex:indexPath.row];
@@ -260,7 +274,7 @@ static BOOL loggedin;
 		[[NSUserDefaults standardUserDefaults]synchronize];
 		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 		appDelegate.tabBar.selectedIndex=0;
-
+		[self.tableView reloadData];
 	}
 }
 

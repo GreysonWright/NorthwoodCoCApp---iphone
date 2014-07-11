@@ -14,6 +14,7 @@
 @synthesize bulletinContent = _bulletinContent;
 @synthesize bulletinLink = _bulletinLink;
 
+
 +(NSMutableArray*)bulletinObject{
 	NSURL *bulletinUrl = [NSURL URLWithString:@"http://justchristians.info/Bulletins/"];
     NSData *bulletinHtmlData = [NSData dataWithContentsOfURL:bulletinUrl];
@@ -34,5 +35,4 @@
     }
 	return newbulletin;
 }
-
 @end
