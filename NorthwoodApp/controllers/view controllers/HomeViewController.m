@@ -30,7 +30,11 @@
 @implementation HomeViewController
 
 -(void)loadStuff{
-	[self.refreshControl endRefreshing];
+	dispatch_async(dispatch_get_main_queue(), ^{
+		_contentObjects = [Tweet tweetObjects];
+		_dateObjects = [Tweet dateObjects];
+	});
+		[self.refreshControl endRefreshing];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,10 +63,6 @@
     [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 	
-}
-
--(void)viewWillAppear:(BOOL)animated{
-	[super viewWillAppear:YES];
 }
 
 - (void)didReceiveMemoryWarning
