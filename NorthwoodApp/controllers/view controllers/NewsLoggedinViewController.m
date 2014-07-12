@@ -199,10 +199,10 @@ static BOOL loggedin;
 		
 		if (cell == nil) {
 			cell = [[BulletinTableViewCell alloc] init];
-			[_linksForWebView addObject:thisBulletin.bulletinLink];
 		}
 		[cell fillWithData:thisBulletin];
 		
+		[_linksForWebView addObject:thisBulletin.bulletinLink];
 		
 		returnThis = cell;
 	}
