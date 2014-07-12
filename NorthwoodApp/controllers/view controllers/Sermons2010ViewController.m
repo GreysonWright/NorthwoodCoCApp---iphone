@@ -24,22 +24,10 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property UIRefreshControl *refreshControl;
 
 @end
 
 @implementation Sermons2010ViewController
-
--(void)loadStuff{
-	dispatch_async(dispatch_get_main_queue(), ^{
-		_linkObjects = [Sermon sermonObjects];
-		_dateObjects = [Sermon sermonDateObjects];
-		_titleObjects = [Sermon sermonTitleObjects];
-		_preacherObjects = [Sermon sermonPreacherObjects];
-	});
-	[self.tableView reloadData];
-	[self.refreshControl endRefreshing];
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,9 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableView.frame.size.width, 60)];
-    [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:self.refreshControl];
+	
 }
 
 - (void)didReceiveMemoryWarning
