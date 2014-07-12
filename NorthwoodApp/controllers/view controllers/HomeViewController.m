@@ -23,7 +23,9 @@
 	NSMutableArray *_tweetDates;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property UIRefreshControl *refreshControl;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property UIRefreshControl* refreshControl;
+@property UIPageControl* pageControl;
 
 @end
 
@@ -73,6 +75,13 @@
     [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 	
+	/*UIScrollView * scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, 320, 80)];
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height);
+    scrollView.delegate = self; */
+	
+	self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 90, self.scrollView.frame.size.width, 20)];
+    self.pageControl.numberOfPages = self.scrollView.contentSize.width/self.scrollView.frame.size.width;
+    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning
@@ -141,5 +150,15 @@
 		LogginginViewController *loginView = [[LogginginViewController alloc]init];
 		[self presentViewController:loginView animated:YES completion:NULL];
 	}
+}
+
+- (void)changePage:(id)sender {
+    CGFloat x = self.pageControl.currentPage * self.scrollView.frame.size.width;
+    [self.scrollView setContentOffset:CGPointMake(x, 0) animated:YES];
+}
+
+-(void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView  {
+    NSInteger pageNumber = roundf(scrollView.contentOffset.x / (scrollView.frame.size.width));
+    self.pageControl.currentPage = pageNumber;
 }
 @end

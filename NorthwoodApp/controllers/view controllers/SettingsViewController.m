@@ -51,26 +51,23 @@
 
 -(void)saveState{
 	
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults]; //make it save the enabled thing to
-	
-	[userDefaults setBool:self.pushSwitch.isOn forKey:@"pushSwitch"];
-	[userDefaults setBool:self.groupSwitch.isOn forKey:@"groupSwitch"];
-	[userDefaults setBool:self.eventSwitch.isOn forKey:@"eventSwitch"];
-	[userDefaults setBool:self.tweetSwitch.isOn forKey:@"tweetSwitch"];
-	[userDefaults setBool:self.dutySwitch.isOn forKey:@"dutySwitch"];
-	[userDefaults setBool:self.dailyVerse.isOn forKey:@"verseSwitch"];
-	[userDefaults synchronize];
+	[[NSUserDefaults standardUserDefaults] setBool:self.pushSwitch.isOn forKey:@"pushSwitch"];
+	[[NSUserDefaults standardUserDefaults] setBool:self.groupSwitch.isOn forKey:@"groupSwitch"];
+	[[NSUserDefaults standardUserDefaults] setBool:self.eventSwitch.isOn forKey:@"eventSwitch"];
+	[[NSUserDefaults standardUserDefaults] setBool:self.tweetSwitch.isOn forKey:@"tweetSwitch"];
+	[[NSUserDefaults standardUserDefaults] setBool:self.dutySwitch.isOn forKey:@"dutySwitch"];
+	[[NSUserDefaults standardUserDefaults] setBool:self.dailyVerse.isOn forKey:@"verseSwitch"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)loadState{
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	
-	[self.pushSwitch setOn:[userDefaults boolForKey:@"pushSwitch"] animated:YES];
-	[self.groupSwitch setOn:[userDefaults boolForKey:@"groupSwitch"] animated:YES];
-	[self.eventSwitch setOn:[userDefaults boolForKey:@"eventSwitch"] animated:YES];
-	[self.tweetSwitch setOn:[userDefaults boolForKey:@"tweetSwitch"] animated:YES];
-	[self.dutySwitch setOn:[userDefaults boolForKey:@"dutySwitch"] animated:YES];
-	[self.dailyVerse setOn:[userDefaults boolForKey:@"verseSwitch"] animated:YES];
+	[self.pushSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"pushSwitch"] animated:YES];
+	[self.groupSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"groupSwitch"] animated:YES];
+	[self.eventSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"eventSwitch"] animated:YES];
+	[self.tweetSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"tweetSwitch"] animated:YES];
+	[self.dutySwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"dutySwitch"] animated:YES];
+	[self.dailyVerse setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"verseSwitch"] animated:YES];
 }
 
 -(void)objectsEnabled:(BOOL)input{
