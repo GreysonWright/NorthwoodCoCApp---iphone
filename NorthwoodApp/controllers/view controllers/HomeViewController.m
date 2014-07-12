@@ -33,8 +33,12 @@
 	dispatch_async(dispatch_get_main_queue(), ^{
 		_contentObjects = nil;
 		_dateObjects = nil;
+		_tweetContent = nil;
+		_tweetDates = nil;
 		_contentObjects = [Tweet tweetObjects];
 		_dateObjects = [Tweet dateObjects];
+		_tweetContent = [Tweet bareTweetContent];
+		_tweetDates = [Tweet bareTweetDates];
 	});
 	
 	[self.refreshControl endRefreshing];
@@ -51,6 +55,8 @@
 		_dateObjects = [[NSMutableArray alloc]init];
 		_tweetContent = [[NSMutableArray alloc]init];
 		_tweetDates = [[NSMutableArray alloc]init];
+		_tweetContent = [Tweet bareTweetContent];
+		_tweetDates = [Tweet bareTweetDates];
 		_contentObjects = [Tweet tweetObjects];
 		_dateObjects = [Tweet dateObjects];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
@@ -107,8 +113,6 @@
     }
 	[cell fillWithData:thisTweet];
 	[cell fillDateWithData:tweetDate];
-	[_tweetContent addObject:cell.contentLabel.text];
-	[_tweetDates addObject:tweetDate.date];
 	
     return cell;
 }

@@ -12,7 +12,6 @@
 
 @property NSString *bulletinContent;
 @property NSString *bulletinLink;
-
 +(NSMutableArray*)bulletinObject;
-
++(NSMutableArray*)bulletinLink;
 @end

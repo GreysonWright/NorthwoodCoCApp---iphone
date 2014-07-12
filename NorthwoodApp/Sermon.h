@@ -23,6 +23,8 @@
 +(NSMutableArray*)sermonTitleObjects;
 +(NSMutableArray*)sermonDateObjects;
 +(NSMutableArray*)sermonPreacherObjects;
++(NSMutableArray*)sermonLink;
++(NSMutableArray*)sermonTitle;
 +(NSString*)getSermonYear;
 
 @end

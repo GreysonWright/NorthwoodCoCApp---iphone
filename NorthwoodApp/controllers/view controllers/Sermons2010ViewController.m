@@ -43,6 +43,8 @@
 		_dateObjects = [Sermon sermonDateObjects];
 		_titleObjects = [Sermon sermonTitleObjects];
 		_preacherObjects = [Sermon sermonPreacherObjects];
+		_linksForWebView = [Sermon sermonLink];
+		_sermonsForWebView = [Sermon sermonTitle];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }
     return self;
@@ -107,7 +109,6 @@
 	if(self.title != @"2012" && self.title != @"2011"){
 		Sermon *sermonLink = [_linkObjects objectAtIndex:indexPath.row];
 		[cell getLinkWithData:sermonLink];
-		[_linksForWebView addObject:sermonLink.link];
 	}
 	
 	else
@@ -116,7 +117,6 @@
 	[cell fillSermonWithData:sermonTitle];
 	[cell fillDateWithData:sermonDate];
 	[cell fillNameWithData:sermonPreacher];
-	[_sermonsForWebView addObject:sermonTitle.titleContent];
 	
     return cell;
 }

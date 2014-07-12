@@ -48,7 +48,9 @@ static BOOL loggedin;
 	dispatch_async(dispatch_get_main_queue(), ^{
 		if(_selectedSegment == 0){
 			_bulletinObjects = nil;
+			_linksForWebView = nil;
 			_bulletinObjects = [Bulletin bulletinObject];
+			_linksForWebView = [Bulletin bulletinLink];
 		}
 		else if(_selectedSegment == 3){
 			_nameObjects = [Directory nameObjects];
@@ -82,6 +84,7 @@ static BOOL loggedin;
 		_addressObjects = [[NSMutableArray alloc]init];
 		_linksForWebView = [[NSMutableArray alloc]init];
 		_bulletinObjects = [Bulletin bulletinObject];
+		_linksForWebView = [Bulletin bulletinLink];
 		_prayerListObjects = [PrayerList prayerListObjects];
 		_dutyRosterObjects = [DutyRoster dutyRosterObjects];
 		_nameObjects = [Directory nameObjects];
@@ -201,8 +204,6 @@ static BOOL loggedin;
 			cell = [[BulletinTableViewCell alloc] init];
 		}
 		[cell fillWithData:thisBulletin];
-		
-		[_linksForWebView addObject:thisBulletin.bulletinLink];
 		
 		returnThis = cell;
 	}

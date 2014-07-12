@@ -35,4 +35,22 @@
     }
 	return newbulletin;
 }
+
++(NSMutableArray*)bulletinLink{
+	NSURL *bulletinUrl = [NSURL URLWithString:@"http://justchristians.info/Bulletins/"];
+    NSData *bulletinHtmlData = [NSData dataWithContentsOfURL:bulletinUrl];
+	
+    TFHpple *bulletinParser = [TFHpple hppleWithHTMLData:bulletinHtmlData];
+	
+    NSString *bulletinXpathQueryString = @"//div[@class='clear']/section/ul/li/a";
+    NSArray *bulletinNodes = [bulletinParser searchWithXPathQuery:bulletinXpathQueryString];
+	
+    NSMutableArray *bulletinLinks = [[NSMutableArray alloc] initWithCapacity:0];
+    for (TFHppleElement *element in bulletinNodes) {
+        
+		
+		[bulletinLinks addObject:[element objectForKey:@"href"]];
+    }
+	return bulletinLinks;
+}
 @end

@@ -71,6 +71,55 @@ int tweetCount;
     return newtweets;
 }
 
++(NSMutableArray*)bareTweetContent{
+	NSURL *tweetsUrl = [NSURL URLWithString:@"https://twitter.com/northwoodcoc"];
+    NSData *tweetsHtmlData = [NSData dataWithContentsOfURL:tweetsUrl];
+	
+    TFHpple *tweetsParser = [TFHpple hppleWithHTMLData:tweetsHtmlData];
+	
+    NSString *tweetsXpathQueryString = @"//div[@class='ProfileTweet-contents']/p";
+    NSArray *tweetsNodes = [tweetsParser searchWithXPathQuery:tweetsXpathQueryString];
+	tweetCount = tweetsNodes.count;
+	
+    NSMutableArray *tweetContent = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (int i = 0; i<tweetsNodes.count; i++) {
+        TFHppleElement *element = [tweetsNodes objectAtIndex:i];
+		
+		NSString* content = [[element firstTextChild]content];
+		NSString* URL;
+		
+		if([[element firstChildWithTagName:@"a"] objectForKey:@"title"] == nil)
+			URL = @"";
+		//NSLog(@"nil");
+		else
+			//NSLog(@"pew");
+			URL = [[element firstChildWithTagName:@"a"] objectForKey:@"title"];
+		[tweetContent addObject:[content stringByAppendingString:URL]];
+    }
+	
+    return tweetContent;
+}
+
++(NSMutableArray*)bareTweetDates{
+	NSURL *tweetsUrl = [NSURL URLWithString:@"https://twitter.com/northwoodcoc"];
+    NSData *tweetsHtmlData = [NSData dataWithContentsOfURL:tweetsUrl];
+	
+    TFHpple *tweetsParser = [TFHpple hppleWithHTMLData:tweetsHtmlData];
+	
+    NSString *tweetsXpathQueryString = @"//div[@class='StreamItem js-stream-item']/div/div[1]/div/span[2]/a/span";
+    NSArray *tweetsNodes = [tweetsParser searchWithXPathQuery:tweetsXpathQueryString];
+	
+    NSMutableArray *tweetDates = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in tweetsNodes) {
+        
+      [tweetDates addObject:[[element firstTextChild]content]];
+    }
+	
+    return tweetDates;
+}
+
 +(NSString*)getURLs{
 	return tweetURL;
 }
