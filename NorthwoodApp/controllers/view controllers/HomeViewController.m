@@ -22,14 +22,17 @@
 	NSMutableArray *_tweetContent;
 	NSMutableArray *_tweetDates;
 }
+@property (strong, nonatomic) IBOutlet UIView *littleBigView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property UIRefreshControl* refreshControl;
-@property UIPageControl* pageControl;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
 @implementation HomeViewController
+
+BOOL skipPageTurn;
 
 -(void)loadStuff{
 	dispatch_async(dispatch_get_main_queue(), ^{
@@ -63,7 +66,7 @@
 		_dateObjects = [Tweet dateObjects];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
-	
+		
     }
     return self;
 }
@@ -75,13 +78,21 @@
     [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 	
-	/*UIScrollView * scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, 320, 80)];
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height);
-    scrollView.delegate = self; */
+		NSMutableArray* images = [[NSMutableArray alloc] initWithObjects:@"phillipians.png", @"bible.png", nil];
 	
-	self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 90, self.scrollView.frame.size.width, 20)];
-    self.pageControl.numberOfPages = self.scrollView.contentSize.width/self.scrollView.frame.size.width;
-    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+	for (int i = 0; i < [images count]; i++) {
+        CGRect frame;
+        frame.origin.x = self.scrollView.frame.size.width * i;
+        frame.origin.y = 0;
+        frame.size = self.scrollView.frame.size;
+		UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+		imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.image = [UIImage imageNamed:[images objectAtIndex:i]];
+        [self.scrollView addSubview:imageView];
+	}
+	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * [images count], self.scrollView.frame.size.height);
+	
+	[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timedPageFlips) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,13 +163,32 @@
 	}
 }
 
-- (void)changePage:(id)sender {
-    CGFloat x = self.pageControl.currentPage * self.scrollView.frame.size.width;
-    [self.scrollView setContentOffset:CGPointMake(x, 0) animated:YES];
+-(void)scrollViewDidScroll:(UIScrollView *)sender
+{
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+	skipPageTurn = YES;
 }
 
--(void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView  {
-    NSInteger pageNumber = roundf(scrollView.contentOffset.x / (scrollView.frame.size.width));
-    self.pageControl.currentPage = pageNumber;
+-(void)timedPageFlips{
+	if(self.pageControl.currentPage == 0 && skipPageTurn == NO){
+		NSLog(@"turn page");
+		self.pageControl.currentPage = 1;
+		[UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+		self.scrollView.contentOffset = CGPointMake(320, 0);
+		} completion:NULL];
+	}
+	else if(self.pageControl.currentPage == 1 && skipPageTurn == NO){
+		NSLog(@"turn page");
+	 self.pageControl.currentPage = 0;
+		[UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+			self.scrollView.contentOffset = CGPointMake(0, 0);
+		} completion:NULL];
+	}
+	else{
+		NSLog(@"skipping turn");
+		skipPageTurn = NO;
+	}
 }
 @end

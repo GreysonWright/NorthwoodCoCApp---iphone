@@ -72,6 +72,10 @@
 		2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E0B195127040061423E /* PrayerListTableViewCell.m */; };
 		2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E789E0C195127040061423E /* PrayerListTableViewCell.xib */; };
 		2E789E12195130B70061423E /* PrayerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E11195130B70061423E /* PrayerList.m */; };
+		2E7C941B1971C34700CC50DB /* 07bible.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E7C94191971C34700CC50DB /* 07bible.jpg */; };
+		2E7C941C1971C34700CC50DB /* philippians-series.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E7C941A1971C34700CC50DB /* philippians-series.jpg */; };
+		2E7C941F1971CACA00CC50DB /* bible.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7C941D1971CACA00CC50DB /* bible.png */; };
+		2E7C94201971CACA00CC50DB /* phillipians.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7C941E1971CACA00CC50DB /* phillipians.png */; };
 		2E8536D019540D1900C8864E /* LogginginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8536CE19540D1900C8864E /* LogginginViewController.m */; };
 		2E8536D119540D1900C8864E /* LogginginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8536CF19540D1900C8864E /* LogginginViewController.xib */; };
 		2E9CD7011955FB9E00822E1D /* NorthwoodCoCIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9CD7001955FB9E00822E1D /* NorthwoodCoCIcon.png */; };
@@ -195,6 +199,10 @@
 		2E789E0C195127040061423E /* PrayerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayerListTableViewCell.xib; sourceTree = "<group>"; };
 		2E789E10195130B70061423E /* PrayerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerList.h; sourceTree = "<group>"; };
 		2E789E11195130B70061423E /* PrayerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerList.m; sourceTree = "<group>"; };
+		2E7C94191971C34700CC50DB /* 07bible.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 07bible.jpg; path = images/07bible.jpg; sourceTree = SOURCE_ROOT; };
+		2E7C941A1971C34700CC50DB /* philippians-series.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "philippians-series.jpg"; path = "images/philippians-series.jpg"; sourceTree = SOURCE_ROOT; };
+		2E7C941D1971CACA00CC50DB /* bible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bible.png; path = images/bible.png; sourceTree = SOURCE_ROOT; };
+		2E7C941E1971CACA00CC50DB /* phillipians.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phillipians.png; path = images/phillipians.png; sourceTree = SOURCE_ROOT; };
 		2E8536CD19540D1900C8864E /* LogginginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogginginViewController.h; sourceTree = "<group>"; };
 		2E8536CE19540D1900C8864E /* LogginginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogginginViewController.m; sourceTree = "<group>"; };
 		2E8536CF19540D1900C8864E /* LogginginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogginginViewController.xib; sourceTree = "<group>"; };
@@ -556,6 +564,10 @@
 		2E52E4471948DCF800B46786 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2E7C941D1971CACA00CC50DB /* bible.png */,
+				2E7C941E1971CACA00CC50DB /* phillipians.png */,
+				2E7C94191971C34700CC50DB /* 07bible.jpg */,
+				2E7C941A1971C34700CC50DB /* philippians-series.jpg */,
 				2E4BC861195AA29B009D30FA /* NorthwoodSplash960.png */,
 				2E4BC85C195AA1C5009D30FA /* NorthwoodSplash1136.png */,
 				2E4BC853195A9AB7009D30FA /* NorthwoodCoCIcon58x58.png */,
@@ -838,11 +850,14 @@
 			files = (
 				2E5B18F11962588300E96F61 /* MailRequestViewController.xib in Resources */,
 				2E52E3E21948AE0E00B46786 /* InfoPlist.strings in Resources */,
+				2E7C941C1971C34700CC50DB /* philippians-series.jpg in Resources */,
+				2E7C94201971CACA00CC50DB /* phillipians.png in Resources */,
 				2E4BC862195AA29B009D30FA /* NorthwoodSplash960.png in Resources */,
 				2E6CD0BF19568BD4007B7BF8 /* ContactUsTableViewCell.xib in Resources */,
 				2E4BC856195A9AB7009D30FA /* NorthwoodCoCIcon58x58.png in Resources */,
 				2E4BC85E195AA1C5009D30FA /* NorthwoodSplash1136.png in Resources */,
 				2E9CD70A19560E3900822E1D /* SermonDateTableViewCell.xib in Resources */,
+				2E7C941B1971C34700CC50DB /* 07bible.jpg in Resources */,
 				2E34723D1953BD4A00AC769B /* Twitter_filled@2x.png in Resources */,
 				2E41833B1950A77F006D52EC /* SermonsTableViewCell.xib in Resources */,
 				2E52E3EA1948AE0E00B46786 /* Images.xcassets in Resources */,
@@ -855,6 +870,7 @@
 				2E4BC857195A9AB7009D30FA /* NorthwoodCoCIcon80x80.png in Resources */,
 				2E34723F1953BD4A00AC769B /* Twitter2x.png in Resources */,
 				2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */,
+				2E7C941F1971CACA00CC50DB /* bible.png in Resources */,
 				2E52E4381948BD9800B46786 /* HomeViewController.xib in Resources */,
 				2E4B16BE19522F3B00641710 /* TweetTableViewCell.xib in Resources */,
 				2E52E44C1948E19A00B46786 /* SettingsViewController.xib in Resources */,
