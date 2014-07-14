@@ -20,6 +20,7 @@
 #import "DirectoryTableViewCell.h"
 #import "UniversalWebViewViewController.h"
 #import "SettingsViewController.h"
+#import "HomeViewController.h"
 
 @interface NewsLoggedinViewController (){
 	NSMutableArray *_bulletinObjects;
@@ -45,8 +46,9 @@
 static BOOL loggedin;
 
 -(void)loadStuff{
-	dispatch_async(dispatch_get_main_queue(), ^{
-		if(_selectedSegment == 0){
+	if([HomeViewController networkExists] == YES){
+		dispatch_async(dispatch_get_main_queue(), ^{
+			if(_selectedSegment == 0){
 			_bulletinObjects = nil;
 			_linksForWebView = nil;
 			_bulletinObjects = [Bulletin bulletinObject];
@@ -59,9 +61,13 @@ static BOOL loggedin;
 			_emailObjects = [Directory emailObjects];
 			_addressObjects = [Directory adressObjects];
 		}
-	});
-	[self.tableView reloadData];
+		});
+	}
+	else{
+		NSLog(@"don't refresh");
+	}
 	[self.refreshControl endRefreshing];
+	[self.tableView reloadData];
 }
 
 - (IBAction)segmentsChanged:(id)sender {

@@ -15,6 +15,7 @@
 #import "MailRequestViewController.h"
 #import "LogginginViewController.h"
 #import "NewsLoggedinViewController.h"
+#import "Reachability.h"
 
 @interface HomeViewController (){
 	NSMutableArray *_contentObjects;
@@ -22,11 +23,12 @@
 	NSMutableArray *_tweetContent;
 	NSMutableArray *_tweetDates;
 }
+
 @property (strong, nonatomic) IBOutlet UIView *littleBigView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property UIRefreshControl* refreshControl;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property UIRefreshControl* refreshControl;
 
 @end
 
@@ -35,17 +37,21 @@
 BOOL skipPageTurn;
 
 -(void)loadStuff{
-	dispatch_async(dispatch_get_main_queue(), ^{
-		_contentObjects = nil;
-		_dateObjects = nil;
-		_tweetContent = nil;
-		_tweetDates = nil;
-		_contentObjects = [Tweet tweetObjects];
-		_dateObjects = [Tweet dateObjects];
-		_tweetContent = [Tweet bareTweetContent];
-		_tweetDates = [Tweet bareTweetDates];
-	});
-	
+	if([self networkExists] == YES){
+		dispatch_async(dispatch_get_main_queue(), ^{
+			_contentObjects = nil;
+			_dateObjects = nil;
+			_tweetContent = nil;
+			_tweetDates = nil;
+			_contentObjects = [Tweet tweetObjects];
+			_dateObjects = [Tweet dateObjects];
+			_tweetContent = [Tweet bareTweetContent];
+			_tweetDates = [Tweet bareTweetDates];
+		});
+	}
+	else{
+		NSLog(@"don't refresh");
+	}
 	[self.refreshControl endRefreshing];
 	[self.tableView reloadData];
 }
@@ -189,6 +195,24 @@ BOOL skipPageTurn;
 	else{
 		NSLog(@"skipping turn");
 		skipPageTurn = NO;
+	}
+}
+
+-(BOOL)networkExists{
+	NetworkStatus networkStatus = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+	if (networkStatus == NotReachable) {
+		return NO;
+	} else {
+		return YES;
+	}
+}
+
++(BOOL)networkExists{
+	NetworkStatus networkStatus = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
+	if (networkStatus == NotReachable) {
+		return NO;
+	} else {
+		return YES;
 	}
 }
 @end

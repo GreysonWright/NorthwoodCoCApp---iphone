@@ -62,6 +62,7 @@
 		2E52E5701959F95100CC0BD4 /* BigTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E56E1959F95100CC0BD4 /* BigTweetViewController.xib */; };
 		2E5B18F01962588300E96F61 /* MailRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5B18EE1962588300E96F61 /* MailRequestViewController.m */; };
 		2E5B18F11962588300E96F61 /* MailRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */; };
+		2E5E9B73197475BA005A9F39 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E9B72197475BA005A9F39 /* Reachability.m */; };
 		2E69A33B194E3B1A00890226 /* Sermon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33A194E3B1A00890226 /* Sermon.m */; };
 		2E69A345194E3D0C00890226 /* HomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33E194E3D0C00890226 /* HomeNavigationViewController.m */; };
 		2E69A346194E3D0C00890226 /* NewsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A340194E3D0C00890226 /* NewsNavigationViewController.m */; };
@@ -181,6 +182,8 @@
 		2E5B18ED1962588300E96F61 /* MailRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailRequestViewController.h; sourceTree = "<group>"; };
 		2E5B18EE1962588300E96F61 /* MailRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailRequestViewController.m; sourceTree = "<group>"; };
 		2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailRequestViewController.xib; sourceTree = "<group>"; };
+		2E5E9B71197475BA005A9F39 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		2E5E9B72197475BA005A9F39 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		2E69A339194E3B1A00890226 /* Sermon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sermon.h; sourceTree = "<group>"; };
 		2E69A33A194E3B1A00890226 /* Sermon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sermon.m; sourceTree = "<group>"; };
 		2E69A33D194E3D0C00890226 /* HomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationViewController.h; sourceTree = "<group>"; };
@@ -489,6 +492,7 @@
 				2E41833C1950A78C006D52EC /* Cell Views */,
 				2E52E4301948BD9800B46786 /* Controllers */,
 				2E4F92AE194B65B300BC23F2 /* HTML Parsing */,
+				2E5E9B74197475BF005A9F39 /* Reachability */,
 				2E52E3DE1948AE0E00B46786 /* Supporting Files */,
 				2E52E3E91948AE0E00B46786 /* Images.xcassets */,
 			);
@@ -591,6 +595,15 @@
 				2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */,
 			);
 			name = "Mail Request";
+			sourceTree = "<group>";
+		};
+		2E5E9B74197475BF005A9F39 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				2E5E9B71197475BA005A9F39 /* Reachability.h */,
+				2E5E9B72197475BA005A9F39 /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		2E614501195BE0310015F7BD /* Home */ = {
@@ -969,6 +982,7 @@
 				2E789E12195130B70061423E /* PrayerList.m in Sources */,
 				2E9CD7171956213700822E1D /* DirectoryTableViewCell.m in Sources */,
 				2E4A739C194F446900A17188 /* NewsLoggedinViewController.m in Sources */,
+				2E5E9B73197475BA005A9F39 /* Reachability.m in Sources */,
 				2E1D6E6F194F79A400819888 /* Sermons2010ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
