@@ -31,9 +31,8 @@
 		[_loadingView setBackgroundColor:[UIColor blackColor]];
 		
 		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-		
 		[indicator setFrame:CGRectMake(( 10), ( 10), 300, 400)];
-		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (130), 320, 30)];
+		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (230), 320, 30)];
 		loadingLabel.textColor = [UIColor whiteColor];
 		[loadingLabel setTextAlignment:UITextAlignmentCenter];
 		loadingLabel.text = @"Loading";
@@ -53,13 +52,7 @@
     if (self) {
 		self.title=@"Sermons";
 		self.tabBarItem.title=self.title;
-		_years=[[NSMutableArray alloc] init];
-		[_years addObject:@"2009"];
-		[_years addObject:@"2010"];
-		[_years addObject:@"2011"];
-		[_years addObject:@"2012"];
-		[_years addObject:@"2013"];
-		[_years addObject:@"2014"];
+		_years=[[NSMutableArray alloc] initWithObjects:@"2009", @"2010", @"2011", @"2012", @"2013", @"2014", nil];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }
     return self;

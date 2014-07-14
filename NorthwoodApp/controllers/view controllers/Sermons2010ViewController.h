@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Sermons2010ViewController : UIViewController
+@interface Sermons2010ViewController : UIViewController <UISearchDisplayDelegate>
 
 @end
