@@ -33,7 +33,7 @@ static NSMutableArray *_contentObjects;
 static NSMutableArray *_dateObjects;
 static NSMutableArray *_tweetContent;
 static NSMutableArray *_tweetDates;
-static NSString *tmpObj;
+//static NSString *tmpObj;
 BOOL skipPageTurn;
 
 -(void)loadStuff{
@@ -71,7 +71,8 @@ BOOL skipPageTurn;
 		_tweetDates = [Tweet bareTweetDates];
 		_contentObjects = [Tweet tweetObjects];
 		_dateObjects = [Tweet dateObjects];
-		tmpObj =[_tweetContent objectAtIndex:0];
+		[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
+		//tmpObj =[_tweetContent objectAtIndex:0];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
 		
@@ -230,6 +231,7 @@ BOOL skipPageTurn;
 }
 
 +(BOOL)arrayIsUpdated{
+	NSString *tmpObj = [[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"];
 	if(tmpObj != [_tweetContent objectAtIndex:0]){
 		tmpObj = [_tweetContent objectAtIndex:0];
 		return YES;
