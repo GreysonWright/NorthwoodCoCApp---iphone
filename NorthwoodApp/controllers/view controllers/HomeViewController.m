@@ -161,15 +161,7 @@ BOOL skipPageTurn;
 }
 
 -(void)requestTitleButtonTapped{
-	if([[NSUserDefaults standardUserDefaults] boolForKey:@"loggedIn"] == YES){
-	MailRequestViewController *requestView = [[MailRequestViewController alloc]init];
-	[self.navigationController pushViewController:requestView animated:YES];
-	}
-	else{
-		[MailRequestViewController setRequesting:YES];
-		LogginginViewController *loginView = [[LogginginViewController alloc]init];
-		[self presentViewController:loginView animated:YES completion:NULL];
-	}
+	[self.navigationController pushViewController:[[MailRequestViewController alloc]init] animated:YES];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)sender

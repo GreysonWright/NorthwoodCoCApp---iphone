@@ -7,6 +7,8 @@
 //
 
 #import "MailRequestViewController.h"
+#import "LogginginViewController.h"
+#import "NewsLoggedinViewController.h"
 
 @interface MailRequestViewController ()
 
@@ -19,6 +21,7 @@
 @implementation MailRequestViewController
 
 static BOOL requesting;
+int alertIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +35,11 @@ static BOOL requesting;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	if([[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"] == NO){
+		[[[UIAlertView alloc]initWithTitle:@"" message:@"You have not signed in. Would you like to sign in now?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
+		alertIndex = 1;
+	}
+	NSLog(@"%d",[[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,18 +67,23 @@ static BOOL requesting;
 - (IBAction)submitButtonPressed:(id)sender {
 	
 	NSLog(@"submit stuff yayayaya");
-	UIAlertView *submitAlert = [[UIAlertView alloc]initWithTitle:@"Success!!!!" message:@"Your mail request has been submitted and will now be reviewed." delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
-    [submitAlert show];
+    [[[UIAlertView alloc]initWithTitle:@"Success!!!!" message:@"Your mail request has been submitted and will now be reviewed." delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil] show];
+	alertIndex = 0;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if(alertIndex==0){
 	[self.navigationController popToRootViewControllerAnimated:YES];
-	/*if(buttonIndex == 0){
-		NSLog(@"i dont remember what this does");
+	//make this send request to backend
 	}
 	else{
-		NSLog(@"impossible");
-	} */
+		if(buttonIndex == 0)
+			[self.navigationController popToRootViewControllerAnimated:YES];
+		else{
+			LogginginViewController *loginView = [[LogginginViewController alloc]init];
+			[self presentViewController:loginView animated:YES completion:nil];
+		}
+	}
 }
 
 -(void)doneTitleButtonTapped{

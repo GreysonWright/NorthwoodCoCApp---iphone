@@ -259,6 +259,8 @@ static BOOL loggedin;
 
 +(void)setLoggedin:(BOOL)newLoggedin{
 	loggedin = newLoggedin;
+	[[NSUserDefaults standardUserDefaults]setBool:newLoggedin forKey:@"loggedIn"];
+	[[NSUserDefaults standardUserDefaults]synchronize];
 }
 
 +(BOOL)getLoggedin{
