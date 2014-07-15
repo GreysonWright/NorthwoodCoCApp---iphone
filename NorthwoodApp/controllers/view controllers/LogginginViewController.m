@@ -3,12 +3,14 @@
 //  NorthwoodApp
 //
 //  Created by greyson on 6/20/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "LogginginViewController.h"
 #import "NewsLoggedinViewController.h"
 #import "AppDelegate.h"
+#import "MailRequestViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LogginginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameBox;
@@ -39,10 +41,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)loginButtonTapped:(id)sender {
-	[self dismissViewControllerAnimated:YES completion:nil];
-	[NewsLoggedinViewController setLoggedin:YES];
+	if([self.usernameBox.text  isEqual: @""] && [self.passwordBox.text  isEqual: @""]){
+		UIAlertView *wrongLogin = [[UIAlertView alloc]initWithTitle:@"Login Error" message:@"The username or password provided was incorrect." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+		[wrongLogin show];
+	}
+	
+	else{
+		[self dismissViewControllerAnimated:YES completion:nil];
+		[NewsLoggedinViewController setLoggedin:YES];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
+		[[NSUserDefaults standardUserDefaults] setObject:[self.usernameBox text] forKey:@"username"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
 }
+
 - (IBAction)cancelButtonTapped:(id)sender {
 	[self dismissViewControllerAnimated:YES completion:nil];
 	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];

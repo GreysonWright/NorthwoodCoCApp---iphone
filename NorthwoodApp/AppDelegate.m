@@ -3,7 +3,7 @@
 //  NorthwoodApp
 //
 //  Created by greyson on 6/11/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -14,10 +14,44 @@
 #import "SermonsNavigationViewController.h"
 #import "NewsLoggedinViewController.h"
 #import "NewsNavigationViewController.h"
+#import "ContactUsViewController.h"
+#import "ContactUsNavigationViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import "NetworkStatus.h"
 #import "SettingsViewController.h"
-#import "SettingsNavigationViewController.h"
 
 @implementation AppDelegate
+
+int _alert;
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if(buttonIndex == 0){
+		if(_alert == 0){
+			NSLog(@"no push notifications");
+			UIAlertView *currentLocationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"\"Northwood\" would like to use your current location." delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+			[currentLocationAlert show];
+			_alert = 1;
+		}
+		else if(_alert == 1){
+			NSLog(@"do nothing");
+		}
+	}
+	else{
+		if(_alert == 0){
+			NSLog(@"push notifications enabled");
+			UIAlertView *currentLocationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"\"Northwood\" would like to use your current location." delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+			[currentLocationAlert show];
+			_alert = 1;
+		}
+		else if(_alert == 1){
+			NSLog(@"do stuff");
+		}
+	}
+	
+	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notFirstLaunch"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,27 +60,83 @@
     self.window.backgroundColor = [UIColor yellowColor];
     [self.window makeKeyAndVisible];
 	
+	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+	
+	NSError *setCategoryError = nil;
+	BOOL success = [audioSession setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+	if (!success) {
+		NSLog(@"broken");
+	}
+	
+	NSError *activationError = nil;
+	success = [audioSession setActive:YES error:&activationError];
+	if (!success) {
+		NSLog(@"broken");
+	} 
+	
 		//views
 	HomeViewController *homeView = [[HomeViewController alloc] init];
 	SermonsViewController *sermonsView=[[SermonsViewController alloc]init];
 	NewsLoggedinViewController *newsView=[[NewsLoggedinViewController alloc] init];
-	SettingsViewController *settingsView=[[SettingsViewController alloc]init];
+	ContactUsViewController *contactUsView=[[ContactUsViewController alloc]init];
 		
 		//navs
 	HomeNavigationViewController *homeNav=[[HomeNavigationViewController alloc]initWithRootViewController:homeView];
 	SermonsNavigationViewController *sermonsNav=[[SermonsNavigationViewController alloc] initWithRootViewController:sermonsView];
 	NewsNavigationViewController *newsNav=[[NewsNavigationViewController alloc]initWithRootViewController:newsView];
-	SettingsNavigationViewController *settingsNav=[[SettingsNavigationViewController alloc]initWithRootViewController:settingsView];
+	ContactUsNavigationViewController *contactUsNav=[[ContactUsNavigationViewController alloc]initWithRootViewController:contactUsView];
 		
 		//tabBar
 	self.tabBar=[[TabBarController alloc]init];
 	self.tabBar.tabBar.translucent=NO;
-	self.tabBar.tabBar.barStyle = UIBarStyleBlack;
-	self.tabBar.tabBar.tintColor=[UIColor whiteColor];
-	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, settingsNav]]; //keep settings view last
+	self.tabBar.tabBar.barTintColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
+	
+	self.tabBar.tabBar.tintColor = [UIColor colorWithRed:0/255.0f green:126.0/255.0f blue:255.0/255.0f alpha:1];
+	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, contactUsNav]];
 	[self.window setRootViewController:self.tabBar];
 	
+	if([[NSUserDefaults standardUserDefaults] boolForKey:@"notFirstLaunch"] == NO){
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"groupSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"eventSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"tweetSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"dutySwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"verseSwitch"];
+		[[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"notifsOn"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+		UIAlertView *pushNotificationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"Would You like to receive push notifications?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+		[pushNotificationAlert show];
+		_alert = 0;
+
+	}
+	
+	if([SettingsViewController pushSwitchIsOn])
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+	else{
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+		NSLog(@"no background checking e.e");
+	}
+		
+	
     return YES;
+}
+
++(void)backgroundFetchEnabled:(BOOL)yesNo{
+	if(yesNo)
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+	else{
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+		NSLog(@"no notifs :(");
+	}
+}
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+	
+	if(![NetworkStatus networkExists])
+		completionHandler(UIBackgroundFetchResultFailed);
+	else{ //check if switch is on [settigngs tweetswitchison]
+		completionHandler([HomeViewController refreshTweets]);
+	}
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -75,5 +165,4 @@
 {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 @end

@@ -1,24 +1,25 @@
 //
-//  SettingsNavigationViewController.m
-//  NorthwoodApp
+//  ContactUsNavigationViewController.m
+//  NorthwoodCoC
 //
-//  Created by greyson on 6/11/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Created by greyson on 6/21/14.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
-#import "SettingsNavigationViewController.h"
+#import "ContactUsNavigationViewController.h"
 
-@interface SettingsNavigationViewController ()
+@interface ContactUsNavigationViewController ()
 
 @end
 
-@implementation SettingsNavigationViewController
+@implementation ContactUsNavigationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+		self.navigationBar.barTintColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
+		[self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
     }
     return self;
 }

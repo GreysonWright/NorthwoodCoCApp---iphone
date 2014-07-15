@@ -3,7 +3,7 @@
 //  NorthwoodApp
 //
 //  Created by greyson on 6/18/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "DutyRosterTableViewCell.h"
@@ -36,7 +36,7 @@
 	NSURL *url = [NSURL URLWithString:urlAddress];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
 	[self.webView loadRequest:requestObj];
-	
+	self.webView.scalesPageToFit = YES;
 }
 
 -(void)fillWithData:(DutyRoster*)dutyRoster{

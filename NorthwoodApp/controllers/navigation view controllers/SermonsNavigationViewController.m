@@ -3,7 +3,7 @@
 //  NorthwoodApp
 //
 //  Created by greyson on 6/11/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "SermonsNavigationViewController.h"
@@ -18,6 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+		self.navigationBar.barTintColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
+		[self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
     }
     return self;
 }

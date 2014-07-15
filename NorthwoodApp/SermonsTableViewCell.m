@@ -3,7 +3,7 @@
 //  NorthwoodApp
 //
 //  Created by greyson on 6/17/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "SermonsTableViewCell.h"
@@ -31,24 +31,24 @@
 
 }
 
--(void)fillNameWithData:(SermonPreacher*)preacher{
-	self.nameLabel.text = preacher.content;
-	NSLog(preacher.content);
+-(void)fillNameWithData:(Sermon*)preacher{
+	self.nameLabel.text = preacher.preacherContent;
+	//NSLog(preacher.preacherContent);
 }
 
--(void)fillDateWithData:(SermonDate*)date{
-	self.dateLabel.text = date.content;
-	NSLog(date.content);
+-(void)fillDateWithData:(Sermon*)date{
+	self.dateLabel.text = date.dateContent;
+	//NSLog(date.dateContent);
 }
 
--(void)fillSermonWithData:(SermonTitle*)title{
-	self.titleLabel.text = title.content;
-	NSLog(title.content);
+-(void)fillSermonWithData:(Sermon*)title{
+	self.titleLabel.text = title.titleContent;
+	//NSLog(title.titleContent);
 }
 
 -(void)getLinkWithData:(Sermon*)link{
 	_sermonURL = link.link;
-	NSLog(link.link);
+	//NSLog(link.link);
 }
 
 

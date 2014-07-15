@@ -3,7 +3,7 @@
 //  NorthwoodApp
 //
 //  Created by greyson on 6/18/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "TweetTableViewCell.h"
@@ -31,7 +31,15 @@
 }
 
 -(void)fillWithData:(Tweet*)tweet{
-	self.contentLabel.text = tweet.tweetContent;
+	if(tweet.URL != @"none")
+		self.contentLabel.text = [tweet.tweetContent stringByAppendingString:tweet.URL];
+	else
+		self.contentLabel.text = tweet.tweetContent;
+}
+
+-(void)fillDateWithData:(Tweet*)tweet{
+	NSString *realTweet = [tweet.date stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+	self.dateLabel.text = realTweet;
 }
 
 @end

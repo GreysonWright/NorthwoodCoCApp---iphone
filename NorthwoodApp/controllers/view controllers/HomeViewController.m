@@ -3,34 +3,79 @@
 //  NorthwoodApp
 //
 //  Created by greyson on 6/11/14.
-//  Copyright (c) 2014 SilentDoorHinges. All rights reserved.
+//  Copyright (c) 2014 Greyson Wright. All rights reserved.
 //
 
 #import "HomeViewController.h"
 #import "TFHpple.h"
 #import "Tweet.h"
 #import "TweetTableViewCell.h"
-@import Social;
+#import "BigTweetViewController.h"
+#import "SettingsViewController.h"
+#import "MailRequestViewController.h"
+#import "LogginginViewController.h"
+#import "NewsLoggedinViewController.h"
+#import "NetworkStatus.h"
 
-@interface HomeViewController (){
-	NSMutableArray *_objects;
-}
+@interface HomeViewController ()
+
+@property (strong, nonatomic) IBOutlet UIView *littleBigView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property UIRefreshControl* refreshControl;
 
 @end
 
 @implementation HomeViewController
 
+static NSMutableArray *_contentObjects;
+static NSMutableArray *_dateObjects;
+static NSMutableArray *_tweetContent;
+static NSMutableArray *_tweetDates;
+//static NSString *tmpObj;
+BOOL skipPageTurn;
 
+-(void)loadStuff{
+	if([NetworkStatus networkExists]){
+		dispatch_async(dispatch_get_main_queue(), ^{
+			_contentObjects = nil;
+			_dateObjects = nil;
+			_tweetContent = nil;
+			_tweetDates = nil;
+			_contentObjects = [Tweet tweetObjects];
+			_dateObjects = [Tweet dateObjects];
+			_tweetContent = [Tweet bareTweetContent];
+			_tweetDates = [Tweet bareTweetDates];
+			[self.refreshControl endRefreshing];
+			[self.tableView reloadData];
+		});
+	}
+	else{
+		NSLog(@"don't refresh");
+		[self.refreshControl endRefreshing];
+	}
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title=@"Home";
+		self.title = @"Home";
 		self.tabBarItem.title=self.title;
-		_objects = [[NSMutableArray alloc]init];
-		_objects = [Tweet tweetObjects];
+		_contentObjects = [[NSMutableArray alloc]init];
+		_dateObjects = [[NSMutableArray alloc]init];
+		_tweetContent = [[NSMutableArray alloc]init];
+		_tweetDates = [[NSMutableArray alloc]init];
+		_tweetContent = [Tweet bareTweetContent];
+		_tweetDates = [Tweet bareTweetDates];
+		_contentObjects = [Tweet tweetObjects];
+		_dateObjects = [Tweet dateObjects];
+		[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
+		//tmpObj =[_tweetContent objectAtIndex:0];
+		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
+		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
+		
     }
     return self;
 }
@@ -38,8 +83,25 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	[self.tableView reloadData];
+	self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableView.frame.size.width, 60)];
+    [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 	
+		NSMutableArray* images = [[NSMutableArray alloc] initWithObjects:@"phillipians.png", @"bible.png", nil];
+	
+	for (int i = 0; i < [images count]; i++) {
+        CGRect frame;
+        frame.origin.x = self.scrollView.frame.size.width * i;
+        frame.origin.y = 0;
+        frame.size = self.scrollView.frame.size;
+		UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+		imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.image = [UIImage imageNamed:[images objectAtIndex:i]];
+        [self.scrollView addSubview:imageView];
+	}
+	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * [images count], self.scrollView.frame.size.height);
+	
+	[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timedPageFlips) userInfo:nil repeats:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,33 +116,127 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return _contentObjects.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	return 120;
+	return 137;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	BigTweetViewController *bigTweetView = [[BigTweetViewController alloc]init];
+	[bigTweetView setText:[_tweetContent objectAtIndex:indexPath.row]];
+	bigTweetView.title = [_tweetDates objectAtIndex:indexPath.row];
+	[self.navigationController pushViewController:bigTweetView animated:YES];
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    Tweet *thisTweet = [_objects objectAtIndex:indexPath.row];
+    Tweet *thisTweet = [_contentObjects objectAtIndex:indexPath.row];
+	Tweet *tweetDate = [_dateObjects objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[TweetTableViewCell alloc]init];
     }
+	[cell fillWithData:thisTweet];
+	[cell fillDateWithData:tweetDate];
 	
-    [cell fillWithData:thisTweet];
     return cell;
 }
 
 - (IBAction)twitterButtonPressed:(id)sender {
 	if (![[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=northwoodcoc"]]) {
         
-        // opening the app didn't work - let's open Safari
         if (![[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://twitter.com/northwoodcoc"]]) {
             NSLog(@"dead");
         }
     }
 }
 
+-(void)settingsTitleButtonTapped{
+	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+	[self.navigationController pushViewController:settingsView animated:YES];
+}
+
+-(void)requestTitleButtonTapped{
+	if([[NSUserDefaults standardUserDefaults] boolForKey:@"loggedIn"] == YES){
+	MailRequestViewController *requestView = [[MailRequestViewController alloc]init];
+	[self.navigationController pushViewController:requestView animated:YES];
+	}
+	else{
+		[MailRequestViewController setRequesting:YES];
+		LogginginViewController *loginView = [[LogginginViewController alloc]init];
+		[self presentViewController:loginView animated:YES completion:NULL];
+	}
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)sender
+{
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+	skipPageTurn = YES;
+}
+
+-(void)timedPageFlips{
+	if(self.pageControl.currentPage == 0 && skipPageTurn == NO){
+		NSLog(@"turn page");
+		self.pageControl.currentPage = 1;
+		[UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+		self.scrollView.contentOffset = CGPointMake(320, 0);
+		} completion:NULL];
+	}
+	else if(self.pageControl.currentPage == 1 && skipPageTurn == NO){
+		NSLog(@"turn page");
+	 self.pageControl.currentPage = 0;
+		[UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+			self.scrollView.contentOffset = CGPointMake(0, 0);
+		} completion:NULL];
+	}
+	else{
+		NSLog(@"skipping turn");
+		skipPageTurn = NO;
+	}
+}
+
++(UIBackgroundFetchResult)refreshTweets{
+	dispatch_async(dispatch_get_main_queue(), ^{
+		_contentObjects = nil;
+		_dateObjects = nil;
+		_tweetContent = nil;
+		_tweetDates = nil;
+		_contentObjects = [Tweet tweetObjects];
+		_dateObjects = [Tweet dateObjects];
+		_tweetContent = [Tweet bareTweetContent];
+		_tweetDates = [Tweet bareTweetDates];
+	});
+	if([self arrayIsUpdated]){
+		[self notifFire];
+		return UIBackgroundFetchResultNewData;
+	}
+	else{
+		NSLog(@"no new data");
+		return UIBackgroundFetchResultNoData;
+	}
+}
+
++(void)notifFire{
+	UILocalNotification *notification = [[UILocalNotification alloc]init];
+	[notification setAlertBody:[_tweetContent objectAtIndex:0]];
+	[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+	[notification setTimeZone:[NSTimeZone  defaultTimeZone]];
+	[[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+}
+
++(BOOL)arrayIsUpdated{
+	if([[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"] != [_tweetContent objectAtIndex:0]){
+		[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
+		[[NSUserDefaults standardUserDefaults]synchronize];
+		return YES;
+	}
+	else
+		return NO;
+}
 @end
