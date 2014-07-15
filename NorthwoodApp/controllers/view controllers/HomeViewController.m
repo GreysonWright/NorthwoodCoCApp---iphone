@@ -37,7 +37,6 @@ static NSString *tmpObj;
 BOOL skipPageTurn;
 
 -(void)loadStuff{
-	
 	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 			_contentObjects = nil;
@@ -201,13 +200,33 @@ BOOL skipPageTurn;
 	}
 }
 
-+(UIBackgroundFetchResult)notifFire{
++(UIBackgroundFetchResult)refreshTweets{
+	dispatch_async(dispatch_get_main_queue(), ^{
+		_contentObjects = nil;
+		_dateObjects = nil;
+		_tweetContent = nil;
+		_tweetDates = nil;
+		_contentObjects = [Tweet tweetObjects];
+		_dateObjects = [Tweet dateObjects];
+		_tweetContent = [Tweet bareTweetContent];
+		_tweetDates = [Tweet bareTweetDates];
+	});
+	if([self arrayIsUpdated]){
+		[self notifFire];
+		return UIBackgroundFetchResultNewData;
+	}
+	else{
+		NSLog(@"no new data");
+		return UIBackgroundFetchResultNoData;
+	}
+}
+
++(void)notifFire{
 	UILocalNotification *notification = [[UILocalNotification alloc]init];
 	[notification setAlertBody:[_tweetContent objectAtIndex:0]];
 	[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
 	[notification setTimeZone:[NSTimeZone  defaultTimeZone]];
 	[[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
-	return UIBackgroundFetchResultNewData;
 }
 
 +(BOOL)arrayIsUpdated{

@@ -10,7 +10,6 @@
 
 @interface HomeViewController : UIViewController
 
-+(UIBackgroundFetchResult)notifFire;
-+(BOOL)arrayIsUpdated;
++(UIBackgroundFetchResult)refreshTweets;
 
 @end

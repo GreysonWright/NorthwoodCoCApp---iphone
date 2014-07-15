@@ -126,10 +126,9 @@ int _alert;
 	
 	if(![NetworkStatus networkExists])
 		completionHandler(UIBackgroundFetchResultFailed);
-	else if([HomeViewController arrayIsUpdated]) //check if switch is on [settigngs tweetswitchison]
-		completionHandler([HomeViewController notifFire]);
-	else
-		completionHandler(UIBackgroundFetchResultNoData);
+	else{ //check if switch is on [settigngs tweetswitchison]
+		completionHandler([HomeViewController refreshTweets]);
+	}
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
