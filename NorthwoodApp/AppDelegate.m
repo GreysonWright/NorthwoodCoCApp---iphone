@@ -103,7 +103,7 @@ int _alert;
 		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"dutySwitch"];
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"verseSwitch"];
 		[[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"notifsOn"];
-		//[[NSUserDefaults standardUserDefaults] synchronize];
+		[[NSUserDefaults standardUserDefaults] synchronize];
 		UIAlertView *pushNotificationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"Would You like to receive push notifications?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
 		[pushNotificationAlert show];
 		_alert = 0;

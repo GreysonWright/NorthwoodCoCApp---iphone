@@ -231,9 +231,9 @@ BOOL skipPageTurn;
 }
 
 +(BOOL)arrayIsUpdated{
-	NSString *tmpObj = [[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"];
-	if(tmpObj != [_tweetContent objectAtIndex:0]){
-		tmpObj = [_tweetContent objectAtIndex:0];
+	if([[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"] != [_tweetContent objectAtIndex:0]){
+		[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
+		[[NSUserDefaults standardUserDefaults]synchronize];
 		return YES;
 	}
 	else
