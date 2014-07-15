@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "Appdelegate.h"
 
 @interface SettingsViewController ()
 
@@ -26,6 +27,9 @@
 @end
 
 @implementation SettingsViewController
+
+static BOOL pushNotifIsOn;
+static BOOL tweetNotifIsOn;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -84,10 +88,9 @@
 }
 
 - (IBAction)pushSwitchChanged:(id)sender {
-	if(self.pushSwitch.isOn == YES)
-		[self objectsEnabled:YES];
-	else
-		[self objectsEnabled:NO];
+	[AppDelegate backgroundFetchEnabled:self.pushSwitch.isOn];
+	[self objectsEnabled:self.pushSwitch.isOn];
+	pushNotifIsOn = self.pushSwitch.isOn;
 	
 	[self saveState];
 }
@@ -102,6 +105,7 @@
 
 - (IBAction)tweetSwitchChanged:(id)sender {
 	[self saveState];
+	tweetNotifIsOn = self.tweetSwitch.isOn;
 }
 
 - (IBAction)dutySwitchChanged:(id)sender {
@@ -110,5 +114,13 @@
 
 - (IBAction)verseSwitchChanged:(id)sender {
 	[self saveState];
+}
+
++(BOOL)tweetSwitchIsOn{
+	return tweetNotifIsOn;
+}
+
++(BOOL)pushSwitchIsOn{
+	return pushNotifIsOn;
 }
 @end

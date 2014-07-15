@@ -10,4 +10,7 @@
 
 @interface HomeViewController : UIViewController
 
++(UIBackgroundFetchResult)notifFire;
++(BOOL)arrayIsUpdated;
+
 @end

@@ -14,4 +14,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property TabBarController *tabBar;
 
++(void)backgroundFetchEnabled:(BOOL)yesNo;
+
 @end

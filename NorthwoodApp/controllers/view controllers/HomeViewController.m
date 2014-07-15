@@ -17,12 +17,7 @@
 #import "NewsLoggedinViewController.h"
 #import "NetworkStatus.h"
 
-@interface HomeViewController (){
-	NSMutableArray *_contentObjects;
-	NSMutableArray *_dateObjects;
-	NSMutableArray *_tweetContent;
-	NSMutableArray *_tweetDates;
-}
+@interface HomeViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *littleBigView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -34,6 +29,11 @@
 
 @implementation HomeViewController
 
+static NSMutableArray *_contentObjects;
+static NSMutableArray *_dateObjects;
+static NSMutableArray *_tweetContent;
+static NSMutableArray *_tweetDates;
+static NSString *tmpObj;
 BOOL skipPageTurn;
 
 -(void)loadStuff{
@@ -72,6 +72,7 @@ BOOL skipPageTurn;
 		_tweetDates = [Tweet bareTweetDates];
 		_contentObjects = [Tweet tweetObjects];
 		_dateObjects = [Tweet dateObjects];
+		tmpObj =[_tweetContent objectAtIndex:0];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
 		
@@ -198,5 +199,23 @@ BOOL skipPageTurn;
 		NSLog(@"skipping turn");
 		skipPageTurn = NO;
 	}
+}
+
++(UIBackgroundFetchResult)notifFire{
+	UILocalNotification *notification = [[UILocalNotification alloc]init];
+	[notification setAlertBody:[_tweetContent objectAtIndex:0]];
+	[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+	[notification setTimeZone:[NSTimeZone  defaultTimeZone]];
+	[[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+	return UIBackgroundFetchResultNewData;
+}
+
++(BOOL)arrayIsUpdated{
+	if(tmpObj != [_tweetContent objectAtIndex:0]){
+		tmpObj = [_tweetContent objectAtIndex:0];
+		return YES;
+	}
+	else
+		return NO;
 }
 @end

@@ -18,6 +18,8 @@
 #import "ContactUsNavigationViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "NetworkStatus.h"
+#import "SettingsViewController.h"
 
 @implementation AppDelegate
 
@@ -98,9 +100,36 @@ int _alert;
 		[pushNotificationAlert show];
 		_alert = 0;
 
-		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
 	}
+	
+	if([SettingsViewController pushSwitchIsOn])
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+	else{
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+		NSLog(@"no background checking e.e");
+	}
+		
+	
     return YES;
+}
+
++(void)backgroundFetchEnabled:(BOOL)yesNo{
+	if(yesNo)
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+	else{
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
+		NSLog(@"no notifs :(");
+	}
+}
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+	
+	if(![NetworkStatus networkExists])
+		completionHandler(UIBackgroundFetchResultFailed);
+	else if([HomeViewController arrayIsUpdated]) //check if switch is on [settigngs tweetswitchison]
+		completionHandler([HomeViewController notifFire]);
+	else
+		completionHandler(UIBackgroundFetchResultNoData);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
