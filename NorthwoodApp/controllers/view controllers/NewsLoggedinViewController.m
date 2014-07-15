@@ -203,7 +203,6 @@ static BOOL loggedin;
 	UITableViewCell *returnThis;
 	
 	if(_selectedSegment == 0){ //bulletins
-			self.navigationController.navigationBar.topItem.title = [@"Welcome, " stringByAppendingString:[[NSUserDefaults standardUserDefaults]objectForKey:@"username"]];
 			
 		BulletinTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BulletinCell"];
 		Bulletin *thisBulletin = [_bulletinObjects objectAtIndex:indexPath.row];

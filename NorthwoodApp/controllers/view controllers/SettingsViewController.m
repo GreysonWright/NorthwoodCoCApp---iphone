@@ -61,6 +61,7 @@ static BOOL tweetNotifIsOn;
 	[[NSUserDefaults standardUserDefaults] setBool:self.tweetSwitch.isOn forKey:@"tweetSwitch"];
 	[[NSUserDefaults standardUserDefaults] setBool:self.dutySwitch.isOn forKey:@"dutySwitch"];
 	[[NSUserDefaults standardUserDefaults] setBool:self.dailyVerse.isOn forKey:@"verseSwitch"];
+	[[NSUserDefaults standardUserDefaults]setBool:pushNotifIsOn forKey:@"notifsOn"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -121,6 +122,6 @@ static BOOL tweetNotifIsOn;
 }
 
 +(BOOL)pushSwitchIsOn{
-	return pushNotifIsOn;
+	return [[NSUserDefaults standardUserDefaults]boolForKey:@"notifsOn"];
 }
 @end

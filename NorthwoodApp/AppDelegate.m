@@ -96,6 +96,14 @@ int _alert;
 	[self.window setRootViewController:self.tabBar];
 	
 	if([[NSUserDefaults standardUserDefaults] boolForKey:@"notFirstLaunch"] == NO){
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"groupSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"eventSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"tweetSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"dutySwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"verseSwitch"];
+		[[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"notifsOn"];
+		//[[NSUserDefaults standardUserDefaults] synchronize];
 		UIAlertView *pushNotificationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"Would You like to receive push notifications?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
 		[pushNotificationAlert show];
 		_alert = 0;
