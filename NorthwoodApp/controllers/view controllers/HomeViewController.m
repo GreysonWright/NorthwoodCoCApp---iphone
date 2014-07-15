@@ -15,7 +15,7 @@
 #import "MailRequestViewController.h"
 #import "LogginginViewController.h"
 #import "NewsLoggedinViewController.h"
-#import "Reachability.h"
+#import "NetworkStatus.h"
 
 @interface HomeViewController (){
 	NSMutableArray *_contentObjects;
@@ -37,7 +37,8 @@
 BOOL skipPageTurn;
 
 -(void)loadStuff{
-	if([self networkExists] == YES){
+	
+	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 			_contentObjects = nil;
 			_dateObjects = nil;
@@ -47,13 +48,14 @@ BOOL skipPageTurn;
 			_dateObjects = [Tweet dateObjects];
 			_tweetContent = [Tweet bareTweetContent];
 			_tweetDates = [Tweet bareTweetDates];
+			[self.refreshControl endRefreshing];
+			[self.tableView reloadData];
 		});
 	}
 	else{
 		NSLog(@"don't refresh");
+		[self.refreshControl endRefreshing];
 	}
-	[self.refreshControl endRefreshing];
-	[self.tableView reloadData];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -195,24 +197,6 @@ BOOL skipPageTurn;
 	else{
 		NSLog(@"skipping turn");
 		skipPageTurn = NO;
-	}
-}
-
--(BOOL)networkExists{
-	NetworkStatus networkStatus = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
-	if (networkStatus == NotReachable) {
-		return NO;
-	} else {
-		return YES;
-	}
-}
-
-+(BOOL)networkExists{
-	NetworkStatus networkStatus = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus];
-	if (networkStatus == NotReachable) {
-		return NO;
-	} else {
-		return YES;
 	}
 }
 @end

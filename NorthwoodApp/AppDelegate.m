@@ -98,6 +98,7 @@ int _alert;
 		[pushNotificationAlert show];
 		_alert = 0;
 
+		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
 	}
     return YES;
 }

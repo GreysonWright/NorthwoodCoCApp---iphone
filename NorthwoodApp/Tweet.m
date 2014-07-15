@@ -123,6 +123,4 @@ int tweetCount;
 +(NSString*)getURLs{
 	return tweetURL;
 }
-
-
 @end

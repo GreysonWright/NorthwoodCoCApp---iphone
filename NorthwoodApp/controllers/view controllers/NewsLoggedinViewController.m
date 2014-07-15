@@ -21,6 +21,7 @@
 #import "UniversalWebViewViewController.h"
 #import "SettingsViewController.h"
 #import "HomeViewController.h"
+#import "NetworkStatus.h"
 
 @interface NewsLoggedinViewController (){
 	NSMutableArray *_bulletinObjects;
@@ -46,7 +47,7 @@
 static BOOL loggedin;
 
 -(void)loadStuff{
-	if([HomeViewController networkExists] == YES){
+	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 			if(_selectedSegment == 0){
 			_bulletinObjects = nil;
@@ -61,13 +62,14 @@ static BOOL loggedin;
 			_emailObjects = [Directory emailObjects];
 			_addressObjects = [Directory adressObjects];
 		}
+			[self.refreshControl endRefreshing];
+			[self.tableView reloadData];
 		});
 	}
 	else{
 		NSLog(@"don't refresh");
+		[self.refreshControl endRefreshing];
 	}
-	[self.refreshControl endRefreshing];
-	[self.tableView reloadData];
 }
 
 - (IBAction)segmentsChanged:(id)sender {
