@@ -31,8 +31,8 @@
 		[_loadingView setBackgroundColor:[UIColor blackColor]];
 		
 		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-		[indicator setFrame:CGRectMake(( 10), ( 10), 300, 400)];
-		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (230), 320, 30)];
+		[indicator setFrame:CGRectMake((160), (180), 0, 0)];
+		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (210), 320, 30)];
 		loadingLabel.textColor = [UIColor whiteColor];
 		[loadingLabel setTextAlignment:UITextAlignmentCenter];
 		loadingLabel.text = @"Loading";
