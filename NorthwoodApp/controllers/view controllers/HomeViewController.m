@@ -233,7 +233,6 @@ BOOL skipPageTurn;
 		return NO;
 	}
 	else{
-		
 		//NSLog([@"first defaults-" stringByAppendingString:[[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"]]);
 		//NSLog([@"tweet conent-"stringByAppendingString:[_tweetContent objectAtIndex:0]]);
 		[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];

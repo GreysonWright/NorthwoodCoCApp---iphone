@@ -59,12 +59,10 @@
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
-	[self dismissViewControllerAnimated:YES completion:^{
+	[self dismissViewControllerAnimated:YES completion:nil];
 	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 	appDelegate.tabBar.selectedIndex=0;
 	[HomeViewController popToRootView];
-		
-	}];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;
