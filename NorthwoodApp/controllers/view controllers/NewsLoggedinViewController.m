@@ -121,6 +121,11 @@ static BOOL loggedin;
 	}
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+	if(loggedin == YES)
+		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
