@@ -117,15 +117,8 @@ static BOOL loggedin;
 		[self presentViewController:logginView animated:YES completion:nil];
 	}
 	else if(loggedin == YES){
-		NSLog(@"do nothing");
+		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	}
-}
-
--(void)viewDidAppear:(BOOL)animated{
-	[super viewDidAppear:YES];
-	
-	if([[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"] == YES)
-		self.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 }
 
 - (void)viewDidLoad
