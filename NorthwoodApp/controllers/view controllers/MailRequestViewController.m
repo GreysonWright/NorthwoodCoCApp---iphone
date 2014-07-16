@@ -7,6 +7,8 @@
 //
 
 #import "MailRequestViewController.h"
+#import "LogginginViewController.h"
+#import "NewsLoggedinViewController.h"
 
 @interface MailRequestViewController ()
 
@@ -19,6 +21,8 @@
 @implementation MailRequestViewController
 
 static BOOL requesting;
+static BOOL stillPresented;
+int alertIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +36,11 @@ static BOOL requesting;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	if([[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"] == NO){
+		[self.navigationController presentViewController:[[LogginginViewController alloc]init] animated:YES completion:nil];
+	}
+	else
+		NSLog(@"%d",[[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,21 +65,37 @@ static BOOL requesting;
 	}
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+	if(stillPresented == NO && [[NSUserDefaults standardUserDefaults] boolForKey:@"loggedIn"] == NO){
+		[self.navigationController popToRootViewControllerAnimated:YES];
+		NSLog(@"%d",[[NSUserDefaults standardUserDefaults] boolForKey:@"loggedIn"]);
+	}
+	else{
+		//do stuff here
+		NSLog(@"yayaya");
+	}
+}
+
 - (IBAction)submitButtonPressed:(id)sender {
 	
 	NSLog(@"submit stuff yayayaya");
-	UIAlertView *submitAlert = [[UIAlertView alloc]initWithTitle:@"Success!!!!" message:@"Your mail request has been submitted and will now be reviewed." delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil];
-    [submitAlert show];
+    [[[UIAlertView alloc]initWithTitle:@"Success!!!" message:@"Your mail request has been submitted and will now be reviewed." delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil] show];
+	alertIndex = 0;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if(alertIndex==0){
 	[self.navigationController popToRootViewControllerAnimated:YES];
-	/*if(buttonIndex == 0){
-		NSLog(@"i dont remember what this does");
+	//send yayayaya
 	}
 	else{
-		NSLog(@"impossible");
-	} */
+		if(buttonIndex == 0)
+			[self.navigationController popToRootViewControllerAnimated:YES];
+		else{
+			LogginginViewController *loginView = [[LogginginViewController alloc]init];
+			[self presentViewController:loginView animated:YES completion:nil];
+		}
+	}
 }
 
 -(void)doneTitleButtonTapped{
@@ -84,5 +109,13 @@ static BOOL requesting;
 
 +(void)setRequesting:(BOOL)request{
 	requesting = request;
+}
+
++(void)setLoginStillPresented:(BOOL)input{
+	stillPresented = input;
+}
+
++(BOOL)loginStillPresented{
+	return stillPresented;
 }
 @end

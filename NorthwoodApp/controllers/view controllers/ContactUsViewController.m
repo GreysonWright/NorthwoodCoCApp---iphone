@@ -100,14 +100,8 @@
 }
 
 -(void)requestTitleButtonTapped{
-	if([NewsLoggedinViewController getLoggedin]){
 		MailRequestViewController *requestView = [[MailRequestViewController alloc]init];
 		[self.navigationController pushViewController:requestView animated:YES];
-	}
-	else{
-		[MailRequestViewController setRequesting:YES];
-		LogginginViewController *loginView = [[LogginginViewController alloc]init];
-		[self presentViewController:loginView animated:YES completion:NULL];
-	}
+	
 }
 @end
