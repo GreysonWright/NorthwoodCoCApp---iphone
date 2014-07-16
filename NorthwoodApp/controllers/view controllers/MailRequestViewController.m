@@ -39,7 +39,8 @@ int alertIndex;
 	if([[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"] == NO){
 		[self.navigationController presentViewController:[[LogginginViewController alloc]init] animated:YES completion:nil];
 	}
-	NSLog(@"%d",[[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"]);
+	else
+		NSLog(@"%d",[[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,9 +66,9 @@ int alertIndex;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	if(stillPresented == NO && [[NSUserDefaults standardUserDefaults] boolForKey:@"logedIn"] != YES){
+	if(stillPresented == NO && [[NSUserDefaults standardUserDefaults] boolForKey:@"loggedIn"] == NO){
 		[self.navigationController popToRootViewControllerAnimated:YES];
-		NSLog(@"it works!!!!!!!!!!!!!! :DDDDDDD");
+		NSLog(@"%d",[[NSUserDefaults standardUserDefaults] boolForKey:@"loggedIn"]);
 	}
 	else{
 		//do stuff here
