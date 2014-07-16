@@ -42,5 +42,4 @@ static NSString *viewText;
 -(void)setText:(NSString*)text{
 	viewText = text;
 }
-
 @end

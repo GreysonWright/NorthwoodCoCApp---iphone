@@ -85,6 +85,11 @@ BOOL skipPageTurn;
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+	if([NetworkStatus networkExists] && [self needsToReload])
+		[self loadStuff];
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
@@ -195,6 +200,17 @@ BOOL skipPageTurn;
 	else{
 		NSLog(@"skipping turn");
 		skipPageTurn = NO;
+	}
+}
+
+-(BOOL)needsToReload{
+	if(_tweetContent.count == 0){
+		NSLog(@"reload");
+		return YES;
+	}
+	else{
+		NSLog(@"doesnt need to reload");
+		return NO;
 	}
 }
 

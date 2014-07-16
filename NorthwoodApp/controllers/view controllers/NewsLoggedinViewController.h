@@ -12,4 +12,5 @@
 
 +(void)setLoggedin:(BOOL)newLoggedin;
 +(BOOL)getLoggedin;
+
 @end

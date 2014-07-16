@@ -13,6 +13,7 @@
 #import "MailRequestViewController.h"
 #import "LogginginViewController.h"
 #import "NewsLoggedinViewController.h"
+#import "NetworkStatus.h"
 
 @interface ContactUsViewController (){
 	NSMutableArray *_titleObjects;
@@ -23,6 +24,23 @@
 @end
 
 @implementation ContactUsViewController
+
+-(void)loadStuff{
+	if([NetworkStatus networkExists]){
+		dispatch_async(dispatch_get_main_queue(), ^{
+			_titleObjects = nil;
+			_nameObjects = nil;
+			_emailObjects = nil;
+			_titleObjects = [ContactUs titleObjects];
+			_nameObjects = [ContactUs nameObjects];
+			_emailObjects = [ContactUs emailObjects];
+			[self.tableView reloadData];
+		});
+	}
+	else
+		NSLog(@"dont load data");
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,6 +58,11 @@
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
     }
     return self;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+	if([NetworkStatus networkExists] && [self needsToReload])
+		[self loadStuff];
 }
 
 - (void)viewDidLoad
@@ -103,5 +126,16 @@
 		MailRequestViewController *requestView = [[MailRequestViewController alloc]init];
 		[self.navigationController pushViewController:requestView animated:YES];
 	
+}
+
+-(BOOL)needsToReload{
+	if(_nameObjects.count == 0){
+		NSLog(@"reload");
+		return YES;
+	}
+	else{
+		NSLog(@"doesnt need to reload");
+		return NO;
+	}
 }
 @end

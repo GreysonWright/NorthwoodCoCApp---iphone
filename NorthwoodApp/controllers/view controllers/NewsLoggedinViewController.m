@@ -50,18 +50,64 @@ static BOOL loggedin;
 	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 			if(_selectedSegment == 0){
+				_bulletinObjects = nil;
+				_linksForWebView = nil;
+				_bulletinObjects = [Bulletin bulletinObject];
+				_linksForWebView = [Bulletin bulletinLink];
+			}
+			else if(_selectedSegment == 1){
+				_prayerListObjects = nil;
+				_prayerListObjects = [PrayerList prayerListObjects];
+			}
+			
+			else if(_selectedSegment == 2){
+				_dutyRosterObjects = nil;
+				_dutyRosterObjects = [DutyRoster dutyRosterObjects];
+			}
+			
+			else if(_selectedSegment == 3){
+				_nameObjects = nil;
+				_titleObjects = nil;
+				_phoneObjects = nil;
+				_emailObjects = nil;
+				_addressObjects = nil;
+				_nameObjects = [Directory nameObjects];
+				_titleObjects = [Directory titleObjects];
+				_phoneObjects = [Directory phoneObjects];
+				_emailObjects = [Directory emailObjects];
+				_addressObjects = [Directory adressObjects];
+			}
+			[self.refreshControl endRefreshing];
+			[self.tableView reloadData];
+		});
+	}
+	else{
+		NSLog(@"don't refresh");
+		[self.refreshControl endRefreshing];
+	}
+}
+
+-(void)loadEverything{
+	if([NetworkStatus networkExists]){
+		dispatch_async(dispatch_get_main_queue(), ^{
 			_bulletinObjects = nil;
 			_linksForWebView = nil;
+			_prayerListObjects = nil;
+			_dutyRosterObjects = nil;
+			_nameObjects = nil;
+			_titleObjects = nil;
+			_phoneObjects = nil;
+			_emailObjects = nil;
+			_addressObjects = nil;
 			_bulletinObjects = [Bulletin bulletinObject];
 			_linksForWebView = [Bulletin bulletinLink];
-		}
-		else if(_selectedSegment == 3){
+			_prayerListObjects = [PrayerList prayerListObjects];
+			_dutyRosterObjects = [DutyRoster dutyRosterObjects];
 			_nameObjects = [Directory nameObjects];
 			_titleObjects = [Directory titleObjects];
 			_phoneObjects = [Directory phoneObjects];
 			_emailObjects = [Directory emailObjects];
 			_addressObjects = [Directory adressObjects];
-		}
 			[self.refreshControl endRefreshing];
 			[self.tableView reloadData];
 		});
@@ -122,8 +168,11 @@ static BOOL loggedin;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	if(loggedin == YES)
+	
+	if(loggedin == YES && [self needsToReload])
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+	
+	[self loadEverything];
 }
 
 - (void)viewDidLoad
@@ -295,5 +344,16 @@ static BOOL loggedin;
 -(void)settingsTitleButtonTapped{
 	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
 	[self.navigationController pushViewController:settingsView animated:YES];
+}
+
+-(BOOL)needsToReload{
+	if(_bulletinObjects.count == 0 || _prayerListObjects.count == 0 || _dutyRosterObjects.count == 0 || _titleObjects.count == 0){
+		NSLog(@"reload");
+		return YES;
+	}
+	else{
+		NSLog(@"doesnt need to reload");
+		return NO;
+	}
 }
 @end
