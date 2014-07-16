@@ -107,7 +107,7 @@ int _alert;
 		UIAlertView *pushNotificationAlert = [[UIAlertView alloc]initWithTitle:@"" message:@"Would You like to receive push notifications?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
 		[pushNotificationAlert show];
 		_alert = 0;
-
+		NSLog(@"first launch");
 	}
 	
 	if([SettingsViewController pushSwitchIsOn])

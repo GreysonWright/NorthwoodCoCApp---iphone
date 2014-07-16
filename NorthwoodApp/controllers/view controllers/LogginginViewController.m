@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "MailRequestViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "HomeViewController.h"
 
 @interface LogginginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameBox;
@@ -58,14 +59,16 @@
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
-	[self dismissViewControllerAnimated:YES completion:nil];
+	[self dismissViewControllerAnimated:YES completion:^{
 	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 	appDelegate.tabBar.selectedIndex=0;
+	[HomeViewController popToRootView];
+		
+	}];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField*)textField;
 {
-	
 	[textField resignFirstResponder];
     return NO;
 }

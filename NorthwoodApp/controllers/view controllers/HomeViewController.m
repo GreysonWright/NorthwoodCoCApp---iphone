@@ -71,8 +71,11 @@ BOOL skipPageTurn;
 		_tweetDates = [Tweet bareTweetDates];
 		_contentObjects = [Tweet tweetObjects];
 		_dateObjects = [Tweet dateObjects];
-		[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
-		[[NSUserDefaults standardUserDefaults]synchronize];
+		if([[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"] == nil){
+			[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
+			[[NSUserDefaults standardUserDefaults]synchronize];
+			NSLog([_tweetContent objectAtIndex:0]);
+		}
 		//tmpObj =[_tweetContent objectAtIndex:0];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
@@ -195,7 +198,7 @@ BOOL skipPageTurn;
 }
 
 +(UIBackgroundFetchResult)refreshTweets{
-	dispatch_async(dispatch_get_main_queue(), ^{
+	//dispatch_async(dispatch_get_main_queue(), ^{
 		_contentObjects = nil;
 		_dateObjects = nil;
 		_tweetContent = nil;
@@ -204,8 +207,9 @@ BOOL skipPageTurn;
 		_dateObjects = [Tweet dateObjects];
 		_tweetContent = [Tweet bareTweetContent];
 		_tweetDates = [Tweet bareTweetDates];
-	});
+	//});
 	if([self arrayIsUpdated]){
+		NSLog(@"gogogogo");
 		[self notifFire];
 		return UIBackgroundFetchResultNewData;
 	}
@@ -217,19 +221,33 @@ BOOL skipPageTurn;
 
 +(void)notifFire{
 	UILocalNotification *notification = [[UILocalNotification alloc]init];
-	[notification setAlertBody:[_tweetContent objectAtIndex:0]];
-	[notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
-	[notification setTimeZone:[NSTimeZone  defaultTimeZone]];
+	notification.alertBody = [_tweetContent objectAtIndex:0];
+	notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:7];
+	notification.timeZone = [NSTimeZone defaultTimeZone];
+	notification.soundName = UILocalNotificationDefaultSoundName;
 	[[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
 }
 
 +(BOOL)arrayIsUpdated{
-	if([[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"] != [_tweetContent objectAtIndex:0]){
+	if([[[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"]  isEqual:[_tweetContent objectAtIndex:0]]){
+		return NO;
+	}
+	else{
+		
+		//NSLog([@"first defaults-" stringByAppendingString:[[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"]]);
+		//NSLog([@"tweet conent-"stringByAppendingString:[_tweetContent objectAtIndex:0]]);
 		[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
 		[[NSUserDefaults standardUserDefaults]synchronize];
+		//NSLog([@"second user defaults-" stringByAppendingString:[[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"]]);
 		return YES;
 	}
-	else
-		return NO;
+}
+
++(void)popToRootView{
+	[[[self alloc] init] instancePopToRootView];
+}
+
+-(void)instancePopToRootView{
+	[self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end
