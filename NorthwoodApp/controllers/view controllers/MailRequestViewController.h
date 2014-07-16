@@ -12,4 +12,7 @@
 
 +(BOOL)getRequest;
 +(void)setRequesting:(BOOL)request;
++(void)setLoginStillPresented:(BOOL)input;
++(BOOL)loginStillPresented;
+
 @end

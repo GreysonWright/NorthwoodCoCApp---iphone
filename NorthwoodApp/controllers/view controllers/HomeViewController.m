@@ -16,6 +16,7 @@
 #import "LogginginViewController.h"
 #import "NewsLoggedinViewController.h"
 #import "NetworkStatus.h"
+#import "AppDelegate.h"
 
 @interface HomeViewController ()
 
@@ -240,13 +241,5 @@ BOOL skipPageTurn;
 		//NSLog([@"second user defaults-" stringByAppendingString:[[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"]]);
 		return YES;
 	}
-}
-
-+(void)popToRootView{
-	[[[self alloc] init] instancePopToRootView];
-}
-
--(void)instancePopToRootView{
-	[self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

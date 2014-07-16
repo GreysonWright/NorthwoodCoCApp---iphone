@@ -35,6 +35,7 @@
     [super viewDidLoad];
 	self.usernameBox.delegate = self;
 	self.passwordBox.delegate = self;
+	[MailRequestViewController setLoginStillPresented:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +53,7 @@
 	else{
 		[self dismissViewControllerAnimated:YES completion:nil];
 		[NewsLoggedinViewController setLoggedin:YES];
+		[MailRequestViewController setLoginStillPresented:YES];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
 		[[NSUserDefaults standardUserDefaults] setObject:[self.usernameBox text] forKey:@"username"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
@@ -62,11 +64,10 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 	appDelegate.tabBar.selectedIndex=0;
-	[HomeViewController popToRootView];
+	[MailRequestViewController setLoginStillPresented:NO];
 }
 
--(BOOL)textFieldShouldReturn:(UITextField*)textField;
-{
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
 	[textField resignFirstResponder];
     return NO;
 }

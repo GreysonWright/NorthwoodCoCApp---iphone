@@ -11,6 +11,5 @@
 @interface HomeViewController : UIViewController
 
 +(UIBackgroundFetchResult)refreshTweets;
-+(void)popToRootView;
 
 @end

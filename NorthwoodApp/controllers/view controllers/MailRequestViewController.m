@@ -21,6 +21,7 @@
 @implementation MailRequestViewController
 
 static BOOL requesting;
+static BOOL stillPresented;
 int alertIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,8 +37,7 @@ int alertIndex;
 {
     [super viewDidLoad];
 	if([[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"] == NO){
-		[[[UIAlertView alloc]initWithTitle:@"" message:@"You have not signed in. Would you like to sign in now?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
-		alertIndex = 1;
+		[self.navigationController presentViewController:[[LogginginViewController alloc]init] animated:YES completion:nil];
 	}
 	NSLog(@"%d",[[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"]);
 }
@@ -64,17 +64,28 @@ int alertIndex;
 	}
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+	if(stillPresented == NO && [[NSUserDefaults standardUserDefaults] boolForKey:@"logedIn"] != YES){
+		[self.navigationController popToRootViewControllerAnimated:YES];
+		NSLog(@"it works!!!!!!!!!!!!!! :DDDDDDD");
+	}
+	else{
+		//do stuff here
+		NSLog(@"yayaya");
+	}
+}
+
 - (IBAction)submitButtonPressed:(id)sender {
 	
 	NSLog(@"submit stuff yayayaya");
-    [[[UIAlertView alloc]initWithTitle:@"Success!!!!" message:@"Your mail request has been submitted and will now be reviewed." delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc]initWithTitle:@"Success!!!" message:@"Your mail request has been submitted and will now be reviewed." delegate:self cancelButtonTitle:@"Ok!" otherButtonTitles:nil] show];
 	alertIndex = 0;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if(alertIndex==0){
 	[self.navigationController popToRootViewControllerAnimated:YES];
-	//make this send request to backend
+	//send yayayaya
 	}
 	else{
 		if(buttonIndex == 0)
@@ -97,5 +108,13 @@ int alertIndex;
 
 +(void)setRequesting:(BOOL)request{
 	requesting = request;
+}
+
++(void)setLoginStillPresented:(BOOL)input{
+	stillPresented = input;
+}
+
++(BOOL)loginStillPresented{
+	return stillPresented;
 }
 @end
