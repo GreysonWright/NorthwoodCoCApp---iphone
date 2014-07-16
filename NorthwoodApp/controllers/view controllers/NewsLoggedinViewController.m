@@ -121,6 +121,12 @@ static BOOL loggedin;
 	}
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+	[super viewDidAppear:YES];
+	
+	if([[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"] == YES)
+		self.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+}
 
 - (void)viewDidLoad
 {
