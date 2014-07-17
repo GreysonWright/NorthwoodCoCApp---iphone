@@ -435,7 +435,7 @@
 			name = "Tweet Sub View";
 			sourceTree = "<group>";
 		};
-		2E4F92AE194B65B300BC23F2 /* HTML Parsing */ = {
+		2E4F92AE194B65B300BC23F2 /* TFHpple */ = {
 			isa = PBXGroup;
 			children = (
 				2E4F92AF194B65B300BC23F2 /* TFHpple.h */,
@@ -445,6 +445,7 @@
 				2E4F92B3194B65B300BC23F2 /* XPathQuery.h */,
 				2E4F92B4194B65B300BC23F2 /* XPathQuery.m */,
 			);
+			name = TFHpple;
 			path = "HTML Parsing";
 			sourceTree = "<group>";
 		};
@@ -494,7 +495,7 @@
 				2E4B16A11952094100641710 /* Models */,
 				2E41833C1950A78C006D52EC /* Cell Views */,
 				2E52E4301948BD9800B46786 /* Controllers */,
-				2E4F92AE194B65B300BC23F2 /* HTML Parsing */,
+				2E4F92AE194B65B300BC23F2 /* TFHpple */,
 				2E632D6C19758DAE006EA4C4 /* Network Status */,
 				2E632D7019758EE1006EA4C4 /* Reachability */,
 				2E52E3DE1948AE0E00B46786 /* Supporting Files */,

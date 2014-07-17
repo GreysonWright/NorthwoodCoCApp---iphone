@@ -172,7 +172,11 @@ static BOOL loggedin;
 	if(loggedin == YES && [self needsToReload])
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	
-	[self loadEverything];
+	if([self needsToReload])
+		if([NetworkStatus networkExists])
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self loadEverything];
+			});
 }
 
 - (void)viewDidLoad

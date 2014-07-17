@@ -86,8 +86,11 @@ BOOL skipPageTurn;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	if([NetworkStatus networkExists] && [self needsToReload])
-		[self loadStuff];
+	if([self needsToReload])
+		if([NetworkStatus networkExists])//keep this here so we dont lag when switching tabs
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self loadStuff];
+			});
 }
 
 - (void)viewDidLoad
@@ -239,7 +242,7 @@ BOOL skipPageTurn;
 +(void)notifFire{
 	UILocalNotification *notification = [[UILocalNotification alloc]init];
 	notification.alertBody = [_tweetContent objectAtIndex:0];
-	notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:7];
+	notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
 	notification.timeZone = [NSTimeZone defaultTimeZone];
 	notification.soundName = UILocalNotificationDefaultSoundName;
 	[[UIApplication sharedApplication] setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];

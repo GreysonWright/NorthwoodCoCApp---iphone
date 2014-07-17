@@ -61,8 +61,11 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-	if([NetworkStatus networkExists] && [self needsToReload])
-		[self loadStuff];
+	if([self needsToReload])
+		if([NetworkStatus networkExists])
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self loadStuff];
+			});
 }
 
 - (void)viewDidLoad
