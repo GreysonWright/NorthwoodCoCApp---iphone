@@ -17,5 +17,8 @@
 +(NSMutableArray*)titleObjects;
 +(NSMutableArray*)emailObjects;
 +(NSMutableArray*)nameObjects;
++(NSMutableArray*)bareTitleObjects;
++(NSMutableArray*)bareEmailObjects;
++(NSMutableArray*)bareNameObjects;
 
 @end

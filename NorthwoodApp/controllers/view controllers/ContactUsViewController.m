@@ -19,11 +19,16 @@
 	NSMutableArray *_titleObjects;
 	NSMutableArray *_nameObjects;
 	NSMutableArray *_emailObjects;
+	NSMutableArray *_bareTitleObjects;
+	NSMutableArray *_bareNameObjects;
+	NSMutableArray *_bareEmailObjects;
 }
 
 @end
 
 @implementation ContactUsViewController
+
+BOOL offlineMode;
 
 -(void)loadStuff{
 	if([NetworkStatus networkExists]){
@@ -31,10 +36,17 @@
 			_titleObjects = nil;
 			_nameObjects = nil;
 			_emailObjects = nil;
+			_bareTitleObjects = nil;
+			_bareNameObjects = nil;
+			_bareEmailObjects = nil;
 			_titleObjects = [ContactUs titleObjects];
 			_nameObjects = [ContactUs nameObjects];
 			_emailObjects = [ContactUs emailObjects];
+			_bareTitleObjects = [ContactUs bareTitleObjects];
+			_bareNameObjects = [ContactUs bareNameObjects];
+			_bareEmailObjects = [ContactUs bareEmailObjects];
 			[self.tableView reloadData];
+			offlineMode = NO;
 		});
 	}
 	else
@@ -50,9 +62,30 @@
 		_titleObjects = [[NSMutableArray alloc]init];
 		_nameObjects = [[NSMutableArray alloc]init];
 		_emailObjects = [[NSMutableArray alloc]init];
-		_titleObjects = [ContactUs titleObjects];
-		_nameObjects = [ContactUs nameObjects];
-		_emailObjects = [ContactUs emailObjects];
+		_bareTitleObjects = [[NSMutableArray alloc]init];
+		_bareNameObjects = [[NSMutableArray alloc]init];
+		_bareEmailObjects = [[NSMutableArray alloc]init];
+		
+		if([NetworkStatus networkExists]){
+			_titleObjects = [ContactUs titleObjects];
+			_nameObjects = [ContactUs nameObjects];
+			_emailObjects = [ContactUs emailObjects];
+			_bareTitleObjects = [ContactUs bareTitleObjects];
+			_bareNameObjects = [ContactUs bareNameObjects];
+			_bareEmailObjects = [ContactUs bareEmailObjects];
+			
+			//[[NSUserDefaults standardUserDefaults]setObject:_bareTitleObjects forKey:@"bareTitleObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareNameObjects forKey:@"bareNameObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareEmailObjects forKey:@"bareEmailObjects"];
+			offlineMode = NO;
+		}
+		else if(![NetworkStatus networkExists]){
+			//_bareTitleObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareTitleObjects"];
+			_bareNameObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareNameObjects"];
+			_bareEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareEmailObjects"];
+			offlineMode = YES;
+			NSLog([_bareEmailObjects objectAtIndex:0]);
+		}
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
@@ -90,32 +123,36 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _nameObjects.count;
+	if([NetworkStatus networkExists])
+		return _nameObjects.count;
+	else
+		return _bareNameObjects.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 	return 73;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	ContactUsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ContactUsCell"];
-	//ContactUs *contactTitle = [_titleObjects objectAtIndex:indexPath.row];
-	ContactUs *contactName = [_nameObjects objectAtIndex:indexPath.row];
-	ContactUs *contactEmail = [_emailObjects objectAtIndex:indexPath.row];
 	
     if (cell==nil) {
 		cell = [[ContactUsTableViewCell alloc] init];
     }
-	//[cell fillTitleWithData:contactTitle];
-	[cell fillNameWithData:contactName];
-	[cell fillEmailWithData:contactEmail];
+	if(!offlineMode){
+		//ContactUs *contactTitle = [_titleObjects objectAtIndex:indexPath.row];
+		ContactUs *contactName = [_nameObjects objectAtIndex:indexPath.row];
+		ContactUs *contactEmail = [_emailObjects objectAtIndex:indexPath.row];
+		//[cell fillTitleWithData:contactTitle];
+		[cell fillNameWithData:contactName];
+		[cell fillEmailWithData:contactEmail];
+	}
+	else if(offlineMode){
+		//[cell fillTitleWithBareData:[_bareTitleObjects objectAtIndex:indexPath.row]];
+		[cell fillNameWithBareData:[_bareNameObjects objectAtIndex:indexPath.row]];
+		[cell fillEmailWithBareData:[_bareEmailObjects objectAtIndex:indexPath.row]];
+	}
 	
     return cell;
 }

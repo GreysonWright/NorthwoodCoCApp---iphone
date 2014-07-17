@@ -47,4 +47,17 @@
 	NSString *stringWithoutMailto = [contact.email stringByReplacingOccurrencesOfString:@"mailto:" withString:@""];
 	self.emailLabel.text = stringWithoutMailto;
 }
+
+-(void)fillTitleWithBareData:(NSString *)title{
+	self.titleLabel.text = title;
+}
+
+-(void)fillNameWithBareData:(NSString *)name{
+	self.nameLabel.text = name;
+}
+
+-(void)fillEmailWithBareData:(NSString *)email{
+	NSString *stringWithoutMailto = [email stringByReplacingOccurrencesOfString:@"mailto:" withString:@""];
+	self.emailLabel.text = stringWithoutMailto;
+}
 @end

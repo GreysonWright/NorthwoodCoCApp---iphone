@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  NorthwoodApp
+//  NorthwoodCoC
 //
 //  Created by greyson on 6/11/14.
 //  Copyright (c) 2014 Greyson Wright. All rights reserved.
@@ -134,7 +134,7 @@ int _alert;
 	
 	if(![NetworkStatus networkExists])
 		completionHandler(UIBackgroundFetchResultFailed);
-	else{ //check if switch is on [settigngs tweetswitchison]
+	else{ //check if switch is on [settings tweetswitchison]
 		completionHandler([HomeViewController refreshTweets]);
 	}
 }

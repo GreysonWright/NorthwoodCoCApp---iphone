@@ -18,5 +18,8 @@
 -(void)fillTitleWithData:(ContactUs*)contact;
 -(void)fillNameWithData:(ContactUs*)contact;
 -(void)fillEmailWithData:(ContactUs*)contact;
+-(void)fillTitleWithBareData:(NSString*)title;
+-(void)fillNameWithBareData:(NSString*)name;
+-(void)fillEmailWithBareData:(NSString*)email;
 
 @end

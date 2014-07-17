@@ -1,6 +1,6 @@
 //
 //  Bulletin.m
-//  NorthwoodApp
+//  NorthwoodCoC
 //
 //  Created by greyson on 6/16/14.
 //  Copyright (c) 2014 Greyson Wright. All rights reserved.
@@ -52,5 +52,31 @@
 		[bulletinLinks addObject:[element objectForKey:@"href"]];
     }
 	return bulletinLinks;
+}
+
++(NSMutableArray*)getBareBulletinObjects{
+	NSURL *bulletinUrl = [NSURL URLWithString:@"http://justchristians.info/Bulletins/"];
+    NSData *bulletinHtmlData = [NSData dataWithContentsOfURL:bulletinUrl];
+	
+    TFHpple *bulletinParser = [TFHpple hppleWithHTMLData:bulletinHtmlData];
+	
+    NSString *bulletinXpathQueryString = @"//div[@class='clear']/section/ul/li/a";
+    NSArray *bulletinNodes = [bulletinParser searchWithXPathQuery:bulletinXpathQueryString];
+	
+    NSMutableArray *newbulletin = [[NSMutableArray alloc] initWithCapacity:0];
+    for (TFHppleElement *element in bulletinNodes) {
+		
+		NSString *bulletinStuff;
+		
+        bulletinStuff = [[element firstChild] content];
+		
+        [newbulletin addObject:bulletinStuff];
+    }
+	return newbulletin;
+}
+
++(NSMutableArray*)getBulletinPDF{
+	NSMutableArray *bulletinPDFs = [[NSMutableArray alloc]init];
+	return bulletinPDFs;
 }
 @end

@@ -1,6 +1,6 @@
 //
 //  Sermons2010ViewController.h
-//  NorthwoodApp
+//  NorthwoodCoC
 //
 //  Created by greyson on 6/16/14.
 //  Copyright (c) 2014 Greyson Wright. All rights reserved.

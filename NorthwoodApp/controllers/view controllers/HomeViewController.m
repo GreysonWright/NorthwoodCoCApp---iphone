@@ -1,6 +1,6 @@
 //
 //  HomeViewController.m
-//  NorthwoodApp
+//  NorthwoodCoC
 //
 //  Created by greyson on 6/11/14.
 //  Copyright (c) 2014 Greyson Wright. All rights reserved.
@@ -36,6 +36,7 @@ static NSMutableArray *_tweetContent;
 static NSMutableArray *_tweetDates;
 //static NSString *tmpObj;
 BOOL skipPageTurn;
+BOOL offlineMode;
 
 -(void)loadStuff{
 	if([NetworkStatus networkExists]){
@@ -50,6 +51,7 @@ BOOL skipPageTurn;
 			_tweetDates = [Tweet bareTweetDates];
 			[self.refreshControl endRefreshing];
 			[self.tableView reloadData];
+			offlineMode = NO;
 		});
 	}
 	else{
@@ -68,10 +70,21 @@ BOOL skipPageTurn;
 		_dateObjects = [[NSMutableArray alloc]init];
 		_tweetContent = [[NSMutableArray alloc]init];
 		_tweetDates = [[NSMutableArray alloc]init];
-		_tweetContent = [Tweet bareTweetContent];
-		_tweetDates = [Tweet bareTweetDates];
-		_contentObjects = [Tweet tweetObjects];
-		_dateObjects = [Tweet dateObjects];
+		if([NetworkStatus networkExists]){
+			_tweetContent = [Tweet bareTweetContent];
+			_tweetDates = [Tweet bareTweetDates];
+			_contentObjects = [Tweet tweetObjects];
+			_dateObjects = [Tweet dateObjects];
+			[[NSUserDefaults standardUserDefaults]setObject:_tweetContent forKey:@"tweetContent"];
+			[[NSUserDefaults standardUserDefaults]setObject:_tweetDates forKey:@"tweetDates"];
+			offlineMode = NO;
+		}
+		else if(![NetworkStatus networkExists]){
+			_tweetContent = [[NSUserDefaults standardUserDefaults]objectForKey:@"tweetContent"];
+			_tweetDates = [[NSUserDefaults standardUserDefaults]objectForKey:@"tweetDates"];
+			offlineMode = YES;
+		}
+		
 		if([[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"] == nil){
 			[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
 			[[NSUserDefaults standardUserDefaults]synchronize];
@@ -129,7 +142,10 @@ BOOL skipPageTurn;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _contentObjects.count;
+	if([NetworkStatus networkExists])
+		return _contentObjects.count;
+	else
+		return _tweetContent.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -148,13 +164,19 @@ BOOL skipPageTurn;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    Tweet *thisTweet = [_contentObjects objectAtIndex:indexPath.row];
-	Tweet *tweetDate = [_dateObjects objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[TweetTableViewCell alloc]init];
     }
-	[cell fillWithData:thisTweet];
-	[cell fillDateWithData:tweetDate];
+	if(!offlineMode){
+		Tweet *thisTweet = [_contentObjects objectAtIndex:indexPath.row];
+		Tweet *tweetDate = [_dateObjects objectAtIndex:indexPath.row];
+		[cell fillWithData:thisTweet];
+		[cell fillDateWithData:tweetDate];
+	}
+	else if(offlineMode){
+		[cell fillWithBareData:[_tweetContent objectAtIndex:indexPath.row]];
+		[cell fillDateWithBareData:[_tweetDates objectAtIndex:indexPath.row]];
+	}
 	
     return cell;
 }
