@@ -22,6 +22,7 @@
 #import "SettingsViewController.h"
 #import "HomeViewController.h"
 #import "NetworkStatus.h"
+#import "ASIHTTPRequest.h"
 
 @interface NewsLoggedinViewController (){
 	NSMutableArray *_bulletinObjects;
@@ -233,18 +234,12 @@ BOOL offlineMode;
 	else if(_selectedSegment == 0 && offlineMode){
 		returnThis = _bareBulletinObjects.count;
 	}
-	else if(_selectedSegment == 1 && !offlineMode){
-		returnThis = _prayerListObjects.count;
+	else if(_selectedSegment == 1){
+		returnThis = 1;
 	}
-	/*else if(_selectedSegment == 1 && offlineMode){
-		
-	}*/
-	else if(_selectedSegment == 2 && !offlineMode){
-		returnThis = _dutyRosterObjects.count;
+	else if(_selectedSegment == 2){
+		returnThis = 1;
 	}
-	/*else if(_selectedSegment == 2 && offlineMode){
-		
-	}*/
 	else if (_selectedSegment == 3 && !offlineMode){
 		returnThis = _nameObjects.count;
 	}
@@ -314,21 +309,31 @@ BOOL offlineMode;
 	
 	else if(_selectedSegment == 1){ //prayerlist
 		PrayerListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PrayerListCell"];
-		PrayerList *thisPrayerList = [_prayerListObjects objectAtIndex:indexPath.row];
 		if (cell==nil) {
 			cell = [[PrayerListTableViewCell alloc] init];
 		}
-		[cell fillWithData:thisPrayerList];
+		if(!offlineMode){
+			PrayerList *thisPrayerList = [_prayerListObjects objectAtIndex:indexPath.row];
+			[cell fillWithData:thisPrayerList];
+		}
+		else if(offlineMode){
+			[cell loadWebPageInOfflineMode];
+		}
 		returnThis = cell;
 	}
 	
 	else if(_selectedSegment == 2){//roster
 		DutyRosterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DutyRosterCell"];
-		DutyRoster *thisDutyRoster = [_dutyRosterObjects objectAtIndex:indexPath.row];
 		if (cell==nil) {
 			cell = [[DutyRosterTableViewCell alloc] init];
 		}
-		[cell fillWithData:thisDutyRoster];
+		if(!offlineMode){
+			DutyRoster *thisDutyRoster = [_dutyRosterObjects objectAtIndex:indexPath.row];
+			[cell fillWithData:thisDutyRoster];
+		}
+		else if(offlineMode){
+			[cell loadWebPageInOfflineMode];
+		}
 		returnThis = cell;
 	}
 	

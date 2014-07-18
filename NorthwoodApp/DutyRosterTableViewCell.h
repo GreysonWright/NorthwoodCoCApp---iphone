@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 -(void)fillWithData:(DutyRoster*)dutyRoster;
+-(void)loadWebPageInOfflineMode;
+	
 @end

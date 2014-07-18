@@ -7,7 +7,6 @@
 //
 
 #import "NetworkStatus.h"
-#import "TFHpple.h"
 
 @implementation NetworkStatus
 

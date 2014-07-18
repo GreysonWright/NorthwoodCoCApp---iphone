@@ -8,6 +8,7 @@
 
 #import "PrayerList.h"
 #import "TFhpple.h"
+#import "FileDownloader.h"
 
 @implementation PrayerList
 
@@ -29,6 +30,7 @@
         [newprayerList addObject:prayerLists];
 		
 		prayerLists.link = [element objectForKey:@"href"];
+		[FileDownloader downloadPDFWithURL:@"http://justchristians.info/Bulletins/PrayerList.pdf"  withFileName:@"PrayerList.pdf"];
     }
     return newprayerList;
 }

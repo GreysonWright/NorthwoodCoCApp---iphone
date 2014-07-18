@@ -13,6 +13,7 @@
 @interface UniversalWebViewViewController (){
 	NSString *_url;
 	NSString *_title;
+	NSURL *_pdfPath;
 	BOOL getTitle;
 }
 @end
@@ -28,6 +29,11 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+	
+	 [self.navigationController.navigationBar.backItem setTitle:@"Members"];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +44,12 @@
 	
 	if(getTitle ==YES)
 		self.title = _title;
+	/*NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"PDFs"];
+	NSURL *realPath = [NSURL fileURLWithPath:[NSString stringWithFormat:[@"%@/" stringByAppendingString:_title],dataPath]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:realPath];
+	[self.webView loadRequest:request]; */
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,9 +76,16 @@
 }
 
 -(void)loadBulletinPDF:(NSString*)URL{
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+	 NSString *localDocumentsDirectory = [paths objectAtIndex:0];
+	 NSString *pdfFileName =URL;
+	 NSString *localDocumentsDirectoryPdfFilePath = [localDocumentsDirectory stringByAppendingPathComponent:pdfFileName];
+	 NSURL *pdfUrl = [NSURL fileURLWithPath:localDocumentsDirectoryPdfFilePath];
+	 
 	getTitle = YES;
 	NSString *urlAddress = [@"http://www.justchristians.info/Bulletins/" stringByAppendingString:URL];
 	_url = urlAddress;
+	_pdfPath = pdfUrl;
 	_title = URL;
 }
 

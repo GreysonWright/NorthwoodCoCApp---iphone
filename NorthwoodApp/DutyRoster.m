@@ -8,6 +8,7 @@
 
 #import "DutyRoster.h"
 #import "TFhpple.h"
+#import "FileDownloader.h"
 
 @implementation DutyRoster
 
@@ -29,6 +30,7 @@
         [newdutyRoster addObject:dutyRoster];
 		
 		dutyRoster.link = [element objectForKey:@"href"];
+		[FileDownloader downloadPDFWithURL:@"http://justchristians.info/duty-roster.pdf" withFileName:@"DutyRoster.pdf"];
     }
     return newdutyRoster;
 }

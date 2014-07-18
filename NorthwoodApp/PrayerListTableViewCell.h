@@ -13,5 +13,5 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 -(void)fillWithData:(PrayerList*)prayerList;
-
+-(void)loadWebPageInOfflineMode;
 @end

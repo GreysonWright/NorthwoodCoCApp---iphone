@@ -32,11 +32,29 @@
 
 -(void)loadWebPage:(NSString*)URL{
 	
-	NSString *urlAddress = [@"http://www.justchristians.info" stringByAppendingString:URL];
+	/*NSString *urlAddress = [@"http://www.justchristians.info" stringByAppendingString:URL];
 	NSURL *url = [NSURL URLWithString:urlAddress];
 	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
 	[self.webView loadRequest:requestObj];
-	self.webView.scalesPageToFit = YES;
+	self.webView.scalesPageToFit = YES; */
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"DutyRoster.pdf"];
+	NSURL *realPath = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@" ,dataPath]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:realPath];
+	[self.webView loadRequest:request];
+	self.webView.scalesPageToFit=YES;
+}
+
+-(void)loadWebPageInOfflineMode{
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"DutyRoster.pdf"];
+	NSURL *realPath = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@" ,dataPath]];
+	NSURLRequest *request = [NSURLRequest requestWithURL:realPath];
+	[self.webView loadRequest:request];
+	self.webView.scalesPageToFit=YES;
 }
 
 -(void)fillWithData:(DutyRoster*)dutyRoster{
