@@ -12,6 +12,7 @@
 #import "SermonsTableViewCell.h"
 #import "UniversalWebViewViewController.h"
 #import "SettingsViewController.h"
+#import "NetworkStatus.h"
 
 @interface Sermons2010ViewController (){
 	NSMutableArray *_linkObjects;
@@ -25,10 +26,29 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property UIView *offlineView;
 
 @end
 
 @implementation Sermons2010ViewController
+
+-(void)offlineViewSetUp{
+	if(!_offlineView)
+	{
+		_offlineView = [[UIView alloc] initWithFrame:self.view.frame];
+		_offlineView.alpha = .85;
+		[_offlineView setBackgroundColor:[UIColor blackColor]];
+		
+		UILabel *offlineLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (250), 320, 30)];
+		offlineLabel.text = @"Network Unavailable";
+		offlineLabel.backgroundColor = [UIColor blackColor];
+		offlineLabel.textColor = [UIColor whiteColor];
+		[offlineLabel setTextAlignment:UITextAlignmentCenter];
+		
+		[_offlineView addSubview:offlineLabel];
+	}
+	[self.view addSubview:_offlineView];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,6 +75,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	if(![NetworkStatus networkExists]){
+		[self offlineViewSetUp];
+	}
 	
 }
 

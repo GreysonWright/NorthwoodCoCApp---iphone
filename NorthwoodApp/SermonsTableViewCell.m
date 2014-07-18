@@ -32,17 +32,26 @@
 }
 
 -(void)fillNameWithData:(Sermon*)preacher{
-	self.nameLabel.text = preacher.preacherContent;
+	if([preacher  isEqual: @" "])
+		self.nameLabel.text = preacher;
+	else
+		self.nameLabel.text = preacher.preacherContent;
 	//NSLog(preacher.preacherContent);
 }
 
 -(void)fillDateWithData:(Sermon*)date{
-	self.dateLabel.text = date.dateContent;
+	if([date isEqual: @" "])
+		self.dateLabel.text = date;
+	else
+		self.dateLabel.text = date.dateContent;
 	//NSLog(date.dateContent);
 }
 
 -(void)fillSermonWithData:(Sermon*)title{
-	self.titleLabel.text = title.titleContent;
+	if([title  isEqual: @" "])
+		self.titleLabel.text = title;
+	else
+		self.titleLabel.text = title.titleContent;
 	//NSLog(title.titleContent);
 }
 

@@ -23,7 +23,10 @@
 }
 
 +(void)downloadPDFWithURL:(NSString*)link withFileName:(NSString*)fileName{
-	if([NetworkStatus networkExists]){
+		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+		NSString *documentsDirectory = [paths objectAtIndex:0];
+		NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+	if(![[NSFileManager defaultManager] fileExistsAtPath:dataPath]){
 		[self creatDirectoryForPDFs:fileName];
 		
 		/*NSURL *url = [NSURL URLWithString:[link stringByAppendingString:object]];
@@ -32,9 +35,14 @@
 		[request setDelegate:self];
 		[request startAsynchronous];*/
 		
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-		NSString *documentsDirectory = [paths objectAtIndex:0];
-		NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+		NSURL *url = [NSURL URLWithString:link];
+		ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+		[request setDownloadDestinationPath:[NSString stringWithFormat:@"%@",dataPath]];
+		[request setDelegate:self];
+		[request startAsynchronous];
+	}
+	else if([fileName isEqual:@"PrayerList.pdf"] || [fileName isEqual:@"DutyRoster.pdf"]){
+		[self creatDirectoryForPDFs:fileName];
 		NSURL *url = [NSURL URLWithString:link];
 		ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 		[request setDownloadDestinationPath:[NSString stringWithFormat:@"%@",dataPath]];
