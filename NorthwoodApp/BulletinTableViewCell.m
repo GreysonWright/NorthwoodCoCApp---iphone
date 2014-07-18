@@ -1,6 +1,6 @@
 //
 //  BulletinTableViewCell.m
-//  NorthwoodApp
+//  NorthwoodCoC
 //
 //  Created by greyson on 6/18/14.
 //  Copyright (c) 2014 Greyson Wright. All rights reserved.
@@ -35,4 +35,7 @@
 	self.dateLabel.text = bulletin.bulletinContent;
 }
 
+-(void)fillWithBareData:(NSString *)bulletin{
+	self.dateLabel.text = bulletin;
+}
 @end

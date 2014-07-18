@@ -1,6 +1,6 @@
 //
 //  PrayerList.m
-//  NorthwoodApp
+//  NorthwoodCoC
 //
 //  Created by greyson on 6/17/14.
 //  Copyright (c) 2014 Greyson Wright. All rights reserved.
@@ -8,6 +8,7 @@
 
 #import "PrayerList.h"
 #import "TFhpple.h"
+#import "FileDownloader.h"
 
 @implementation PrayerList
 
@@ -29,6 +30,7 @@
         [newprayerList addObject:prayerLists];
 		
 		prayerLists.link = [element objectForKey:@"href"];
+		[FileDownloader downloadPDFWithURL:@"http://justchristians.info/Bulletins/PrayerList.pdf"  withFileName:@"PrayerList.pdf"];
     }
     return newprayerList;
 }

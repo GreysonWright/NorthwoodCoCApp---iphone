@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 -(void)loadSermonAudio:(NSString*)URL;
--(void)loadBulletinPDF:(NSString*)URL;
+//-(void)loadBulletinPDF:(NSString*)URL;
+-(void)loadPDF:(NSString*)fileName;
 @end

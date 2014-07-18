@@ -10,8 +10,6 @@
 		2E1D6E61194F695600819888 /* Bulletin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D6E60194F695600819888 /* Bulletin.m */; };
 		2E1D6E6F194F79A400819888 /* Sermons2010ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1D6E6D194F79A400819888 /* Sermons2010ViewController.m */; };
 		2E1D6E70194F79A400819888 /* Sermons2010ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E1D6E6E194F79A400819888 /* Sermons2010ViewController.xib */; };
-		2E205E90194B84770092C8BF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E205E8F194B84770092C8BF /* libxml2.dylib */; };
-		2E205E92194B84840092C8BF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E205E91194B84840092C8BF /* libxml2.dylib */; };
 		2E205E9B194B8DD90092C8BF /* SermonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E205E99194B8DD90092C8BF /* SermonsViewController.m */; };
 		2E205E9C194B8DD90092C8BF /* SermonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E205E9A194B8DD90092C8BF /* SermonsViewController.xib */; };
 		2E3472331953B7B700AC769B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3472321953B7B700AC769B /* Social.framework */; };
@@ -63,7 +61,6 @@
 		2E5B18F01962588300E96F61 /* MailRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5B18EE1962588300E96F61 /* MailRequestViewController.m */; };
 		2E5B18F11962588300E96F61 /* MailRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */; };
 		2E632D6B19758DA9006EA4C4 /* NetworkStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E632D6A19758DA9006EA4C4 /* NetworkStatus.m */; };
-		2E632D6F19758EDD006EA4C4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E632D6E19758EDD006EA4C4 /* Reachability.m */; };
 		2E69A33B194E3B1A00890226 /* Sermon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33A194E3B1A00890226 /* Sermon.m */; };
 		2E69A345194E3D0C00890226 /* HomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33E194E3D0C00890226 /* HomeNavigationViewController.m */; };
 		2E69A346194E3D0C00890226 /* NewsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A340194E3D0C00890226 /* NewsNavigationViewController.m */; };
@@ -71,6 +68,20 @@
 		2E6CD0B919568BA3007B7BF8 /* ContactUs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CD0B819568BA3007B7BF8 /* ContactUs.m */; };
 		2E6CD0BE19568BD4007B7BF8 /* ContactUsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CD0BC19568BD4007B7BF8 /* ContactUsTableViewCell.m */; };
 		2E6CD0BF19568BD4007B7BF8 /* ContactUsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6CD0BD19568BD4007B7BF8 /* ContactUsTableViewCell.xib */; };
+		2E722F231978B6DF006EB580 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F221978B6DF006EB580 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2E722F2C1978B78E006EB580 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F2A1978B78E006EB580 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2E722F2E1978B8EA006EB580 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E722F2D1978B8EA006EB580 /* CFNetwork.framework */; };
+		2E722F361978BB3A006EB580 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E722F351978BB3A006EB580 /* SystemConfiguration.framework */; };
+		2E722F381978BB49006EB580 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E722F371978BB49006EB580 /* MobileCoreServices.framework */; };
+		2E722F401978BDDB006EB580 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E722F3F1978BDDB006EB580 /* libxml2.2.dylib */; };
+		2E722F431978C100006EB580 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F301978B9F9006EB580 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2E722F441978C100006EB580 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F281978B78E006EB580 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2E722F451978C100006EB580 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F251978B732006EB580 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2E722F461978C100006EB580 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F1D1978B4A1006EB580 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2E722F471978C100006EB580 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F111978B00A006EB580 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2E722F4D1978C436006EB580 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E722F3B1978BB82006EB580 /* libz.1.1.3.dylib */; };
+		2E722F501978C6FA006EB580 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F4F1978C6FA006EB580 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2E722F531978E3A4006EB580 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F521978E3A4006EB580 /* FileDownloader.m */; };
 		2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E0B195127040061423E /* PrayerListTableViewCell.m */; };
 		2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E789E0C195127040061423E /* PrayerListTableViewCell.xib */; };
 		2E789E12195130B70061423E /* PrayerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E11195130B70061423E /* PrayerList.m */; };
@@ -112,7 +123,6 @@
 		2E1D6E6D194F79A400819888 /* Sermons2010ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sermons2010ViewController.m; sourceTree = "<group>"; };
 		2E1D6E6E194F79A400819888 /* Sermons2010ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Sermons2010ViewController.xib; sourceTree = "<group>"; };
 		2E205E8F194B84770092C8BF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		2E205E91194B84840092C8BF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		2E205E98194B8DD90092C8BF /* SermonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonsViewController.h; sourceTree = "<group>"; };
 		2E205E99194B8DD90092C8BF /* SermonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonsViewController.m; sourceTree = "<group>"; };
 		2E205E9A194B8DD90092C8BF /* SermonsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SermonsViewController.xib; sourceTree = "<group>"; };
@@ -185,8 +195,6 @@
 		2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailRequestViewController.xib; sourceTree = "<group>"; };
 		2E632D6919758DA9006EA4C4 /* NetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkStatus.h; sourceTree = "<group>"; };
 		2E632D6A19758DA9006EA4C4 /* NetworkStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkStatus.m; sourceTree = "<group>"; };
-		2E632D6D19758EDD006EA4C4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		2E632D6E19758EDD006EA4C4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		2E69A339194E3B1A00890226 /* Sermon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sermon.h; sourceTree = "<group>"; };
 		2E69A33A194E3B1A00890226 /* Sermon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sermon.m; sourceTree = "<group>"; };
 		2E69A33D194E3D0C00890226 /* HomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationViewController.h; sourceTree = "<group>"; };
@@ -200,6 +208,35 @@
 		2E6CD0BB19568BD4007B7BF8 /* ContactUsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsTableViewCell.h; sourceTree = "<group>"; };
 		2E6CD0BC19568BD4007B7BF8 /* ContactUsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsTableViewCell.m; sourceTree = "<group>"; };
 		2E6CD0BD19568BD4007B7BF8 /* ContactUsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsTableViewCell.xib; sourceTree = "<group>"; };
+		2E722F101978B00A006EB580 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		2E722F111978B00A006EB580 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		2E722F121978B00A006EB580 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		2E722F131978B00A006EB580 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		2E722F1B1978B47C006EB580 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		2E722F1C1978B4A1006EB580 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		2E722F1D1978B4A1006EB580 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		2E722F201978B4D1006EB580 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		2E722F211978B6DF006EB580 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		2E722F221978B6DF006EB580 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		2E722F241978B732006EB580 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		2E722F251978B732006EB580 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		2E722F271978B78E006EB580 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		2E722F281978B78E006EB580 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		2E722F291978B78E006EB580 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		2E722F2A1978B78E006EB580 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		2E722F2D1978B8EA006EB580 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		2E722F2F1978B9F9006EB580 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		2E722F301978B9F9006EB580 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		2E722F351978BB3A006EB580 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2E722F371978BB49006EB580 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		2E722F391978BB6B006EB580 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		2E722F3B1978BB82006EB580 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		2E722F3F1978BDDB006EB580 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		2E722F4B1978C41E006EB580 /* libipconfig.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libipconfig.dylib; path = usr/lib/libipconfig.dylib; sourceTree = SDKROOT; };
+		2E722F4E1978C6FA006EB580 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../../../Desktop/xcode projects/pokeb-asi-http-request-9051a33/External/Reachability/Reachability.h"; sourceTree = "<group>"; };
+		2E722F4F1978C6FA006EB580 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../../../Desktop/xcode projects/pokeb-asi-http-request-9051a33/External/Reachability/Reachability.m"; sourceTree = "<group>"; };
+		2E722F511978E3A4006EB580 /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
+		2E722F521978E3A4006EB580 /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
 		2E789E0A195127040061423E /* PrayerListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerListTableViewCell.h; sourceTree = "<group>"; };
 		2E789E0B195127040061423E /* PrayerListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerListTableViewCell.m; sourceTree = "<group>"; };
 		2E789E0C195127040061423E /* PrayerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayerListTableViewCell.xib; sourceTree = "<group>"; };
@@ -240,14 +277,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E722F4D1978C436006EB580 /* libz.1.1.3.dylib in Frameworks */,
+				2E722F401978BDDB006EB580 /* libxml2.2.dylib in Frameworks */,
+				2E52E3DA1948AE0E00B46786 /* CoreGraphics.framework in Frameworks */,
+				2E722F381978BB49006EB580 /* MobileCoreServices.framework in Frameworks */,
+				2E722F361978BB3A006EB580 /* SystemConfiguration.framework in Frameworks */,
+				2E722F2E1978B8EA006EB580 /* CFNetwork.framework in Frameworks */,
 				2E52E56B1959F7A800CC0BD4 /* AVFoundation.framework in Frameworks */,
 				2E3472331953B7B700AC769B /* Social.framework in Frameworks */,
-				2E205E90194B84770092C8BF /* libxml2.dylib in Frameworks */,
-				2E52E3DA1948AE0E00B46786 /* CoreGraphics.framework in Frameworks */,
 				2E52E3DC1948AE0E00B46786 /* UIKit.framework in Frameworks */,
 				2E52E3D81948AE0E00B46786 /* Foundation.framework in Frameworks */,
 				EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */,
-				2E205E92194B84840092C8BF /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +475,7 @@
 			name = "Tweet Sub View";
 			sourceTree = "<group>";
 		};
-		2E4F92AE194B65B300BC23F2 /* HTML Parsing */ = {
+		2E4F92AE194B65B300BC23F2 /* TFHpple */ = {
 			isa = PBXGroup;
 			children = (
 				2E4F92AF194B65B300BC23F2 /* TFHpple.h */,
@@ -445,6 +485,7 @@
 				2E4F92B3194B65B300BC23F2 /* XPathQuery.h */,
 				2E4F92B4194B65B300BC23F2 /* XPathQuery.m */,
 			);
+			name = TFHpple;
 			path = "HTML Parsing";
 			sourceTree = "<group>";
 		};
@@ -453,7 +494,6 @@
 			children = (
 				2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */,
 				2EA33E451955FA4D004E222D /* NorthwoodCoC.entitlements */,
-				2E205E91194B84840092C8BF /* libxml2.dylib */,
 				2E52E3DD1948AE0E00B46786 /* NorthwoodApp */,
 				2E52E3F61948AE0F00B46786 /* NorthwoodAppTests */,
 				2E52E3D61948AE0E00B46786 /* Frameworks */,
@@ -474,6 +514,13 @@
 		2E52E3D61948AE0E00B46786 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E722F4B1978C41E006EB580 /* libipconfig.dylib */,
+				2E722F3F1978BDDB006EB580 /* libxml2.2.dylib */,
+				2E722F3B1978BB82006EB580 /* libz.1.1.3.dylib */,
+				2E722F391978BB6B006EB580 /* libz.dylib */,
+				2E722F371978BB49006EB580 /* MobileCoreServices.framework */,
+				2E722F351978BB3A006EB580 /* SystemConfiguration.framework */,
+				2E722F2D1978B8EA006EB580 /* CFNetwork.framework */,
 				2E52E56A1959F7A800CC0BD4 /* AVFoundation.framework */,
 				2E3472321953B7B700AC769B /* Social.framework */,
 				2E205E8F194B84770092C8BF /* libxml2.dylib */,
@@ -494,9 +541,10 @@
 				2E4B16A11952094100641710 /* Models */,
 				2E41833C1950A78C006D52EC /* Cell Views */,
 				2E52E4301948BD9800B46786 /* Controllers */,
-				2E4F92AE194B65B300BC23F2 /* HTML Parsing */,
+				2E722F151978B014006EB580 /* ASIHTTPRequest */,
+				2E4F92AE194B65B300BC23F2 /* TFHpple */,
 				2E632D6C19758DAE006EA4C4 /* Network Status */,
-				2E632D7019758EE1006EA4C4 /* Reachability */,
+				2E722F541978E3A9006EB580 /* File Downloader */,
 				2E52E3DE1948AE0E00B46786 /* Supporting Files */,
 				2E52E3E91948AE0E00B46786 /* Images.xcassets */,
 			);
@@ -656,15 +704,6 @@
 			name = "Network Status";
 			sourceTree = "<group>";
 		};
-		2E632D7019758EE1006EA4C4 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				2E632D6D19758EDD006EA4C4 /* Reachability.h */,
-				2E632D6E19758EDD006EA4C4 /* Reachability.m */,
-			);
-			name = Reachability;
-			sourceTree = "<group>";
-		};
 		2E69A33C194E3D0C00890226 /* Navigation Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -694,6 +733,42 @@
 				2E6CD0BD19568BD4007B7BF8 /* ContactUsTableViewCell.xib */,
 			);
 			name = "Contact Us Cell";
+			sourceTree = "<group>";
+		};
+		2E722F151978B014006EB580 /* ASIHTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				2E722F4E1978C6FA006EB580 /* Reachability.h */,
+				2E722F4F1978C6FA006EB580 /* Reachability.m */,
+				2E722F2F1978B9F9006EB580 /* ASINetworkQueue.h */,
+				2E722F301978B9F9006EB580 /* ASINetworkQueue.m */,
+				2E722F271978B78E006EB580 /* ASIDataCompressor.h */,
+				2E722F281978B78E006EB580 /* ASIDataCompressor.m */,
+				2E722F291978B78E006EB580 /* ASIDataDecompressor.h */,
+				2E722F2A1978B78E006EB580 /* ASIDataDecompressor.m */,
+				2E722F241978B732006EB580 /* ASIInputStream.h */,
+				2E722F251978B732006EB580 /* ASIInputStream.m */,
+				2E722F211978B6DF006EB580 /* ASIAuthenticationDialog.h */,
+				2E722F221978B6DF006EB580 /* ASIAuthenticationDialog.m */,
+				2E722F201978B4D1006EB580 /* ASICacheDelegate.h */,
+				2E722F1C1978B4A1006EB580 /* ASIDownloadCache.h */,
+				2E722F1D1978B4A1006EB580 /* ASIDownloadCache.m */,
+				2E722F1B1978B47C006EB580 /* ASIProgressDelegate.h */,
+				2E722F101978B00A006EB580 /* ASIHTTPRequest.h */,
+				2E722F111978B00A006EB580 /* ASIHTTPRequest.m */,
+				2E722F121978B00A006EB580 /* ASIHTTPRequestConfig.h */,
+				2E722F131978B00A006EB580 /* ASIHTTPRequestDelegate.h */,
+			);
+			name = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		2E722F541978E3A9006EB580 /* File Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				2E722F511978E3A4006EB580 /* FileDownloader.h */,
+				2E722F521978E3A4006EB580 /* FileDownloader.m */,
+			);
+			name = "File Downloader";
 			sourceTree = "<group>";
 		};
 		2E789DF6195110870061423E /* loggedin view */ = {
@@ -967,17 +1042,19 @@
 				2E52E42A1948B8F800B46786 /* TabBarController.m in Sources */,
 				2E9CD72519562C0C00822E1D /* ContactUsNavigationViewController.m in Sources */,
 				2E6CD0B919568BA3007B7BF8 /* ContactUs.m in Sources */,
-				2E632D6F19758EDD006EA4C4 /* Reachability.m in Sources */,
 				2E52E44B1948E19A00B46786 /* SettingsViewController.m in Sources */,
 				2E52E3E41948AE0E00B46786 /* main.m in Sources */,
+				2E722F501978C6FA006EB580 /* Reachability.m in Sources */,
 				2E69A346194E3D0C00890226 /* NewsNavigationViewController.m in Sources */,
 				2E69A345194E3D0C00890226 /* HomeNavigationViewController.m in Sources */,
+				2E722F231978B6DF006EB580 /* ASIAuthenticationDialog.m in Sources */,
 				2E6CD0BE19568BD4007B7BF8 /* ContactUsTableViewCell.m in Sources */,
 				2E52E56F1959F95100CC0BD4 /* BigTweetViewController.m in Sources */,
 				2E9CD7281956437400822E1D /* Directory.m in Sources */,
 				2E4F92B7194B65B300BC23F2 /* XPathQuery.m in Sources */,
 				2E5B18F01962588300E96F61 /* MailRequestViewController.m in Sources */,
 				2E4B16B91952274000641710 /* Tweet.m in Sources */,
+				2E722F531978E3A4006EB580 /* FileDownloader.m in Sources */,
 				2E41833A1950A77F006D52EC /* SermonsTableViewCell.m in Sources */,
 				2E3F6B2A1957DE6500EE95B1 /* UniversalWebViewViewController.m in Sources */,
 				2E4F92B5194B65B300BC23F2 /* TFHpple.m in Sources */,
@@ -990,14 +1067,20 @@
 				2E69A347194E3D0C00890226 /* SermonsNavigationViewController.m in Sources */,
 				2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */,
 				2E4B16AA19521D3500641710 /* DutyRosterTableViewCell.m in Sources */,
+				2E722F461978C100006EB580 /* ASIDownloadCache.m in Sources */,
 				2E69A33B194E3B1A00890226 /* Sermon.m in Sources */,
 				2E52E4371948BD9800B46786 /* HomeViewController.m in Sources */,
 				2E4B16BD19522F3B00641710 /* TweetTableViewCell.m in Sources */,
 				2E789E12195130B70061423E /* PrayerList.m in Sources */,
+				2E722F471978C100006EB580 /* ASIHTTPRequest.m in Sources */,
 				2E632D6B19758DA9006EA4C4 /* NetworkStatus.m in Sources */,
 				2E9CD7171956213700822E1D /* DirectoryTableViewCell.m in Sources */,
+				2E722F431978C100006EB580 /* ASINetworkQueue.m in Sources */,
 				2E4A739C194F446900A17188 /* NewsLoggedinViewController.m in Sources */,
+				2E722F451978C100006EB580 /* ASIInputStream.m in Sources */,
+				2E722F2C1978B78E006EB580 /* ASIDataDecompressor.m in Sources */,
 				2E1D6E6F194F79A400819888 /* Sermons2010ViewController.m in Sources */,
+				2E722F441978C100006EB580 /* ASIDataCompressor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1128,6 +1211,14 @@
 				);
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					ImageIO,
+					"-framework",
+					QuartzCore,
+				);
 				PRODUCT_NAME = NorthwoodCoC;
 				PROVISIONING_PROFILE = "B1CBF692-B1A6-4CB1-97DA-9E947CB208F7";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1154,6 +1245,14 @@
 				);
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					ImageIO,
+					"-framework",
+					QuartzCore,
+				);
 				PRODUCT_NAME = NorthwoodCoC;
 				PROVISIONING_PROFILE = "B1CBF692-B1A6-4CB1-97DA-9E947CB208F7";
 				TARGETED_DEVICE_FAMILY = 1;

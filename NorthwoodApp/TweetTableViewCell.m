@@ -1,6 +1,6 @@
 //
 //  TweetTableViewCell.m
-//  NorthwoodApp
+//  NorthwoodCoC
 //
 //  Created by greyson on 6/18/14.
 //  Copyright (c) 2014 Greyson Wright. All rights reserved.
@@ -42,4 +42,12 @@
 	self.dateLabel.text = realTweet;
 }
 
+-(void)fillWithBareData:(NSString *)tweet{
+	self.contentLabel.text=tweet;
+}
+
+-(void)fillDateWithBareData:(NSString*)date{
+	NSString *realTweet = [date stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+	self.dateLabel.text = realTweet;
+}
 @end

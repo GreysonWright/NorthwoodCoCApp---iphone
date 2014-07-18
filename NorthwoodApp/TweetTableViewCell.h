@@ -1,6 +1,6 @@
 //
 //  TweetTableViewCell.h
-//  NorthwoodApp
+//  NorthwoodCoC
 //
 //  Created by greyson on 6/18/14.
 //  Copyright (c) 2014 Greyson Wright. All rights reserved.
@@ -16,4 +16,7 @@
 
 -(void)fillWithData:(Tweet*)tweet;
 -(void)fillDateWithData:(Tweet*)tweet;
+-(void)fillWithBareData:(NSString*)tweet;
+-(void)fillDateWithBareData:(NSString*)date;
+
 @end
