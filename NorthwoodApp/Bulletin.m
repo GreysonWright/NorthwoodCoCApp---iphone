@@ -8,6 +8,7 @@
 
 #import "Bulletin.h"
 #include "TFHpple.h"
+#include "FileDownloader.h"
 
 @implementation Bulletin
 
@@ -32,6 +33,7 @@
 		
         bulletins.bulletinContent = [[element firstChild] content];
 		bulletins.bulletinLink = [element objectForKey:@"href"];
+		[FileDownloader downloadPDFWithURL:[@"http://justchristians.info/Bulletins/" stringByAppendingString:bulletins.bulletinLink] withFileName:bulletins.bulletinLink];
     }
 	return newbulletin;
 }

@@ -13,8 +13,10 @@
 @interface UniversalWebViewViewController (){
 	NSString *_url;
 	NSString *_title;
-	NSURL *_pdfPath;
-	BOOL getTitle;
+	NSString *_dataPath;
+	//NSURL *_pdfPath;
+	
+	BOOL isPDF;
 }
 @end
 
@@ -37,13 +39,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSURL *url = [NSURL URLWithString:_url];
-	NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-	//NSLog(_url);
-	[self.webView loadRequest:requestObj];
 	
-	if(getTitle ==YES)
+	if(!isPDF){
+		NSURL *url = [NSURL URLWithString:_url];
+		NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+		//NSLog(_url);
+		[self.webView loadRequest:requestObj];
+	}
+	
+	else if(isPDF){
 		self.title = _title;
+		NSURL *realPath = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@" ,_dataPath]];
+		NSURLRequest *request = [NSURLRequest requestWithURL:realPath];
+		[self.webView loadRequest:request];
+	}
+	
 	/*NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"PDFs"];
@@ -59,7 +69,7 @@
 }
 
 -(void)loadSermonAudio:(NSString*)URL{
-	getTitle = NO;
+	isPDF = NO;
 	if([URL rangeOfString:@"2009"].location != NSNotFound  || [URL rangeOfString:@"2010"].location != NSNotFound){
 		NSString *urlAddress = [@"http://www.justchristians.info" stringByAppendingString:URL];
 		NSString *refinedFinalURL = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
@@ -75,7 +85,7 @@
 	}
 }
 
--(void)loadBulletinPDF:(NSString*)URL{
+/*-(void)loadBulletinPDF:(NSString*)URL{
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
 	 NSString *localDocumentsDirectory = [paths objectAtIndex:0];
 	 NSString *pdfFileName =URL;
@@ -87,10 +97,20 @@
 	_url = urlAddress;
 	_pdfPath = pdfUrl;
 	_title = URL;
-}
+} */
 
 -(void)settingsTitleButtonTapped{
 	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
 	[self.navigationController pushViewController:settingsView animated:YES];
+}
+
+-(void)loadPDF:(NSString*)fileName{
+	isPDF = YES;
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:fileName];
+	_dataPath = dataPath;
+	self.webView.scalesPageToFit=YES;
+	_title = fileName;
 }
 @end

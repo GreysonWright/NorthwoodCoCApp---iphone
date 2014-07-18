@@ -162,19 +162,22 @@ BOOL offlineMode;
 			
 			[[NSUserDefaults standardUserDefaults]setObject:_bareBulletinObjects forKey:@"bareBulletinObjects"];
 			[[NSUserDefaults standardUserDefaults]setObject:_bulletinPDFs forKey:@"bulletinPDFs"];
+			[[NSUserDefaults standardUserDefaults]setObject:_linksForWebView forKey:@"linksForWebView"];
 			[[NSUserDefaults standardUserDefaults]synchronize];
 			offlineMode = NO;
 		}
 		else if(![NetworkStatus networkExists]){
 			
+			_titleObjects = [Directory titleObjects];//-----------------------------------------------\\
 			_nameObjects = [Directory nameObjects];
 			_titleObjects = [Directory titleObjects];
 			_phoneObjects = [Directory phoneObjects]; //this stuff will need to be saved once we get the backend done
 			_emailObjects = [Directory emailObjects];
-			_addressObjects = [Directory adressObjects];
+			_addressObjects = [Directory adressObjects];//-------------------------------------------\\
 			
 			_bareBulletinObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareBulletinObjects"];
 			_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
+			_linksForWebView = [[NSUserDefaults standardUserDefaults]objectForKey:@"linksForWebView"];
 			offlineMode = YES;
 		}
 		
@@ -276,10 +279,16 @@ BOOL offlineMode;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	if(_selectedSegment == 0){
 		UniversalWebViewViewController *webView= [[UniversalWebViewViewController alloc]init];
-		[webView loadBulletinPDF:[_linksForWebView objectAtIndex:indexPath.row]];
-		[self.navigationController pushViewController:webView animated:YES];//not doing this anymore gonna download pdfs instead hopefully
-		NSLog(@"linksforwebview %d",_linksForWebView.count);
-		NSLog(@"_bulletinobjects %d", _bulletinObjects.count);
+		if(!offlineMode){
+			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
+			[self.navigationController pushViewController:webView animated:YES];
+			NSLog(@"linksforwebview %d",_linksForWebView.count);
+			NSLog(@"_bulletinobjects %d", _bulletinObjects.count);
+		}
+		else if(offlineMode){
+			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
+			[self.navigationController pushViewController:webView animated:YES];
+		}
 	}
 	else if(_selectedSegment == 1){
 		NSLog(@"do nothing");
