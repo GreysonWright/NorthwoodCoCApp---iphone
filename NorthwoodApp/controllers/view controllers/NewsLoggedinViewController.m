@@ -166,6 +166,13 @@ BOOL offlineMode;
 			offlineMode = NO;
 		}
 		else if(![NetworkStatus networkExists]){
+			
+			_nameObjects = [Directory nameObjects];
+			_titleObjects = [Directory titleObjects];
+			_phoneObjects = [Directory phoneObjects]; //this stuff will need to be saved once we get the backend done
+			_emailObjects = [Directory emailObjects];
+			_addressObjects = [Directory adressObjects];
+			
 			_bareBulletinObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareBulletinObjects"];
 			_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
 			offlineMode = YES;
@@ -243,9 +250,9 @@ BOOL offlineMode;
 	else if (_selectedSegment == 3 && !offlineMode){
 		returnThis = _nameObjects.count;
 	}
-	/*else if(_selectedSegment == 3 && offlineMode){
-		
-	}*/
+	else if(_selectedSegment == 3 && offlineMode){
+		return _nameObjects.count;
+	}
     return returnThis;
 }
 
@@ -339,19 +346,34 @@ BOOL offlineMode;
 	
 	else if (_selectedSegment == 3){//directory
 		DirectoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DirectoryCell"];
-		Directory *thisName = [_nameObjects objectAtIndex:indexPath.row];
-		Directory *thisTitle = [_titleObjects objectAtIndex:indexPath.row];
-		Directory *thisPhone = [_phoneObjects objectAtIndex:indexPath.row];
-		Directory *thisEmail = [_emailObjects objectAtIndex:indexPath.row];
-		Directory *thisAddress = [_addressObjects objectAtIndex:indexPath.row];
 		if (cell == nil) {
 			cell = [[DirectoryTableViewCell alloc] init];
 		}
-		[cell fillNameWithData:thisName];
-		[cell fillTitleWithData:thisTitle];
-		[cell fillPhoneWithData:thisPhone];
-		[cell fillEmailWithData:thisEmail];
-		[cell fillAddressWithData:thisAddress];
+		if(!offlineMode){
+			Directory *thisName = [_nameObjects objectAtIndex:indexPath.row];
+			Directory *thisTitle = [_titleObjects objectAtIndex:indexPath.row];
+			Directory *thisPhone = [_phoneObjects objectAtIndex:indexPath.row];
+			Directory *thisEmail = [_emailObjects objectAtIndex:indexPath.row];
+			Directory *thisAddress = [_addressObjects objectAtIndex:indexPath.row];
+			[cell fillNameWithData:thisName];
+			[cell fillTitleWithData:thisTitle];
+			[cell fillPhoneWithData:thisPhone];
+			[cell fillEmailWithData:thisEmail];
+			[cell fillAddressWithData:thisAddress];
+		}
+		else if(offlineMode){
+			//do stuff other than this once we connect up to the backend
+			Directory *thisName = [_nameObjects objectAtIndex:indexPath.row];
+			Directory *thisTitle = [_titleObjects objectAtIndex:indexPath.row];
+			Directory *thisPhone = [_phoneObjects objectAtIndex:indexPath.row];
+			Directory *thisEmail = [_emailObjects objectAtIndex:indexPath.row];
+			Directory *thisAddress = [_addressObjects objectAtIndex:indexPath.row];
+			[cell fillNameWithData:thisName];
+			[cell fillTitleWithData:thisTitle];
+			[cell fillPhoneWithData:thisPhone];
+			[cell fillEmailWithData:thisEmail];
+			[cell fillAddressWithData:thisAddress];
+		}
 		
 		returnThis = cell;
 	}
