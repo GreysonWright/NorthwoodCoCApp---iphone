@@ -11,6 +11,7 @@
 
 @interface SettingsViewController ()
 
+@property (strong, nonatomic) IBOutlet UISwitch *forceDownloadSwitch;
 @property (strong, nonatomic) IBOutlet UILabel *pushLabel;
 @property (strong, nonatomic) IBOutlet UILabel *groupLabel;
 @property (strong, nonatomic) IBOutlet UILabel *eventLabel;
@@ -29,7 +30,8 @@
 @implementation SettingsViewController
 
 static BOOL pushNotifIsOn;
-static BOOL tweetNotifIsOn;
+static BOOL tweetNotifIsOn;    //these should probably be nsuserdefualts
+static BOOL forceDownloadIsOn;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -55,6 +57,7 @@ static BOOL tweetNotifIsOn;
 
 -(void)saveState{
 	
+	[[NSUserDefaults standardUserDefaults] setBool:self.forceDownloadSwitch.isOn forKey:@"forceDownloadSwitch"];
 	[[NSUserDefaults standardUserDefaults] setBool:self.pushSwitch.isOn forKey:@"pushSwitch"];
 	[[NSUserDefaults standardUserDefaults] setBool:self.groupSwitch.isOn forKey:@"groupSwitch"];
 	[[NSUserDefaults standardUserDefaults] setBool:self.eventSwitch.isOn forKey:@"eventSwitch"];
@@ -67,6 +70,7 @@ static BOOL tweetNotifIsOn;
 
 -(void)loadState{
 	
+	[self.forceDownloadSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"forceDownloadSwitch"]];
 	[self.pushSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"pushSwitch"] animated:YES];
 	[self.groupSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"groupSwitch"] animated:YES];
 	[self.eventSwitch setOn:[[NSUserDefaults standardUserDefaults] boolForKey:@"eventSwitch"] animated:YES];
@@ -86,6 +90,11 @@ static BOOL tweetNotifIsOn;
 	self.dutyLabel.enabled = input;
 	self.dailyVerse.enabled = input;
 	self.dailyVerseLabel.enabled = input;
+}
+
+- (IBAction)forceDownloadFilesChanged:(id)sender {
+	forceDownloadIsOn = self.forceDownloadSwitch.isOn;
+	[self saveState];
 }
 
 - (IBAction)pushSwitchChanged:(id)sender {
