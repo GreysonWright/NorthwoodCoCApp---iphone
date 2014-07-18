@@ -167,13 +167,16 @@ BOOL offlineMode;
 			offlineMode = NO;
 		}
 		else if(![NetworkStatus networkExists]){
+			//-----------------------------------------------\\
 			
-			_titleObjects = [Directory titleObjects];//-----------------------------------------------\\
+			_titleObjects = [Directory titleObjects];
 			_nameObjects = [Directory nameObjects];
 			_titleObjects = [Directory titleObjects];
-			_phoneObjects = [Directory phoneObjects]; //this stuff will need to be saved once we get the backend done
+			_phoneObjects = [Directory phoneObjects]; //this will be changed with the backend
 			_emailObjects = [Directory emailObjects];
-			_addressObjects = [Directory adressObjects];//-------------------------------------------\\
+			_addressObjects = [Directory adressObjects];
+			
+			//-------------------------------------------\\
 			
 			_bareBulletinObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareBulletinObjects"];
 			_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
