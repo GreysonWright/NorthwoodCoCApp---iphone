@@ -164,7 +164,6 @@ static NSString *sermonYear;
 }
 
 +(NSString*)getSermonYear{
-	NSString  *returnThis = [sermonYear stringByAppendingString:@"Sermons/"];
-	return returnThis;
+	return [sermonYear stringByAppendingString:@"Sermons/"];
 }
 @end

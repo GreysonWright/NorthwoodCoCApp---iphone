@@ -26,7 +26,7 @@
 		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 		NSString *documentsDirectory = [paths objectAtIndex:0];
 		NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:fileName];
-	if(![[NSFileManager defaultManager] fileExistsAtPath:dataPath]){
+	if(![[NSFileManager defaultManager] fileExistsAtPath:dataPath] || [[NSUserDefaults standardUserDefaults]boolForKey:@"forceDownloadSwitch"]){
 		[self creatDirectoryForPDFs:fileName];
 		
 		/*NSURL *url = [NSURL URLWithString:[link stringByAppendingString:object]];
@@ -50,7 +50,7 @@
 		[request startAsynchronous];
 	}
 	else{
-		NSLog(@"dont download");
+		NSLog(@"dont download %d", [[NSUserDefaults standardUserDefaults]boolForKey:@"forceDownloadSwitch"]);
 	}
 }
 @end
