@@ -13,12 +13,17 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *email;
+@property (nonatomic, copy) NSString *section;
 
-+(NSMutableArray*)titleObjects;
+//+(NSMutableArray*)titleObjects;
 +(NSMutableArray*)emailObjects;
-+(NSMutableArray*)nameObjects;
++(NSMutableArray*)evangelistObjects;
++(NSMutableArray*)elderObjects;
++(NSMutableArray*)deaconObjects;
 +(NSMutableArray*)bareTitleObjects;
 +(NSMutableArray*)bareEmailObjects;
-+(NSMutableArray*)bareNameObjects;
++(NSMutableArray*)bareEvangelistObjects;
++(NSMutableArray*)bareElderObjects;
++(NSMutableArray*)bareDeaconObjects;
 
 @end

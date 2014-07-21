@@ -10,8 +10,6 @@
 
 @implementation NetworkStatus
 
-static BOOL networkExistsBool = YES;
-
 +(BOOL)networkExists{
 	NSURL *Url = [NSURL URLWithString:@"http://justchristians.info/"];
     NSData *htmlData = [NSData dataWithContentsOfURL:Url];

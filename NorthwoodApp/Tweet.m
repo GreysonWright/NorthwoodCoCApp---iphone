@@ -16,7 +16,7 @@
 @synthesize URL = _URL;
 
 static NSString *tweetURL;
-int tweetCount;
+NSInteger tweetCount;
 
 +(NSMutableArray*)tweetObjects{
 	NSURL *tweetsUrl = [NSURL URLWithString:@"https://twitter.com/northwoodcoc"];

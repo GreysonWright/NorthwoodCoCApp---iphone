@@ -16,11 +16,15 @@
 #import "NetworkStatus.h"
 
 @interface ContactUsViewController (){
-	NSMutableArray *_titleObjects;
-	NSMutableArray *_nameObjects;
+	//NSMutableArray *_titleObjects;
+	NSMutableArray *_evangelistObjects;
+	NSMutableArray *_elderObjects;
+	NSMutableArray *_deaconObjects;
 	NSMutableArray *_emailObjects;
 	NSMutableArray *_bareTitleObjects;
-	NSMutableArray *_bareNameObjects;
+	NSMutableArray *_bareEvangelistObjects;
+	NSMutableArray *_bareElderObjects;
+	NSMutableArray *_bareDeaconObjects;
 	NSMutableArray *_bareEmailObjects;
 }
 
@@ -33,17 +37,25 @@ BOOL offlineMode;
 -(void)loadStuff{
 	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
-			_titleObjects = nil;
-			_nameObjects = nil;
+		//	_titleObjects = nil;
+			_elderObjects = nil;
+			_deaconObjects = nil;
+			_evangelistObjects = nil;
 			_emailObjects = nil;
 			_bareTitleObjects = nil;
-			_bareNameObjects = nil;
+			_bareEvangelistObjects = nil;
+			_bareElderObjects = nil;
+			_bareDeaconObjects = nil;
 			_bareEmailObjects = nil;
-			_titleObjects = [ContactUs titleObjects];
-			_nameObjects = [ContactUs nameObjects];
+			//_titleObjects = [ContactUs titleObjects];
+			_elderObjects = [ContactUs elderObjects];
+			_deaconObjects = [ContactUs deaconObjects];
+			_evangelistObjects = [ContactUs evangelistObjects];
 			_emailObjects = [ContactUs emailObjects];
 			_bareTitleObjects = [ContactUs bareTitleObjects];
-			_bareNameObjects = [ContactUs bareNameObjects];
+			_bareEvangelistObjects = [ContactUs bareEvangelistObjects];
+			_bareElderObjects = [ContactUs bareElderObjects];
+			_bareDeaconObjects = [ContactUs bareDeaconObjects];
 			_bareEmailObjects = [ContactUs bareEmailObjects];
 			[self.tableView reloadData];
 			offlineMode = NO;
@@ -59,29 +71,41 @@ BOOL offlineMode;
     if (self) {
         self.title = @"Contact Us";
 		self.navigationItem.title = self.title;
-		_titleObjects = [[NSMutableArray alloc]init];
-		_nameObjects = [[NSMutableArray alloc]init];
+		//_titleObjects = [[NSMutableArray alloc]init];
+		_elderObjects = [[NSMutableArray alloc]init];
+		_deaconObjects = [[NSMutableArray alloc]init];
+		_evangelistObjects = [[NSMutableArray alloc]init];
 		_emailObjects = [[NSMutableArray alloc]init];
 		_bareTitleObjects = [[NSMutableArray alloc]init];
-		_bareNameObjects = [[NSMutableArray alloc]init];
+		_bareElderObjects = [[NSMutableArray alloc]init];
+		_bareDeaconObjects = [[NSMutableArray alloc]init];
+		_bareEvangelistObjects = [[NSMutableArray alloc]init];
 		_bareEmailObjects = [[NSMutableArray alloc]init];
 		
 		if([NetworkStatus networkExists]){
-			_titleObjects = [ContactUs titleObjects];
-			_nameObjects = [ContactUs nameObjects];
+			//_titleObjects = [ContactUs titleObjects];
+			_elderObjects = [ContactUs elderObjects];
+			_deaconObjects = [ContactUs deaconObjects];
+			_evangelistObjects = [ContactUs evangelistObjects];
 			_emailObjects = [ContactUs emailObjects];
 			_bareTitleObjects = [ContactUs bareTitleObjects];
-			_bareNameObjects = [ContactUs bareNameObjects];
+			_bareEvangelistObjects = [ContactUs bareEvangelistObjects];
+			_bareElderObjects = [ContactUs bareElderObjects];
+			_bareDeaconObjects = [ContactUs bareDeaconObjects];
 			_bareEmailObjects = [ContactUs bareEmailObjects];
 			
 			//[[NSUserDefaults standardUserDefaults]setObject:_bareTitleObjects forKey:@"bareTitleObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bareNameObjects forKey:@"bareNameObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareEvangelistObjects forKey:@"bareEvangelistObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareElderObjects forKey:@"bareElderObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareDeaconObjects forKey:@"baredeaconObjects"];
 			[[NSUserDefaults standardUserDefaults]setObject:_bareEmailObjects forKey:@"bareEmailObjects"];
 			offlineMode = NO;
 		}
 		else if(![NetworkStatus networkExists]){
 			//_bareTitleObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareTitleObjects"];
-			_bareNameObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareNameObjects"];
+			_bareEvangelistObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareEvangelistObjects"];
+			_bareElderObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareElderObjects"];
+			_bareDeaconObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"baredeaconObjects"];
 			_bareEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareEmailObjects"];
 			offlineMode = YES;
 			NSLog([_bareEmailObjects objectAtIndex:0]);
@@ -118,15 +142,41 @@ BOOL offlineMode;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if([NetworkStatus networkExists])
-		return _nameObjects.count;
-	else
-		return _bareNameObjects.count;
+	if([NetworkStatus networkExists]){
+		if(section == 0)
+			return _evangelistObjects.count;
+		else if(section == 1)
+			return _elderObjects.count;
+		else if (section == 2)
+			return _deaconObjects.count;
+		
+		return 0;
+	}
+	else{
+		if(section == 0)
+			return _bareEvangelistObjects.count;
+		else if(section == 1)
+			return _bareElderObjects.count;
+		else if (section == 2)
+			return _bareDeaconObjects.count;
+			
+		return 0;
+	}
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	if(section == 0)
+		return @"Evangelists";
+	if(section == 1)
+		return @"Elders";
+	if(section == 2)
+		return @"Deacons";
+	return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -141,17 +191,45 @@ BOOL offlineMode;
 		cell = [[ContactUsTableViewCell alloc] init];
     }
 	if(!offlineMode){
-		//ContactUs *contactTitle = [_titleObjects objectAtIndex:indexPath.row];
-		ContactUs *contactName = [_nameObjects objectAtIndex:indexPath.row];
 		ContactUs *contactEmail = [_emailObjects objectAtIndex:indexPath.row];
+		if(indexPath.section == 0){
+			ContactUs *evangelists = [_evangelistObjects objectAtIndex:indexPath.row];
+			[cell fillNameWithData:evangelists];
+			[cell fillEmailWithData:contactEmail];
+		}
+		else if(indexPath.section == 1){
+			ContactUs *elders = [_elderObjects objectAtIndex:indexPath.row];
+			[cell fillNameWithData:elders];
+			[cell fillEmailWithData:contactEmail];
+		}
+		else if(indexPath.section == 2){
+			ContactUs *deacons = [_deaconObjects objectAtIndex:indexPath.row];
+			[cell fillNameWithData:deacons];
+			[cell fillEmailWithData:contactEmail];
+		}
+		//ContactUs *contactTitle = [_titleObjects objectAtIndex:indexPath.row];
 		//[cell fillTitleWithData:contactTitle];
-		[cell fillNameWithData:contactName];
-		[cell fillEmailWithData:contactEmail];
+		//[cell fillNameWithData:contactName];
 	}
 	else if(offlineMode){
 		//[cell fillTitleWithBareData:[_bareTitleObjects objectAtIndex:indexPath.row]];
-		[cell fillNameWithBareData:[_bareNameObjects objectAtIndex:indexPath.row]];
-		[cell fillEmailWithBareData:[_bareEmailObjects objectAtIndex:indexPath.row]];
+		NSString *contactEmail = [_bareEmailObjects objectAtIndex:indexPath.row];
+		if(indexPath.section == 0){
+			NSString *evangelists = [_bareEvangelistObjects objectAtIndex:indexPath.row];
+			[cell fillNameWithBareData:evangelists];
+			[cell fillEmailWithBareData:contactEmail];
+		}
+		else if(indexPath.section == 1){
+			NSString *elders = [_bareElderObjects objectAtIndex:indexPath.row];
+			[cell fillNameWithBareData:elders];
+			[cell fillEmailWithBareData:contactEmail];
+		}
+		else if(indexPath.section == 2){
+			NSString *deacons = [_bareDeaconObjects objectAtIndex:indexPath.row];
+			[cell fillNameWithBareData:deacons];
+			[cell fillEmailWithBareData:contactEmail];
+		}
+
 	}
 	
     return cell;
@@ -169,7 +247,7 @@ BOOL offlineMode;
 }
 
 -(BOOL)needsToReload{
-	if(_nameObjects.count == 0){
+	if(_emailObjects.count == 0){
 		NSLog(@"reload");
 		return YES;
 	}

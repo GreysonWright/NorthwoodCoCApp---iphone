@@ -37,7 +37,7 @@
 	NSMutableArray *_addressObjects;
 	NSMutableArray *_linksForWebView;
 	NSString *_bulletinEndURL;
-	int _selectedSegment;
+	NSInteger _selectedSegment;
 }
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
@@ -287,8 +287,6 @@ BOOL offlineMode;
 		if(!offlineMode){
 			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
 			[self.navigationController pushViewController:webView animated:YES];
-			NSLog(@"linksforwebview %d",_linksForWebView.count);
-			NSLog(@"_bulletinobjects %d", _bulletinObjects.count);
 		}
 		else if(offlineMode){
 			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
