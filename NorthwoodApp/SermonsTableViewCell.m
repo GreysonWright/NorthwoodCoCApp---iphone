@@ -13,8 +13,7 @@
 @synthesize sermonURL = _sermonURL;
 
 -(instancetype)init{
-    self=[super init];
-    //init is such a way that the xib file actually works
+    //self=[super init];
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([SermonsTableViewCell class]) owner:nil options:nil][0];
     
     return self;

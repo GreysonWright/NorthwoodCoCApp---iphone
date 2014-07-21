@@ -37,7 +37,7 @@
 	NSMutableArray *_addressObjects;
 	NSMutableArray *_linksForWebView;
 	NSString *_bulletinEndURL;
-	int _selectedSegment;
+	NSInteger _selectedSegment;
 }
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
@@ -240,43 +240,45 @@ BOOL offlineMode;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	NSInteger returnThis;
 	if(_selectedSegment == 0 && !offlineMode){
-		returnThis = _bulletinObjects.count;
+		return _bulletinObjects.count;
 	}
 	else if(_selectedSegment == 0 && offlineMode){
-		returnThis = _bareBulletinObjects.count;
+		return _bareBulletinObjects.count;
 	}
 	else if(_selectedSegment == 1){
-		returnThis = 1;
+		return 1;
 	}
 	else if(_selectedSegment == 2){
-		returnThis = 1;
+		return 1;
 	}
 	else if (_selectedSegment == 3 && !offlineMode){
-		returnThis = _nameObjects.count;
+		return _nameObjects.count;
 	}
 	else if(_selectedSegment == 3 && offlineMode){
 		return _nameObjects.count;
 	}
-    return returnThis;
+	else
+		return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-	int returnThis;
+	
 	if(_selectedSegment == 0){
-		returnThis = 73;
+		return  73;
 	}
 	else if(_selectedSegment == 1){
-		returnThis = 700;
+		return 700;
 	}
 	else if(_selectedSegment == 2){
-		returnThis = 700;
+		return 700;
 	}
 	else if (_selectedSegment == 3){
-		returnThis = 109;
+		return 109;
 	}
-	return returnThis;
+	else
+		return 73;
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -285,8 +287,6 @@ BOOL offlineMode;
 		if(!offlineMode){
 			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
 			[self.navigationController pushViewController:webView animated:YES];
-			NSLog(@"linksforwebview %d",_linksForWebView.count);
-			NSLog(@"_bulletinobjects %d", _bulletinObjects.count);
 		}
 		else if(offlineMode){
 			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
@@ -306,7 +306,6 @@ BOOL offlineMode;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *returnThis;
 	
 	if(_selectedSegment == 0){ //bulletins
 			
@@ -323,7 +322,7 @@ BOOL offlineMode;
 			[cell fillWithBareData:[_bareBulletinObjects objectAtIndex:indexPath.row]];
 		}
 		
-		returnThis = cell;
+		return cell;
 	}
 	
 	else if(_selectedSegment == 1){ //prayerlist
@@ -338,7 +337,7 @@ BOOL offlineMode;
 		else if(offlineMode){
 			[cell loadWebPageInOfflineMode];
 		}
-		returnThis = cell;
+		return cell;
 	}
 	
 	else if(_selectedSegment == 2){//roster
@@ -353,10 +352,10 @@ BOOL offlineMode;
 		else if(offlineMode){
 			[cell loadWebPageInOfflineMode];
 		}
-		returnThis = cell;
+		return cell;
 	}
 	
-	else if (_selectedSegment == 3){//directory
+	else{// if (_selectedSegment == 3){//directory
 		DirectoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DirectoryCell"];
 		if (cell == nil) {
 			cell = [[DirectoryTableViewCell alloc] init];
@@ -387,10 +386,8 @@ BOOL offlineMode;
 			[cell fillAddressWithData:thisAddress];
 		}
 		
-		returnThis = cell;
+		return cell;
 	}
-	
-    return returnThis;
 }
 
 +(void)setLoggedin:(BOOL)newLoggedin{

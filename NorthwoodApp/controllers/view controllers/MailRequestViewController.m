@@ -83,21 +83,6 @@ int alertIndex;
 	alertIndex = 0;
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-	if(alertIndex==0){
-	[self.navigationController popToRootViewControllerAnimated:YES];
-	//send yayayaya
-	}
-	else{
-		if(buttonIndex == 0)
-			[self.navigationController popToRootViewControllerAnimated:YES];
-		else{
-			LogginginViewController *loginView = [[LogginginViewController alloc]init];
-			[self presentViewController:loginView animated:YES completion:nil];
-		}
-	}
-}
-
 -(void)doneTitleButtonTapped{
 	[self.textView resignFirstResponder];
 	self.navigationItem.rightBarButtonItem = nil;
