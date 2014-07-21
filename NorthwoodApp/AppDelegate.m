@@ -110,7 +110,7 @@ int _alert;
 		NSLog(@"first launch");
 	}
 	
-	if([SettingsViewController pushSwitchIsOn])
+	if([SettingsViewController pushSwitchIsOn]) //shouldve used nsuserdefaults now that i think about it
 		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
 	else{
 		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
@@ -134,9 +134,11 @@ int _alert;
 	
 	if(![NetworkStatus networkExists])
 		completionHandler(UIBackgroundFetchResultFailed);
-	else{ //check if switch is on [settings tweetswitchison]
+	else if([[NSUserDefaults standardUserDefaults]boolForKey:@"tweetSwitch"]){ //check if switch is on [settings tweetswitchison]
 		completionHandler([HomeViewController refreshTweets]);
 	}
+	else
+		completionHandler(UIBackgroundFetchResultNoData);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
