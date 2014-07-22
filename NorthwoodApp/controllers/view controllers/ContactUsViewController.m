@@ -147,7 +147,7 @@ BOOL offlineMode;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if([NetworkStatus networkExists]){
+	if(!offlineMode){
 		if(section == 0)
 			return _evangelistObjects.count;
 		else if(section == 1)

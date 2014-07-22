@@ -45,18 +45,17 @@
 }
 
 - (IBAction)loginButtonTapped:(id)sender {
-	if([self.usernameBox.text  isEqual: @""] && [self.passwordBox.text  isEqual: @""]){
-		UIAlertView *wrongLogin = [[UIAlertView alloc]initWithTitle:@"Login Error" message:@"The username or password provided was incorrect." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-		[wrongLogin show];
-	}
-	
-	else{
+	if([self.usernameBox.text  isEqual: @"member"] && [self.passwordBox.text  isEqual: @"member"]){
 		[self dismissViewControllerAnimated:YES completion:nil];
 		[NewsLoggedinViewController setLoggedin:YES];
 		[MailRequestViewController setLoginStillPresented:YES];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
 		[[NSUserDefaults standardUserDefaults] setObject:[self.usernameBox text] forKey:@"username"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
+	
+	else{
+		[[[UIAlertView alloc]initWithTitle:@"Login Error" message:@"The username or password provided was incorrect." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil] show];
 	}
 }
 

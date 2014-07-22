@@ -206,7 +206,8 @@ BOOL offlineMode;
 
 -(void)viewDidAppear:(BOOL)animated{
 	
-	if(loggedin == YES && [self needsToReload])
+	if(loggedin == YES)
+		
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	
 	if([self needsToReload])
