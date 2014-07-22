@@ -37,7 +37,6 @@ static BOOL forceDownloadIsOn;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		self.title=@"Settings";
-		self.tabBarItem.title=self.title;
 		
     }
     return self;
