@@ -50,7 +50,6 @@
 		2E52E3F31948AE0F00B46786 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3DB1948AE0E00B46786 /* UIKit.framework */; };
 		2E52E3FB1948AE0F00B46786 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E3F91948AE0F00B46786 /* InfoPlist.strings */; };
 		2E52E3FD1948AE0F00B46786 /* NorthwoodAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E3FC1948AE0F00B46786 /* NorthwoodAppTests.m */; };
-		2E52E42A1948B8F800B46786 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E4291948B8F800B46786 /* TabBarController.m */; };
 		2E52E4371948BD9800B46786 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E4351948BD9800B46786 /* HomeViewController.m */; };
 		2E52E4381948BD9800B46786 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E4361948BD9800B46786 /* HomeViewController.xib */; };
 		2E52E44B1948E19A00B46786 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E4491948E19A00B46786 /* SettingsViewController.m */; };
@@ -68,6 +67,7 @@
 		2E6CD0B919568BA3007B7BF8 /* ContactUs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CD0B819568BA3007B7BF8 /* ContactUs.m */; };
 		2E6CD0BE19568BD4007B7BF8 /* ContactUsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CD0BC19568BD4007B7BF8 /* ContactUsTableViewCell.m */; };
 		2E6CD0BF19568BD4007B7BF8 /* ContactUsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E6CD0BD19568BD4007B7BF8 /* ContactUsTableViewCell.xib */; };
+		2E7021CA197ECC260037CBE5 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7021C9197ECC260037CBE5 /* TabBarController.m */; };
 		2E722F231978B6DF006EB580 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F221978B6DF006EB580 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2E722F2C1978B78E006EB580 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E722F2A1978B78E006EB580 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2E722F2E1978B8EA006EB580 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E722F2D1978B8EA006EB580 /* CFNetwork.framework */; };
@@ -178,8 +178,6 @@
 		2E52E3F81948AE0F00B46786 /* NorthwoodCoCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodCoCTests-Info.plist"; sourceTree = "<group>"; };
 		2E52E3FA1948AE0F00B46786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E52E3FC1948AE0F00B46786 /* NorthwoodAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NorthwoodAppTests.m; sourceTree = "<group>"; };
-		2E52E4281948B8F800B46786 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = ../../TabBarController.h; sourceTree = "<group>"; };
-		2E52E4291948B8F800B46786 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = ../../TabBarController.m; sourceTree = "<group>"; };
 		2E52E4341948BD9800B46786 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		2E52E4351948BD9800B46786 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		2E52E4361948BD9800B46786 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -208,6 +206,8 @@
 		2E6CD0BB19568BD4007B7BF8 /* ContactUsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsTableViewCell.h; sourceTree = "<group>"; };
 		2E6CD0BC19568BD4007B7BF8 /* ContactUsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsTableViewCell.m; sourceTree = "<group>"; };
 		2E6CD0BD19568BD4007B7BF8 /* ContactUsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactUsTableViewCell.xib; sourceTree = "<group>"; };
+		2E7021C8197ECC260037CBE5 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = NorthwoodApp/TabBarController.h; sourceTree = SOURCE_ROOT; };
+		2E7021C9197ECC260037CBE5 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = NorthwoodApp/TabBarController.m; sourceTree = SOURCE_ROOT; };
 		2E722F101978B00A006EB580 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
 		2E722F111978B00A006EB580 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
 		2E722F121978B00A006EB580 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
@@ -595,8 +595,8 @@
 		2E52E4321948BD9800B46786 /* tab bar controller */ = {
 			isa = PBXGroup;
 			children = (
-				2E52E4281948B8F800B46786 /* TabBarController.h */,
-				2E52E4291948B8F800B46786 /* TabBarController.m */,
+				2E7021C8197ECC260037CBE5 /* TabBarController.h */,
+				2E7021C9197ECC260037CBE5 /* TabBarController.m */,
 			);
 			name = "tab bar controller";
 			path = "other controllers";
@@ -1039,7 +1039,7 @@
 				2E4B16AF19521D5100641710 /* DutyRoster.m in Sources */,
 				2E52E3E81948AE0E00B46786 /* AppDelegate.m in Sources */,
 				2E4F92B6194B65B300BC23F2 /* TFHppleElement.m in Sources */,
-				2E52E42A1948B8F800B46786 /* TabBarController.m in Sources */,
+				2E7021CA197ECC260037CBE5 /* TabBarController.m in Sources */,
 				2E9CD72519562C0C00822E1D /* ContactUsNavigationViewController.m in Sources */,
 				2E6CD0B919568BA3007B7BF8 /* ContactUs.m in Sources */,
 				2E52E44B1948E19A00B46786 /* SettingsViewController.m in Sources */,

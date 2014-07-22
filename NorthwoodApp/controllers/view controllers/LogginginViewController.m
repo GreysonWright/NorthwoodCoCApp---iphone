@@ -13,7 +13,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "HomeViewController.h"
 
-@interface LogginginViewController ()
+@interface LogginginViewController (){
+	NSString *passwordString;
+}
 @property (weak, nonatomic) IBOutlet UITextField *usernameBox;
 @property (weak, nonatomic) IBOutlet UITextField *passwordBox;
 
@@ -45,7 +47,7 @@
 }
 
 - (IBAction)loginButtonTapped:(id)sender {
-	if([self.usernameBox.text  isEqual: @"member"] && [self.passwordBox.text  isEqual: @"member"]){
+	if([self.usernameBox.text  isEqual: @"member"] && [self.passwordBox.text  isEqual: @"NorthwoodCoC"]){
 		[self dismissViewControllerAnimated:YES completion:nil];
 		[NewsLoggedinViewController setLoggedin:YES];
 		[MailRequestViewController setLoginStillPresented:YES];
@@ -70,5 +72,4 @@
 	[textField resignFirstResponder];
     return NO;
 }
-
 @end
