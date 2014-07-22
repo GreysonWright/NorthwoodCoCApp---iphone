@@ -13,7 +13,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *emailLabel;
+@property (strong, nonatomic) IBOutlet UIButton *emailLabel;
+
 
 -(void)fillTitleWithData:(ContactUs*)contact;
 -(void)fillNameWithData:(ContactUs*)contact;

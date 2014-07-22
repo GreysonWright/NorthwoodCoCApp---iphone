@@ -34,7 +34,7 @@
 		[indicator setFrame:CGRectMake((160), (180), 0, 0)];
 		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (210), 320, 30)];
 		loadingLabel.textColor = [UIColor whiteColor];
-		[loadingLabel setTextAlignment:UITextAlignmentCenter];
+		[loadingLabel setTextAlignment:NSTextAlignmentCenter];
 		loadingLabel.text = @"Loading";
 		
 		[_loadingView addSubview:indicator];

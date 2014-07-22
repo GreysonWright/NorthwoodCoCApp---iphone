@@ -105,14 +105,62 @@
     return newcontact;
 }
 
-+(NSMutableArray*)emailObjects{
++(NSMutableArray*)evangelistEmailObjects{
 	
 	NSURL *contactUrl = [NSURL URLWithString:@"http://justchristians.info/ContactUs/"];
     NSData *contactHtmlData = [NSData dataWithContentsOfURL:contactUrl];
 	
     TFHpple *contactParser = [TFHpple hppleWithHTMLData:contactHtmlData];
 	
-    NSString *contactXpathQueryString = @"//*[@id='container']/section/table/tbody/tr/td[2]/a";
+    NSString *contactXpathQueryString = @"//*[@id='container']/section/table/tbody[1]/tr/td[2]/a";
+	
+    NSArray *contactNodes = [contactParser searchWithXPathQuery:contactXpathQueryString];
+	
+    NSMutableArray *newcontact = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in contactNodes) {
+        
+        ContactUs *contact = [[ContactUs alloc] init];
+        [newcontact addObject:contact];
+		
+		contact.email = [element objectForKey:@"href"];
+    }
+	
+    return newcontact;
+}
+
++(NSMutableArray*)elderEmailObjects{
+	
+	NSURL *contactUrl = [NSURL URLWithString:@"http://justchristians.info/ContactUs/"];
+    NSData *contactHtmlData = [NSData dataWithContentsOfURL:contactUrl];
+	
+    TFHpple *contactParser = [TFHpple hppleWithHTMLData:contactHtmlData];
+	
+    NSString *contactXpathQueryString = @"//*[@id='container']/section/table/tbody[2]/tr/td[2]/a";
+	
+    NSArray *contactNodes = [contactParser searchWithXPathQuery:contactXpathQueryString];
+	
+    NSMutableArray *newcontact = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in contactNodes) {
+        
+        ContactUs *contact = [[ContactUs alloc] init];
+        [newcontact addObject:contact];
+		
+		contact.email = [element objectForKey:@"href"];
+    }
+	
+    return newcontact;
+}
+
++(NSMutableArray*)deaconEmailObjects{
+	
+	NSURL *contactUrl = [NSURL URLWithString:@"http://justchristians.info/ContactUs/"];
+    NSData *contactHtmlData = [NSData dataWithContentsOfURL:contactUrl];
+	
+    TFHpple *contactParser = [TFHpple hppleWithHTMLData:contactHtmlData];
+	
+    NSString *contactXpathQueryString = @"//*[@id='container']/section/table/tbody[3]/tr/td[2]/a";
 	
     NSArray *contactNodes = [contactParser searchWithXPathQuery:contactXpathQueryString];
 	
@@ -152,13 +200,59 @@
     return newcontact;
 }
 
-+(NSMutableArray*)bareEmailObjects{
++(NSMutableArray*)bareEvangelistEmailObjects{
 	NSURL *contactUrl = [NSURL URLWithString:@"http://justchristians.info/ContactUs/"];
     NSData *contactHtmlData = [NSData dataWithContentsOfURL:contactUrl];
 	
     TFHpple *contactParser = [TFHpple hppleWithHTMLData:contactHtmlData];
 	
-    NSString *contactXpathQueryString = @"//*[@id='container']/section/table/tbody/tr/td[2]/a";
+    NSString *contactXpathQueryString = @"//*[@id='container']/section/table/tbody[1]/tr/td[2]/a";
+	
+    NSArray *contactNodes = [contactParser searchWithXPathQuery:contactXpathQueryString];
+	
+    NSMutableArray *newcontact = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in contactNodes) {
+        
+		NSString *contact;
+		
+		contact = [element objectForKey:@"href"];
+		
+        [newcontact addObject:contact];
+    }
+	
+    return newcontact;
+}
++(NSMutableArray*)bareElderEmailObjects{
+	NSURL *contactUrl = [NSURL URLWithString:@"http://justchristians.info/ContactUs/"];
+    NSData *contactHtmlData = [NSData dataWithContentsOfURL:contactUrl];
+	
+    TFHpple *contactParser = [TFHpple hppleWithHTMLData:contactHtmlData];
+	
+    NSString *contactXpathQueryString = @"//*[@id='container']/section/table/tbody[2]/tr/td[2]/a";
+	
+    NSArray *contactNodes = [contactParser searchWithXPathQuery:contactXpathQueryString];
+	
+    NSMutableArray *newcontact = [[NSMutableArray alloc] initWithCapacity:0];
+	
+    for (TFHppleElement *element in contactNodes) {
+        
+		NSString *contact;
+		
+		contact = [element objectForKey:@"href"];
+		
+        [newcontact addObject:contact];
+    }
+	
+    return newcontact;
+}
++(NSMutableArray*)bareDeaconEmailObjects{
+	NSURL *contactUrl = [NSURL URLWithString:@"http://justchristians.info/ContactUs/"];
+    NSData *contactHtmlData = [NSData dataWithContentsOfURL:contactUrl];
+	
+    TFHpple *contactParser = [TFHpple hppleWithHTMLData:contactHtmlData];
+	
+    NSString *contactXpathQueryString = @"//*[@id='container']/section/table/tbody[3]/tr/td[2]/a";
 	
     NSArray *contactNodes = [contactParser searchWithXPathQuery:contactXpathQueryString];
 	

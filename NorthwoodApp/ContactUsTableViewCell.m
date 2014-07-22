@@ -30,7 +30,7 @@
     // Configure the view for the selected state
 }
 - (IBAction)emailButtonTapped:(id)sender {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"mailto:" stringByAppendingString:self.emailLabel.text]]];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[@"mailto:" stringByAppendingString:self.emailLabel.currentTitle ]]];
 }
 
 -(void)fillTitleWithData:(ContactUs*)contact{
@@ -45,7 +45,8 @@
 
 -(void)fillEmailWithData:(ContactUs*)contact{
 	NSString *stringWithoutMailto = [contact.email stringByReplacingOccurrencesOfString:@"mailto:" withString:@""];
-	self.emailLabel.text = stringWithoutMailto;
+	//self.emailLabel.text = stringWithoutMailto;
+	[self.emailLabel setTitle:stringWithoutMailto forState:UIControlStateNormal];
 }
 
 -(void)fillTitleWithBareData:(NSString *)title{
@@ -58,6 +59,7 @@
 
 -(void)fillEmailWithBareData:(NSString *)email{
 	NSString *stringWithoutMailto = [email stringByReplacingOccurrencesOfString:@"mailto:" withString:@""];
-	self.emailLabel.text = stringWithoutMailto;
+	//self.emailLabel.text = stringWithoutMailto;
+	[self.emailLabel setTitle:stringWithoutMailto forState:UIControlStateNormal];
 }
 @end
