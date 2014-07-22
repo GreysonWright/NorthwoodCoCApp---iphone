@@ -102,7 +102,7 @@
 	
 	if(![NetworkStatus networkExists])
 		completionHandler(UIBackgroundFetchResultFailed);
-	else if([[NSUserDefaults standardUserDefaults]boolForKey:@"tweetSwitch"]){ //check if switch is on [settings tweetswitchison]
+	else if([[NSUserDefaults standardUserDefaults]boolForKey:@"tweetSwitch"]){
 		completionHandler([HomeViewController refreshTweets]);
 	}
 	else

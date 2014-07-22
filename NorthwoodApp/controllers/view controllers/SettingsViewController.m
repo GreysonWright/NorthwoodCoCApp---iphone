@@ -125,10 +125,6 @@ static BOOL forceDownloadIsOn;
 	[self saveState];
 }
 
-+(BOOL)tweetSwitchIsOn{
-	return tweetNotifIsOn;
-}
-
 +(BOOL)pushSwitchIsOn{
 	return [[NSUserDefaults standardUserDefaults]boolForKey:@"notifsOn"];
 }
