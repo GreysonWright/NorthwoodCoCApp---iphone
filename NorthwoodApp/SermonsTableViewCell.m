@@ -32,7 +32,7 @@
 
 -(void)fillNameWithData:(Sermon*)preacher{
 	if([preacher  isEqual: @" "])
-		self.nameLabel.text = preacher;
+		self.nameLabel.text =[NSString stringWithFormat:@"%@",preacher];
 	else
 		self.nameLabel.text = preacher.preacherContent;
 	//NSLog(preacher.preacherContent);
@@ -40,7 +40,7 @@
 
 -(void)fillDateWithData:(Sermon*)date{
 	if([date isEqual: @" "])
-		self.dateLabel.text = date;
+		self.dateLabel.text = [NSString stringWithFormat:@"%@",date];
 	else
 		self.dateLabel.text = date.dateContent;
 	//NSLog(date.dateContent);
@@ -48,7 +48,7 @@
 
 -(void)fillSermonWithData:(Sermon*)title{
 	if([title  isEqual: @" "])
-		self.titleLabel.text = title;
+		self.titleLabel.text = [NSString stringWithFormat:@"%@",title];
 	else
 		self.titleLabel.text = title.titleContent;
 	//NSLog(title.titleContent);

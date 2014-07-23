@@ -88,7 +88,7 @@ BOOL offlineMode;
 		if([[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"] == nil){
 			[[NSUserDefaults standardUserDefaults]setObject:[_tweetContent objectAtIndex:0] forKey:@"tmpObj"];
 			[[NSUserDefaults standardUserDefaults]synchronize];
-			NSLog([_tweetContent objectAtIndex:0]);
+			//NSLog([_tweetContent objectAtIndex:0]);
 		}
 		//tmpObj =[_tweetContent objectAtIndex:0];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];

@@ -47,6 +47,9 @@
 	NSString *stringWithoutMailto = [contact.email stringByReplacingOccurrencesOfString:@"mailto:" withString:@""];
 	//self.emailLabel.text = stringWithoutMailto;
 	[self.emailLabel setTitle:stringWithoutMailto forState:UIControlStateNormal];
+	CGRect emailButton = self.emailLabel.frame;
+	emailButton.size = CGSizeMake(self.emailLabel.currentTitle.length * 8, self.emailLabel.frame.size.height);
+	self.emailLabel.frame = emailButton;
 }
 
 -(void)fillTitleWithBareData:(NSString *)title{

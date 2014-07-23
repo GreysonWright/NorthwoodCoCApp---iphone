@@ -31,10 +31,10 @@
 }
 
 -(void)fillWithData:(Tweet*)tweet{
-	if(tweet.URL != @"none")
-		self.contentLabel.text = [tweet.tweetContent stringByAppendingString:tweet.URL];
-	else
+	if(![tweet.URL  isEqual: @"none"])
 		self.contentLabel.text = tweet.tweetContent;
+	else
+		self.contentLabel.text = [tweet.tweetContent stringByAppendingString:tweet.URL];
 }
 
 -(void)fillDateWithData:(Tweet*)tweet{
