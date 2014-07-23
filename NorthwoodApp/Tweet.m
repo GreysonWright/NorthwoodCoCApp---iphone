@@ -38,7 +38,7 @@ NSInteger tweetCount;
 		tweet.tweetContent = [[element firstTextChild]content];
 		
 		if([[element firstChildWithTagName:@"a"] objectForKey:@"title"] == nil)
-			tweet.URL = @"none";
+			tweet.URL = @"";
 		//NSLog(@"nil");
 		else
 			//NSLog(@"pew");
