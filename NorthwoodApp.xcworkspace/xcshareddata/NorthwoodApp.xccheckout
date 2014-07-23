@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>600406CA-92D9-4979-9E64-070760D7BA13</string>
+	<string>A1EFABF1-405A-4BB7-950F-C06DEA42B85E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>NorthwoodApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>83FD27E9-B8AA-4859-8BC3-35D191724CBC</key>
-		<string>https://bitbucket.org/SilentDoorHinges/northwoodcocapp-iphone.git</string>
+		<key>0F585083-1B2C-469E-ADF3-8636880FB217</key>
+		<string>https://bitbucket.org/GreysonWright/northwoodcocapp-iphone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>NorthwoodApp.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>83FD27E9-B8AA-4859-8BC3-35D191724CBC</key>
+		<key>0F585083-1B2C-469E-ADF3-8636880FB217</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/SilentDoorHinges/northwoodcocapp-iphone.git</string>
+	<string>https://bitbucket.org/GreysonWright/northwoodcocapp-iphone.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>83FD27E9-B8AA-4859-8BC3-35D191724CBC</string>
+	<string>0F585083-1B2C-469E-ADF3-8636880FB217</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>83FD27E9-B8AA-4859-8BC3-35D191724CBC</string>
+			<string>0F585083-1B2C-469E-ADF3-8636880FB217</string>
 			<key>IDESourceControlWCCName</key>
 			<string>northwoodcocapp-iphone</string>
 		</dict>

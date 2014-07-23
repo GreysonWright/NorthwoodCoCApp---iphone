@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Sermons2010ViewController">
             <connections>
-                <outlet property="searchDisplayController" destination="gQC-1H-4FA" id="19f-hQ-Eip"/>
                 <outlet property="tableView" destination="06e-7I-Yl1" id="5ui-4M-Qw9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,28 +26,10 @@
                         <outlet property="delegate" destination="-1" id="WMR-vw-J6S"/>
                     </connections>
                 </tableView>
-                <searchBar hidden="YES" userInteractionEnabled="NO" contentMode="top" id="6bs-mk-QKd">
-                    <rect key="frame" x="0.0" y="62" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                    <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="oJh-Vd-uhT"/>
-                    </connections>
-                </searchBar>
             </subviews>
             <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <searchDisplayController id="gQC-1H-4FA">
-            <connections>
-                <outlet property="delegate" destination="-1" id="STI-QY-VoJ"/>
-                <outlet property="searchBar" destination="6bs-mk-QKd" id="IIe-Hi-7Iw"/>
-                <outlet property="searchContentsController" destination="-1" id="q8q-aM-rkw"/>
-                <outlet property="searchResultsDataSource" destination="-1" id="H3p-6J-BBD"/>
-                <outlet property="searchResultsDelegate" destination="-1" id="LpT-Bc-359"/>
-            </connections>
-        </searchDisplayController>
     </objects>
 </document>

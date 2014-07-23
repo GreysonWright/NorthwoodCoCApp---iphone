@@ -21,7 +21,6 @@
 	NSMutableArray *_preacherObjects;
 	NSMutableArray *_linksForWebView;
 	NSMutableArray *_sermonsForWebView;
-	//NSMutableArray *_searchResults;
 	NSInteger _indexPathRow;
 }
 
@@ -60,7 +59,6 @@
 		_dateObjects = [[NSMutableArray alloc]init];
 		_linksForWebView = [[NSMutableArray alloc]init];
 		_sermonsForWebView = [[NSMutableArray alloc]init];
-		//_searchResults = [[NSMutableArray alloc]init];
 		_linkObjects = [Sermon sermonObjects];
 		_dateObjects = [Sermon sermonDateObjects];
 		_titleObjects = [Sermon sermonTitleObjects];
@@ -93,10 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-/*	if(tableView == self.searchDisplayController.searchResultsTableView)
-		return _searchResults.count;
-	else */
-		return _titleObjects.count;
+	return _titleObjects.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -141,29 +136,12 @@
 		[cell getLinkWithData:sermonLink];
 	}
 	
-	if(tableView == self.searchDisplayController.searchResultsTableView){
-	//	[cell fillSermonWithData:_searchResults]; //change this
-		[cell fillDateWithData:sermonDate];
-		[cell fillNameWithData:sermonPreacher];
-	}
-	else{
 		[cell fillSermonWithData:sermonTitle];
 		[cell fillDateWithData:sermonDate];
 		[cell fillNameWithData:sermonPreacher];
-	}
 	
     return cell;
 }
-
-/*-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@", searchText];
-	[_searchResults filteredArrayUsingPredicate:predicate];
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
-	[self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-	return YES;
-} */
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	if(buttonIndex == 0){
