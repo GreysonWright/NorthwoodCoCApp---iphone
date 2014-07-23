@@ -283,6 +283,7 @@ BOOL offlineMode;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	if(_selectedSegment == 0){
 		UniversalWebViewViewController *webView= [[UniversalWebViewViewController alloc]init];
 		if(!offlineMode){
@@ -303,7 +304,6 @@ BOOL offlineMode;
 	else if (_selectedSegment == 3){
 		NSLog(@"do nothing");
 	}
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

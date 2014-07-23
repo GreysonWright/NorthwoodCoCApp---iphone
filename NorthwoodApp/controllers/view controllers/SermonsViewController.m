@@ -103,6 +103,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	[self loadingViewSetup];
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
@@ -111,42 +112,36 @@
 		if(row==0){
 			[Sermon makeFinalURLWith:@"2009"];
 			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
 			[self.navigationController pushViewController:sermons2010View animated:YES];
 			sermons2010View.title=@"2009";
 		}
 		else if(row==1){
 			[Sermon makeFinalURLWith:@"2010"];
 			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
 			[self.navigationController pushViewController:sermons2010View animated:YES];
 			sermons2010View.title=@"2010";
 		}
 		if(row==2){
 			[Sermon makeFinalURLWith:@"2011"];
 			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
 			[self.navigationController pushViewController:sermons2010View animated:YES];
 			sermons2010View.title=@"2011";
 		}
 		if(row==3){
 			[Sermon makeFinalURLWith:@"2012"];
 			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
 			[self.navigationController pushViewController:sermons2010View animated:YES];
 			sermons2010View.title=@"2012";
 		}
 		if(row==4){
 			[Sermon makeFinalURLWith:@"2013"];
 			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
 			[self.navigationController pushViewController:sermons2010View animated:YES];
 			sermons2010View.title=@"2013";
 		}
 		if(row==5){
 			[Sermon makeFinalURLWith:@"2014"];
 			Sermons2010ViewController *sermons2010View = [[Sermons2010ViewController alloc] init];
-			[tableView deselectRowAtIndexPath:indexPath animated:YES];
 			[self.navigationController pushViewController:sermons2010View animated:YES];
 			sermons2010View.title=@"2014";
 		}

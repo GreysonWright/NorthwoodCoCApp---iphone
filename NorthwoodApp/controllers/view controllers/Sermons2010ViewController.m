@@ -100,6 +100,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	if(![self.title  isEqual:@"2012"] && ![self.title  isEqual:@"2011"]){
 		if([[_linksForWebView objectAtIndex:indexPath.row]  isEqual: @"none"] && [[_linksForWebView objectAtIndex:indexPath.row]  isEqual: @"N/A"]){
 			UIAlertView *noLinkWarning = [[UIAlertView alloc]initWithTitle:@"" message:@"Unfortunately the sermon selected does not have audio." delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil];
@@ -116,7 +118,6 @@
 		UIAlertView *noAudio = [[UIAlertView alloc]initWithTitle:@"" message:@"Sorry, the audio in 2011 and 2012 is download only. If you would like to listen to the audio please download it at www.justchristians.info/" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
 		[noAudio show];
 	}
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

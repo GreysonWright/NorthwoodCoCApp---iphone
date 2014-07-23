@@ -156,11 +156,11 @@ BOOL offlineMode;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	BigTweetViewController *bigTweetView = [[BigTweetViewController alloc]init];
 	[bigTweetView setText:[_tweetContent objectAtIndex:indexPath.row]];
 	bigTweetView.title = [_tweetDates objectAtIndex:indexPath.row];
 	[self.navigationController pushViewController:bigTweetView animated:YES];
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
