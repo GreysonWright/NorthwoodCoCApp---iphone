@@ -129,10 +129,11 @@
     if (cell==nil) {
 		cell = [[SermonsTableViewCell alloc] init];
     }
-	if([self.title  isEqual: @"2012"] && [self.title  isEqual: @"2011"])
-		NSLog(@"2012 or 2011");
 	
-	else{
+	//if([self.title  isEqual: @"2012"] && [self.title  isEqual: @"2011"])
+	//	NSLog(@"2012 or 2011");
+	
+	if(![self.title  isEqual: @"2012"] && ![self.title  isEqual: @"2011"]){
 		Sermon *sermonLink = [_linkObjects objectAtIndex:indexPath.row];
 		[cell getLinkWithData:sermonLink];
 	}
