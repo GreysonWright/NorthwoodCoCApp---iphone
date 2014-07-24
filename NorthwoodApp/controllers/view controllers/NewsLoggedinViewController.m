@@ -51,7 +51,6 @@ static BOOL loggedin;
 BOOL offlineMode;
 
 -(void)loadStuff{
-	[NetworkStatus setSlowNetwork:NO];
 	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 			if(_selectedSegment == 0){
@@ -91,6 +90,11 @@ BOOL offlineMode;
 		NSLog(@"don't refresh");
 		[self.refreshControl endRefreshing];
 	}
+}
+
+-(void)refresh{
+	[NetworkStatus setSlowNetwork:NO];
+	[self loadStuff];
 }
 
 -(void)loadEverything{
@@ -223,7 +227,7 @@ BOOL offlineMode;
     [super viewDidLoad];
 	
 	self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableView.frame.size.width, 60)];
-    [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 	self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
 }
@@ -403,8 +407,7 @@ BOOL offlineMode;
 }
 
 -(void)logoutTitleButtonTapped{
-	UIAlertView *loggoutWarning = [[UIAlertView alloc]initWithTitle:@"logout?" message:@"Are you sure you would like to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
-    [loggoutWarning show];
+	[[[UIAlertView alloc]initWithTitle:@"logout?" message:@"Are you sure you would like to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil]show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

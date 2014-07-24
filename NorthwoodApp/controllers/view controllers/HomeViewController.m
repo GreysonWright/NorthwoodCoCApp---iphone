@@ -39,7 +39,6 @@ BOOL skipPageTurn;
 BOOL offlineMode;
 
 -(void)loadStuff{
-		[NetworkStatus setSlowNetwork:NO];
 	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 			_contentObjects = nil;
@@ -59,6 +58,11 @@ BOOL offlineMode;
 		NSLog(@"don't refresh");
 		[self.refreshControl endRefreshing];
 	}
+}
+
+-(void)refresh{
+	[NetworkStatus setSlowNetwork:NO];
+	[self loadStuff];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -113,7 +117,7 @@ BOOL offlineMode;
 {
 	[super viewDidLoad];
 	self.refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, -60, self.tableView.frame.size.width, 60)];
-    [self.refreshControl addTarget:self action:@selector(loadStuff) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 	
 		NSMutableArray* images = [[NSMutableArray alloc] initWithObjects:@"phillipians.png", @"bible.png", nil];

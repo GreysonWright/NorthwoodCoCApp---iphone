@@ -39,7 +39,6 @@
 BOOL offlineMode;
 
 -(void)loadStuff{
-	[NetworkStatus setSlowNetwork:NO];
 	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 		//	_titleObjects = nil;
@@ -132,6 +131,7 @@ BOOL offlineMode;
 			_bareElderEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareElderEmailObjects"];
 			_bareDeaconEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareDeaconEmailObjects"];
 			offlineMode = YES;
+			[[[UIAlertView alloc]initWithTitle:@"offline" message:@"Connect to a network and refresh to go online." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil]show];
 		}
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 
