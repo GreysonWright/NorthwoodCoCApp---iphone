@@ -11,7 +11,7 @@
 @implementation PrayerListTableViewCell
 
 -(instancetype)init{
-    self=[super init];
+    
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PrayerListTableViewCell class]) owner:nil options:nil][0];
     
     return self;

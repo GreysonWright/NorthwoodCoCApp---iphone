@@ -11,7 +11,7 @@
 @implementation DutyRosterTableViewCell
 
 -(instancetype)init{
-    self=[super init];
+   
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([DutyRosterTableViewCell class]) owner:nil options:nil][0];
     

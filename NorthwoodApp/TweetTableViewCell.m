@@ -11,7 +11,7 @@
 @implementation TweetTableViewCell
 
 -(instancetype)init{
-    self=[super init];
+   
     //init is such a way that the xib file actually works
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([TweetTableViewCell class]) owner:nil options:nil][0];
     

@@ -11,8 +11,7 @@
 @implementation BulletinTableViewCell
 
 -(instancetype)init{
-    self=[super init];
-    //init is such a way that the xib file actually works
+
     self=[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([BulletinTableViewCell class]) owner:nil options:nil][0];
     
     return self;
