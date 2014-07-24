@@ -15,7 +15,7 @@ static BOOL slowNetwork;
 +(BOOL)networkExists{
 		if(slowNetwork == NO){
 		NSURL *Url = [NSURL URLWithString:@"http://justchristians.info/"];
-		NSURLRequest *request = [NSURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:3];
+		NSURLRequest *request = [NSURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5];
 		//NSData *htmlData = [NSData dataWithContentsOfURL:Url];
 		//NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:urlRequest delegate:self];
 		NSHTTPURLResponse* response = nil;
