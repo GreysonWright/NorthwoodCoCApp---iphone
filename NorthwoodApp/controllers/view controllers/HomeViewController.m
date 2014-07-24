@@ -39,6 +39,7 @@ BOOL skipPageTurn;
 BOOL offlineMode;
 
 -(void)loadStuff{
+		[NetworkStatus setSlowNetwork:NO];
 	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 			_contentObjects = nil;

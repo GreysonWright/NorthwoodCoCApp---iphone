@@ -10,29 +10,51 @@
 
 @implementation NetworkStatus
 
-static networkTooSlow;
+static BOOL slowNetwork;
 
 +(BOOL)networkExists{
-	NSURL *Url = [NSURL URLWithString:@"http://justchristians.info/"];
-	NSURLRequest *request = [NSURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:8];
-    //NSData *htmlData = [NSData dataWithContentsOfURL:Url];
-	//NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:urlRequest delegate:self];
-	NSHTTPURLResponse* response = nil;
-	NSError* error = nil;
-	NSData *connection = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+		if(slowNetwork == NO){
+		NSURL *Url = [NSURL URLWithString:@"http://justchristians.info/"];
+		NSURLRequest *request = [NSURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:8];
+		//NSData *htmlData = [NSData dataWithContentsOfURL:Url];
+		//NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:urlRequest delegate:self];
+		NSHTTPURLResponse* response = nil;
+		NSError* error = nil;
+		NSData *connection = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 	
-	if(connection == nil){
-		NSLog(@"error %@",error);
-		NSLog(@"response %@",response);
-		NSLog(@"no network");
+		NSString *errorStirng = [NSString stringWithFormat:@"%@", error ];
+	
+		if(connection == nil && [errorStirng rangeOfString:@"offline"].location != NSNotFound){
+			NSLog(@"no network");
+			NSLog(@"error %@",error);
+			NSLog(@"response %@",response);
+			return NO;
+		}
+	
+		else if(connection == nil && [errorStirng rangeOfString:@"timed"].location != NSNotFound){
+			NSLog(@"no network");
+			NSLog(@"error %@",error);
+			NSLog(@"response %@",response);
+			slowNetwork = YES;
+			return NO;
+		}
+	
+		else{
+			NSLog(@"network available");
+			NSLog(@"error %@",error);
+			NSLog(@"response %@",response);
+			return YES;
+		}
+	}
+	else if(slowNetwork == YES){
+		NSLog(@"slow network");
 		return NO;
 	}
 	
-	else{
-		NSLog(@"network available");
-		NSLog(@"error %@",error);
-		NSLog(@"response %@",response);
-		return YES;
-	}
+	return 0;
+}
+
++(void)setSlowNetwork:(BOOL)slow{
+	slowNetwork = slow;
 }
 @end

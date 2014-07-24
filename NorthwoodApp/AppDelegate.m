@@ -100,6 +100,10 @@
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
 	
+	NSLog(@"fetching");
+	
+	[NetworkStatus setSlowNetwork:NO];
+	
 	if(![NetworkStatus networkExists])
 		completionHandler(UIBackgroundFetchResultFailed);
 	else if([[NSUserDefaults standardUserDefaults]boolForKey:@"tweetSwitch"]){

@@ -11,5 +11,6 @@
 @interface NetworkStatus : NSObject
 
 +(BOOL)networkExists;
++(void)setSlowNetwork:(BOOL)slow;
 
 @end

@@ -53,18 +53,24 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		_linkObjects = [[NSMutableArray alloc]init];
-		_preacherObjects = [[NSMutableArray alloc]init];
-		_titleObjects = [[NSMutableArray alloc]init];
-		_dateObjects = [[NSMutableArray alloc]init];
-		_linksForWebView = [[NSMutableArray alloc]init];
-		_sermonsForWebView = [[NSMutableArray alloc]init];
-		_linkObjects = [Sermon sermonObjects];
-		_dateObjects = [Sermon sermonDateObjects];
-		_titleObjects = [Sermon sermonTitleObjects];
-		_preacherObjects = [Sermon sermonPreacherObjects];
-		_linksForWebView = [Sermon sermonLink];
-		_sermonsForWebView = [Sermon sermonTitle];
+		[NetworkStatus setSlowNetwork:NO];
+		if([NetworkStatus networkExists]){
+			_linkObjects = [[NSMutableArray alloc]init];
+			_preacherObjects = [[NSMutableArray alloc]init];
+			_titleObjects = [[NSMutableArray alloc]init];
+			_dateObjects = [[NSMutableArray alloc]init];
+			_linksForWebView = [[NSMutableArray alloc]init];
+			_sermonsForWebView = [[NSMutableArray alloc]init];
+			_linkObjects = [Sermon sermonObjects];
+			_dateObjects = [Sermon sermonDateObjects];
+			_titleObjects = [Sermon sermonTitleObjects];
+			_preacherObjects = [Sermon sermonPreacherObjects];
+			_linksForWebView = [Sermon sermonLink];
+			_sermonsForWebView = [Sermon sermonTitle];
+		}
+		else
+			[self offlineViewSetUp];
+		
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
     }
     return self;

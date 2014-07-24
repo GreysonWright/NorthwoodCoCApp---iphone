@@ -51,6 +51,7 @@ static BOOL loggedin;
 BOOL offlineMode;
 
 -(void)loadStuff{
+	[NetworkStatus setSlowNetwork:NO];
 	if([NetworkStatus networkExists]){
 		dispatch_async(dispatch_get_main_queue(), ^{
 			if(_selectedSegment == 0){
