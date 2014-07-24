@@ -8,7 +8,6 @@
 
 #import "FileDownloader.h"
 #import "ASIHTTPRequest.h"
-#import "NetworkStatus.h"
 
 
 @implementation FileDownloader
