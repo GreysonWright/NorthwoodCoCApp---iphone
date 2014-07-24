@@ -10,11 +10,20 @@
 
 @implementation NetworkStatus
 
+static networkTooSlow;
+
 +(BOOL)networkExists{
 	NSURL *Url = [NSURL URLWithString:@"http://justchristians.info/"];
-    NSData *htmlData = [NSData dataWithContentsOfURL:Url];
+	NSURLRequest *request = [NSURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:8];
+    //NSData *htmlData = [NSData dataWithContentsOfURL:Url];
+	//NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:urlRequest delegate:self];
+	NSHTTPURLResponse* response = nil;
+	NSError* error = nil;
+	NSData *connection = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 	
-	if(htmlData == nil){
+	if(connection == nil){
+		NSLog(@"error %@",error);
+		NSLog(@"response %@",response);
 		NSLog(@"no network");
 		return NO;
 	}

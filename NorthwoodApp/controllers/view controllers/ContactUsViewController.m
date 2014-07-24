@@ -274,7 +274,7 @@ BOOL offlineMode;
 }
 
 -(BOOL)needsToReload{
-	if(_elderEmailObjects.count == 0){
+	if(_bareElderEmailObjects.count == 0){
 		NSLog(@"reload");
 		return YES;
 	}
