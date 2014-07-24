@@ -231,7 +231,7 @@ BOOL offlineMode;
 }
 
 -(BOOL)needsToReload{
-	if(_tweetContent.count == 0){
+	if(_tweetContent.count < _contentObjects.count){
 		NSLog(@"reload");
 		return YES;
 	}

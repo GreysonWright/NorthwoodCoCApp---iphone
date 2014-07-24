@@ -428,7 +428,7 @@ BOOL offlineMode;
 }
 
 -(BOOL)needsToReload{
-	if(_bulletinObjects.count == 0 || _prayerListObjects.count == 0 || _dutyRosterObjects.count == 0 || _titleObjects.count == 0){
+	if(_bareBulletinObjects.count < _bulletinObjects.count){
 		NSLog(@"reload");
 		return YES;
 	}

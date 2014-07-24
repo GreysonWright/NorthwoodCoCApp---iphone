@@ -30,6 +30,8 @@ static networkTooSlow;
 	
 	else{
 		NSLog(@"network available");
+		NSLog(@"error %@",error);
+		NSLog(@"response %@",response);
 		return YES;
 	}
 }
