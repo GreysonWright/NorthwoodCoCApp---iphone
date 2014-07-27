@@ -190,6 +190,7 @@ BOOL offlineMode;
 		}
 		
 		self.title=@"Members";
+		self.tabBarItem.image = [UIImage imageNamed:@"crowd.png"];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
     }

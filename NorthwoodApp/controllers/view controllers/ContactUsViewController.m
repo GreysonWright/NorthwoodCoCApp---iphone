@@ -82,7 +82,7 @@ BOOL offlineMode;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Contact Us";
-		self.navigationItem.title = self.title;
+		self.tabBarItem.image = [UIImage imageNamed:@"phone329.png"];
 		//_titleObjects = [[NSMutableArray alloc]init];
 		_elderObjects = [[NSMutableArray alloc]init];
 		_deaconObjects = [[NSMutableArray alloc]init];

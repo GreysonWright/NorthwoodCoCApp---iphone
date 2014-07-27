@@ -54,7 +54,7 @@
                     </state>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kA2-Yn-kjH">
-                    <rect key="frame" x="9" y="68" width="125" height="72"/>
+                    <rect key="frame" x="9" y="67" width="125" height="72"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <string key="text">Worship -- Sunday 9:00am - 9:30am
@@ -65,7 +65,7 @@ Bible Study -- Sunday 9:40am - 10:25am</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fLk-vM-13C">
-                    <rect key="frame" x="197" y="68" width="125" height="72"/>
+                    <rect key="frame" x="197" y="67" width="125" height="72"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <string key="text">Worship -- Sunday 10:30am - 11:45pm
@@ -98,7 +98,7 @@ Bible Study -- Wednesday 7:00pm</string>
                     <color key="backgroundColor" red="0.96258008490000002" green="0.97409445130000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" id="9SQ-6D-Vb7">
-                    <rect key="frame" x="0.0" y="65" width="320" height="1"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="1"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.96258008490000002" green="0.97409445130000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>

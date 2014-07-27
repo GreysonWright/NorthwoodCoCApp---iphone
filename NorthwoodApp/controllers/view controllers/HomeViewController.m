@@ -70,7 +70,7 @@ BOOL offlineMode;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		self.title = @"Home";
-		self.tabBarItem.title=self.title;
+		self.tabBarItem.image = [UIImage imageNamed:@"home65.png"];
 		_contentObjects = [[NSMutableArray alloc]init];
 		_dateObjects = [[NSMutableArray alloc]init];
 		_tweetContent = [[NSMutableArray alloc]init];
