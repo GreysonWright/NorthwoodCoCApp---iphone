@@ -58,12 +58,11 @@
 		2E5D4A9B19859FB6004FC91B /* multiple25.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8119859FB6004FC91B /* multiple25.png */; };
 		2E5D4A9C19859FB6004FC91B /* multiple25BIG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8219859FB6004FC91B /* multiple25BIG.png */; };
 		2E5D4A9D19859FB6004FC91B /* NorthwoodCoCIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8319859FB6004FC91B /* NorthwoodCoCIcon.png */; };
-		2E5D4A9E19859FB6004FC91B /* NorthwoodCoCIcon58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8419859FB6004FC91B /* NorthwoodCoCIcon58x58.png */; };
-		2E5D4A9F19859FB6004FC91B /* NorthwoodCoCIcon80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8519859FB6004FC91B /* NorthwoodCoCIcon80x80.png */; };
-		2E5D4AA019859FB6004FC91B /* NorthwoodCoCIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8619859FB6004FC91B /* NorthwoodCoCIcon120.png */; };
-		2E5D4AA119859FB6004FC91B /* northwoodlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8719859FB6004FC91B /* northwoodlogo.png */; };
-		2E5D4AA219859FB6004FC91B /* NorthwoodSplash960.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8819859FB6004FC91B /* NorthwoodSplash960.png */; };
-		2E5D4AA319859FB6004FC91B /* NorthwoodSplash1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8919859FB6004FC91B /* NorthwoodSplash1136.png */; };
+		2E5D4A9E19859FB6004FC91B /* icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8419859FB6004FC91B /* icon_58.png */; };
+		2E5D4A9F19859FB6004FC91B /* icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8519859FB6004FC91B /* icon_80.png */; };
+		2E5D4AA019859FB6004FC91B /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8619859FB6004FC91B /* icon_120.png */; };
+		2E5D4AA219859FB6004FC91B /* Northwood_splash35.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8819859FB6004FC91B /* Northwood_splash35.png */; };
+		2E5D4AA319859FB6004FC91B /* Northwood_splash4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8919859FB6004FC91B /* Northwood_splash4.png */; };
 		2E5D4AA419859FB6004FC91B /* philippians-series.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8A19859FB6004FC91B /* philippians-series.jpg */; };
 		2E5D4AA519859FB6004FC91B /* phillipians.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8B19859FB6004FC91B /* phillipians.png */; };
 		2E5D4AA619859FB6004FC91B /* phone329.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4A8C19859FB6004FC91B /* phone329.png */; };
@@ -208,12 +207,11 @@
 		2E5D4A8119859FB6004FC91B /* multiple25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = multiple25.png; path = images/multiple25.png; sourceTree = SOURCE_ROOT; };
 		2E5D4A8219859FB6004FC91B /* multiple25BIG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = multiple25BIG.png; path = images/multiple25BIG.png; sourceTree = SOURCE_ROOT; };
 		2E5D4A8319859FB6004FC91B /* NorthwoodCoCIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NorthwoodCoCIcon.png; path = images/NorthwoodCoCIcon.png; sourceTree = SOURCE_ROOT; };
-		2E5D4A8419859FB6004FC91B /* NorthwoodCoCIcon58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NorthwoodCoCIcon58x58.png; path = images/NorthwoodCoCIcon58x58.png; sourceTree = SOURCE_ROOT; };
-		2E5D4A8519859FB6004FC91B /* NorthwoodCoCIcon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NorthwoodCoCIcon80x80.png; path = images/NorthwoodCoCIcon80x80.png; sourceTree = SOURCE_ROOT; };
-		2E5D4A8619859FB6004FC91B /* NorthwoodCoCIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NorthwoodCoCIcon120.png; path = images/NorthwoodCoCIcon120.png; sourceTree = SOURCE_ROOT; };
-		2E5D4A8719859FB6004FC91B /* northwoodlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = northwoodlogo.png; path = images/northwoodlogo.png; sourceTree = SOURCE_ROOT; };
-		2E5D4A8819859FB6004FC91B /* NorthwoodSplash960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NorthwoodSplash960.png; path = images/NorthwoodSplash960.png; sourceTree = SOURCE_ROOT; };
-		2E5D4A8919859FB6004FC91B /* NorthwoodSplash1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NorthwoodSplash1136.png; path = images/NorthwoodSplash1136.png; sourceTree = SOURCE_ROOT; };
+		2E5D4A8419859FB6004FC91B /* icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_58.png; path = images/icon_58.png; sourceTree = SOURCE_ROOT; };
+		2E5D4A8519859FB6004FC91B /* icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_80.png; path = images/icon_80.png; sourceTree = SOURCE_ROOT; };
+		2E5D4A8619859FB6004FC91B /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_120.png; path = images/icon_120.png; sourceTree = SOURCE_ROOT; };
+		2E5D4A8819859FB6004FC91B /* Northwood_splash35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Northwood_splash35.png; path = images/Northwood_splash35.png; sourceTree = SOURCE_ROOT; };
+		2E5D4A8919859FB6004FC91B /* Northwood_splash4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Northwood_splash4.png; path = images/Northwood_splash4.png; sourceTree = SOURCE_ROOT; };
 		2E5D4A8A19859FB6004FC91B /* philippians-series.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "philippians-series.jpg"; path = "images/philippians-series.jpg"; sourceTree = SOURCE_ROOT; };
 		2E5D4A8B19859FB6004FC91B /* phillipians.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phillipians.png; path = images/phillipians.png; sourceTree = SOURCE_ROOT; };
 		2E5D4A8C19859FB6004FC91B /* phone329.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = phone329.png; path = images/phone329.png; sourceTree = SOURCE_ROOT; };
@@ -673,12 +671,11 @@
 				2E5D4A8119859FB6004FC91B /* multiple25.png */,
 				2E5D4A8219859FB6004FC91B /* multiple25BIG.png */,
 				2E5D4A8319859FB6004FC91B /* NorthwoodCoCIcon.png */,
-				2E5D4A8419859FB6004FC91B /* NorthwoodCoCIcon58x58.png */,
-				2E5D4A8519859FB6004FC91B /* NorthwoodCoCIcon80x80.png */,
-				2E5D4A8619859FB6004FC91B /* NorthwoodCoCIcon120.png */,
-				2E5D4A8719859FB6004FC91B /* northwoodlogo.png */,
-				2E5D4A8819859FB6004FC91B /* NorthwoodSplash960.png */,
-				2E5D4A8919859FB6004FC91B /* NorthwoodSplash1136.png */,
+				2E5D4A8419859FB6004FC91B /* icon_58.png */,
+				2E5D4A8519859FB6004FC91B /* icon_80.png */,
+				2E5D4A8619859FB6004FC91B /* icon_120.png */,
+				2E5D4A8819859FB6004FC91B /* Northwood_splash35.png */,
+				2E5D4A8919859FB6004FC91B /* Northwood_splash4.png */,
 				2E5D4A8A19859FB6004FC91B /* philippians-series.jpg */,
 				2E5D4A8B19859FB6004FC91B /* phillipians.png */,
 				2E5D4A8C19859FB6004FC91B /* phone329.png */,
@@ -1013,19 +1010,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E5D4A9E19859FB6004FC91B /* NorthwoodCoCIcon58x58.png in Resources */,
+				2E5D4A9E19859FB6004FC91B /* icon_58.png in Resources */,
 				2E5D4AAD19859FB6004FC91B /* Twitter2x.png in Resources */,
 				2E5B18F11962588300E96F61 /* MailRequestViewController.xib in Resources */,
 				2E52E3E21948AE0E00B46786 /* InfoPlist.strings in Resources */,
 				2E6CD0BF19568BD4007B7BF8 /* ContactUsTableViewCell.xib in Resources */,
 				2E5D4A9519859FB6004FC91B /* bible.png in Resources */,
 				2E9CD70A19560E3900822E1D /* SermonDateTableViewCell.xib in Resources */,
-				2E5D4A9F19859FB6004FC91B /* NorthwoodCoCIcon80x80.png in Resources */,
+				2E5D4A9F19859FB6004FC91B /* icon_80.png in Resources */,
 				2E5D4AB51985A21E004FC91B /* crowd@2x.png in Resources */,
 				2E5D4AA619859FB6004FC91B /* phone329.png in Resources */,
 				2E41833B1950A77F006D52EC /* SermonsTableViewCell.xib in Resources */,
 				2E52E3EA1948AE0E00B46786 /* Images.xcassets in Resources */,
-				2E5D4AA319859FB6004FC91B /* NorthwoodSplash1136.png in Resources */,
+				2E5D4AA319859FB6004FC91B /* Northwood_splash4.png in Resources */,
 				2E5D4AAA19859FB6004FC91B /* Twitter_filled.png in Resources */,
 				2E205E9C194B8DD90092C8BF /* SermonsViewController.xib in Resources */,
 				2E5D4AB71985A21E004FC91B /* multiple25@2x.png in Resources */,
@@ -1040,9 +1037,9 @@
 				2E5D4AAB19859FB6004FC91B /* Twitter_filled@2x.png in Resources */,
 				2E52E5701959F95100CC0BD4 /* BigTweetViewController.xib in Resources */,
 				2E5D4AAF1985A1D4004FC91B /* home65BIG.png in Resources */,
-				2E5D4AA019859FB6004FC91B /* NorthwoodCoCIcon120.png in Resources */,
+				2E5D4AA019859FB6004FC91B /* icon_120.png in Resources */,
 				2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */,
-				2E5D4AA219859FB6004FC91B /* NorthwoodSplash960.png in Resources */,
+				2E5D4AA219859FB6004FC91B /* Northwood_splash35.png in Resources */,
 				2E5D4AAC19859FB6004FC91B /* Twitter.png in Resources */,
 				2E5D4AA519859FB6004FC91B /* phillipians.png in Resources */,
 				2E5D4A9719859FB6004FC91B /* crowd.png in Resources */,
@@ -1064,7 +1061,6 @@
 				2E5D4AA919859FB6004FC91B /* read2BIG.png in Resources */,
 				2E5D4A9B19859FB6004FC91B /* multiple25.png in Resources */,
 				2E5D4AA719859FB6004FC91B /* phone329BIG.png in Resources */,
-				2E5D4AA119859FB6004FC91B /* northwoodlogo.png in Resources */,
 				2E9CD7181956213700822E1D /* DirectoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

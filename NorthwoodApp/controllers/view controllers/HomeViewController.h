@@ -10,7 +10,7 @@
 
 @interface HomeViewController : UIViewController
 
-+(UIBackgroundFetchResult)refreshTweets;
++(BOOL)refreshTweets;
 +(void)finnishedSetup;
 
 @end

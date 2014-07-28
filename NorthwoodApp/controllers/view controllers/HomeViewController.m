@@ -291,7 +291,7 @@ BOOL offlineMode;
 	}
 }
 
-+(UIBackgroundFetchResult)refreshTweets{
++(BOOL)refreshTweets{
 	//dispatch_async(dispatch_get_main_queue(), ^{
 		_contentObjects = nil;
 		_dateObjects = nil;
@@ -305,11 +305,13 @@ BOOL offlineMode;
 	if([self arrayIsUpdated]){
 		NSLog(@"gogogogo");
 		[self notifFire];
-		return UIBackgroundFetchResultNewData;
+		//return UIBackgroundFetchResultNewData;
+		return YES;
 	}
 	else{
 		NSLog(@"no new data");
-		return UIBackgroundFetchResultNoData;
+		//return UIBackgroundFetchResultNoData;
+		return NO;
 	}
 }
 

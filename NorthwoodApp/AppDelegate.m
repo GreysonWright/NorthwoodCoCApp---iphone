@@ -100,17 +100,25 @@
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
 	
+	dispatch_async(dispatch_get_main_queue(), ^{
 	NSLog(@"fetching");
 	
 	[NetworkStatus setSlowNetwork:NO];
 	
 	if(![NetworkStatus networkExists])
 		completionHandler(UIBackgroundFetchResultFailed);
+		
 	else if([[NSUserDefaults standardUserDefaults]boolForKey:@"tweetSwitch"]){
-		completionHandler([HomeViewController refreshTweets]);
+		
+		if([HomeViewController refreshTweets])
+			completionHandler(UIBackgroundFetchResultNewData);
+		else
+			completionHandler(UIBackgroundFetchResultNoData);
 	}
 	else
 		completionHandler(UIBackgroundFetchResultNoData);
+		
+	});
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
