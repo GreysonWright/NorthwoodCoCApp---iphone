@@ -12,5 +12,5 @@
 
 +(void)setLoggedin:(BOOL)newLoggedin;
 +(BOOL)getLoggedin;
-
++(void)fireInit;
 @end

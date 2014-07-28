@@ -38,6 +38,7 @@
 	NSMutableArray *_linksForWebView;
 	NSString *_bulletinEndURL;
 	NSInteger _selectedSegment;
+	NSTimer *timer;
 }
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
@@ -48,7 +49,65 @@
 
 @implementation NewsLoggedinViewController
 static BOOL loggedin;
+static BOOL fireInit;
 BOOL offlineMode;
+
+-(void)initMembers{
+		if(fireInit){
+			_bulletinObjects = [[NSMutableArray alloc]init];
+			_bareBulletinObjects = [[NSMutableArray alloc]init];
+			_bulletinPDFs = [[NSMutableArray alloc]init];
+			_prayerListObjects = [[NSMutableArray alloc]init];
+			_dutyRosterObjects = [[NSMutableArray alloc]init];
+			_nameObjects = [[NSMutableArray alloc]init];
+			_titleObjects = [[NSMutableArray alloc]init];
+			_phoneObjects = [[NSMutableArray alloc]init];
+			_emailObjects = [[NSMutableArray alloc]init];
+			_addressObjects = [[NSMutableArray alloc]init];
+			_linksForWebView = [[NSMutableArray alloc]init];
+	
+	
+		if([NetworkStatus networkExists]){
+			_bulletinObjects = [Bulletin bulletinObject];
+			_bareBulletinObjects = [Bulletin getBareBulletinObjects];
+			_bulletinPDFs = [Bulletin getBulletinPDF];
+			_linksForWebView = [Bulletin bulletinLink];
+			_prayerListObjects = [PrayerList prayerListObjects];
+			_dutyRosterObjects = [DutyRoster dutyRosterObjects];
+			_nameObjects = [Directory nameObjects];
+			_titleObjects = [Directory titleObjects];
+			_phoneObjects = [Directory phoneObjects];
+			_emailObjects = [Directory emailObjects];
+			_addressObjects = [Directory adressObjects];
+			
+			[[NSUserDefaults standardUserDefaults]setObject:_bareBulletinObjects forKey:@"bareBulletinObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bulletinPDFs forKey:@"bulletinPDFs"];
+			[[NSUserDefaults standardUserDefaults]setObject:_linksForWebView forKey:@"linksForWebView"];
+			[[NSUserDefaults standardUserDefaults]synchronize];
+			offlineMode = NO;
+		}
+		else if(![NetworkStatus networkExists]){
+			//-----------------------------------------------\\
+		
+			_titleObjects = [Directory titleObjects];
+			_nameObjects = [Directory nameObjects];
+			_titleObjects = [Directory titleObjects];
+			_phoneObjects = [Directory phoneObjects]; //this will be changed with the backend
+			_emailObjects = [Directory emailObjects];
+			_addressObjects = [Directory adressObjects];
+		
+			//-------------------------------------------\\
+			
+			_bareBulletinObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareBulletinObjects"];
+			_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
+			_linksForWebView = [[NSUserDefaults standardUserDefaults]objectForKey:@"linksForWebView"];
+			offlineMode = YES;
+		}
+		[timer invalidate];
+	}
+	else
+		NSLog(@"don't fire");
+}
 
 -(void)loadStuff{
 	if([NetworkStatus networkExists]){
@@ -139,62 +198,14 @@ BOOL offlineMode;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		_bulletinObjects = [[NSMutableArray alloc]init];
-		_bareBulletinObjects = [[NSMutableArray alloc]init];
-		_bulletinPDFs = [[NSMutableArray alloc]init];
-		_prayerListObjects = [[NSMutableArray alloc]init];
-		_dutyRosterObjects = [[NSMutableArray alloc]init];
-		_nameObjects = [[NSMutableArray alloc]init];
-		_titleObjects = [[NSMutableArray alloc]init];
-		_phoneObjects = [[NSMutableArray alloc]init];
-		_emailObjects = [[NSMutableArray alloc]init];
-		_addressObjects = [[NSMutableArray alloc]init];
-		_linksForWebView = [[NSMutableArray alloc]init];
-		
-		
-		if([NetworkStatus networkExists]){
-			_bulletinObjects = [Bulletin bulletinObject];
-			_bareBulletinObjects = [Bulletin getBareBulletinObjects];
-			_bulletinPDFs = [Bulletin getBulletinPDF];
-			_linksForWebView = [Bulletin bulletinLink];
-			_prayerListObjects = [PrayerList prayerListObjects];
-			_dutyRosterObjects = [DutyRoster dutyRosterObjects];
-			_nameObjects = [Directory nameObjects];
-			_titleObjects = [Directory titleObjects];
-			_phoneObjects = [Directory phoneObjects];
-			_emailObjects = [Directory emailObjects];
-			_addressObjects = [Directory adressObjects];
-			
-			[[NSUserDefaults standardUserDefaults]setObject:_bareBulletinObjects forKey:@"bareBulletinObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bulletinPDFs forKey:@"bulletinPDFs"];
-			[[NSUserDefaults standardUserDefaults]setObject:_linksForWebView forKey:@"linksForWebView"];
-			[[NSUserDefaults standardUserDefaults]synchronize];
-			offlineMode = NO;
-		}
-		else if(![NetworkStatus networkExists]){
-			//-----------------------------------------------\\
-			
-			_titleObjects = [Directory titleObjects];
-			_nameObjects = [Directory nameObjects];
-			_titleObjects = [Directory titleObjects];
-			_phoneObjects = [Directory phoneObjects]; //this will be changed with the backend
-			_emailObjects = [Directory emailObjects];
-			_addressObjects = [Directory adressObjects];
-			
-			//-------------------------------------------\\
-			
-			_bareBulletinObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareBulletinObjects"];
-			_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
-			_linksForWebView = [[NSUserDefaults standardUserDefaults]objectForKey:@"linksForWebView"];
-			offlineMode = YES;
-		}
-		
 		self.title=@"Members";
 		self.tabBarItem.image = [UIImage imageNamed:@"crowd.png"];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
-    }
-    return self;
+		
+		timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initMembers) userInfo:nil repeats:YES];
+	}
+		return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -441,5 +452,9 @@ BOOL offlineMode;
 		NSLog(@"doesnt need to reload");
 		return NO;
 	}
+}
+
++(void)fireInit{
+	fireInit = YES;
 }
 @end

@@ -80,6 +80,8 @@
 		2E5D4AB71985A21E004FC91B /* multiple25@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4AB21985A21E004FC91B /* multiple25@2x.png */; };
 		2E5D4AB81985A21E004FC91B /* phone329@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4AB31985A21E004FC91B /* phone329@2x.png */; };
 		2E5D4AB91985A21E004FC91B /* read2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4AB41985A21E004FC91B /* read2@2x.png */; };
+		2E5D4ABD1985BF4E004FC91B /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5D4ABB1985BF4E004FC91B /* LoadingViewController.m */; };
+		2E5D4ABE1985BF4E004FC91B /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E5D4ABC1985BF4E004FC91B /* LoadingViewController.xib */; };
 		2E632D6B19758DA9006EA4C4 /* NetworkStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E632D6A19758DA9006EA4C4 /* NetworkStatus.m */; };
 		2E69A33B194E3B1A00890226 /* Sermon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33A194E3B1A00890226 /* Sermon.m */; };
 		2E69A345194E3D0C00890226 /* HomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E69A33E194E3D0C00890226 /* HomeNavigationViewController.m */; };
@@ -228,6 +230,9 @@
 		2E5D4AB21985A21E004FC91B /* multiple25@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "multiple25@2x.png"; path = "images/multiple25@2x.png"; sourceTree = SOURCE_ROOT; };
 		2E5D4AB31985A21E004FC91B /* phone329@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "phone329@2x.png"; path = "images/phone329@2x.png"; sourceTree = SOURCE_ROOT; };
 		2E5D4AB41985A21E004FC91B /* read2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "read2@2x.png"; path = "images/read2@2x.png"; sourceTree = SOURCE_ROOT; };
+		2E5D4ABA1985BF4E004FC91B /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		2E5D4ABB1985BF4E004FC91B /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		2E5D4ABC1985BF4E004FC91B /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		2E632D6919758DA9006EA4C4 /* NetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkStatus.h; sourceTree = "<group>"; };
 		2E632D6A19758DA9006EA4C4 /* NetworkStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkStatus.m; sourceTree = "<group>"; };
 		2E69A339194E3B1A00890226 /* Sermon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sermon.h; sourceTree = "<group>"; };
@@ -637,6 +642,7 @@
 		2E52E4331948BD9800B46786 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2E5D4ABF1985BF58004FC91B /* Loading View */,
 				2E3F6B2C1957DE6E00EE95B1 /* Universal Web View */,
 				2E5B18F21962588900E96F61 /* Mail Request */,
 				2E1D6E66194F795D00819888 /* Settings */,
@@ -695,6 +701,16 @@
 				2E5B18EF1962588300E96F61 /* MailRequestViewController.xib */,
 			);
 			name = "Mail Request";
+			sourceTree = "<group>";
+		};
+		2E5D4ABF1985BF58004FC91B /* Loading View */ = {
+			isa = PBXGroup;
+			children = (
+				2E5D4ABA1985BF4E004FC91B /* LoadingViewController.h */,
+				2E5D4ABB1985BF4E004FC91B /* LoadingViewController.m */,
+				2E5D4ABC1985BF4E004FC91B /* LoadingViewController.xib */,
+			);
+			name = "Loading View";
 			sourceTree = "<group>";
 		};
 		2E614501195BE0310015F7BD /* Home */ = {
@@ -1042,6 +1058,7 @@
 				2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */,
 				2E5D4A9D19859FB6004FC91B /* NorthwoodCoCIcon.png in Resources */,
 				2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */,
+				2E5D4ABE1985BF4E004FC91B /* LoadingViewController.xib in Resources */,
 				2E5D4AA419859FB6004FC91B /* philippians-series.jpg in Resources */,
 				2E5D4A9819859FB6004FC91B /* crowdBIG.png in Resources */,
 				2E5D4AA919859FB6004FC91B /* read2BIG.png in Resources */,
@@ -1115,6 +1132,7 @@
 				2E6CD0BE19568BD4007B7BF8 /* ContactUsTableViewCell.m in Sources */,
 				2E52E56F1959F95100CC0BD4 /* BigTweetViewController.m in Sources */,
 				2E9CD7281956437400822E1D /* Directory.m in Sources */,
+				2E5D4ABD1985BF4E004FC91B /* LoadingViewController.m in Sources */,
 				2E4F92B7194B65B300BC23F2 /* XPathQuery.m in Sources */,
 				2E5B18F01962588300E96F61 /* MailRequestViewController.m in Sources */,
 				2E4B16B91952274000641710 /* Tweet.m in Sources */,

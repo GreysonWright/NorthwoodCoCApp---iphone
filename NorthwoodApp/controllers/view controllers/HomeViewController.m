@@ -17,14 +17,18 @@
 #import "NewsLoggedinViewController.h"
 #import "NetworkStatus.h"
 #import "AppDelegate.h"
+#import "ContactUsViewController.h"
 
-@interface HomeViewController ()
+@interface HomeViewController (){
+	NSTimer *timer;
+}
 
 @property (strong, nonatomic) IBOutlet UIView *littleBigView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property UIRefreshControl* refreshControl;
+@property UIView *loadingView;
 
 @end
 
@@ -35,8 +39,42 @@ static NSMutableArray *_dateObjects;
 static NSMutableArray *_tweetContent;
 static NSMutableArray *_tweetDates;
 //static NSString *tmpObj;
+static BOOL finnishedSetup;
 BOOL skipPageTurn;
 BOOL offlineMode;
+
+-(void)checkSetup{
+	if(finnishedSetup){
+		self.tabBarController.tabBar.hidden = NO;
+		[_loadingView removeFromSuperview];
+		[timer invalidate];
+	}
+	else
+		NSLog(@"not finnished");
+}
+
+-(void)buildLoadingView{
+	if(!_loadingView)
+	{
+		_loadingView = [[UIView alloc] initWithFrame:self.view.frame];
+		[_loadingView setBackgroundColor:[UIColor blackColor]];
+		
+		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+		[indicator setFrame:CGRectMake((160), (260), 0, 0)];
+		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (280), 320, 30)];
+		loadingLabel.textColor = [UIColor whiteColor];
+		[loadingLabel setTextAlignment:NSTextAlignmentCenter];
+		loadingLabel.text = @"Checking for new data.";
+		
+		[_loadingView addSubview:indicator];
+		[_loadingView addSubview:loadingLabel];
+		
+		[indicator startAnimating];
+	}
+	self.tabBarController.tabBar.hidden = YES;
+	[self.navigationController.view addSubview:_loadingView];
+	
+}
 
 -(void)loadStuff{
 	if([NetworkStatus networkExists]){
@@ -100,7 +138,7 @@ BOOL offlineMode;
 
 		//this will be enabled once the backend is built
 		//self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
-		
+		timer  = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkSetup) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -135,6 +173,11 @@ BOOL offlineMode;
 	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * [images count], self.scrollView.frame.size.height);
 	
 	[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timedPageFlips) userInfo:nil repeats:YES];
+	
+		[self buildLoadingView];
+		[NewsLoggedinViewController fireInit];
+		[ContactUsViewController fireInit];
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -289,5 +332,9 @@ BOOL offlineMode;
 		//NSLog([@"second user defaults-" stringByAppendingString:[[NSUserDefaults standardUserDefaults]objectForKey:@"tmpObj"]]);
 		return YES;
 	}
+}
+
++(void)finnishedSetup{
+	finnishedSetup = YES;
 }
 @end

@@ -14,6 +14,7 @@
 #import "LogginginViewController.h"
 #import "NewsLoggedinViewController.h"
 #import "NetworkStatus.h"
+#import "HomeViewController.h"
 
 @interface ContactUsViewController (){
 	//NSMutableArray *_titleObjects;
@@ -30,13 +31,74 @@
 	NSMutableArray *_bareEvangelistObjects;
 	NSMutableArray *_bareElderObjects;
 	NSMutableArray *_bareDeaconObjects;
+	NSTimer *timer;
 }
 
 @end
 
 @implementation ContactUsViewController
 
+static BOOL fireInit;
 BOOL offlineMode;
+
+-(void)initContact{
+	if(fireInit){
+		//_titleObjects = [[NSMutableArray alloc]init];
+		_elderObjects = [[NSMutableArray alloc]init];
+		_deaconObjects = [[NSMutableArray alloc]init];
+		_evangelistObjects = [[NSMutableArray alloc]init];
+		_elderEmailObjects=[[NSMutableArray alloc]init];
+		_deaconEmailObjects=[[NSMutableArray alloc]init];
+		_bareEvangelistEmailObjects=[[NSMutableArray alloc]init];
+		_bareElderEmailObjects=[[NSMutableArray alloc]init];
+		_bareDeaconEmailObjects=[[NSMutableArray alloc]init];
+		_bareTitleObjects = [[NSMutableArray alloc]init];
+		_bareElderObjects = [[NSMutableArray alloc]init];
+		_bareDeaconObjects = [[NSMutableArray alloc]init];
+		_bareEvangelistObjects = [[NSMutableArray alloc]init];
+		
+		if([NetworkStatus networkExists]){
+			//_titleObjects = [ContactUs titleObjects];
+			_elderObjects = [ContactUs elderObjects];
+			_deaconObjects = [ContactUs deaconObjects];
+			_evangelistObjects = [ContactUs evangelistObjects];
+			_evangelistEmailObjects = [ContactUs evangelistEmailObjects];
+			_elderEmailObjects=[ContactUs elderEmailObjects];
+			_deaconEmailObjects=[ContactUs deaconEmailObjects];
+			_bareEvangelistEmailObjects=[ContactUs bareEvangelistEmailObjects];
+			_bareElderEmailObjects=[ContactUs bareElderEmailObjects];
+			_bareDeaconEmailObjects=[ContactUs bareDeaconEmailObjects];
+			_bareTitleObjects = [ContactUs bareTitleObjects];
+			_bareEvangelistObjects = [ContactUs bareEvangelistObjects];
+			_bareElderObjects = [ContactUs bareElderObjects];
+			_bareDeaconObjects = [ContactUs bareDeaconObjects];
+		
+			//[[NSUserDefaults standardUserDefaults]setObject:_bareTitleObjects forKey:@"bareTitleObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareEvangelistObjects forKey:@"bareEvangelistObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareElderObjects forKey:@"bareElderObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareDeaconObjects forKey:@"baredeaconObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareEvangelistEmailObjects forKey:@"bareEvangelistEmailObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareElderEmailObjects forKey:@"bareElderEmailObjects"];
+			[[NSUserDefaults standardUserDefaults]setObject:_bareDeaconEmailObjects forKey:@"bareDeaconEmailObjects"];
+		offlineMode = NO;
+		}
+		else if(![NetworkStatus networkExists]){
+			//_bareTitleObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareTitleObjects"];
+			_bareEvangelistObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareEvangelistObjects"];
+			_bareElderObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareElderObjects"];
+			_bareDeaconObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"baredeaconObjects"];
+			_bareEvangelistEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareEvangelistEmailObjects"];
+			_bareElderEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareElderEmailObjects"];
+			_bareDeaconEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareDeaconEmailObjects"];
+			offlineMode = YES;
+			[[[UIAlertView alloc]initWithTitle:@"offline" message:@"Connect to a network and refresh to go online." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil]show];
+		}
+		[timer invalidate];
+		[HomeViewController finnishedSetup];
+	}
+	else
+		NSLog(@"dont fire");
+}
 
 -(void)loadStuff{
 	if([NetworkStatus networkExists]){
@@ -83,60 +145,12 @@ BOOL offlineMode;
     if (self) {
         self.title = @"Contact Us";
 		self.tabBarItem.image = [UIImage imageNamed:@"phone329.png"];
-		//_titleObjects = [[NSMutableArray alloc]init];
-		_elderObjects = [[NSMutableArray alloc]init];
-		_deaconObjects = [[NSMutableArray alloc]init];
-		_evangelistObjects = [[NSMutableArray alloc]init];
-		_elderEmailObjects=[[NSMutableArray alloc]init];
-		_deaconEmailObjects=[[NSMutableArray alloc]init];
-		_bareEvangelistEmailObjects=[[NSMutableArray alloc]init];
-		_bareElderEmailObjects=[[NSMutableArray alloc]init];
-		_bareDeaconEmailObjects=[[NSMutableArray alloc]init];
-		_bareTitleObjects = [[NSMutableArray alloc]init];
-		_bareElderObjects = [[NSMutableArray alloc]init];
-		_bareDeaconObjects = [[NSMutableArray alloc]init];
-		_bareEvangelistObjects = [[NSMutableArray alloc]init];
-		
-		if([NetworkStatus networkExists]){
-			//_titleObjects = [ContactUs titleObjects];
-			_elderObjects = [ContactUs elderObjects];
-			_deaconObjects = [ContactUs deaconObjects];
-			_evangelistObjects = [ContactUs evangelistObjects];
-			_evangelistEmailObjects = [ContactUs evangelistEmailObjects];
-			_elderEmailObjects=[ContactUs elderEmailObjects];
-			_deaconEmailObjects=[ContactUs deaconEmailObjects];
-			_bareEvangelistEmailObjects=[ContactUs bareEvangelistEmailObjects];
-			_bareElderEmailObjects=[ContactUs bareElderEmailObjects];
-			_bareDeaconEmailObjects=[ContactUs bareDeaconEmailObjects];
-			_bareTitleObjects = [ContactUs bareTitleObjects];
-			_bareEvangelistObjects = [ContactUs bareEvangelistObjects];
-			_bareElderObjects = [ContactUs bareElderObjects];
-			_bareDeaconObjects = [ContactUs bareDeaconObjects];
-			
-			//[[NSUserDefaults standardUserDefaults]setObject:_bareTitleObjects forKey:@"bareTitleObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bareEvangelistObjects forKey:@"bareEvangelistObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bareElderObjects forKey:@"bareElderObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bareDeaconObjects forKey:@"baredeaconObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bareEvangelistEmailObjects forKey:@"bareEvangelistEmailObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bareElderEmailObjects forKey:@"bareElderEmailObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bareDeaconEmailObjects forKey:@"bareDeaconEmailObjects"];
-			offlineMode = NO;
-		}
-		else if(![NetworkStatus networkExists]){
-			//_bareTitleObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareTitleObjects"];
-			_bareEvangelistObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareEvangelistObjects"];
-			_bareElderObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareElderObjects"];
-			_bareDeaconObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"baredeaconObjects"];
-			_bareEvangelistEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareEvangelistEmailObjects"];
-			_bareElderEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareElderEmailObjects"];
-			_bareDeaconEmailObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareDeaconEmailObjects"];
-			offlineMode = YES;
-			[[[UIAlertView alloc]initWithTitle:@"offline" message:@"Connect to a network and refresh to go online." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil]show];
-		}
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 
 		//this will be enabled once the backend is built
 		//self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
+		
+		timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initContact) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -283,5 +297,9 @@ BOOL offlineMode;
 		NSLog(@"doesnt need to reload");
 		return NO;
 	}
+}
+
++(void)fireInit{
+	fireInit = YES;
 }
 @end

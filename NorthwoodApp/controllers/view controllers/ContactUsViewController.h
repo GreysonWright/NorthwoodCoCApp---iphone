@@ -11,4 +11,7 @@
 @interface ContactUsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
++(void)fireInit;
+
 @end

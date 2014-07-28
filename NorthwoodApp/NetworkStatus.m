@@ -13,7 +13,7 @@
 static BOOL slowNetwork;
 
 +(BOOL)networkExists{
-		if(slowNetwork == NO){
+		if(!slowNetwork){
 		NSURL *Url = [NSURL URLWithString:@"http://justchristians.info/"];
 		NSURLRequest *request = [NSURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5];
 		//NSData *htmlData = [NSData dataWithContentsOfURL:Url];
@@ -46,7 +46,7 @@ static BOOL slowNetwork;
 			return YES;
 		}
 	}
-	else if(slowNetwork == YES){
+	else if(slowNetwork){
 		NSLog(@"slow network");
 		return NO;
 	}
