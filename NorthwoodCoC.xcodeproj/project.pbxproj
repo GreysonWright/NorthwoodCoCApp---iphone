@@ -1278,8 +1278,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Greyson Wright (MK6M4FD4EW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Greyson Wright (MK6M4FD4EW)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1312,8 +1312,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Greyson Wright (MK6M4FD4EW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Greyson Wright (MK6M4FD4EW)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
