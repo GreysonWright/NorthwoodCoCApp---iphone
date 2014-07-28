@@ -45,8 +45,8 @@ BOOL offlineMode;
 
 -(void)checkSetup{
 	if(finnishedSetup){
+		[UIView animateWithDuration:0.5 delay:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];}];
 		self.tabBarController.tabBar.hidden = NO;
-		[_loadingView removeFromSuperview];
 		[timer invalidate];
 	}
 	else
@@ -60,8 +60,10 @@ BOOL offlineMode;
 		[_loadingView setBackgroundColor:[UIColor blackColor]];
 		
 		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-		[indicator setFrame:CGRectMake((160), (260), 0, 0)];
+		//[indicator setFrame:CGRectMake((160), (260), 0, 0)];
+		indicator.center = CGPointMake(self.view.center.x, (self.view.center.y - 20));
 		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (280), 320, 30)];
+		loadingLabel.center = CGPointMake(self.view.center.x, self.view.center.y + 20);
 		loadingLabel.textColor = [UIColor whiteColor];
 		[loadingLabel setTextAlignment:NSTextAlignmentCenter];
 		loadingLabel.text = @"Checking for new data.";
