@@ -26,9 +26,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor yellowColor];
-    [self.window makeKeyAndVisible];
+	// Override point for customization after application launch.
+	self.window.backgroundColor = [UIColor yellowColor];
+	[self.window makeKeyAndVisible];
 	
 	AVAudioSession *audioSession = [AVAudioSession sharedInstance];
 	
@@ -42,21 +42,21 @@
 	success = [audioSession setActive:YES error:&activationError];
 	if (!success) {
 		NSLog(@"broken");
-	} 
+	}
 	
-		//views
+	//views
 	HomeViewController *homeView = [[HomeViewController alloc] init];
 	SermonsViewController *sermonsView=[[SermonsViewController alloc]init];
 	NewsLoggedinViewController *newsView=[[NewsLoggedinViewController alloc] init];
 	ContactUsViewController *contactUsView=[[ContactUsViewController alloc]init];
-		
-		//navs
+	
+	//navs
 	HomeNavigationViewController *homeNav=[[HomeNavigationViewController alloc]initWithRootViewController:homeView];
 	SermonsNavigationViewController *sermonsNav=[[SermonsNavigationViewController alloc] initWithRootViewController:sermonsView];
 	NewsNavigationViewController *newsNav=[[NewsNavigationViewController alloc]initWithRootViewController:newsView];
 	ContactUsNavigationViewController *contactUsNav=[[ContactUsNavigationViewController alloc]initWithRootViewController:contactUsView];
-		
-		//tabBar
+	
+	//tabBar
 	self.tabBar=[[TabBarController alloc]init];
 	self.tabBar.tabBar.translucent=NO;
 	self.tabBar.tabBar.barTintColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
@@ -68,11 +68,11 @@
 	if([[NSUserDefaults standardUserDefaults] boolForKey:@"notFirstLaunch"] == NO){
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushSwitch"];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"groupSwitch"];
-		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"eventSwitch"];
-		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"tweetSwitch"];
-		[[NSUserDefaults standardUserDefaults] setBool:YES  forKey:@"dutySwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"eventSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"tweetSwitch"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"dutySwitch"];
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"verseSwitch"];
-		[[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"notifsOn"];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notifsOn"];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notFirstLaunch"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 		NSLog(@"first launch");
@@ -84,7 +84,8 @@
 		[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
 		NSLog(@"no background checking e.e");
 	}
-		
+	
+	
 	
     return YES;
 }
@@ -101,22 +102,22 @@
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
-	NSLog(@"fetching");
-	
-	[NetworkStatus setSlowNetwork:NO];
-	
-	if(![NetworkStatus networkExists])
-		completionHandler(UIBackgroundFetchResultFailed);
+		NSLog(@"fetching");
 		
-	else if([[NSUserDefaults standardUserDefaults]boolForKey:@"tweetSwitch"]){
+		[NetworkStatus setSlowNetwork:NO];
 		
-		if([HomeViewController refreshTweets])
-			completionHandler(UIBackgroundFetchResultNewData);
+		if(![NetworkStatus networkExists])
+			completionHandler(UIBackgroundFetchResultFailed);
+		
+		else if([[NSUserDefaults standardUserDefaults]boolForKey:@"tweetSwitch"]){
+			
+			if([HomeViewController refreshTweets])
+				completionHandler(UIBackgroundFetchResultNewData);
+			else
+				completionHandler(UIBackgroundFetchResultNoData);
+		}
 		else
 			completionHandler(UIBackgroundFetchResultNoData);
-	}
-	else
-		completionHandler(UIBackgroundFetchResultNoData);
 		
 	});
 }
@@ -129,7 +130,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-	// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+	// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 	// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
