@@ -85,9 +85,32 @@
 		NSLog(@"no background checking e.e");
 	}
 	
-	
+	//NSError *error;
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSURL *docs = [NSURL fileURLWithPath:documentsDirectory];
+	//[docs setResourceValue:[NSNumber numberWithBool:YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
+	if([self doNotBackupURL:docs]){
+		NSLog(@"iCloud will not backup documents");
+	}
+	else{
+		NSLog(@"broken");
+	}
 	
     return YES;
+}
+
+- (BOOL)doNotBackupURL:(NSURL *)URL
+{
+    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+	
+    NSError *error = nil;
+    BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                                  forKey: NSURLIsExcludedFromBackupKey error: &error];
+    if(!success){
+        NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+    }
+    return success;
 }
 
 +(void)backgroundFetchEnabled:(BOOL)yesNo{
