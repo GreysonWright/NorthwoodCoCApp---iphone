@@ -230,9 +230,7 @@ BOOL offlineMode;
 	
 	if([self needsToReload])
 		if([NetworkStatus networkExists])
-			dispatch_async(dispatch_get_main_queue(), ^{
-				[self loadEverything];
-			});
+			[self loadEverything];
 }
 
 - (void)viewDidLoad

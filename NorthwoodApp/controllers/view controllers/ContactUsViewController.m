@@ -158,9 +158,7 @@ BOOL offlineMode;
 -(void)viewDidAppear:(BOOL)animated{
 	if([self needsToReload])
 		if([NetworkStatus networkExists])
-			dispatch_async(dispatch_get_main_queue(), ^{
-				[self loadStuff];
-			});
+			[self loadStuff];
 }
 
 - (void)viewDidLoad
