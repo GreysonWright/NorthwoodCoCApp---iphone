@@ -5,20 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A1EFABF1-405A-4BB7-950F-C06DEA42B85E</string>
+	<string>073E6B04-1C71-4A3B-8A34-1C3CAA225E42</string>
 	<key>IDESourceControlProjectName</key>
-	<string>NorthwoodApp</string>
+	<string>NorthwoodCoC</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>86019DDF23751590C15153E5FE8268A35B4ED7BD</key>
 		<string>https://bitbucket.org/GreysonWright/northwoodcocapp-iphone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>NorthwoodApp.xcworkspace</string>
+	<string>NorthwoodCoC.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>86019DDF23751590C15153E5FE8268A35B4ED7BD</key>
-		<string>..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://bitbucket.org/GreysonWright/northwoodcocapp-iphone.git</string>

@@ -102,7 +102,8 @@ BOOL offlineMode;
 
 -(void)loadStuff{
 	if([NetworkStatus networkExists]){
-		dispatch_async(dispatch_get_main_queue(), ^{
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+		//dispatch_async(dispatch_get_main_queue(), ^{
 		//	_titleObjects = nil;
 			_elderObjects = nil;
 			_deaconObjects = nil;

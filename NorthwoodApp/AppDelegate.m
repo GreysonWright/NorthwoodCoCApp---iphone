@@ -63,7 +63,7 @@
 	
 	self.tabBar.tabBar.tintColor = [UIColor colorWithRed:0/255.0f green:126.0/255.0f blue:255.0/255.0f alpha:1];
 	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, contactUsNav]];
-	[self.window setRootViewController:self.tabBar];
+	[self.window setRootViewController:self.tabBar]; 
 	
 	if([[NSUserDefaults standardUserDefaults] boolForKey:@"notFirstLaunch"] == NO){
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushSwitch"];
@@ -122,7 +122,8 @@
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
 	
-	dispatch_async(dispatch_get_main_queue(), ^{
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+	//dispatch_async(dispatch_get_main_queue(), ^{
 		NSLog(@"fetching");
 		
 		[NetworkStatus setSlowNetwork:NO];

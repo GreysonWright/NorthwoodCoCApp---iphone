@@ -3,7 +3,4 @@
 
 pod 'DateTools'
 pod 'Colours'
-pod 'SDWebImage'
-pod 'iOSWebserviceTemplate'
-pod 'MYBlurIntroductionView'
 

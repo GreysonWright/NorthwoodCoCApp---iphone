@@ -8,73 +8,31 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-		<key>Pods-MYBlurIntroductionView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-		<key>Pods-SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
-		</dict>
-		<key>Pods-iOSWebserviceTemplate.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3EBEBF9237F34CB68C06E44A</key>
+		<key>0541C60A6FDD4797AFB70CEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C4E0FE6AA414BEC914B0066</key>
+		<key>881E1F1770AC4833A5BAEBF1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FDA802F5289401BB148BAE8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BACC965F08784D138C4C67BC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EC584A4C4C9E4472838F5DBD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F64F9893C2D44BAE850D7E50</key>
+		<key>F7480D5058144B58A0BD8B17</key>
 		<dict>
 			<key>primary</key>
 			<true/>

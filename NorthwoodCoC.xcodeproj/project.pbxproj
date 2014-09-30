@@ -116,6 +116,8 @@
 		2E9CD72519562C0C00822E1D /* ContactUsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CD72419562C0C00822E1D /* ContactUsNavigationViewController.m */; };
 		2E9CD7281956437400822E1D /* Directory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CD7271956437400822E1D /* Directory.m */; };
 		2E9EFB5D196B4F4C003E7468 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */; };
+		2EA4F35119A4E07C001E1261 /* list26.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F34F19A4E07C001E1261 /* list26.png */; };
+		2EA4F35219A4E07C001E1261 /* list26@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F35019A4E07C001E1261 /* list26@2x.png */; };
 		2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */; };
 		2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */; };
 		EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AED5A75DB11B4E9AA554DEBD /* libPods.a */; };
@@ -295,6 +297,8 @@
 		2E9CD7271956437400822E1D /* Directory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Directory.m; sourceTree = "<group>"; };
 		2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2EA33E451955FA4D004E222D /* NorthwoodCoC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NorthwoodCoC.entitlements; sourceTree = "<group>"; };
+		2EA4F34F19A4E07C001E1261 /* list26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list26.png; path = images/list26.png; sourceTree = SOURCE_ROOT; };
+		2EA4F35019A4E07C001E1261 /* list26@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list26@2x.png"; path = "images/list26@2x.png"; sourceTree = SOURCE_ROOT; };
 		2EBC92671951F8A600758A1E /* BulletinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinTableViewCell.h; sourceTree = "<group>"; };
 		2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinTableViewCell.m; sourceTree = "<group>"; };
 		2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BulletinTableViewCell.xib; sourceTree = "<group>"; };
@@ -650,6 +654,8 @@
 		2E52E4471948DCF800B46786 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2EA4F34F19A4E07C001E1261 /* list26.png */,
+				2EA4F35019A4E07C001E1261 /* list26@2x.png */,
 				2E5D4AB01985A21E004FC91B /* crowd@2x.png */,
 				2E5D4AB11985A21E004FC91B /* home65@2x.png */,
 				2E5D4AB21985A21E004FC91B /* multiple25@2x.png */,
@@ -1012,10 +1018,12 @@
 				2E5D4AB71985A21E004FC91B /* multiple25@2x.png in Resources */,
 				2E5D4A9419859FB6004FC91B /* 07bible.jpg in Resources */,
 				2E4B16AB19521D3500641710 /* DutyRosterTableViewCell.xib in Resources */,
+				2EA4F35219A4E07C001E1261 /* list26@2x.png in Resources */,
 				2E3F6B2B1957DE6500EE95B1 /* UniversalWebViewViewController.xib in Resources */,
 				2E9EFB5D196B4F4C003E7468 /* Default-568h@2x.png in Resources */,
 				2E5D4AA819859FB6004FC91B /* read2.png in Resources */,
 				2E1D6E70194F79A400819888 /* Sermons2010ViewController.xib in Resources */,
+				2EA4F35119A4E07C001E1261 /* list26.png in Resources */,
 				2E5D4A9C19859FB6004FC91B /* multiple25BIG.png in Resources */,
 				2E5D4AB91985A21E004FC91B /* read2@2x.png in Resources */,
 				2E5D4AAB19859FB6004FC91B /* Twitter_filled@2x.png in Resources */,
@@ -1256,8 +1264,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Greyson Wright (MK6M4FD4EW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Greyson Wright (MK6M4FD4EW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1280,7 +1288,7 @@
 					QuartzCore,
 				);
 				PRODUCT_NAME = NorthwoodCoC;
-				PROVISIONING_PROFILE = "08470EA8-428C-4651-B574-22375293871B";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1290,8 +1298,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Greyson Wright (MK6M4FD4EW)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Greyson Wright (MK6M4FD4EW)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1314,7 +1322,7 @@
 					QuartzCore,
 				);
 				PRODUCT_NAME = NorthwoodCoC;
-				PROVISIONING_PROFILE = "B49F037E-5A91-430D-85A5-4E62B7433472";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
