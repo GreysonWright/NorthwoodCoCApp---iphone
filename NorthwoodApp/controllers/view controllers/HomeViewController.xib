@@ -10,6 +10,7 @@
                 <outlet property="littleBigView" destination="PPy-be-gMh" id="sNg-z6-4TX"/>
                 <outlet property="pageControl" destination="hOd-NH-LMz" id="fKP-7j-2FR"/>
                 <outlet property="scrollView" destination="p2u-sF-wbK" id="POT-xD-ouq"/>
+                <outlet property="tableView" destination="asu-Gk-6et" id="nvr-Bg-8eq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -65,17 +66,18 @@
                     <color key="backgroundColor" red="0.96258008490000002" green="0.97409445130000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="asu-Gk-6et">
-                    <rect key="frame" x="0.0" y="190" width="320" height="378"/>
+                    <rect key="frame" x="0.0" y="191" width="320" height="329"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Vzr-Qa-Izu"/>
-                        <outlet property="delegate" destination="-1" id="xaE-LL-1aZ"/>
+                        <outlet property="delegate" destination="-1" id="jTd-RA-HYo"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+            <nil key="simulatedBottomBarMetrics"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
