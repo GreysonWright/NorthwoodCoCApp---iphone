@@ -80,20 +80,18 @@ BOOL offlineMode;
 
 -(void)loadStuff{
 	if([NetworkStatus networkExists]){
-		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 		//dispatch_async(dispatch_get_main_queue(), ^{
-			_contentObjects = nil;
-			_dateObjects = nil;
-			_tweetContent = nil;
-			_tweetDates = nil;
-			_contentObjects = [Tweet tweetObjects];
-			_dateObjects = [Tweet dateObjects];
-			_tweetContent = [Tweet bareTweetContent];
-			_tweetDates = [Tweet bareTweetDates];
-			[self.refreshControl endRefreshing];
-			[self.tableView reloadData];
-			offlineMode = NO;
-		});
+		_contentObjects = nil;
+		_dateObjects = nil;
+		_tweetContent = nil;
+		_tweetDates = nil;
+		_contentObjects = [Tweet tweetObjects];
+		_dateObjects = [Tweet dateObjects];
+		_tweetContent = [Tweet bareTweetContent];
+		_tweetDates = [Tweet bareTweetDates];
+		[self.refreshControl endRefreshing];
+		[self.tableView reloadData];
+		offlineMode = NO;
 	}
 	else{
 		NSLog(@"don't refresh");
@@ -193,9 +191,9 @@ BOOL offlineMode;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if([NetworkStatus networkExists])
+	/*if([NetworkStatus networkExists])
 		return _contentObjects.count;
-	else
+	else */
 		return _tweetContent.count;
 }
 

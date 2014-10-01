@@ -13,7 +13,7 @@
 static BOOL slowNetwork;
 
 +(BOOL)networkExists{
-		if(!slowNetwork){
+	if(!slowNetwork){
 		NSURL *Url = [NSURL URLWithString:@"http://justchristians.info/"];
 		NSURLRequest *request = [NSURLRequest requestWithURL:Url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5];
 		//NSData *htmlData = [NSData dataWithContentsOfURL:Url];
@@ -21,16 +21,16 @@ static BOOL slowNetwork;
 		NSHTTPURLResponse* response = nil;
 		NSError* error = nil;
 		NSData *connection = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-	
+		
 		NSString *errorStirng = [NSString stringWithFormat:@"%@", error ];
-	
+		
 		if(connection == nil && [errorStirng rangeOfString:@"offline"].location != NSNotFound){
 			NSLog(@"no network");
 			NSLog(@"error %@",error);
 			NSLog(@"response %@",response);
 			return NO;
 		}
-	
+		
 		else if(connection == nil && [errorStirng rangeOfString:@"timed"].location != NSNotFound){
 			NSLog(@"no network");
 			NSLog(@"error %@",error);
@@ -38,7 +38,7 @@ static BOOL slowNetwork;
 			slowNetwork = YES;
 			return NO;
 		}
-	
+		
 		else{
 			NSLog(@"network available");
 			NSLog(@"error %@",error);
