@@ -100,6 +100,7 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
 	[_loadingView removeFromSuperview];
+	[super viewDidDisappear:animated];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

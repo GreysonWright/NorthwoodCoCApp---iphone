@@ -34,6 +34,7 @@
 -(void)viewDidAppear:(BOOL)animated{
 	
 	 [self.navigationController.navigationBar.backItem setTitle:@"Members"];
+	[super viewDidAppear:animated];
 }
 
 - (void)viewDidLoad

@@ -233,6 +233,7 @@ BOOL offlineMode;
 	if([self needsToReload])
 		if([NetworkStatus networkExists])
 			[self loadEverything];
+	[super viewDidAppear:animated];
 }
 
 - (void)viewDidLoad

@@ -74,6 +74,7 @@ int alertIndex;
 		//do stuff here
 		NSLog(@"yayaya");
 	}
+	[super viewDidAppear:animated];
 }
 
 - (IBAction)submitButtonPressed:(id)sender {
