@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Colours.h"
 #import "HomeViewController.h"
 #import "HomeNavigationViewController.h"
 #import "SermonsViewController.h"

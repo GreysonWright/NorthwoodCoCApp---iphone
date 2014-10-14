@@ -10,7 +10,7 @@
 
 @interface UniversalWebViewViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (weak) IBOutlet UIWebView *webView;
 
 -(void)loadSermonAudio:(NSString*)URL;
 //-(void)loadBulletinPDF:(NSString*)URL;

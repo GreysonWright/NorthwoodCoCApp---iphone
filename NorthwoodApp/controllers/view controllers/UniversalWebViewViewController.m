@@ -39,7 +39,6 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
 	
 	if(!isPDF){
 		NSURL *url = [NSURL URLWithString:_url];
@@ -55,6 +54,7 @@
 		[self.webView loadRequest:request];
 	}
 	
+    [super viewDidLoad];
 	/*NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:@"PDFs"];

@@ -2,5 +2,4 @@
 # platform :ios, "6.0"
 
 pod 'DateTools'
-pod 'Colours'
 
