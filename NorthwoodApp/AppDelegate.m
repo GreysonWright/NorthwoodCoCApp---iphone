@@ -19,6 +19,9 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "NetworkStatus.h"
 #import "SettingsViewController.h"
+#import "SlidingMenuController.h"
+#import "SettingsViewController.h"
+#import "SettingsNavigationViewController.h"
 
 @implementation AppDelegate
 
@@ -48,21 +51,26 @@
 	SermonsViewController *sermonsView=[[SermonsViewController alloc]init];
 	NewsLoggedinViewController *newsView=[[NewsLoggedinViewController alloc] init];
 	ContactUsViewController *contactUsView=[[ContactUsViewController alloc]init];
+	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
 	
 	//navs
 	HomeNavigationViewController *homeNav=[[HomeNavigationViewController alloc]initWithRootViewController:homeView];
 	SermonsNavigationViewController *sermonsNav=[[SermonsNavigationViewController alloc] initWithRootViewController:sermonsView];
 	NewsNavigationViewController *newsNav=[[NewsNavigationViewController alloc]initWithRootViewController:newsView];
 	ContactUsNavigationViewController *contactUsNav=[[ContactUsNavigationViewController alloc]initWithRootViewController:contactUsView];
+	SettingsNavigationViewController *settingsNav = [[SettingsNavigationViewController alloc]initWithRootViewController:settingsView];
 	
-	//tabBar
-	self.tabBar=[[TabBarController alloc]init];
-	self.tabBar.tabBar.translucent=NO;
-	self.tabBar.tabBar.barTintColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
-	
-	self.tabBar.tabBar.tintColor = [UIColor colorWithRed:0/255.0f green:126.0/255.0f blue:255.0/255.0f alpha:1];
-	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, contactUsNav]];
-	[self.window setRootViewController:self.tabBar]; 
+//	//tabBar
+//	self.tabBar=[[TabBarController alloc]init];
+//	self.tabBar.tabBar.translucent=NO;
+//	self.tabBar.tabBar.barTintColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
+//	
+//	self.tabBar.tabBar.tintColor = [UIColor colorWithRed:0/255.0f green:126.0/255.0f blue:255.0/255.0f alpha:1];
+//	[self.tabBar setViewControllers:@[homeNav, sermonsNav, newsNav, contactUsNav]];
+//	[self.window setRootViewController:self.tabBar];
+	SlidingMenuController *slidingMenu = [[SlidingMenuController alloc]init];
+	slidingMenu.viewControllerObjects = @[homeNav, sermonsNav, newsNav, contactUsNav, settingsNav];
+	self.window.rootViewController = slidingMenu;
 	
 	if([[NSUserDefaults standardUserDefaults] boolForKey:@"notFirstLaunch"] == NO){
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"pushSwitch"];

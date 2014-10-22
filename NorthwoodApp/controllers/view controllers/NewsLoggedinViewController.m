@@ -202,8 +202,8 @@ BOOL offlineMode;
     if (self) {
 		self.title=@"Members";
 		self.tabBarItem.image = [UIImage imageNamed:@"crowd.png"];
-		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
-		self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
+		//self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
+		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
 		
 		timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initMembers) userInfo:nil repeats:YES];
 	}

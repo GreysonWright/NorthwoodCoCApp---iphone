@@ -18,6 +18,7 @@
 #import "NetworkStatus.h"
 #import "AppDelegate.h"
 #import "ContactUsViewController.h"
+#import "SlidingMenuController.h"
 
 @interface HomeViewController (){
 	NSTimer *timer;
@@ -47,6 +48,7 @@ BOOL offlineMode;
 	if(finnishedSetup){
 		[UIView animateWithDuration:0.5 delay:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];}];
 		self.tabBarController.tabBar.hidden = NO;
+		
 		[timer invalidate];
 	}
 	else
@@ -137,8 +139,8 @@ BOOL offlineMode;
 			//NSLog([_tweetContent objectAtIndex:0]);
 		}
 		//tmpObj =[_tweetContent objectAtIndex:0];
-		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
-
+		//self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
+		
 		//this will be enabled once the backend is built
 		//self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
 		timer  = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkSetup) userInfo:nil repeats:YES];

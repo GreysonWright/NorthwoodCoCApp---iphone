@@ -37,7 +37,7 @@ static BOOL forceDownloadIsOn;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		self.title=@"Settings";
-		
+		self.tabBarItem.image = [UIImage imageNamed:@"cogwheel22.png"];
     }
     return self;
 }
