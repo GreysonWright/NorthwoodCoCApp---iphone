@@ -26,12 +26,13 @@
 
 @implementation SlidingMenuController
 
-static BOOL shouldHideMenuButton = false;
+static BOOL shouldHideMenuButton = NO;
+static BOOL shouldResetMenu = NO;
 
 #pragma mark - setup methods
 - (void)viewDidLoad {
 //	shouldHideMenuButton = YES;
-	timer  = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkMenuButton) userInfo:nil repeats:YES];
+	timer  = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkVals) userInfo:nil repeats:YES];
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 }
@@ -65,11 +66,16 @@ static BOOL shouldHideMenuButton = false;
 }
 
 -(void)setMainViewController:(UIViewController*)viewController{
+	if(subView != nil){
+		[subView removeFromSuperview];
+		subView = nil;
+	}
 	subView = viewController.view;
+	[subView addSubview:self.menuButton];
+	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
 }
-
 
 #pragma mark - gestureRecognizer
 
@@ -190,6 +196,7 @@ static BOOL shouldHideMenuButton = false;
 	//self.titleLabel.text = viewController.title;
 	[self hideView];
 	[self.menuTableView deselectRowAtIndexPath:indexPath animated:YES];
+	NSLog(@"%lu", (unsigned long)[[self.viewContainer subviews]count]);
 }
 
 #pragma mark - other actions
@@ -208,7 +215,19 @@ static BOOL shouldHideMenuButton = false;
 //	NSLog(@"%d", shouldHide);
 }
 
--(void)checkMenuButton{
++(void)resetMenu{
+	shouldResetMenu = YES;
+}
+
+-(void)checkVals{
+	
+	if(shouldResetMenu){
+		[subView removeFromSuperview];
+		subView = nil;
+		UIViewController *viewController = [self.viewControllerObjects objectAtIndex:0];
+		[self setMainViewController:viewController];
+		shouldResetMenu = NO;
+	}
 	
 	if (!shouldHideMenuButton) {
 		self.menuButton.hidden = NO;

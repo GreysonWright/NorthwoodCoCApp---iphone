@@ -67,7 +67,7 @@ BOOL offlineMode;
 		loadingLabel.center = CGPointMake(self.view.center.x, self.view.center.y + 20);
 		loadingLabel.textColor = [UIColor whiteColor];
 		[loadingLabel setTextAlignment:NSTextAlignmentCenter];
-		loadingLabel.text = @"Fetching new data.";
+		loadingLabel.text = @"Fetching new data";
 		
 		[_loadingView addSubview:indicator];
 		[_loadingView addSubview:loadingLabel];

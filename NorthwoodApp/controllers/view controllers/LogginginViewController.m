@@ -62,9 +62,11 @@
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
+	[NewsLoggedinViewController isSwitching];
 	[self dismissViewControllerAnimated:YES completion:nil];
-	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-	appDelegate.tabBar.selectedIndex=0;
+//	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+//	appDelegate.tabBar.selectedIndex=0;
+	[SlidingMenuController resetMenu];
 	[MailRequestViewController setLoginStillPresented:NO];
 }
 

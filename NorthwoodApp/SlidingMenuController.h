@@ -16,5 +16,6 @@
 -(void)setViewControllerObjects:(NSArray *)viewControllerObjects;
 -(void)setMainViewController:(UIViewController*)viewController;
 +(void)shouldHideMenuButton:(BOOL)shouldHide;
++(void)resetMenu;
 
 @end

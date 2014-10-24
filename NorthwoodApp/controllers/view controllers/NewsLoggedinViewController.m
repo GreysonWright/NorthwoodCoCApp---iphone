@@ -50,6 +50,7 @@
 @implementation NewsLoggedinViewController
 static BOOL loggedin;
 static BOOL fireInit;
+static BOOL switching = NO;
 BOOL offlineMode;
 
 -(void)initMembers{
@@ -213,7 +214,7 @@ BOOL offlineMode;
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:YES];
 	loggedin = [[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"];
-	if(loggedin == NO){
+	if(loggedin == NO && !switching){
 		self.segmentController.selectedSegmentIndex = 0;
 		_selectedSegment = 0;
 		LogginginViewController *logginView = [[LogginginViewController alloc]init];
@@ -222,6 +223,7 @@ BOOL offlineMode;
 	else if(loggedin == YES){
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	}
+	switching = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -433,8 +435,9 @@ BOOL offlineMode;
 		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loggedIn"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"Members" forKey:@"username"];
 		[[NSUserDefaults standardUserDefaults]synchronize];
-		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-		appDelegate.tabBar.selectedIndex=0;
+//		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+//		appDelegate.tabBar.selectedIndex=0;
+		[SlidingMenuController resetMenu];
 		[self.tableView reloadData];
 	}
 }
@@ -458,4 +461,9 @@ BOOL offlineMode;
 +(void)fireInit{
 	fireInit = YES;
 }
+
++(void)isSwitching{
+	switching = YES;
+}
+
 @end

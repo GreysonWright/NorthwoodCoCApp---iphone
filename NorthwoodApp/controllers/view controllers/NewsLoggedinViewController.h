@@ -13,4 +13,6 @@
 +(void)setLoggedin:(BOOL)newLoggedin;
 +(BOOL)getLoggedin;
 +(void)fireInit;
++(void)isSwitching;
+
 @end
