@@ -11,6 +11,8 @@
 @interface SlidingMenuController : UIViewController <UITabBarControllerDelegate, UITableViewDataSource>
 
 @property (nonatomic, copy) NSArray *viewControllerObjects;
+@property (strong, nonatomic) IBOutlet UIButton *menuButton;
+@property (nonatomic, getter = shouldHideMenuButton) BOOL hideMenuButton;
 -(void)setViewControllerObjects:(NSArray *)viewControllerObjects;
 -(void)setMainViewController:(UIViewController*)viewController;
 +(void)shouldHideMenuButton:(BOOL)shouldHide;

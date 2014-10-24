@@ -18,7 +18,6 @@
 #import "NetworkStatus.h"
 #import "AppDelegate.h"
 #import "ContactUsViewController.h"
-#import "SlidingMenuController.h"
 
 @interface HomeViewController (){
 	NSTimer *timer;
@@ -46,9 +45,9 @@ BOOL offlineMode;
 
 -(void)checkSetup{
 	if(finnishedSetup){
-		[UIView animateWithDuration:0.5 delay:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];}];
-		self.tabBarController.tabBar.hidden = NO;
-		
+		[UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];
+		[SlidingMenuController shouldHideMenuButton:NO];}];
+
 		[timer invalidate];
 	}
 	else
@@ -75,7 +74,6 @@ BOOL offlineMode;
 		
 		[indicator startAnimating];
 	}
-	self.tabBarController.tabBar.hidden = YES;
 	[self.navigationController.view addSubview:_loadingView];
 	
 }
@@ -149,10 +147,15 @@ BOOL offlineMode;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
+	
+	if(finnishedSetup)
+		[SlidingMenuController shouldHideMenuButton:NO];
+	
 	if([self needsToReload])
 		if([NetworkStatus networkExists])//keep this here so we dont lag when switching tabs
 			[self loadStuff];
 	[super viewDidAppear:animated];
+	
 }
 
 - (void)viewDidLoad
@@ -212,6 +215,7 @@ BOOL offlineMode;
 	BigTweetViewController *bigTweetView = [[BigTweetViewController alloc]init];
 	[bigTweetView setText:[_tweetContent objectAtIndex:indexPath.row]];
 	bigTweetView.title = [_tweetDates objectAtIndex:indexPath.row];
+	//[SlidingMenuController shouldHideMenuButton:YES];
 	[self.navigationController pushViewController:bigTweetView animated:YES];
 }
 
@@ -345,4 +349,5 @@ BOOL offlineMode;
 +(void)finnishedSetup{
 	finnishedSetup = YES;
 }
+
 @end

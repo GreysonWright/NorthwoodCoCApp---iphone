@@ -13,6 +13,7 @@
 	BOOL _moving;
 	BOOL _shouldHideMenuButton; //need to make this and the method actually hide the menuButton
 	UIView *subView;
+	NSTimer* timer;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
@@ -20,19 +21,24 @@
 @property UIPanGestureRecognizer *panRecognizer;
 //@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
+
 @end
 
 @implementation SlidingMenuController
 
+static BOOL shouldHideMenuButton = false;
+
 #pragma mark - setup methods
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+//	shouldHideMenuButton = YES;
+	timer  = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkMenuButton) userInfo:nil repeats:YES];
+	[super viewDidLoad];
+	// Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
@@ -47,6 +53,8 @@
 -(void)viewDidAppear:(BOOL)animated{
 	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:0];
 	subView = viewController.view;
+	[subView addSubview:self.menuButton];
+	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
 	[super viewDidAppear:animated];
@@ -61,6 +69,7 @@
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
 }
+
 
 #pragma mark - gestureRecognizer
 
@@ -163,16 +172,19 @@
 	cell.imageView.image = viewController.tabBarItem.image;
 	cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 	cell.imageView.tintColor = [UIColor whiteColor];
-
+	
 	return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	if(subView != nil){
 		[subView removeFromSuperview];
+		subView = nil;
 	}
 	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:indexPath.row];
 	subView = viewController.view;
+	[subView addSubview:self.menuButton];
+	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
 	//self.titleLabel.text = viewController.title;
@@ -183,6 +195,27 @@
 #pragma mark - other actions
 +(void)shouldHideMenuButton:(BOOL)shouldHide{
 	
+	shouldHideMenuButton = shouldHide;
+	
+//	static SlidingMenuController* slidingMenu;
+//	
+//	@synchronized (self){
+//		if (!slidingMenu)
+//			slidingMenu = [[SlidingMenuController alloc]init];
+//	}
+//	
+//	[slidingMenu checkMenuButton];
+//	NSLog(@"%d", shouldHide);
+}
+
+-(void)checkMenuButton{
+	
+	if (!shouldHideMenuButton) {
+		self.menuButton.hidden = NO;
+//		[timer invalidate];
+	}
+	else
+		self.menuButton.hidden = YES;
 }
 
 @end

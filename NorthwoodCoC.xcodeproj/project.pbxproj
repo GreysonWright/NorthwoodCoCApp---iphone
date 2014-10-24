@@ -105,10 +105,10 @@
 		2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E0B195127040061423E /* PrayerListTableViewCell.m */; };
 		2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E789E0C195127040061423E /* PrayerListTableViewCell.xib */; };
 		2E789E12195130B70061423E /* PrayerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E11195130B70061423E /* PrayerList.m */; };
+		2E7F0DE119FADCDF001595E0 /* cogwheel22.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F0DDF19FADCDF001595E0 /* cogwheel22.png */; };
+		2E7F0DE219FADCDF001595E0 /* cogwheel22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F0DE019FADCDF001595E0 /* cogwheel22@2x.png */; };
 		2E8536D019540D1900C8864E /* LogginginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8536CE19540D1900C8864E /* LogginginViewController.m */; };
 		2E8536D119540D1900C8864E /* LogginginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8536CF19540D1900C8864E /* LogginginViewController.xib */; };
-		2E945BC319F69ADB00A135FA /* cogwheel22.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E945BC119F69ADB00A135FA /* cogwheel22.png */; };
-		2E945BC419F69ADB00A135FA /* cogwheel22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E945BC219F69ADB00A135FA /* cogwheel22@2x.png */; };
 		2E945BC719F69B3800A135FA /* SettingsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E945BC619F69B3800A135FA /* SettingsNavigationViewController.m */; };
 		2E9B627119F4700A00AD351B /* SlidingMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9B626F19F4700A00AD351B /* SlidingMenuController.m */; };
 		2E9B627219F4700A00AD351B /* SlidingMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9B627019F4700A00AD351B /* SlidingMenuController.xib */; };
@@ -284,11 +284,11 @@
 		2E789E0C195127040061423E /* PrayerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayerListTableViewCell.xib; sourceTree = "<group>"; };
 		2E789E10195130B70061423E /* PrayerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerList.h; sourceTree = "<group>"; };
 		2E789E11195130B70061423E /* PrayerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerList.m; sourceTree = "<group>"; };
+		2E7F0DDF19FADCDF001595E0 /* cogwheel22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cogwheel22.png; path = images/cogwheel22.png; sourceTree = SOURCE_ROOT; };
+		2E7F0DE019FADCDF001595E0 /* cogwheel22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cogwheel22@2x.png"; path = "images/cogwheel22@2x.png"; sourceTree = SOURCE_ROOT; };
 		2E8536CD19540D1900C8864E /* LogginginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogginginViewController.h; sourceTree = "<group>"; };
 		2E8536CE19540D1900C8864E /* LogginginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogginginViewController.m; sourceTree = "<group>"; };
 		2E8536CF19540D1900C8864E /* LogginginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogginginViewController.xib; sourceTree = "<group>"; };
-		2E945BC119F69ADB00A135FA /* cogwheel22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cogwheel22.png; path = images/cogwheel22.png; sourceTree = SOURCE_ROOT; };
-		2E945BC219F69ADB00A135FA /* cogwheel22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cogwheel22@2x.png"; path = "images/cogwheel22@2x.png"; sourceTree = SOURCE_ROOT; };
 		2E945BC519F69B3800A135FA /* SettingsNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsNavigationViewController.h; sourceTree = "<group>"; };
 		2E945BC619F69B3800A135FA /* SettingsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsNavigationViewController.m; sourceTree = "<group>"; };
 		2E9B626E19F4700A00AD351B /* SlidingMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenuController.h; sourceTree = "<group>"; };
@@ -669,8 +669,8 @@
 		2E52E4471948DCF800B46786 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				2E945BC119F69ADB00A135FA /* cogwheel22.png */,
-				2E945BC219F69ADB00A135FA /* cogwheel22@2x.png */,
+				2E7F0DDF19FADCDF001595E0 /* cogwheel22.png */,
+				2E7F0DE019FADCDF001595E0 /* cogwheel22@2x.png */,
 				2EA4F34F19A4E07C001E1261 /* list26.png */,
 				2EA4F35019A4E07C001E1261 /* list26@2x.png */,
 				2E5D4AB01985A21E004FC91B /* crowd@2x.png */,
@@ -1053,13 +1053,13 @@
 				2E1D6E70194F79A400819888 /* Sermons2010ViewController.xib in Resources */,
 				2EA4F35119A4E07C001E1261 /* list26.png in Resources */,
 				2E5D4A9C19859FB6004FC91B /* multiple25BIG.png in Resources */,
-				2E945BC319F69ADB00A135FA /* cogwheel22.png in Resources */,
+				2E7F0DE119FADCDF001595E0 /* cogwheel22.png in Resources */,
 				2E5D4AB91985A21E004FC91B /* read2@2x.png in Resources */,
 				2E5D4AAB19859FB6004FC91B /* Twitter_filled@2x.png in Resources */,
 				2E52E5701959F95100CC0BD4 /* BigTweetViewController.xib in Resources */,
 				2E5D4AAF1985A1D4004FC91B /* home65BIG.png in Resources */,
 				2E5D4AA019859FB6004FC91B /* icon_120.png in Resources */,
-				2E945BC419F69ADB00A135FA /* cogwheel22@2x.png in Resources */,
+				2E7F0DE219FADCDF001595E0 /* cogwheel22@2x.png in Resources */,
 				2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */,
 				2E5D4AA219859FB6004FC91B /* Northwood_splash35.png in Resources */,
 				2E5D4AAC19859FB6004FC91B /* Twitter.png in Resources */,
