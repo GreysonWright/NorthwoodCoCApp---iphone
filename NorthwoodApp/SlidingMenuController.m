@@ -66,6 +66,7 @@ static BOOL shouldResetMenu = NO;
 }
 
 -(void)setMainViewController:(UIViewController*)viewController{
+	[self flushViews];
 	if(subView != nil){
 		[subView removeFromSuperview];
 		subView = nil;
@@ -186,6 +187,7 @@ static BOOL shouldResetMenu = NO;
 	if(subView != nil){
 		[subView removeFromSuperview];
 		subView = nil;
+		[self flushViews];
 	}
 	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:indexPath.row];
 	subView = viewController.view;
@@ -197,6 +199,9 @@ static BOOL shouldResetMenu = NO;
 	[self hideView];
 	[self.menuTableView deselectRowAtIndexPath:indexPath animated:YES];
 	NSLog(@"%lu", (unsigned long)[[self.viewContainer subviews]count]);
+	for (UIView *view in [self.viewContainer subviews]){
+		NSLog(@"%@", view);
+	}
 }
 
 #pragma mark - other actions
@@ -222,8 +227,8 @@ static BOOL shouldResetMenu = NO;
 -(void)checkVals{
 	
 	if(shouldResetMenu){
-		[subView removeFromSuperview];
-		subView = nil;
+//		[subView removeFromSuperview];
+//		subView = nil;
 		UIViewController *viewController = [self.viewControllerObjects objectAtIndex:0];
 		[self setMainViewController:viewController];
 		shouldResetMenu = NO;
@@ -235,6 +240,15 @@ static BOOL shouldResetMenu = NO;
 	}
 	else
 		self.menuButton.hidden = YES;
+}
+
+-(void)flushViews{
+	[subView removeFromSuperview];
+	subView = nil;
+	for (UIView *view in [self.viewContainer subviews]){
+		[view removeFromSuperview];
+	}
+	NSLog(@"subview - %@",subView);
 }
 
 @end

@@ -212,18 +212,24 @@ BOOL offlineMode;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-	[super viewWillAppear:YES];
+
+	[SlidingMenuController shouldHideMenuButton:NO];
 	loggedin = [[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"];
 	if(loggedin == NO && !switching){
 		self.segmentController.selectedSegmentIndex = 0;
 		_selectedSegment = 0;
 		LogginginViewController *logginView = [[LogginginViewController alloc]init];
-		[self presentViewController:logginView animated:YES completion:nil];
+		[self.navigationController presentViewController:logginView animated:YES completion:nil];
 	}
 	else if(loggedin == YES){
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	}
+	else if(switching){
+		[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+	}
+	
 	switching = NO;
+	[super viewWillAppear:animated];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -314,6 +320,7 @@ BOOL offlineMode;
 			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
 			[self.navigationController pushViewController:webView animated:YES];
 		}
+		[SlidingMenuController shouldHideMenuButton:YES];
 	}
 	else if(_selectedSegment == 1){
 		NSLog(@"do nothing");
@@ -442,10 +449,10 @@ BOOL offlineMode;
 	}
 }
 
--(void)settingsTitleButtonTapped{
-	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
-	[self.navigationController pushViewController:settingsView animated:YES];
-}
+//-(void)settingsTitleButtonTapped{
+//	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+//	[self.navigationController pushViewController:settingsView animated:YES];
+//}
 
 -(BOOL)needsToReload{
 	if(_bareBulletinObjects.count < _bulletinObjects.count){

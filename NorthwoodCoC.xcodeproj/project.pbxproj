@@ -35,7 +35,6 @@
 		2E52E3E41948AE0E00B46786 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E3E31948AE0E00B46786 /* main.m */; };
 		2E52E3E81948AE0E00B46786 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E3E71948AE0E00B46786 /* AppDelegate.m */; };
 		2E52E3EA1948AE0E00B46786 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E3E91948AE0E00B46786 /* Images.xcassets */; };
-		2E52E3F11948AE0F00B46786 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3F01948AE0F00B46786 /* XCTest.framework */; };
 		2E52E3F21948AE0F00B46786 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3D71948AE0E00B46786 /* Foundation.framework */; };
 		2E52E3F31948AE0F00B46786 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3DB1948AE0E00B46786 /* UIKit.framework */; };
 		2E52E3FB1948AE0F00B46786 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E3F91948AE0F00B46786 /* InfoPlist.strings */; };
@@ -125,7 +124,6 @@
 		2EA4F35219A4E07C001E1261 /* list26@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F35019A4E07C001E1261 /* list26@2x.png */; };
 		2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */; };
 		2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */; };
-		EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AED5A75DB11B4E9AA554DEBD /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,7 +184,6 @@
 		2E52E3E71948AE0E00B46786 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2E52E3E91948AE0E00B46786 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2E52E3EF1948AE0F00B46786 /* NorthwoodCoCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NorthwoodCoCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E52E3F01948AE0F00B46786 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2E52E3F81948AE0F00B46786 /* NorthwoodCoCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodCoCTests-Info.plist"; sourceTree = "<group>"; };
 		2E52E3FA1948AE0F00B46786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E52E3FC1948AE0F00B46786 /* NorthwoodAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NorthwoodAppTests.m; sourceTree = "<group>"; };
@@ -314,8 +311,6 @@
 		2EBC92671951F8A600758A1E /* BulletinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinTableViewCell.h; sourceTree = "<group>"; };
 		2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinTableViewCell.m; sourceTree = "<group>"; };
 		2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BulletinTableViewCell.xib; sourceTree = "<group>"; };
-		3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		AED5A75DB11B4E9AA554DEBD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +328,6 @@
 				2E3472331953B7B700AC769B /* Social.framework in Frameworks */,
 				2E52E3DC1948AE0E00B46786 /* UIKit.framework in Frameworks */,
 				2E52E3D81948AE0E00B46786 /* Foundation.framework in Frameworks */,
-				EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +335,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E52E3F11948AE0F00B46786 /* XCTest.framework in Frameworks */,
 				2E52E3F31948AE0F00B46786 /* UIKit.framework in Frameworks */,
 				2E52E3F21948AE0F00B46786 /* Foundation.framework in Frameworks */,
 			);
@@ -544,7 +537,6 @@
 				2E52E3F61948AE0F00B46786 /* NorthwoodAppTests */,
 				2E52E3D61948AE0E00B46786 /* Frameworks */,
 				2E52E3D51948AE0E00B46786 /* Products */,
-				3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -573,8 +565,6 @@
 				2E52E3D71948AE0E00B46786 /* Foundation.framework */,
 				2E52E3D91948AE0E00B46786 /* CoreGraphics.framework */,
 				2E52E3DB1948AE0E00B46786 /* UIKit.framework */,
-				2E52E3F01948AE0F00B46786 /* XCTest.framework */,
-				AED5A75DB11B4E9AA554DEBD /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -945,11 +935,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E52E4001948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodCoC" */;
 			buildPhases = (
-				37F06747676A40C7980B312B /* Check Pods Manifest.lock */,
 				2E52E3D01948AE0E00B46786 /* Sources */,
 				2E52E3D11948AE0E00B46786 /* Frameworks */,
 				2E52E3D21948AE0E00B46786 /* Resources */,
-				1EC676FB78F04424ABFA5C94 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1095,39 +1083,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1EC676FB78F04424ABFA5C94 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		37F06747676A40C7980B312B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2E52E3D01948AE0E00B46786 /* Sources */ = {
@@ -1294,21 +1249,12 @@
 		};
 		2E52E4011948AE0F00B46786 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/Colours\"",
-					"\"${PODS_ROOT}/Headers/DateTools\"",
-					"\"${PODS_ROOT}/Headers/MYBlurIntroductionView\"",
-					"\"${PODS_ROOT}/Headers/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/iOSWebserviceTemplate\"",
-					"$(SDKROOT)/usr/include/libxml2",
-				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";
@@ -1328,21 +1274,12 @@
 		};
 		2E52E4021948AE0F00B46786 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/Colours\"",
-					"\"${PODS_ROOT}/Headers/DateTools\"",
-					"\"${PODS_ROOT}/Headers/MYBlurIntroductionView\"",
-					"\"${PODS_ROOT}/Headers/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/iOSWebserviceTemplate\"",
-					"$(SDKROOT)/usr/include/libxml2",
-				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";

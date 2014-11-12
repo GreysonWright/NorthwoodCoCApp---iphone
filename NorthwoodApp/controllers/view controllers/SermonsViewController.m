@@ -12,6 +12,7 @@
 #import "Sermons2010ViewController.h"
 #import "SermonDateTableViewCell.h"
 #import "SettingsViewController.h"
+#import "SlidingMenuController.h"
 
 @interface SermonsViewController (){
 	NSMutableArray *_years;
@@ -96,7 +97,10 @@
     return cell;
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+	[SlidingMenuController shouldHideMenuButton:NO];
+	[super viewWillAppear:animated];
+}
 
 -(void)viewDidDisappear:(BOOL)animated{
 	[_loadingView removeFromSuperview];
@@ -149,6 +153,8 @@
 			[self.navigationController pushViewController:sermons2010View animated:YES];
 			sermons2010View.title=@"2014";
 		}
+		
+		[SlidingMenuController shouldHideMenuButton:YES];
 	});
 }
 

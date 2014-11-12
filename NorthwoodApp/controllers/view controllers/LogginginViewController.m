@@ -34,10 +34,10 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
 	self.usernameBox.delegate = self;
 	self.passwordBox.delegate = self;
 	[MailRequestViewController setLoginStillPresented:YES];
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning

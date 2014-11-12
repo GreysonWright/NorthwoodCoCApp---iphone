@@ -146,10 +146,15 @@ BOOL offlineMode;
     return self;
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
 	
 	if(finnishedSetup)
 		[SlidingMenuController shouldHideMenuButton:NO];
+	
+	[super viewWillAppear:animated];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
 	
 	if([self needsToReload])
 		if([NetworkStatus networkExists])//keep this here so we dont lag when switching tabs
@@ -215,7 +220,7 @@ BOOL offlineMode;
 	BigTweetViewController *bigTweetView = [[BigTweetViewController alloc]init];
 	[bigTweetView setText:[_tweetContent objectAtIndex:indexPath.row]];
 	bigTweetView.title = [_tweetDates objectAtIndex:indexPath.row];
-	//[SlidingMenuController shouldHideMenuButton:YES];
+	[SlidingMenuController shouldHideMenuButton:YES];
 	[self.navigationController pushViewController:bigTweetView animated:YES];
 }
 
