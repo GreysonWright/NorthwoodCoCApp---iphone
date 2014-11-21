@@ -27,7 +27,7 @@
 
 @implementation SlidingMenuController
 
-static BOOL shouldHideMenuButton = NO;
+//static BOOL shouldHideMenuButton = NO;
 //static BOOL shouldResetMenu = NO;
 static __strong SlidingMenuController* instance;
 
@@ -81,17 +81,6 @@ static __strong SlidingMenuController* instance;
 }
 
 -(void)setMainViewController:(UIViewController*)viewController{
-//	[self flushViews];
-//	if(subView != nil){
-//		[subView removeFromSuperview];
-//		subView = nil;
-//	}
-//	subView = viewController.view;
-//	[subView addSubview:self.menuButton];
-//	self.menuButton.hidden = NO;
-//	[self.viewContainer addSubview:subView];
-//	[self.viewContainer sendSubviewToBack:subView];
-
 	if (subView != nil) {
 		[subView removeFromSuperview];
 		subView = nil;
@@ -103,8 +92,10 @@ static __strong SlidingMenuController* instance;
 		NSLog(@"%lu",(unsigned long)views.count);
 	}
 	subView = viewController.view;
+	[subView addSubview:self.menuButton];
+	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
-	[self.view sendSubviewToBack:self.viewContainer];
+	[self.viewContainer sendSubviewToBack:subView];
 	
 }
 
@@ -214,8 +205,8 @@ static __strong SlidingMenuController* instance;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	if (subView != nil) {
-		//[subView removeFromSuperview];
+	if(subView != nil){
+		[subView removeFromSuperview];
 		subView = nil;
 		NSArray *views = self.viewContainer.subviews;
 		for (UIView *view in views) {
@@ -224,11 +215,15 @@ static __strong SlidingMenuController* instance;
 		}
 		NSLog(@"%lu",(unsigned long)views.count);
 	}
-	UIViewController *viewController = [self.controllerObjects objectAtIndex:indexPath.row];
+	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:indexPath.row];
 	subView = viewController.view;
+	[subView addSubview:self.menuButton];
+	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
+	//self.titleLabel.text = viewController.title;
 	[self hideView];
+	[self.menuTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - other actions
@@ -276,32 +271,37 @@ static __strong SlidingMenuController* instance;
 	
 }
 
--(void)flushViews{
-	[subView removeFromSuperview];
-	subView = nil;
-	for (UIView *view in [self.viewContainer subviews]){
-		[view removeFromSuperview];
-	}
-	NSLog(@"subview - %@",subView);
-}
+//-(void)flushViews{
+//	[subView removeFromSuperview];
+//	subView = nil;
+//	for (UIView *view in [self.viewContainer subviews]){
+//		[view removeFromSuperview];
+//	}
+//	NSLog(@"subview - %@",subView);
+//}
 
 -(void)logout{
-	
 	LogginginViewController *loginView = [[LogginginViewController alloc]init];
 	[self presentViewController:loginView animated:YES completion:nil];
-	self.loggedIn = NO;
+//	self.loggedIn = NO;
+	[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loggedIn"];
+	[[NSUserDefaults standardUserDefaults] setObject:@"Members" forKey:@"username"];
+	[[NSUserDefaults standardUserDefaults]synchronize];
 	
 }
 
 -(void)login{
 	
-	self.loggedIn = YES;
+//	self.loggedIn = YES;
+	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
+	[[NSUserDefaults standardUserDefaults] setObject:@"Members" forKey:@"username"];
+	[[NSUserDefaults standardUserDefaults]synchronize];
 	
 }
 
 -(void)showLoginView{
 	
-	if (!self.loggedIn && !self.isChangingView) {
+	if (![[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"] && !self.isChangingView) {
 		
 		LogginginViewController *loginView = [[LogginginViewController alloc]init];
 		

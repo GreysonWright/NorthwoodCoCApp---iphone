@@ -189,9 +189,10 @@ BOOL offlineMode;
 	
 	[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timedPageFlips) userInfo:nil repeats:YES];
 	
-		[self buildLoadingView];
-		[NewsLoggedinViewController fireInit];
-		[ContactUsViewController fireInit];
+	[self buildLoadingView];
+	[NewsLoggedinViewController fireInit];
+	[ContactUsViewController fireInit];
+	[SlidingMenuController sharedInstance].isChangingView = NO;
 	
 }
 

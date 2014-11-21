@@ -216,27 +216,29 @@ BOOL offlineMode;
 //	[SlidingMenuController shouldHideMenuButton:NO];
 	[SlidingMenuController sharedInstance].menuButton.hidden = NO;
 	loggedin = [[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"];
-	if(loggedin == NO && !switching){
+	if(loggedin == NO){
 		self.segmentController.selectedSegmentIndex = 0;
 		_selectedSegment = 0;
-		LogginginViewController *logginView = [[LogginginViewController alloc]init];
-		[self.navigationController presentViewController:logginView animated:YES completion:nil];
+//		LogginginViewController *logginView = [[LogginginViewController alloc]init];
+//		[self.navigationController presentViewController:logginView animated:YES completion:nil];
+		[[SlidingMenuController sharedInstance]showLoginView];
 	}
 	else if(loggedin == YES){
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	}
-	else if(switching){
-		[self.navigationController dismissViewControllerAnimated:YES completion:nil];
-	}
+//	else if(switching){
+//		[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+//	}
 	
-	switching = NO;
+	NSLog(@"loggedin - %d",[[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"]);
+	NSLog(@"changing - %d", [SlidingMenuController sharedInstance].isChangingView);
+	NSLog(@"%d", [SlidingMenuController sharedInstance].menuButton.hidden);
 	[super viewWillAppear:animated];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
 	
-	if(loggedin == YES)
-		
+	if([[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"])
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	
 	if([self needsToReload])
@@ -440,14 +442,12 @@ BOOL offlineMode;
 	}
 	else{
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
-		loggedin = NO;
-		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loggedIn"];
-		[[NSUserDefaults standardUserDefaults] setObject:@"Members" forKey:@"username"];
-		[[NSUserDefaults standardUserDefaults]synchronize];
+		//loggedin = NO;
 //		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 //		appDelegate.tabBar.selectedIndex=0;
 //		[SlidingMenuController resetMenu];
-		[[SlidingMenuController sharedInstance] resetMenu];
+		[[SlidingMenuController sharedInstance] logout];
+		//[[SlidingMenuController sharedInstance] resetMenu];
 		[self.tableView reloadData];
 	}
 }
