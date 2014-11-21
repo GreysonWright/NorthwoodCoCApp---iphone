@@ -57,6 +57,7 @@
 		self.tabBarItem.image = [UIImage imageNamed:@"read2.png"];
 		_years=[[NSMutableArray alloc] initWithObjects:@"2009", @"2010", @"2011", @"2012", @"2013", @"2014", nil];
 		//self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list26"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped)];
     }
     return self;
 }
@@ -99,6 +100,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 //	[SlidingMenuController shouldHideMenuButton:NO];
+	[SlidingMenuController sharedInstance].menuButton.hidden = NO;
 	[super viewWillAppear:animated];
 }
 
@@ -155,11 +157,16 @@
 		}
 		
 //		[SlidingMenuController shouldHideMenuButton:YES];
+		[SlidingMenuController sharedInstance].menuButton.hidden = YES;
 	});
 }
 
 -(void)settingsTitleButtonTapped{
 	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
 	[self.navigationController pushViewController:settingsView animated:YES];
+}
+
+-(void)menuButtonTapped{
+	[[SlidingMenuController sharedInstance]navMenuButtonTapped];
 }
 @end

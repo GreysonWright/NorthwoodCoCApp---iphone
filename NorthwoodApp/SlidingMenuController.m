@@ -183,6 +183,22 @@ static __strong SlidingMenuController* instance;
 	}
 }
 
+-(void)navMenuButtonTapped{
+	if(!_presented){
+		[UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+			self.viewContainer.transform = CGAffineTransformMakeTranslation(260, 0);
+		}completion:nil];
+		_presented = YES;
+	}
+	else{
+		[UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+			self.viewContainer.transform = CGAffineTransformIdentity;
+		}completion:nil];
+		_presented = NO;
+		
+	}
+}
+
 #pragma mark - table view methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return self.viewControllerObjects.count;
@@ -319,6 +335,12 @@ static __strong SlidingMenuController* instance;
 	
 	[self setMainViewController:viewController];
 	
+}
+
+-(void)fixMenuButton{
+	[subView addSubview:self.menuButton];
+	[subView bringSubviewToFront:self.menuButton];
+	self.menuButton.hidden = NO;
 }
 
 @end
