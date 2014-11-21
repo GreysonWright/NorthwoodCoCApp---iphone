@@ -60,7 +60,6 @@
 		[[[UIAlertView alloc]initWithTitle:@"Login Error" message:@"The username or password provided was incorrect." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil] show];
 	}
 	
-	[[SlidingMenuController sharedInstance]fixMenuButton];
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {

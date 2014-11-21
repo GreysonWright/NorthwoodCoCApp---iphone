@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "Appdelegate.h"
+#import "SlidingMenuController.h"
 
 @interface SettingsViewController ()
 
@@ -38,6 +39,8 @@ static BOOL forceDownloadIsOn;
     if (self) {
 		self.title=@"Settings";
 		self.tabBarItem.image = [UIImage imageNamed:@"cogwheel22.png"];
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list26"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped)];
+		self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -123,6 +126,10 @@ static BOOL forceDownloadIsOn;
 
 - (IBAction)verseSwitchChanged:(id)sender {
 	[self saveState];
+}
+
+-(void)menuButtonTapped{
+	[[SlidingMenuController sharedInstance]navMenuButtonTapped];
 }
 
 +(BOOL)pushSwitchIsOn{

@@ -205,7 +205,8 @@ BOOL offlineMode;
 		self.tabBarItem.image = [UIImage imageNamed:@"crowd.png"];
 		//self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
-		
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list26"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped)];
+		self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 		timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initMembers) userInfo:nil repeats:YES];
 	}
 		return self;
@@ -214,7 +215,6 @@ BOOL offlineMode;
 -(void)viewWillAppear:(BOOL)animated{
 
 //	[SlidingMenuController shouldHideMenuButton:NO];
-	[SlidingMenuController sharedInstance].menuButton.hidden = NO;
 	loggedin = [[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"];
 	if(loggedin == NO){
 		self.segmentController.selectedSegmentIndex = 0;
@@ -232,7 +232,6 @@ BOOL offlineMode;
 	
 	NSLog(@"loggedin - %d",[[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"]);
 	NSLog(@"changing - %d", [SlidingMenuController sharedInstance].isChangingView);
-	NSLog(@"%d", [SlidingMenuController sharedInstance].menuButton.hidden);
 	[super viewWillAppear:animated];
 }
 
@@ -324,7 +323,6 @@ BOOL offlineMode;
 			[self.navigationController pushViewController:webView animated:YES];
 		}
 //		[SlidingMenuController shouldHideMenuButton:YES];
-		[SlidingMenuController sharedInstance].menuButton.hidden = YES;
 	}
 	else if(_selectedSegment == 1){
 		NSLog(@"do nothing");
@@ -466,6 +464,10 @@ BOOL offlineMode;
 		NSLog(@"doesnt need to reload");
 		return NO;
 	}
+}
+
+-(void)menuButtonTapped{
+	[[SlidingMenuController sharedInstance]navMenuButtonTapped];
 }
 
 +(void)fireInit{

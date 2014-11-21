@@ -47,6 +47,7 @@ static __strong SlidingMenuController* instance;
 - (void)viewDidLoad {
 //	shouldHideMenuButton = YES;
 //	timer  = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkVals) userInfo:nil repeats:YES];
+	self.panRecognizer.enabled = NO;
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 }
@@ -69,8 +70,8 @@ static __strong SlidingMenuController* instance;
 -(void)viewDidAppear:(BOOL)animated{
 	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:0];
 	subView = viewController.view;
-	[subView addSubview:self.menuButton];
-	self.menuButton.hidden = NO;
+//	[subView addSubview:self.menuButton];
+//	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
 	[super viewDidAppear:animated];
@@ -92,8 +93,8 @@ static __strong SlidingMenuController* instance;
 		NSLog(@"%lu",(unsigned long)views.count);
 	}
 	subView = viewController.view;
-	[subView addSubview:self.menuButton];
-	self.menuButton.hidden = NO;
+//	[subView addSubview:self.menuButton];
+//	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
 	
@@ -233,8 +234,8 @@ static __strong SlidingMenuController* instance;
 	}
 	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:indexPath.row];
 	subView = viewController.view;
-	[subView addSubview:self.menuButton];
-	self.menuButton.hidden = NO;
+//	[subView addSubview:self.menuButton];
+//	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
 	//self.titleLabel.text = viewController.title;
@@ -337,10 +338,8 @@ static __strong SlidingMenuController* instance;
 	
 }
 
--(void)fixMenuButton{
-	[subView addSubview:self.menuButton];
-	[subView bringSubviewToFront:self.menuButton];
-	self.menuButton.hidden = NO;
+-(void)enablePanRecognizer{
+	self.panRecognizer.enabled = YES;
 }
 
 @end

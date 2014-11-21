@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SlidingMenuController">
             <connections>
-                <outlet property="menuButton" destination="AWh-XK-XzN" id="dfG-hv-NJ5"/>
                 <outlet property="menuTableView" destination="LDf-DV-gfb" id="p3r-qT-ZlT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewContainer" destination="OID-vW-rIT" id="n4h-KK-Rtc"/>
@@ -32,18 +31,6 @@
                 <view contentMode="scaleToFill" id="OID-vW-rIT">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AWh-XK-XzN">
-                            <rect key="frame" x="8" y="26" width="28" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="list26.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="menuButtonPressed:" destination="-1" eventType="touchUpInside" id="ySb-Xo-3sN"/>
-                            </connections>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
@@ -55,9 +42,6 @@
             <point key="canvasLocation" x="174.5" y="-0.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="list26.png" width="50" height="50"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

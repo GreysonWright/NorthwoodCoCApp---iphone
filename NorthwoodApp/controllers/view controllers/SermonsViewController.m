@@ -58,6 +58,7 @@
 		_years=[[NSMutableArray alloc] initWithObjects:@"2009", @"2010", @"2011", @"2012", @"2013", @"2014", nil];
 		//self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list26"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped)];
+		self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -100,7 +101,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 //	[SlidingMenuController shouldHideMenuButton:NO];
-	[SlidingMenuController sharedInstance].menuButton.hidden = NO;
 	[super viewWillAppear:animated];
 }
 
@@ -157,7 +157,6 @@
 		}
 		
 //		[SlidingMenuController shouldHideMenuButton:YES];
-		[SlidingMenuController sharedInstance].menuButton.hidden = YES;
 	});
 }
 

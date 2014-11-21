@@ -47,9 +47,8 @@ BOOL offlineMode;
 	if(finnishedSetup){
 		[UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];
 			//[SlidingMenuController shouldHideMenuButton:NO];
-			[SlidingMenuController sharedInstance].menuButton.hidden = NO;
 		}];
-
+		[[SlidingMenuController sharedInstance]enablePanRecognizer];
 		[timer invalidate];
 	}
 	else
@@ -110,8 +109,11 @@ BOOL offlineMode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+	
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list26"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped)];
+		self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 		self.title = @"Home";
 		self.tabBarItem.image = [UIImage imageNamed:@"home65.png"];
 		_contentObjects = [[NSMutableArray alloc]init];
@@ -151,7 +153,6 @@ BOOL offlineMode;
 -(void)viewWillAppear:(BOOL)animated{
 	
 	if(finnishedSetup)
-		[SlidingMenuController sharedInstance].menuButton.hidden = NO;
 //		[SlidingMenuController shouldHideMenuButton:NO];
 	
 	[super viewWillAppear:animated];
@@ -225,7 +226,6 @@ BOOL offlineMode;
 	[bigTweetView setText:[_tweetContent objectAtIndex:indexPath.row]];
 	bigTweetView.title = [_tweetDates objectAtIndex:indexPath.row];
 	//[SlidingMenuController shouldHideMenuButton:YES];
-	[SlidingMenuController sharedInstance].menuButton.hidden = YES;
 	[self.navigationController pushViewController:bigTweetView animated:YES];
 }
 
@@ -305,6 +305,10 @@ BOOL offlineMode;
 		NSLog(@"doesnt need to reload");
 		return NO;
 	}
+}
+
+-(void)menuButtonTapped{
+	[[SlidingMenuController sharedInstance]navMenuButtonTapped];
 }
 
 +(BOOL)refreshTweets{
