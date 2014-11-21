@@ -420,15 +420,15 @@ BOOL offlineMode;
 	}
 }
 
-+(void)setLoggedin:(BOOL)newLoggedin{
-	loggedin = newLoggedin;
-	[[NSUserDefaults standardUserDefaults]setBool:newLoggedin forKey:@"loggedIn"];
-	[[NSUserDefaults standardUserDefaults]synchronize];
-}
+//+(void)setLoggedin:(BOOL)newLoggedin{
+//	loggedin = newLoggedin;
+//	[[NSUserDefaults standardUserDefaults]setBool:newLoggedin forKey:@"loggedIn"];
+//	[[NSUserDefaults standardUserDefaults]synchronize];
+//}
 
-+(BOOL)getLoggedin{
-	return loggedin;
-}
+//+(BOOL)getLoggedin{
+//	return loggedin;
+//}
 
 -(void)logoutTitleButtonTapped{
 	[[[UIAlertView alloc]initWithTitle:@"logout?" message:@"Are you sure you would like to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil]show];

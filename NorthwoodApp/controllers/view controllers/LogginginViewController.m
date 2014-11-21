@@ -49,7 +49,7 @@
 - (IBAction)loginButtonTapped:(id)sender {
 	if([self.usernameBox.text  isEqual: @"member"] && [self.passwordBox.text  isEqual: @"NorthwoodCoC"]){
 		[self dismissViewControllerAnimated:YES completion:nil];
-		[NewsLoggedinViewController setLoggedin:YES];
+		//[NewsLoggedinViewController setLoggedin:YES];
 		[MailRequestViewController setLoginStillPresented:YES];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
 		[[NSUserDefaults standardUserDefaults] setObject:[self.usernameBox text] forKey:@"username"];
