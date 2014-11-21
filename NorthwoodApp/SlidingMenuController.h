@@ -12,10 +12,21 @@
 
 @property (nonatomic, copy) NSArray *viewControllerObjects;
 @property (strong, nonatomic) IBOutlet UIButton *menuButton;
-@property (nonatomic, getter = shouldHideMenuButton) BOOL hideMenuButton;
+//@property (nonatomic, getter = shouldHideMenuButton) BOOL hideMenuButton;
+@property NSArray *controllerObjects;
+@property BOOL loggedIn;
+@property BOOL isChangingView;
+@property int selectedIndex;
+
++(SlidingMenuController*)sharedInstance;
+-(void)logout;
+-(void)login;
+-(void)showLoginView;
+-(void)cancelLogin;
+-(void)resetMenu;
 -(void)setViewControllerObjects:(NSArray *)viewControllerObjects;
 -(void)setMainViewController:(UIViewController*)viewController;
-+(void)shouldHideMenuButton:(BOOL)shouldHide;
-+(void)resetMenu;
+//+(void)shouldHideMenuButton:(BOOL)shouldHide;
+//+(void)resetMenu;
 
 @end

@@ -7,13 +7,14 @@
 //
 
 #import "SlidingMenuController.h"
+#import "LogginginViewController.h"
 
 @interface SlidingMenuController (){
 	BOOL _presented;
 	BOOL _moving;
 	BOOL _shouldHideMenuButton; //need to make this and the method actually hide the menuButton
 	UIView *subView;
-	NSTimer* timer;
+//	NSTimer* timer;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
@@ -27,12 +28,25 @@
 @implementation SlidingMenuController
 
 static BOOL shouldHideMenuButton = NO;
-static BOOL shouldResetMenu = NO;
+//static BOOL shouldResetMenu = NO;
+static __strong SlidingMenuController* instance;
+
++(SlidingMenuController*)sharedInstance{
+	
+	if (instance == nil) {
+		
+		NSLog(@"this is broken");
+		
+	}
+	
+	return instance;
+	
+}
 
 #pragma mark - setup methods
 - (void)viewDidLoad {
 //	shouldHideMenuButton = YES;
-	timer  = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkVals) userInfo:nil repeats:YES];
+//	timer  = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkVals) userInfo:nil repeats:YES];
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
 }
@@ -47,6 +61,7 @@ static BOOL shouldResetMenu = NO;
 	if(self){
 		self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(userPanned:)];
 		[self.view addGestureRecognizer:self.panRecognizer];
+		instance = self;
 	}
 	return self;
 }
@@ -66,16 +81,31 @@ static BOOL shouldResetMenu = NO;
 }
 
 -(void)setMainViewController:(UIViewController*)viewController{
-	[self flushViews];
-	if(subView != nil){
+//	[self flushViews];
+//	if(subView != nil){
+//		[subView removeFromSuperview];
+//		subView = nil;
+//	}
+//	subView = viewController.view;
+//	[subView addSubview:self.menuButton];
+//	self.menuButton.hidden = NO;
+//	[self.viewContainer addSubview:subView];
+//	[self.viewContainer sendSubviewToBack:subView];
+
+	if (subView != nil) {
 		[subView removeFromSuperview];
 		subView = nil;
+		NSArray *views = self.viewContainer.subviews;
+		for (UIView *view in views) {
+			[view removeFromSuperview];
+			NSLog(@"%@",view);
+		}
+		NSLog(@"%lu",(unsigned long)views.count);
 	}
 	subView = viewController.view;
-	[subView addSubview:self.menuButton];
-	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
-	[self.viewContainer sendSubviewToBack:subView];
+	[self.view sendSubviewToBack:self.viewContainer];
+	
 }
 
 #pragma mark - gestureRecognizer
@@ -184,62 +214,66 @@ static BOOL shouldResetMenu = NO;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-	if(subView != nil){
-		[subView removeFromSuperview];
+	if (subView != nil) {
+		//[subView removeFromSuperview];
 		subView = nil;
-		[self flushViews];
+		NSArray *views = self.viewContainer.subviews;
+		for (UIView *view in views) {
+			[view removeFromSuperview];
+			NSLog(@"%@",view);
+		}
+		NSLog(@"%lu",(unsigned long)views.count);
 	}
-	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:indexPath.row];
+	UIViewController *viewController = [self.controllerObjects objectAtIndex:indexPath.row];
 	subView = viewController.view;
-	[subView addSubview:self.menuButton];
-	self.menuButton.hidden = NO;
 	[self.viewContainer addSubview:subView];
 	[self.viewContainer sendSubviewToBack:subView];
-	//self.titleLabel.text = viewController.title;
 	[self hideView];
-	[self.menuTableView deselectRowAtIndexPath:indexPath animated:YES];
-	NSLog(@"%lu", (unsigned long)[[self.viewContainer subviews]count]);
-	for (UIView *view in [self.viewContainer subviews]){
-		NSLog(@"%@", view);
-	}
 }
 
 #pragma mark - other actions
-+(void)shouldHideMenuButton:(BOOL)shouldHide{
-	
-	shouldHideMenuButton = shouldHide;
-	
-//	static SlidingMenuController* slidingMenu;
+//+(void)shouldHideMenuButton:(BOOL)shouldHide{
 //	
-//	@synchronized (self){
-//		if (!slidingMenu)
-//			slidingMenu = [[SlidingMenuController alloc]init];
+//	shouldHideMenuButton = shouldHide;
+//	
+////	static SlidingMenuController* slidingMenu;
+////	
+////	@synchronized (self){
+////		if (!slidingMenu)
+////			slidingMenu = [[SlidingMenuController alloc]init];
+////	}
+////	
+////	[slidingMenu checkMenuButton];
+////	NSLog(@"%d", shouldHide);
+//}
+
+//+(void)resetMenu{
+//	shouldResetMenu = YES;
+//}
+
+//-(void)checkVals{
+//	
+//	if(shouldResetMenu){
+////		[subView removeFromSuperview];
+////		subView = nil;
+//		UIViewController *viewController = [self.viewControllerObjects objectAtIndex:0];
+//		[self setMainViewController:viewController];
+//		shouldResetMenu = NO;
 //	}
 //	
-//	[slidingMenu checkMenuButton];
-//	NSLog(@"%d", shouldHide);
-}
+//	if (!shouldHideMenuButton) {
+//		self.menuButton.hidden = NO;
+////		[timer invalidate];
+//	}
+//	else
+//		self.menuButton.hidden = YES;
+//}
 
-+(void)resetMenu{
-	shouldResetMenu = YES;
-}
-
--(void)checkVals{
+-(void)resetMenu{
 	
-	if(shouldResetMenu){
-//		[subView removeFromSuperview];
-//		subView = nil;
-		UIViewController *viewController = [self.viewControllerObjects objectAtIndex:0];
-		[self setMainViewController:viewController];
-		shouldResetMenu = NO;
-	}
+	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:0];
+	[self setMainViewController:viewController];
 	
-	if (!shouldHideMenuButton) {
-		self.menuButton.hidden = NO;
-//		[timer invalidate];
-	}
-	else
-		self.menuButton.hidden = YES;
 }
 
 -(void)flushViews{
@@ -249,6 +283,42 @@ static BOOL shouldResetMenu = NO;
 		[view removeFromSuperview];
 	}
 	NSLog(@"subview - %@",subView);
+}
+
+-(void)logout{
+	
+	LogginginViewController *loginView = [[LogginginViewController alloc]init];
+	[self presentViewController:loginView animated:YES completion:nil];
+	self.loggedIn = NO;
+	
+}
+
+-(void)login{
+	
+	self.loggedIn = YES;
+	
+}
+
+-(void)showLoginView{
+	
+	if (!self.loggedIn && !self.isChangingView) {
+		
+		LogginginViewController *loginView = [[LogginginViewController alloc]init];
+		
+		[self presentViewController:loginView animated:YES completion:nil];
+		
+	}
+	
+}
+
+-(void)cancelLogin{
+	
+	self.isChangingView = YES;
+	
+	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:0];
+	
+	[self setMainViewController:viewController];
+	
 }
 
 @end

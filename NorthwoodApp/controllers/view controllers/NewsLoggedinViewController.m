@@ -213,7 +213,8 @@ BOOL offlineMode;
 
 -(void)viewWillAppear:(BOOL)animated{
 
-	[SlidingMenuController shouldHideMenuButton:NO];
+//	[SlidingMenuController shouldHideMenuButton:NO];
+	[SlidingMenuController sharedInstance].menuButton.hidden = NO;
 	loggedin = [[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"];
 	if(loggedin == NO && !switching){
 		self.segmentController.selectedSegmentIndex = 0;
@@ -320,7 +321,8 @@ BOOL offlineMode;
 			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
 			[self.navigationController pushViewController:webView animated:YES];
 		}
-		[SlidingMenuController shouldHideMenuButton:YES];
+//		[SlidingMenuController shouldHideMenuButton:YES];
+		[SlidingMenuController sharedInstance].menuButton.hidden = YES;
 	}
 	else if(_selectedSegment == 1){
 		NSLog(@"do nothing");
@@ -444,7 +446,8 @@ BOOL offlineMode;
 		[[NSUserDefaults standardUserDefaults]synchronize];
 //		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 //		appDelegate.tabBar.selectedIndex=0;
-		[SlidingMenuController resetMenu];
+//		[SlidingMenuController resetMenu];
+		[[SlidingMenuController sharedInstance] resetMenu];
 		[self.tableView reloadData];
 	}
 }

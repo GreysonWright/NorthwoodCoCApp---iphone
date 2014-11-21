@@ -66,7 +66,8 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 //	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
 //	appDelegate.tabBar.selectedIndex=0;
-	[SlidingMenuController resetMenu];
+//	[SlidingMenuController resetMenu];
+	[[SlidingMenuController sharedInstance] resetMenu];
 	[MailRequestViewController setLoginStillPresented:NO];
 }
 

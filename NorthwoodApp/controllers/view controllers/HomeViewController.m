@@ -46,7 +46,9 @@ BOOL offlineMode;
 -(void)checkSetup{
 	if(finnishedSetup){
 		[UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];
-		[SlidingMenuController shouldHideMenuButton:NO];}];
+			//[SlidingMenuController shouldHideMenuButton:NO];
+			[SlidingMenuController sharedInstance].menuButton.hidden = NO;
+		}];
 
 		[timer invalidate];
 	}
@@ -149,7 +151,8 @@ BOOL offlineMode;
 -(void)viewWillAppear:(BOOL)animated{
 	
 	if(finnishedSetup)
-		[SlidingMenuController shouldHideMenuButton:NO];
+		[SlidingMenuController sharedInstance].menuButton.hidden = NO;
+//		[SlidingMenuController shouldHideMenuButton:NO];
 	
 	[super viewWillAppear:animated];
 }
@@ -220,7 +223,8 @@ BOOL offlineMode;
 	BigTweetViewController *bigTweetView = [[BigTweetViewController alloc]init];
 	[bigTweetView setText:[_tweetContent objectAtIndex:indexPath.row]];
 	bigTweetView.title = [_tweetDates objectAtIndex:indexPath.row];
-	[SlidingMenuController shouldHideMenuButton:YES];
+	//[SlidingMenuController shouldHideMenuButton:YES];
+	[SlidingMenuController sharedInstance].menuButton.hidden = YES;
 	[self.navigationController pushViewController:bigTweetView animated:YES];
 }
 

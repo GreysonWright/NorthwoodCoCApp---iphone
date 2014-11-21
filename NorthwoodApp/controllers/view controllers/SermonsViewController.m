@@ -98,7 +98,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-	[SlidingMenuController shouldHideMenuButton:NO];
+//	[SlidingMenuController shouldHideMenuButton:NO];
 	[super viewWillAppear:animated];
 }
 
@@ -154,7 +154,7 @@
 			sermons2010View.title=@"2014";
 		}
 		
-		[SlidingMenuController shouldHideMenuButton:YES];
+//		[SlidingMenuController shouldHideMenuButton:YES];
 	});
 }
 
