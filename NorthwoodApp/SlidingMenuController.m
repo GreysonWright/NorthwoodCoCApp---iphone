@@ -8,18 +8,19 @@
 
 #import "SlidingMenuController.h"
 #import "LogginginViewController.h"
+#import "AudioPlayerTableViewCell.h"
 
 @interface SlidingMenuController (){
 	BOOL _presented;
 	BOOL _moving;
 	BOOL _shouldHideMenuButton; //need to make this and the method actually hide the menuButton
 	UIView *subView;
+	NSString *audioURL;
 //	NSTimer* timer;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
 @property (strong, nonatomic) IBOutlet UIView *viewContainer;
-@property UIPanGestureRecognizer *panRecognizer;
 //@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 
@@ -202,26 +203,55 @@ static __strong SlidingMenuController* instance;
 
 #pragma mark - table view methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-	return self.viewControllerObjects.count;
+	//if(self.playerIsPlaying)
+		return self.viewControllerObjects.count + 1;
+//	else
+//		return self.viewControllerObjects.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+	
+	if (indexPath.row == self.viewControllerObjects.count) {
+		return 79;
+	}
+	
+	else{
+		return 44;
+	}
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-	if(cell == nil){
-		cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+	if (indexPath.row == self.viewControllerObjects.count/* && self.playerIsPlaying*/) {
+		AudioPlayerTableViewCell *audioCell = [tableView dequeueReusableCellWithIdentifier:@"audioCell"];
+		if(audioCell == nil){
+			audioCell = [[AudioPlayerTableViewCell alloc]init];
+		}
+//		audioCell.contentView.layer.borderColor = [[UIColor whiteColor] CGColor];
+//		audioCell.contentView.layer.borderWidth = 1;
+		[audioCell playAudioWithURLString: audioURL];
+		return audioCell;
 	}
-	UIViewController *viewController = [self.viewControllerObjects objectAtIndex:indexPath.row];
-	cell.backgroundColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
-	cell.textLabel.textColor = [UIColor whiteColor];
-	cell.textLabel.text = viewController.title;
-	cell.imageView.image = viewController.tabBarItem.image;
-	cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-	cell.imageView.tintColor = [UIColor whiteColor];
-	
-	return cell;
+	else{
+		NSLog(@"playing - %d", self.playerIsPlaying);
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+		if(cell == nil){
+			cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+		}
+		UIViewController *viewController = [self.viewControllerObjects objectAtIndex:indexPath.row];
+		cell.backgroundColor = [UIColor colorWithRed:45.0/255.0f green:45.0/255.0f blue:48.0/255.0f alpha:1];
+		cell.textLabel.textColor = [UIColor whiteColor];
+		cell.textLabel.text = viewController.title;
+		cell.imageView.image = viewController.tabBarItem.image;
+		cell.imageView.image = [cell.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+		cell.imageView.tintColor = [UIColor whiteColor];
+		
+		return cell;
+	}
+	return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+	if(indexPath.row != self.viewControllerObjects.count){
 	if(subView != nil){
 		[subView removeFromSuperview];
 		subView = nil;
@@ -241,6 +271,9 @@ static __strong SlidingMenuController* instance;
 	//self.titleLabel.text = viewController.title;
 	[self hideView];
 	[self.menuTableView deselectRowAtIndexPath:indexPath animated:YES];
+	}
+	else
+		NSLog(@"audio player");
 }
 
 #pragma mark - other actions
@@ -340,6 +373,12 @@ static __strong SlidingMenuController* instance;
 
 -(void)enablePanRecognizer{
 	self.panRecognizer.enabled = YES;
+}
+
+-(void)playAudioWithURLString:(NSString*)URL{
+	audioURL = URL;
+//	self.playerIsPlaying = YES;
+	[self.menuTableView reloadData];
 }
 
 @end

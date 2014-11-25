@@ -119,15 +119,18 @@ BOOL offlineMode;
 				_linksForWebView = nil;
 				_bulletinObjects = [Bulletin bulletinObject];
 				_linksForWebView = [Bulletin bulletinLink];
+				self.tableView.scrollEnabled = YES;
 			}
 			else if(_selectedSegment == 1){
 				_prayerListObjects = nil;
 				_prayerListObjects = [PrayerList prayerListObjects];
+				self.tableView.scrollEnabled = NO;
 			}
 			
 			else if(_selectedSegment == 2){
 				_dutyRosterObjects = nil;
 				_dutyRosterObjects = [DutyRoster dutyRosterObjects];
+				self.tableView.scrollEnabled = NO;
 			}
 			
 			else if(_selectedSegment == 3){
@@ -141,6 +144,7 @@ BOOL offlineMode;
 				_phoneObjects = [Directory phoneObjects];
 				_emailObjects = [Directory emailObjects];
 				_addressObjects = [Directory adressObjects];
+				self.tableView.scrollEnabled = YES;
 			}
 			[self.refreshControl endRefreshing];
 			[self.tableView reloadData];
@@ -297,10 +301,10 @@ BOOL offlineMode;
 		return  73;
 	}
 	else if(_selectedSegment == 1){
-		return 700;
+		return 755;
 	}
 	else if(_selectedSegment == 2){
-		return 700;
+		return 755;
 	}
 	else if (_selectedSegment == 3){
 		return 109;
@@ -445,6 +449,7 @@ BOOL offlineMode;
 //		appDelegate.tabBar.selectedIndex=0;
 //		[SlidingMenuController resetMenu];
 		[[SlidingMenuController sharedInstance] logout];
+		self.tableView.scrollEnabled = YES;
 		//[[SlidingMenuController sharedInstance] resetMenu];
 		[self.tableView reloadData];
 	}

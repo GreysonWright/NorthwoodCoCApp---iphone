@@ -122,6 +122,8 @@
 		2E9EFB5D196B4F4C003E7468 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */; };
 		2EA4F35119A4E07C001E1261 /* list26.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F34F19A4E07C001E1261 /* list26.png */; };
 		2EA4F35219A4E07C001E1261 /* list26@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F35019A4E07C001E1261 /* list26@2x.png */; };
+		2EABE9141A243A8100C20922 /* AudioPlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EABE9121A243A8100C20922 /* AudioPlayerTableViewCell.m */; };
+		2EABE9151A243A8100C20922 /* AudioPlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EABE9131A243A8100C20922 /* AudioPlayerTableViewCell.xib */; };
 		2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */; };
 		2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -308,6 +310,9 @@
 		2EA33E451955FA4D004E222D /* NorthwoodCoC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NorthwoodCoC.entitlements; sourceTree = "<group>"; };
 		2EA4F34F19A4E07C001E1261 /* list26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list26.png; path = images/list26.png; sourceTree = SOURCE_ROOT; };
 		2EA4F35019A4E07C001E1261 /* list26@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list26@2x.png"; path = "images/list26@2x.png"; sourceTree = SOURCE_ROOT; };
+		2EABE9111A243A8100C20922 /* AudioPlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerTableViewCell.h; sourceTree = "<group>"; };
+		2EABE9121A243A8100C20922 /* AudioPlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerTableViewCell.m; sourceTree = "<group>"; };
+		2EABE9131A243A8100C20922 /* AudioPlayerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPlayerTableViewCell.xib; sourceTree = "<group>"; };
 		2EBC92671951F8A600758A1E /* BulletinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinTableViewCell.h; sourceTree = "<group>"; };
 		2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinTableViewCell.m; sourceTree = "<group>"; };
 		2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BulletinTableViewCell.xib; sourceTree = "<group>"; };
@@ -411,6 +416,7 @@
 				2E4B16AC19521D3A00641710 /* Duty Roster Cell */,
 				2E9CD7191956213B00822E1D /* Directory Cell */,
 				2E6CD0C019568BDA007B7BF8 /* Contact Us Cell */,
+				2EABE9161A243A8600C20922 /* Audio Player Cell */,
 			);
 			name = "Cell Views";
 			sourceTree = "<group>";
@@ -918,6 +924,16 @@
 			name = "Contact us";
 			sourceTree = "<group>";
 		};
+		2EABE9161A243A8600C20922 /* Audio Player Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2EABE9111A243A8100C20922 /* AudioPlayerTableViewCell.h */,
+				2EABE9121A243A8100C20922 /* AudioPlayerTableViewCell.m */,
+				2EABE9131A243A8100C20922 /* AudioPlayerTableViewCell.xib */,
+			);
+			name = "Audio Player Cell";
+			sourceTree = "<group>";
+		};
 		2EBC926C1951F92700758A1E /* Bulletin Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,6 +1062,7 @@
 				2E5D4AAB19859FB6004FC91B /* Twitter_filled@2x.png in Resources */,
 				2E52E5701959F95100CC0BD4 /* BigTweetViewController.xib in Resources */,
 				2E5D4AAF1985A1D4004FC91B /* home65BIG.png in Resources */,
+				2EABE9151A243A8100C20922 /* AudioPlayerTableViewCell.xib in Resources */,
 				2E5D4AA019859FB6004FC91B /* icon_120.png in Resources */,
 				2E7F0DE219FADCDF001595E0 /* cogwheel22@2x.png in Resources */,
 				2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */,
@@ -1096,6 +1113,7 @@
 				2E7021CA197ECC260037CBE5 /* TabBarController.m in Sources */,
 				2E9CD72519562C0C00822E1D /* ContactUsNavigationViewController.m in Sources */,
 				2E6CD0B919568BA3007B7BF8 /* ContactUs.m in Sources */,
+				2EABE9141A243A8100C20922 /* AudioPlayerTableViewCell.m in Sources */,
 				2E52E44B1948E19A00B46786 /* SettingsViewController.m in Sources */,
 				2E52E3E41948AE0E00B46786 /* main.m in Sources */,
 				2E722F501978C6FA006EB580 /* Reachability.m in Sources */,

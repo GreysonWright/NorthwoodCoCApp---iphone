@@ -17,6 +17,8 @@
 @property BOOL loggedIn;
 @property BOOL isChangingView;
 @property int selectedIndex;
+@property BOOL playerIsPlaying;
+@property UIPanGestureRecognizer *panRecognizer;
 
 +(SlidingMenuController*)sharedInstance;
 -(void)logout;
@@ -28,6 +30,9 @@
 -(void)setMainViewController:(UIViewController*)viewController;
 -(void)navMenuButtonTapped;
 -(void)enablePanRecognizer;
+-(void)playAudioWithURLString:(NSString*)URL;
+-(void)hideView;
+-(void)showView;
 //+(void)shouldHideMenuButton:(BOOL)shouldHide;
 //+(void)resetMenu;
 

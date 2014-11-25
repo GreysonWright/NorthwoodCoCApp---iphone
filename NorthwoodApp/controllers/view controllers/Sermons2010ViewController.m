@@ -13,6 +13,7 @@
 #import "UniversalWebViewViewController.h"
 #import "SettingsViewController.h"
 #import "NetworkStatus.h"
+#import "SlidingMenuController.h"
 
 @interface Sermons2010ViewController (){
 	NSMutableArray *_linkObjects;
@@ -156,11 +157,13 @@
 		NSLog(@"user did not play audio");
 	}
 	else{
-		UniversalWebViewViewController *webView = [[UniversalWebViewViewController alloc]init];
-		[self.navigationController pushViewController:webView animated:YES];
-		[webView loadSermonAudio:[_linksForWebView objectAtIndex:_indexPathRow]];
+//		UniversalWebViewViewController *webView = [[UniversalWebViewViewController alloc]init];
+//		[self.navigationController pushViewController:webView animated:YES];
+//		[webView loadSermonAudio:[_linksForWebView objectAtIndex:_indexPathRow]];
+		[[SlidingMenuController sharedInstance] playAudioWithURLString:[_linksForWebView objectAtIndex:_indexPathRow]];
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
-		webView.title = [[_sermonsForWebView objectAtIndex:_indexPathRow] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+		[[SlidingMenuController sharedInstance]showView];
+//		webView.title = [[_sermonsForWebView objectAtIndex:_indexPathRow] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 	}
 }
 
