@@ -103,7 +103,7 @@ static AudioPlayerTableViewCell *instance;
 				shouldResumePlaying = YES;
 				[self.playPauseButton setImage:[UIImage imageNamed:@"pause44.png"] forState:UIControlStateNormal];
 				self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeUpdater) userInfo:nil repeats:YES];
-				self.alpha = 1.0f;
+//				self.alpha = 1.0f;
 				[_loadingView removeFromSuperview];
 				NSLog(@"%f", self.alpha);
 			}];
