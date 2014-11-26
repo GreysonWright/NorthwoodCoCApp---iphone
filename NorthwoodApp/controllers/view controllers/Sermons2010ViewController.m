@@ -23,6 +23,7 @@
 	NSMutableArray *_preacherObjects;
 	NSMutableArray *_linksForWebView;
 	NSMutableArray *_sermonsForWebView;
+	NSMutableArray *_titlesForWebView;
 	NSInteger _indexPathRow;
 }
 
@@ -63,11 +64,13 @@
 			_dateObjects = [[NSMutableArray alloc]init];
 			_linksForWebView = [[NSMutableArray alloc]init];
 			_sermonsForWebView = [[NSMutableArray alloc]init];
+			_titlesForWebView = [[NSMutableArray alloc]init];
 			_linkObjects = [Sermon sermonObjects];
 			_dateObjects = [Sermon sermonDateObjects];
 			_titleObjects = [Sermon sermonTitleObjects];
 			_preacherObjects = [Sermon sermonPreacherObjects];
 			_linksForWebView = [Sermon sermonLink];
+			_titlesForWebView = [Sermon sermonTitle];
 			_sermonsForWebView = [Sermon sermonTitle];
 		}
 		else
@@ -162,7 +165,7 @@
 //		[self.navigationController pushViewController:webView animated:YES];
 //		[webView loadSermonAudio:[_linksForWebView objectAtIndex:_indexPathRow]];
 		[[AudioPlayerTableViewCell sharedInstance]stopPlayer];
-		[[SlidingMenuController sharedInstance] playAudioWithURLString:[_linksForWebView objectAtIndex:_indexPathRow]];
+		[[SlidingMenuController sharedInstance] playAudioWithURLString:[_linksForWebView objectAtIndex:_indexPathRow] withTitle:[_titlesForWebView objectAtIndex:_indexPathRow]];
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
 		[[SlidingMenuController sharedInstance]showView];
 //		webView.title = [[_sermonsForWebView objectAtIndex:_indexPathRow] stringByReplacingOccurrencesOfString:@"\n" withString:@""];

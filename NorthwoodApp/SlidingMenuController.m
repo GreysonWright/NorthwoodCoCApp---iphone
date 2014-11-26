@@ -16,6 +16,7 @@
 	BOOL _shouldHideMenuButton; //need to make this and the method actually hide the menuButton
 	UIView *subView;
 	NSString *audioURL;
+	NSString *_sermonTitle;
 //	NSTimer* timer;
 }
 
@@ -229,7 +230,7 @@ static __strong SlidingMenuController* instance;
 		}
 //		audioCell.contentView.layer.borderColor = [[UIColor whiteColor] CGColor];
 //		audioCell.contentView.layer.borderWidth = 1;
-		[audioCell playAudioWithURLString: audioURL];
+		[audioCell playAudioWithURLString: audioURL withTitle:_sermonTitle];
 		return audioCell;
 	}
 	else{
@@ -376,8 +377,9 @@ static __strong SlidingMenuController* instance;
 	self.panRecognizer.enabled = YES;
 }
 
--(void)playAudioWithURLString:(NSString*)URL{
+-(void)playAudioWithURLString:(NSString*)URL withTitle:(NSString*)title{
 	audioURL = URL;
+	_sermonTitle = title;
 //	self.playerIsPlaying = YES;
 	[self.menuTableView reloadData];
 }

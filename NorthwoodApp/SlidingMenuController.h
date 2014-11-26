@@ -30,7 +30,7 @@
 -(void)setMainViewController:(UIViewController*)viewController;
 -(void)navMenuButtonTapped;
 -(void)enablePanRecognizer;
--(void)playAudioWithURLString:(NSString*)URL;
+-(void)playAudioWithURLString:(NSString*)URL withTitle:(NSString*)title;
 -(void)hideView;
 -(void)showView;
 //+(void)shouldHideMenuButton:(BOOL)shouldHide;

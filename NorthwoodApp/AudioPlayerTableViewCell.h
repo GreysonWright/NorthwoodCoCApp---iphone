@@ -15,10 +15,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *playPauseButton;
 @property (strong, nonatomic) IBOutlet UILabel *playedLabel;
 @property (strong, nonatomic) IBOutlet UILabel *remainingLabel;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property AVAudioPlayer *audioPlayer;
 @property NSTimer *timer;
 
--(void)playAudioWithURLString:(NSString*)URL;
+-(void)playAudioWithURLString:(NSString*)URL withTitle:(NSString*)title;
 -(void)stopPlayer;
 +(AudioPlayerTableViewCell*)sharedInstance;
 

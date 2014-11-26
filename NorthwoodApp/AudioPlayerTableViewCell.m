@@ -43,7 +43,7 @@ static AudioPlayerTableViewCell *instance;
 	// Configure the view for the selected state
 }
 
--(void)playAudioWithURLString:(NSString*)URL{
+-(void)playAudioWithURLString:(NSString*)URL withTitle:(NSString*)title{
 	if (URL == nil) {
 		NSLog(@"URL was nil");
 	}
@@ -89,7 +89,22 @@ static AudioPlayerTableViewCell *instance;
 			//self.audioPlayer.delegate = self;
 			//[self.audioPlayer prepareToPlay];
 			NSLog(@"%@",error);
-			[self setViewToActive];
+//			[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(setViewToActive) userInfo:nil repeats:NO];
+			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+////				[self setViewToActive];
+				self.titleLabel.text = title;
+				self.playPauseButton.enabled = true;
+				self.userInteractionEnabled = YES;
+				self.progressSlider.maximumValue = self.audioPlayer.duration;
+				[self.audioPlayer play];
+				shouldUpdateSlider = YES;
+				shouldResumePlaying = YES;
+				[self.playPauseButton setImage:[UIImage imageNamed:@"pause44.png"] forState:UIControlStateNormal];
+				self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeUpdater) userInfo:nil repeats:YES];
+				self.alpha = 1.0f;
+				NSLog(@"%f", self.alpha);
+			}];
+			//[self setViewToActive];
 			//		self.remainingLabel.text = [NSString stringWithFormat:@"-%@", [self timeFormat:self.audioPlayer.duration - self.progressSlider.value]];
 			//		self.playPauseButton.titleLabel.text = @"play";
 			//		[_loadingView removeFromSuperview];
@@ -99,19 +114,6 @@ static AudioPlayerTableViewCell *instance;
 		});
 	}
 	
-}
-
--(void)setViewToActive{
-	
-	self.playPauseButton.enabled = true;
-	self.userInteractionEnabled = YES;
-	self.progressSlider.maximumValue = self.audioPlayer.duration;
-	[self.audioPlayer play];
-	shouldUpdateSlider = YES;
-	shouldResumePlaying = YES;
-	[self.playPauseButton setImage:[UIImage imageNamed:@"pause44.png"] forState:UIControlStateNormal];
-	self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeUpdater) userInfo:nil repeats:YES];
-	self.alpha = 1;
 }
 
 - (IBAction)sliderPanned:(id)sender {

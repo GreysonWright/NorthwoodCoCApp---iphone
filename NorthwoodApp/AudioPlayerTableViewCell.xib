@@ -57,6 +57,7 @@
                 <outlet property="playedLabel" destination="5vQ-HS-IGp" id="AAr-uW-ZGs"/>
                 <outlet property="progressSlider" destination="Tw8-os-UwD" id="h0p-TV-eh9"/>
                 <outlet property="remainingLabel" destination="P4E-G6-2eu" id="wnh-pa-DjW"/>
+                <outlet property="titleLabel" destination="leX-zD-H7n" id="dFo-M0-llg"/>
             </connections>
             <point key="canvasLocation" x="245" y="232.5"/>
         </tableViewCell>
