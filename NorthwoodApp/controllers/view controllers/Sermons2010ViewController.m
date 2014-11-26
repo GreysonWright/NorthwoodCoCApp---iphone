@@ -177,7 +177,7 @@
 	}
 	
 	UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
-	[self presentViewController:activityController animated:YES completion:nil];
+	[[SlidingMenuController sharedInstance] presentViewController:activityController animated:YES completion:nil];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
