@@ -24,6 +24,7 @@
 	NSMutableArray *_linksForWebView;
 	NSMutableArray *_sermonsForWebView;
 	NSMutableArray *_titlesForWebView;
+	NSMutableArray *_preachersForShare;
 	NSInteger _indexPathRow;
 }
 
@@ -65,6 +66,7 @@
 			_linksForWebView = [[NSMutableArray alloc]init];
 			_sermonsForWebView = [[NSMutableArray alloc]init];
 			_titlesForWebView = [[NSMutableArray alloc]init];
+			_preachersForShare = [[NSMutableArray alloc]init];
 			_linkObjects = [Sermon sermonObjects];
 			_dateObjects = [Sermon sermonDateObjects];
 			_titleObjects = [Sermon sermonTitleObjects];
@@ -72,6 +74,7 @@
 			_linksForWebView = [Sermon sermonLink];
 			_titlesForWebView = [Sermon sermonTitle];
 			_sermonsForWebView = [Sermon sermonTitle];
+			_preachersForShare = [Sermon sermonPreacherObjects];
 		}
 		else
 			[self offlineViewSetUp];
@@ -119,8 +122,9 @@
 			[noLinkWarning show];
 		}
 		else{
-			UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
-			[playBackWarning show];
+//			UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+//			[playBackWarning show];
+			[[[UIActionSheet alloc] initWithTitle:@"What would you like to do?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Play", @"Share", nil] showInView:[SlidingMenuController sharedInstance].view];
 		}
 		_indexPathRow = indexPath.row;
 		
@@ -154,6 +158,55 @@
 		[cell fillNameWithData:sermonPreacher];
 	
     return cell;
+}
+
+- (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url{
+	NSMutableArray *sharingItems = [NSMutableArray new];
+	
+	if (text) {
+		[sharingItems addObject:text];
+	}
+	if (image) {
+		[sharingItems addObject:image];
+	}
+	if (url) {
+		[sharingItems addObject:url];
+	}
+	
+	UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+	[self presentViewController:activityController animated:YES completion:nil];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+	if(buttonIndex == 0){
+		UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
+		[playBackWarning show];
+	}
+	else if(buttonIndex == 1){
+		Sermon *preacher = [_preachersForShare objectAtIndex:_indexPathRow];
+		NSString *URL = [_linksForWebView objectAtIndex:_indexPathRow];
+		NSString *_url;
+		
+		if([URL rangeOfString:@"2009"].location != NSNotFound  || [URL rangeOfString:@"2010"].location != NSNotFound){
+			NSString *urlAddress = [@"http://www.justchristians.info" stringByAppendingString:URL];
+			NSString *refinedFinalURL = [urlAddress stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+			_url = refinedFinalURL;
+		}
+		else if([URL rangeOfString:@"2009"].location == NSNotFound  || [URL rangeOfString:@"2010"].location == NSNotFound){
+			NSString *urlAddress = [@"http://www.justchristians.info/Sermons/" stringByAppendingString:[Sermon getSermonYear]];
+			NSString *nextURL = [urlAddress stringByAppendingString:URL];
+			NSString *finalURL = [nextURL stringByReplacingOccurrencesOfString:@"./" withString:@""];
+			NSString *refinedFinalURL = [finalURL stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+			NSString *secondRefinedURL = [refinedFinalURL stringByReplacingOccurrencesOfString:@"\n" withString:@"%20"];
+			_url = secondRefinedURL;
+		}
+		
+		[self shareText:[NSString stringWithFormat:@"Check out \"%@\" by %@.\n %@",[_sermonsForWebView objectAtIndex:_indexPathRow], preacher.preacherContent, _url] andImage:nil andUrl:[NSURL URLWithString: _url]];
+	}
+	else
+		NSLog(@"actionsheet closed");
+	
+	NSLog(@"%ld", (long)buttonIndex);
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
