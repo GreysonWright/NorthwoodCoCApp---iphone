@@ -34,6 +34,7 @@ static AudioPlayerTableViewCell *instance;
 - (void)awakeFromNib {
 	
 	self.progressSlider.transform = CGAffineTransformMakeScale(.5, .5);
+	self.isLoading = NO;
 	// Initialization code
 }
 
@@ -50,6 +51,7 @@ static AudioPlayerTableViewCell *instance;
 	else{
 		self.titleLabel.text = title;
 		[self buildLoadingView];
+		self.isLoading = YES;
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 			
 			//		[self buildLoadingView];
@@ -106,6 +108,7 @@ static AudioPlayerTableViewCell *instance;
 //				self.alpha = 1.0f;
 				[UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){
 					[_loadingView removeFromSuperview];
+					self.isLoading = NO;
 				}];
 				NSLog(@"%f", self.alpha);
 			}];
@@ -192,6 +195,9 @@ static AudioPlayerTableViewCell *instance;
 
 -(void)stopPlayer{
 	[self.audioPlayer stop];
+	[self.timer invalidate];
+	shouldResumePlaying = NO;
+	shouldUpdateSlider = NO;
 }
 
 -(void)buildLoadingView{

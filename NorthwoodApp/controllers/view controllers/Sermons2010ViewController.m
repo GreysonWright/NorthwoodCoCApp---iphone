@@ -122,9 +122,12 @@
 			[noLinkWarning show];
 		}
 		else{
+			if([AudioPlayerTableViewCell sharedInstance].isLoading)
+				NSLog(@"audioplayer loading do nothing");
 //			UIAlertView *playBackWarning = [[UIAlertView alloc]initWithTitle:@"Warning" message:@"Streaming audio will use large amounts of data. It is advised that you connect to wireless internet. Would you like to proceed?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil];
 //			[playBackWarning show];
-			[[[UIActionSheet alloc] initWithTitle:@"What would you like to do?" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Play", @"Share", nil] showInView:[SlidingMenuController sharedInstance].view];
+			else
+				[[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Play", @"Share", nil] showInView:[SlidingMenuController sharedInstance].view];
 		}
 		_indexPathRow = indexPath.row;
 		

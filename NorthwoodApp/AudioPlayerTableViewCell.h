@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *playedLabel;
 @property (strong, nonatomic) IBOutlet UILabel *remainingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property BOOL isLoading;
 @property AVAudioPlayer *audioPlayer;
 @property NSTimer *timer;
 
