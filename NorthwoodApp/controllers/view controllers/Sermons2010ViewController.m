@@ -14,6 +14,7 @@
 #import "SettingsViewController.h"
 #import "NetworkStatus.h"
 #import "SlidingMenuController.h"
+#import "AudioPlayerTableViewCell.h"
 
 @interface Sermons2010ViewController (){
 	NSMutableArray *_linkObjects;
@@ -160,6 +161,7 @@
 //		UniversalWebViewViewController *webView = [[UniversalWebViewViewController alloc]init];
 //		[self.navigationController pushViewController:webView animated:YES];
 //		[webView loadSermonAudio:[_linksForWebView objectAtIndex:_indexPathRow]];
+		[[AudioPlayerTableViewCell sharedInstance]stopPlayer];
 		[[SlidingMenuController sharedInstance] playAudioWithURLString:[_linksForWebView objectAtIndex:_indexPathRow]];
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
 		[[SlidingMenuController sharedInstance]showView];

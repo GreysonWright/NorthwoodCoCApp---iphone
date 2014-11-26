@@ -19,5 +19,7 @@
 @property NSTimer *timer;
 
 -(void)playAudioWithURLString:(NSString*)URL;
+-(void)stopPlayer;
++(AudioPlayerTableViewCell*)sharedInstance;
 
 @end

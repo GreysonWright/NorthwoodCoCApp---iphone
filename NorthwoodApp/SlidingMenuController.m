@@ -212,7 +212,8 @@ static __strong SlidingMenuController* instance;
 - (CGFloat)tableView:(UITableView *)tableview heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 	
 	if (indexPath.row == self.viewControllerObjects.count) {
-		return 79;
+		//return 79;
+		return 60;
 	}
 	
 	else{
