@@ -48,6 +48,8 @@ static AudioPlayerTableViewCell *instance;
 		NSLog(@"URL was nil");
 	}
 	else{
+		self.titleLabel.text = title;
+		[self buildLoadingView];
 		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 			
 			//		[self buildLoadingView];
@@ -92,7 +94,7 @@ static AudioPlayerTableViewCell *instance;
 //			[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(setViewToActive) userInfo:nil repeats:NO];
 			[[NSOperationQueue mainQueue] addOperationWithBlock:^{
 ////				[self setViewToActive];
-				self.titleLabel.text = title;
+//				self.titleLabel.text = title;
 				self.playPauseButton.enabled = true;
 				self.userInteractionEnabled = YES;
 				self.progressSlider.maximumValue = self.audioPlayer.duration;
@@ -102,6 +104,7 @@ static AudioPlayerTableViewCell *instance;
 				[self.playPauseButton setImage:[UIImage imageNamed:@"pause44.png"] forState:UIControlStateNormal];
 				self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeUpdater) userInfo:nil repeats:YES];
 				self.alpha = 1.0f;
+				[_loadingView removeFromSuperview];
 				NSLog(@"%f", self.alpha);
 			}];
 			//[self setViewToActive];
@@ -189,29 +192,29 @@ static AudioPlayerTableViewCell *instance;
 	[self.audioPlayer stop];
 }
 
-//-(void)buildLoadingView{
-//	if(!_loadingView)
-//	{
-//		_loadingView = [[UIView alloc] initWithFrame:self.frame];
-//		[_loadingView setBackgroundColor:[UIColor blackColor]];
-////		_loadingView.alpha = .6;
-//		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-//		//[indicator setFrame:CGRectMake((160), (260), 0, 0)];
-//		indicator.center = CGPointMake(self.center.x, (self.center.y - 20));
+-(void)buildLoadingView{
+	if(!_loadingView)
+	{
+		_loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 19)];
+		[_loadingView setBackgroundColor:[UIColor blackColor]];
+		_loadingView.alpha = .6;
+		UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+		//[indicator setFrame:CGRectMake((160), (260), 0, 0)];
+		indicator.center = CGPointMake(self.center.x - 15, (self.center.y - 5));
 //		UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake((0), (280), 320, 30)];
 //		loadingLabel.center = CGPointMake(self.center.x, self.center.y + 20);
 //		loadingLabel.textColor = [UIColor whiteColor];
 //		[loadingLabel setTextAlignment:NSTextAlignmentCenter];
 //		loadingLabel.text = @"Fetching new data";
-//
-//		[_loadingView addSubview:indicator];
+
+		[_loadingView addSubview:indicator];
 //		[_loadingView addSubview:loadingLabel];
-//
-//		[indicator startAnimating];
-//	}
-//	[self addSubview:_loadingView];
-//
-//}
+
+		[indicator startAnimating];
+	}
+	[self addSubview:_loadingView];
+
+}
 
 +(AudioPlayerTableViewCell*)sharedInstance{ // we do actually need this
 	if(instance == nil){
