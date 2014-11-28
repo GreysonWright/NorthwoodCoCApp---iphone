@@ -584,9 +584,7 @@
 			children = (
 				2E52E3E61948AE0E00B46786 /* AppDelegate.h */,
 				2E52E3E71948AE0E00B46786 /* AppDelegate.m */,
-				2E9B626E19F4700A00AD351B /* SlidingMenuController.h */,
-				2E9B626F19F4700A00AD351B /* SlidingMenuController.m */,
-				2E9B627019F4700A00AD351B /* SlidingMenuController.xib */,
+				2E8414331A284E8A0039B94F /* SlidingMenu */,
 				2E4B16A11952094100641710 /* Models */,
 				2E41833C1950A78C006D52EC /* Cell Views */,
 				2E52E4301948BD9800B46786 /* Controllers */,
@@ -870,6 +868,16 @@
 				2E789E0C195127040061423E /* PrayerListTableViewCell.xib */,
 			);
 			name = "Prayer List Cell";
+			sourceTree = "<group>";
+		};
+		2E8414331A284E8A0039B94F /* SlidingMenu */ = {
+			isa = PBXGroup;
+			children = (
+				2E9B626E19F4700A00AD351B /* SlidingMenuController.h */,
+				2E9B626F19F4700A00AD351B /* SlidingMenuController.m */,
+				2E9B627019F4700A00AD351B /* SlidingMenuController.xib */,
+			);
+			name = SlidingMenu;
 			sourceTree = "<group>";
 		};
 		2E8536D219540D1C00C8864E /* login view */ = {

@@ -35,6 +35,13 @@
 		bulletins.bulletinLink = [element objectForKey:@"href"];
 		[FileDownloader downloadPDFWithURL:[@"http://justchristians.info/Bulletins/" stringByAppendingString:bulletins.bulletinLink] withFileName:bulletins.bulletinLink];
     }
+	
+	NSMutableArray *tmoBulletinObjects = [[NSMutableArray alloc]init];
+	for (NSInteger i = newbulletin.count - 1; i > 0; i--) {
+		[tmoBulletinObjects addObject:[newbulletin objectAtIndex:i]];
+	}
+	newbulletin = tmoBulletinObjects;
+	
 	return newbulletin;
 }
 
@@ -53,6 +60,13 @@
 		
 		[bulletinLinks addObject:[element objectForKey:@"href"]];
     }
+	
+	NSMutableArray *tmoBulletinObjects = [[NSMutableArray alloc]init];
+	for (NSInteger i = bulletinLinks.count - 1; i > 0; i--) {
+		[tmoBulletinObjects addObject:[bulletinLinks objectAtIndex:i]];
+	}
+	bulletinLinks = tmoBulletinObjects;
+	
 	return bulletinLinks;
 }
 
@@ -74,6 +88,13 @@
 		
         [newbulletin addObject:bulletinStuff];
     }
+	
+	NSMutableArray *tmoBulletinObjects = [[NSMutableArray alloc]init];
+	for (NSInteger i = newbulletin.count - 1; i > 0; i--) {
+		[tmoBulletinObjects addObject:[newbulletin objectAtIndex:i]];
+	}
+	newbulletin = tmoBulletinObjects;
+	
 	return newbulletin;
 }
 

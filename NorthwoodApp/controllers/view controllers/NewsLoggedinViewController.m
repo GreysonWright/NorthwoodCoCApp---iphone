@@ -27,7 +27,7 @@
 @interface NewsLoggedinViewController (){
 	NSMutableArray *_bulletinObjects;
 	NSMutableArray *_bareBulletinObjects;
-	NSMutableArray *_bulletinPDFs;
+	//NSMutableArray *_bulletinPDFs;
 	NSMutableArray *_prayerListObjects;
 	NSMutableArray *_dutyRosterObjects;
 	NSMutableArray *_nameObjects;
@@ -57,7 +57,7 @@ BOOL offlineMode;
 		if(fireInit){
 			_bulletinObjects = [[NSMutableArray alloc]init];
 			_bareBulletinObjects = [[NSMutableArray alloc]init];
-			_bulletinPDFs = [[NSMutableArray alloc]init];
+			//_bulletinPDFs = [[NSMutableArray alloc]init];
 			_prayerListObjects = [[NSMutableArray alloc]init];
 			_dutyRosterObjects = [[NSMutableArray alloc]init];
 			_nameObjects = [[NSMutableArray alloc]init];
@@ -71,7 +71,7 @@ BOOL offlineMode;
 		if([NetworkStatus networkExists]){
 			_bulletinObjects = [Bulletin bulletinObject];
 			_bareBulletinObjects = [Bulletin getBareBulletinObjects];
-			_bulletinPDFs = [Bulletin getBulletinPDF];
+			//_bulletinPDFs = [Bulletin getBulletinPDF];
 			_linksForWebView = [Bulletin bulletinLink];
 			_prayerListObjects = [PrayerList prayerListObjects];
 			_dutyRosterObjects = [DutyRoster dutyRosterObjects];
@@ -81,8 +81,32 @@ BOOL offlineMode;
 			_emailObjects = [Directory emailObjects];
 			_addressObjects = [Directory adressObjects];
 			
+//			NSMutableArray *tmpBulletinArray = [[NSMutableArray alloc]init];
+//			for (NSInteger i = _bulletinObjects.count - 1; i > 0; i--) {
+//				[tmpBulletinArray addObject:[_bulletinObjects objectAtIndex:i]];
+//			}
+//			_bulletinObjects = tmpBulletinArray;
+//			
+//			NSMutableArray *tmpBulletinPDFArray = [[NSMutableArray alloc]init];
+//			for (NSInteger i = _bulletinPDFs.count - 1; i > 0; i--) {
+//				[tmpBulletinPDFArray addObject:[_bulletinPDFs objectAtIndex:i]];
+//			}
+//			_bulletinPDFs = tmpBulletinPDFArray;
+//			
+//			NSMutableArray *tmpBareBulletinArray = [[NSMutableArray alloc]init];
+//			for (NSInteger i = _linksForWebView.count - 1; i > 0; i--) {
+//				[tmpBareBulletinArray addObject:[_linksForWebView objectAtIndex:i]];
+//			}
+//			_linksForWebView = tmpBareBulletinArray;
+//			
+//			NSMutableArray *tmpBareBulletinLinkArray = [[NSMutableArray alloc]init];
+//			for (NSInteger i = _bareBulletinObjects.count - 1; i > 0; i--) {
+//				[tmpBareBulletinLinkArray addObject:[_bareBulletinObjects objectAtIndex:i]];
+//			}
+//			_bareBulletinObjects = tmpBareBulletinLinkArray;
+			
 			[[NSUserDefaults standardUserDefaults]setObject:_bareBulletinObjects forKey:@"bareBulletinObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bulletinPDFs forKey:@"bulletinPDFs"];
+			//[[NSUserDefaults standardUserDefaults]setObject:_bulletinPDFs forKey:@"bulletinPDFs"];
 			[[NSUserDefaults standardUserDefaults]setObject:_linksForWebView forKey:@"linksForWebView"];
 			[[NSUserDefaults standardUserDefaults]synchronize];
 			offlineMode = NO;
@@ -100,7 +124,7 @@ BOOL offlineMode;
 			//-------------------------------------------\\
 			
 			_bareBulletinObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareBulletinObjects"];
-			_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
+			//_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
 			_linksForWebView = [[NSUserDefaults standardUserDefaults]objectForKey:@"linksForWebView"];
 			offlineMode = YES;
 		}
