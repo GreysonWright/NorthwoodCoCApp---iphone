@@ -110,6 +110,7 @@
 		2E7F0DE219FADCDF001595E0 /* cogwheel22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F0DE019FADCDF001595E0 /* cogwheel22@2x.png */; };
 		2E8536D019540D1900C8864E /* LogginginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8536CE19540D1900C8864E /* LogginginViewController.m */; };
 		2E8536D119540D1900C8864E /* LogginginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8536CF19540D1900C8864E /* LogginginViewController.xib */; };
+		2E8B4A841A2F504C00B43E9A /* SermonYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B4A831A2F504C00B43E9A /* SermonYear.m */; };
 		2E945BC719F69B3800A135FA /* SettingsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E945BC619F69B3800A135FA /* SettingsNavigationViewController.m */; };
 		2E9B627119F4700A00AD351B /* SlidingMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9B626F19F4700A00AD351B /* SlidingMenuController.m */; };
 		2E9B627219F4700A00AD351B /* SlidingMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9B627019F4700A00AD351B /* SlidingMenuController.xib */; };
@@ -292,6 +293,8 @@
 		2E8536CD19540D1900C8864E /* LogginginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogginginViewController.h; sourceTree = "<group>"; };
 		2E8536CE19540D1900C8864E /* LogginginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogginginViewController.m; sourceTree = "<group>"; };
 		2E8536CF19540D1900C8864E /* LogginginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogginginViewController.xib; sourceTree = "<group>"; };
+		2E8B4A821A2F504C00B43E9A /* SermonYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonYear.h; sourceTree = "<group>"; };
+		2E8B4A831A2F504C00B43E9A /* SermonYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonYear.m; sourceTree = "<group>"; };
 		2E945BC519F69B3800A135FA /* SettingsNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsNavigationViewController.h; sourceTree = "<group>"; };
 		2E945BC619F69B3800A135FA /* SettingsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsNavigationViewController.m; sourceTree = "<group>"; };
 		2E9B626E19F4700A00AD351B /* SlidingMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenuController.h; sourceTree = "<group>"; };
@@ -429,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				2E4B16A31952099400641710 /* Tweet */,
+				2E8B4A851A2F505800B43E9A /* Sermon Year */,
 				2E4B16A21952098C00641710 /* Sermon */,
 				2E4B16A41952099C00641710 /* Bulletin */,
 				2E4B16A5195209A300641710 /* Prayer List */,
@@ -890,6 +894,15 @@
 			name = "login view";
 			sourceTree = "<group>";
 		};
+		2E8B4A851A2F505800B43E9A /* Sermon Year */ = {
+			isa = PBXGroup;
+			children = (
+				2E8B4A821A2F504C00B43E9A /* SermonYear.h */,
+				2E8B4A831A2F504C00B43E9A /* SermonYear.m */,
+			);
+			name = "Sermon Year";
+			sourceTree = "<group>";
+		};
 		2E945BC819F69B3D00A135FA /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1124,6 +1137,7 @@
 			files = (
 				2E4B16AF19521D5100641710 /* DutyRoster.m in Sources */,
 				2E52E3E81948AE0E00B46786 /* AppDelegate.m in Sources */,
+				2E8B4A841A2F504C00B43E9A /* SermonYear.m in Sources */,
 				2E4F92B6194B65B300BC23F2 /* TFHppleElement.m in Sources */,
 				2E9B627119F4700A00AD351B /* SlidingMenuController.m in Sources */,
 				2E7021CA197ECC260037CBE5 /* TabBarController.m in Sources */,
