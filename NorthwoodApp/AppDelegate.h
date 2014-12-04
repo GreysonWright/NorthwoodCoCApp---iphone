@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property TabBarController *tabBar;
+@property (strong, nonatomic) NSString *versionNumber;
 
 +(void)backgroundFetchEnabled:(BOOL)yesNo;
 
