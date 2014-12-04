@@ -19,7 +19,7 @@
 	
 	TFHpple *sermonsParser = [TFHpple hppleWithHTMLData:sermonsHtmlData];
 	
-	NSString *sermonsXpathQueryString = @"//*[@id='header']/nav/ul/li[3]/strong/span";
+	NSString *sermonsXpathQueryString = @"//*[@id='header']/nav/ul/li[3]/ul/li/a";
 	NSArray *sermonsNodes = [sermonsParser searchWithXPathQuery:sermonsXpathQueryString];
 	
 	NSMutableArray *newSermonYears = [[NSMutableArray alloc] initWithCapacity:0];
@@ -27,7 +27,10 @@
 	for (TFHppleElement *element in sermonsNodes) {
 		
 		//SermonYear *sermonYear = [[SermonYear alloc] init];
-		NSString *sermonYear = [[[element firstChild] firstChildWithTagName:@"strong"]content];
+		NSString *sermonYear = [element objectForKey:@"href"];
+		sermonYear = [sermonYear stringByReplacingOccurrencesOfString:@"/" withString:@""];
+		sermonYear = [sermonYear stringByReplacingOccurrencesOfString:@"sermon" withString:@""];
+		sermonYear = [sermonYear stringByReplacingOccurrencesOfString:@"Sermons" withString:@""];
 		[newSermonYears addObject:sermonYear];
 		//sermonYear.year = [[[element firstChild] firstChildWithTagName:@"strong"]content];
 	}
