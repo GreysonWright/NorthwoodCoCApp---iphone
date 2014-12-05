@@ -152,7 +152,7 @@ BOOL offlineMode;
 
 -(void)viewWillAppear:(BOOL)animated{
 	
-	if(finnishedSetup)
+	//if(finnishedSetup)
 //		[SlidingMenuController shouldHideMenuButton:NO];
 	
 	[super viewWillAppear:animated];

@@ -126,6 +126,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 //	[SlidingMenuController shouldHideMenuButton:NO];
+	if([self needsToReload])
+		if([NetworkStatus networkExists])//keep this here so we dont lag when switching tabs
+			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+				_years = [SermonYear getSermonYearObjects];
+				if (_offlineView != nil)
+					[_offlineView removeFromSuperview];
+			});
+	
 	[super viewWillAppear:animated];
 }
 
@@ -198,4 +206,12 @@
 -(void)menuButtonTapped{
 	[[SlidingMenuController sharedInstance]navMenuButtonTapped];
 }
+
+-(BOOL)needsToReload{
+	if (_years != nil)
+		return NO;
+	else
+		return YES;
+}
+
 @end
