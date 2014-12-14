@@ -123,6 +123,7 @@
 		2E9CD72519562C0C00822E1D /* ContactUsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CD72419562C0C00822E1D /* ContactUsNavigationViewController.m */; };
 		2E9CD7281956437400822E1D /* Directory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CD7271956437400822E1D /* Directory.m */; };
 		2E9EFB5D196B4F4C003E7468 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */; };
+		2EA0F8F01A3E431700A7AE20 /* PDFCleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0F8EF1A3E431700A7AE20 /* PDFCleaner.m */; };
 		2EA4F35119A4E07C001E1261 /* list26.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F34F19A4E07C001E1261 /* list26.png */; };
 		2EA4F35219A4E07C001E1261 /* list26@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F35019A4E07C001E1261 /* list26@2x.png */; };
 		2EABE9141A243A8100C20922 /* AudioPlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EABE9121A243A8100C20922 /* AudioPlayerTableViewCell.m */; };
@@ -314,6 +315,8 @@
 		2E9CD7261956437400822E1D /* Directory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Directory.h; sourceTree = "<group>"; };
 		2E9CD7271956437400822E1D /* Directory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Directory.m; sourceTree = "<group>"; };
 		2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2EA0F8EE1A3E431700A7AE20 /* PDFCleaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFCleaner.h; sourceTree = "<group>"; };
+		2EA0F8EF1A3E431700A7AE20 /* PDFCleaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFCleaner.m; sourceTree = "<group>"; };
 		2EA33E451955FA4D004E222D /* NorthwoodCoC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NorthwoodCoC.entitlements; sourceTree = "<group>"; };
 		2EA4F34F19A4E07C001E1261 /* list26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list26.png; path = images/list26.png; sourceTree = SOURCE_ROOT; };
 		2EA4F35019A4E07C001E1261 /* list26@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list26@2x.png"; path = "images/list26@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -596,6 +599,7 @@
 				2E4F92AE194B65B300BC23F2 /* TFHpple */,
 				2E632D6C19758DAE006EA4C4 /* Network Status */,
 				2E722F541978E3A9006EB580 /* File Downloader */,
+				2EA0F8F11A3E431F00A7AE20 /* PDF Cleaner */,
 				2E52E3DE1948AE0E00B46786 /* Supporting Files */,
 				2E52E3E91948AE0E00B46786 /* Images.xcassets */,
 			);
@@ -951,6 +955,15 @@
 			name = "Contact us";
 			sourceTree = "<group>";
 		};
+		2EA0F8F11A3E431F00A7AE20 /* PDF Cleaner */ = {
+			isa = PBXGroup;
+			children = (
+				2EA0F8EE1A3E431700A7AE20 /* PDFCleaner.h */,
+				2EA0F8EF1A3E431700A7AE20 /* PDFCleaner.m */,
+			);
+			name = "PDF Cleaner";
+			sourceTree = "<group>";
+		};
 		2EABE9161A243A8600C20922 /* Audio Player Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1154,6 +1167,7 @@
 				2E52E56F1959F95100CC0BD4 /* BigTweetViewController.m in Sources */,
 				2E9CD7281956437400822E1D /* Directory.m in Sources */,
 				2E4F92B7194B65B300BC23F2 /* XPathQuery.m in Sources */,
+				2EA0F8F01A3E431700A7AE20 /* PDFCleaner.m in Sources */,
 				2E5B18F01962588300E96F61 /* MailRequestViewController.m in Sources */,
 				2E4B16B91952274000641710 /* Tweet.m in Sources */,
 				2E722F531978E3A4006EB580 /* FileDownloader.m in Sources */,

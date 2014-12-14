@@ -18,6 +18,7 @@
 #import "NetworkStatus.h"
 #import "AppDelegate.h"
 #import "ContactUsViewController.h"
+#import "PDFCleaner.h"
 
 @interface HomeViewController (){
 	NSTimer *timer;
@@ -39,17 +40,18 @@ static NSMutableArray *_dateObjects;
 static NSMutableArray *_tweetContent;
 static NSMutableArray *_tweetDates;
 //static NSString *tmpObj;
-static BOOL finnishedSetup;
+static BOOL finishedSetup;
 BOOL skipPageTurn;
 BOOL offlineMode;
 
 -(void)checkSetup{
-	if(finnishedSetup){
+	if(finishedSetup){
 		[UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];
 			//[SlidingMenuController shouldHideMenuButton:NO];
 		}];
 		[[SlidingMenuController sharedInstance]enablePanRecognizer];
 		[timer invalidate];
+		[PDFCleaner cleanPDFObjects];
 	}
 	else
 		NSLog(@"not finnished");
@@ -361,7 +363,7 @@ BOOL offlineMode;
 }
 
 +(void)finnishedSetup{
-	finnishedSetup = YES;
+	finishedSetup = YES;
 }
 
 @end
