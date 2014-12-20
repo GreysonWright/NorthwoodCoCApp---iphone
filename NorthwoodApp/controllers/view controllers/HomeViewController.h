@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlidingMenuController.h"
 
 @interface HomeViewController : UIViewController
 

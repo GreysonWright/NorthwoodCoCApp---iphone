@@ -27,7 +27,7 @@
 @interface NewsLoggedinViewController (){
 	NSMutableArray *_bulletinObjects;
 	NSMutableArray *_bareBulletinObjects;
-	NSMutableArray *_bulletinPDFs;
+	//NSMutableArray *_bulletinPDFs;
 	NSMutableArray *_prayerListObjects;
 	NSMutableArray *_dutyRosterObjects;
 	NSMutableArray *_nameObjects;
@@ -50,13 +50,14 @@
 @implementation NewsLoggedinViewController
 static BOOL loggedin;
 static BOOL fireInit;
+static BOOL switching = NO;
 BOOL offlineMode;
 
 -(void)initMembers{
 		if(fireInit){
 			_bulletinObjects = [[NSMutableArray alloc]init];
 			_bareBulletinObjects = [[NSMutableArray alloc]init];
-			_bulletinPDFs = [[NSMutableArray alloc]init];
+			//_bulletinPDFs = [[NSMutableArray alloc]init];
 			_prayerListObjects = [[NSMutableArray alloc]init];
 			_dutyRosterObjects = [[NSMutableArray alloc]init];
 			_nameObjects = [[NSMutableArray alloc]init];
@@ -70,7 +71,7 @@ BOOL offlineMode;
 		if([NetworkStatus networkExists]){
 			_bulletinObjects = [Bulletin bulletinObject];
 			_bareBulletinObjects = [Bulletin getBareBulletinObjects];
-			_bulletinPDFs = [Bulletin getBulletinPDF];
+			//_bulletinPDFs = [Bulletin getBulletinPDF];
 			_linksForWebView = [Bulletin bulletinLink];
 			_prayerListObjects = [PrayerList prayerListObjects];
 			_dutyRosterObjects = [DutyRoster dutyRosterObjects];
@@ -80,8 +81,32 @@ BOOL offlineMode;
 			_emailObjects = [Directory emailObjects];
 			_addressObjects = [Directory adressObjects];
 			
+//			NSMutableArray *tmpBulletinArray = [[NSMutableArray alloc]init];
+//			for (NSInteger i = _bulletinObjects.count - 1; i > 0; i--) {
+//				[tmpBulletinArray addObject:[_bulletinObjects objectAtIndex:i]];
+//			}
+//			_bulletinObjects = tmpBulletinArray;
+//			
+//			NSMutableArray *tmpBulletinPDFArray = [[NSMutableArray alloc]init];
+//			for (NSInteger i = _bulletinPDFs.count - 1; i > 0; i--) {
+//				[tmpBulletinPDFArray addObject:[_bulletinPDFs objectAtIndex:i]];
+//			}
+//			_bulletinPDFs = tmpBulletinPDFArray;
+//			
+//			NSMutableArray *tmpBareBulletinArray = [[NSMutableArray alloc]init];
+//			for (NSInteger i = _linksForWebView.count - 1; i > 0; i--) {
+//				[tmpBareBulletinArray addObject:[_linksForWebView objectAtIndex:i]];
+//			}
+//			_linksForWebView = tmpBareBulletinArray;
+//			
+//			NSMutableArray *tmpBareBulletinLinkArray = [[NSMutableArray alloc]init];
+//			for (NSInteger i = _bareBulletinObjects.count - 1; i > 0; i--) {
+//				[tmpBareBulletinLinkArray addObject:[_bareBulletinObjects objectAtIndex:i]];
+//			}
+//			_bareBulletinObjects = tmpBareBulletinLinkArray;
+			
 			[[NSUserDefaults standardUserDefaults]setObject:_bareBulletinObjects forKey:@"bareBulletinObjects"];
-			[[NSUserDefaults standardUserDefaults]setObject:_bulletinPDFs forKey:@"bulletinPDFs"];
+			//[[NSUserDefaults standardUserDefaults]setObject:_bulletinPDFs forKey:@"bulletinPDFs"];
 			[[NSUserDefaults standardUserDefaults]setObject:_linksForWebView forKey:@"linksForWebView"];
 			[[NSUserDefaults standardUserDefaults]synchronize];
 			offlineMode = NO;
@@ -99,7 +124,7 @@ BOOL offlineMode;
 			//-------------------------------------------\\
 			
 			_bareBulletinObjects = [[NSUserDefaults standardUserDefaults]objectForKey:@"bareBulletinObjects"];
-			_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
+			//_bulletinPDFs = [[NSUserDefaults standardUserDefaults]objectForKey:@"bulletinPDFs"];
 			_linksForWebView = [[NSUserDefaults standardUserDefaults]objectForKey:@"linksForWebView"];
 			offlineMode = YES;
 		}
@@ -118,15 +143,18 @@ BOOL offlineMode;
 				_linksForWebView = nil;
 				_bulletinObjects = [Bulletin bulletinObject];
 				_linksForWebView = [Bulletin bulletinLink];
+				self.tableView.scrollEnabled = YES;
 			}
 			else if(_selectedSegment == 1){
 				_prayerListObjects = nil;
 				_prayerListObjects = [PrayerList prayerListObjects];
+				self.tableView.scrollEnabled = NO;
 			}
 			
 			else if(_selectedSegment == 2){
 				_dutyRosterObjects = nil;
 				_dutyRosterObjects = [DutyRoster dutyRosterObjects];
+				self.tableView.scrollEnabled = NO;
 			}
 			
 			else if(_selectedSegment == 3){
@@ -140,6 +168,7 @@ BOOL offlineMode;
 				_phoneObjects = [Directory phoneObjects];
 				_emailObjects = [Directory emailObjects];
 				_addressObjects = [Directory adressObjects];
+				self.tableView.scrollEnabled = YES;
 			}
 			[self.refreshControl endRefreshing];
 			[self.tableView reloadData];
@@ -204,30 +233,39 @@ BOOL offlineMode;
 		self.tabBarItem.image = [UIImage imageNamed:@"crowd.png"];
 		//self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(settingsTitleButtonTapped)];
 		self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logoutTitleButtonTapped)];
-		
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list26"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped)];
+		self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 		timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initMembers) userInfo:nil repeats:YES];
 	}
 		return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-	[super viewWillAppear:YES];
+
+//	[SlidingMenuController shouldHideMenuButton:NO];
 	loggedin = [[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"];
 	if(loggedin == NO){
 		self.segmentController.selectedSegmentIndex = 0;
 		_selectedSegment = 0;
-		LogginginViewController *logginView = [[LogginginViewController alloc]init];
-		[self presentViewController:logginView animated:YES completion:nil];
+//		LogginginViewController *logginView = [[LogginginViewController alloc]init];
+//		[self.navigationController presentViewController:logginView animated:YES completion:nil];
+		[[SlidingMenuController sharedInstance]showLoginView];
 	}
 	else if(loggedin == YES){
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	}
+//	else if(switching){
+//		[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+//	}
+	
+	NSLog(@"loggedin - %d",[[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"]);
+	NSLog(@"changing - %d", [SlidingMenuController sharedInstance].isChangingView);
+	[super viewWillAppear:animated];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
 	
-	if(loggedin == YES)
-		
+	if([[NSUserDefaults standardUserDefaults]boolForKey:@"loggedIn"])
 		self.navigationItem.title = [@"Hi, " stringByAppendingString:[[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
 	
 	if([self needsToReload])
@@ -287,10 +325,10 @@ BOOL offlineMode;
 		return  73;
 	}
 	else if(_selectedSegment == 1){
-		return 700;
+		return 755;
 	}
 	else if(_selectedSegment == 2){
-		return 700;
+		return 755;
 	}
 	else if (_selectedSegment == 3){
 		return 109;
@@ -312,6 +350,7 @@ BOOL offlineMode;
 			[webView loadPDF:[_linksForWebView objectAtIndex:indexPath.row]];
 			[self.navigationController pushViewController:webView animated:YES];
 		}
+//		[SlidingMenuController shouldHideMenuButton:YES];
 	}
 	else if(_selectedSegment == 1){
 		NSLog(@"do nothing");
@@ -409,15 +448,15 @@ BOOL offlineMode;
 	}
 }
 
-+(void)setLoggedin:(BOOL)newLoggedin{
-	loggedin = newLoggedin;
-	[[NSUserDefaults standardUserDefaults]setBool:newLoggedin forKey:@"loggedIn"];
-	[[NSUserDefaults standardUserDefaults]synchronize];
-}
+//+(void)setLoggedin:(BOOL)newLoggedin{
+//	loggedin = newLoggedin;
+//	[[NSUserDefaults standardUserDefaults]setBool:newLoggedin forKey:@"loggedIn"];
+//	[[NSUserDefaults standardUserDefaults]synchronize];
+//}
 
-+(BOOL)getLoggedin{
-	return loggedin;
-}
+//+(BOOL)getLoggedin{
+//	return loggedin;
+//}
 
 -(void)logoutTitleButtonTapped{
 	[[[UIAlertView alloc]initWithTitle:@"logout?" message:@"Are you sure you would like to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes", nil]show];
@@ -429,20 +468,21 @@ BOOL offlineMode;
 	}
 	else{
 		[alertView dismissWithClickedButtonIndex:-1 animated:YES];
-		loggedin = NO;
-		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loggedIn"];
-		[[NSUserDefaults standardUserDefaults] setObject:@"Members" forKey:@"username"];
-		[[NSUserDefaults standardUserDefaults]synchronize];
-		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-		appDelegate.tabBar.selectedIndex=0;
+		//loggedin = NO;
+//		AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+//		appDelegate.tabBar.selectedIndex=0;
+//		[SlidingMenuController resetMenu];
+		[[SlidingMenuController sharedInstance] logout];
+		self.tableView.scrollEnabled = YES;
+		//[[SlidingMenuController sharedInstance] resetMenu];
 		[self.tableView reloadData];
 	}
 }
 
--(void)settingsTitleButtonTapped{
-	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
-	[self.navigationController pushViewController:settingsView animated:YES];
-}
+//-(void)settingsTitleButtonTapped{
+//	SettingsViewController *settingsView = [[SettingsViewController alloc]init];
+//	[self.navigationController pushViewController:settingsView animated:YES];
+//}
 
 -(BOOL)needsToReload{
 	if(_bareBulletinObjects.count < _bulletinObjects.count){
@@ -455,7 +495,16 @@ BOOL offlineMode;
 	}
 }
 
+-(void)menuButtonTapped{
+	[[SlidingMenuController sharedInstance]navMenuButtonTapped];
+}
+
 +(void)fireInit{
 	fireInit = YES;
 }
+
++(void)isSwitching{
+	switching = YES;
+}
+
 @end

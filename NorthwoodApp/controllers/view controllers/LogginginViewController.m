@@ -34,10 +34,10 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
 	self.usernameBox.delegate = self;
 	self.passwordBox.delegate = self;
 	[MailRequestViewController setLoginStillPresented:YES];
+    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,7 +49,7 @@
 - (IBAction)loginButtonTapped:(id)sender {
 	if([self.usernameBox.text  isEqual: @"member"] && [self.passwordBox.text  isEqual: @"NorthwoodCoC"]){
 		[self dismissViewControllerAnimated:YES completion:nil];
-		[NewsLoggedinViewController setLoggedin:YES];
+		//[NewsLoggedinViewController setLoggedin:YES];
 		[MailRequestViewController setLoginStillPresented:YES];
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"loggedIn"];
 		[[NSUserDefaults standardUserDefaults] setObject:[self.usernameBox text] forKey:@"username"];
@@ -59,12 +59,16 @@
 	else{
 		[[[UIAlertView alloc]initWithTitle:@"Login Error" message:@"The username or password provided was incorrect." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil] show];
 	}
+	
 }
 
 - (IBAction)cancelButtonTapped:(id)sender {
+	[NewsLoggedinViewController isSwitching];
 	[self dismissViewControllerAnimated:YES completion:nil];
-	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-	appDelegate.tabBar.selectedIndex=0;
+//	AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+//	appDelegate.tabBar.selectedIndex=0;
+//	[SlidingMenuController resetMenu];
+	[[SlidingMenuController sharedInstance] resetMenu];
 	[MailRequestViewController setLoginStillPresented:NO];
 }
 

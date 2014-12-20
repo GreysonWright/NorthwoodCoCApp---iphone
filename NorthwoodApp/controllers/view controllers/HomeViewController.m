@@ -18,7 +18,7 @@
 #import "NetworkStatus.h"
 #import "AppDelegate.h"
 #import "ContactUsViewController.h"
-#import "SlidingMenuController.h"
+#import "PDFCleaner.h"
 
 @interface HomeViewController (){
 	NSTimer *timer;
@@ -40,16 +40,18 @@ static NSMutableArray *_dateObjects;
 static NSMutableArray *_tweetContent;
 static NSMutableArray *_tweetDates;
 //static NSString *tmpObj;
-static BOOL finnishedSetup;
+static BOOL finishedSetup;
 BOOL skipPageTurn;
 BOOL offlineMode;
 
 -(void)checkSetup{
-	if(finnishedSetup){
-		[UIView animateWithDuration:0.5 delay:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];}];
-		self.tabBarController.tabBar.hidden = NO;
-		
+	if(finishedSetup){
+		[UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{ _loadingView.alpha = 0;}completion:^(BOOL finished){ [_loadingView removeFromSuperview];
+			//[SlidingMenuController shouldHideMenuButton:NO];
+		}];
+		[[SlidingMenuController sharedInstance]enablePanRecognizer];
 		[timer invalidate];
+		[PDFCleaner cleanPDFObjects];
 	}
 	else
 		NSLog(@"not finnished");
@@ -68,14 +70,13 @@ BOOL offlineMode;
 		loadingLabel.center = CGPointMake(self.view.center.x, self.view.center.y + 20);
 		loadingLabel.textColor = [UIColor whiteColor];
 		[loadingLabel setTextAlignment:NSTextAlignmentCenter];
-		loadingLabel.text = @"Fetching new data.";
+		loadingLabel.text = @"fetching new data";
 		
 		[_loadingView addSubview:indicator];
 		[_loadingView addSubview:loadingLabel];
 		
 		[indicator startAnimating];
 	}
-	self.tabBarController.tabBar.hidden = YES;
 	[self.navigationController.view addSubview:_loadingView];
 	
 }
@@ -110,8 +111,11 @@ BOOL offlineMode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+	
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list26"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped)];
+		self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 		self.title = @"Home";
 		self.tabBarItem.image = [UIImage imageNamed:@"home65.png"];
 		_contentObjects = [[NSMutableArray alloc]init];
@@ -148,11 +152,21 @@ BOOL offlineMode;
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+	
+	//if(finnishedSetup)
+//		[SlidingMenuController shouldHideMenuButton:NO];
+	
+	[super viewWillAppear:animated];
+}
+
 -(void)viewDidAppear:(BOOL)animated{
+	
 	if([self needsToReload])
 		if([NetworkStatus networkExists])//keep this here so we dont lag when switching tabs
 			[self loadStuff];
 	[super viewDidAppear:animated];
+	
 }
 
 - (void)viewDidLoad
@@ -178,9 +192,10 @@ BOOL offlineMode;
 	
 	[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timedPageFlips) userInfo:nil repeats:YES];
 	
-		[self buildLoadingView];
-		[NewsLoggedinViewController fireInit];
-		[ContactUsViewController fireInit];
+	[self buildLoadingView];
+	[NewsLoggedinViewController fireInit];
+	[ContactUsViewController fireInit];
+	[SlidingMenuController sharedInstance].isChangingView = NO;
 	
 }
 
@@ -212,6 +227,7 @@ BOOL offlineMode;
 	BigTweetViewController *bigTweetView = [[BigTweetViewController alloc]init];
 	[bigTweetView setText:[_tweetContent objectAtIndex:indexPath.row]];
 	bigTweetView.title = [_tweetDates objectAtIndex:indexPath.row];
+	//[SlidingMenuController shouldHideMenuButton:YES];
 	[self.navigationController pushViewController:bigTweetView animated:YES];
 }
 
@@ -293,6 +309,10 @@ BOOL offlineMode;
 	}
 }
 
+-(void)menuButtonTapped{
+	[[SlidingMenuController sharedInstance]navMenuButtonTapped];
+}
+
 +(BOOL)refreshTweets{
 	//dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
 		
@@ -343,6 +363,7 @@ BOOL offlineMode;
 }
 
 +(void)finnishedSetup{
-	finnishedSetup = YES;
+	finishedSetup = YES;
 }
+
 @end

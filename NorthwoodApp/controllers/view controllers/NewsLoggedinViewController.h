@@ -10,7 +10,9 @@
 
 @interface NewsLoggedinViewController : UIViewController
 
-+(void)setLoggedin:(BOOL)newLoggedin;
-+(BOOL)getLoggedin;
+//+(void)setLoggedin:(BOOL)newLoggedin;
+//+(BOOL)getLoggedin;
 +(void)fireInit;
++(void)isSwitching;
+
 @end

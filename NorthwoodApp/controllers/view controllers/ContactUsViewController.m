@@ -150,7 +150,8 @@ BOOL offlineMode;
 
 		//this will be enabled once the backend is built
 		//self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle: @"Mail Request" style:UIBarButtonItemStylePlain target:self action:@selector(requestTitleButtonTapped)];
-		
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list26"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonTapped)];
+		self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 		timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initContact) userInfo:nil repeats:YES];
     }
     return self;
@@ -297,6 +298,10 @@ BOOL offlineMode;
 		NSLog(@"doesnt need to reload");
 		return NO;
 	}
+}
+
+-(void)menuButtonTapped{
+	[[SlidingMenuController sharedInstance]navMenuButtonTapped];
 }
 
 +(void)fireInit{

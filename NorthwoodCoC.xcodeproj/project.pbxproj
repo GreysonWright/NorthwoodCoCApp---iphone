@@ -13,6 +13,8 @@
 		2E205E9B194B8DD90092C8BF /* SermonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E205E99194B8DD90092C8BF /* SermonsViewController.m */; };
 		2E205E9C194B8DD90092C8BF /* SermonsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E205E9A194B8DD90092C8BF /* SermonsViewController.xib */; };
 		2E3472331953B7B700AC769B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E3472321953B7B700AC769B /* Social.framework */; };
+		2E3F25C51A25700200F49267 /* pause44.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3F25C41A25700200F49267 /* pause44.png */; };
+		2E3F25C71A25701A00F49267 /* media23.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E3F25C61A25701A00F49267 /* media23.png */; };
 		2E3F6B2A1957DE6500EE95B1 /* UniversalWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3F6B281957DE6500EE95B1 /* UniversalWebViewViewController.m */; };
 		2E3F6B2B1957DE6500EE95B1 /* UniversalWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E3F6B291957DE6500EE95B1 /* UniversalWebViewViewController.xib */; };
 		2E41833A1950A77F006D52EC /* SermonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E4183381950A77F006D52EC /* SermonsTableViewCell.m */; };
@@ -35,7 +37,6 @@
 		2E52E3E41948AE0E00B46786 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E3E31948AE0E00B46786 /* main.m */; };
 		2E52E3E81948AE0E00B46786 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E52E3E71948AE0E00B46786 /* AppDelegate.m */; };
 		2E52E3EA1948AE0E00B46786 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E3E91948AE0E00B46786 /* Images.xcassets */; };
-		2E52E3F11948AE0F00B46786 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3F01948AE0F00B46786 /* XCTest.framework */; };
 		2E52E3F21948AE0F00B46786 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3D71948AE0E00B46786 /* Foundation.framework */; };
 		2E52E3F31948AE0F00B46786 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E52E3DB1948AE0E00B46786 /* UIKit.framework */; };
 		2E52E3FB1948AE0F00B46786 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E52E3F91948AE0F00B46786 /* InfoPlist.strings */; };
@@ -105,10 +106,11 @@
 		2E789E0D195127040061423E /* PrayerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E0B195127040061423E /* PrayerListTableViewCell.m */; };
 		2E789E0E195127040061423E /* PrayerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E789E0C195127040061423E /* PrayerListTableViewCell.xib */; };
 		2E789E12195130B70061423E /* PrayerList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E789E11195130B70061423E /* PrayerList.m */; };
+		2E7F0DE119FADCDF001595E0 /* cogwheel22.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F0DDF19FADCDF001595E0 /* cogwheel22.png */; };
+		2E7F0DE219FADCDF001595E0 /* cogwheel22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F0DE019FADCDF001595E0 /* cogwheel22@2x.png */; };
 		2E8536D019540D1900C8864E /* LogginginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8536CE19540D1900C8864E /* LogginginViewController.m */; };
 		2E8536D119540D1900C8864E /* LogginginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8536CF19540D1900C8864E /* LogginginViewController.xib */; };
-		2E945BC319F69ADB00A135FA /* cogwheel22.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E945BC119F69ADB00A135FA /* cogwheel22.png */; };
-		2E945BC419F69ADB00A135FA /* cogwheel22@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E945BC219F69ADB00A135FA /* cogwheel22@2x.png */; };
+		2E8B4A841A2F504C00B43E9A /* SermonYear.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8B4A831A2F504C00B43E9A /* SermonYear.m */; };
 		2E945BC719F69B3800A135FA /* SettingsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E945BC619F69B3800A135FA /* SettingsNavigationViewController.m */; };
 		2E9B627119F4700A00AD351B /* SlidingMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9B626F19F4700A00AD351B /* SlidingMenuController.m */; };
 		2E9B627219F4700A00AD351B /* SlidingMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E9B627019F4700A00AD351B /* SlidingMenuController.xib */; };
@@ -121,11 +123,13 @@
 		2E9CD72519562C0C00822E1D /* ContactUsNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CD72419562C0C00822E1D /* ContactUsNavigationViewController.m */; };
 		2E9CD7281956437400822E1D /* Directory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9CD7271956437400822E1D /* Directory.m */; };
 		2E9EFB5D196B4F4C003E7468 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */; };
+		2EA0F8F01A3E431700A7AE20 /* PDFCleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA0F8EF1A3E431700A7AE20 /* PDFCleaner.m */; };
 		2EA4F35119A4E07C001E1261 /* list26.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F34F19A4E07C001E1261 /* list26.png */; };
 		2EA4F35219A4E07C001E1261 /* list26@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA4F35019A4E07C001E1261 /* list26@2x.png */; };
+		2EABE9141A243A8100C20922 /* AudioPlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EABE9121A243A8100C20922 /* AudioPlayerTableViewCell.m */; };
+		2EABE9151A243A8100C20922 /* AudioPlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EABE9131A243A8100C20922 /* AudioPlayerTableViewCell.xib */; };
 		2EBC926A1951F8A600758A1E /* BulletinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */; };
 		2EBC926B1951F8A600758A1E /* BulletinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */; };
-		EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AED5A75DB11B4E9AA554DEBD /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +153,8 @@
 		2E205E99194B8DD90092C8BF /* SermonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonsViewController.m; sourceTree = "<group>"; };
 		2E205E9A194B8DD90092C8BF /* SermonsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SermonsViewController.xib; sourceTree = "<group>"; };
 		2E3472321953B7B700AC769B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		2E3F25C41A25700200F49267 /* pause44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause44.png; path = images/pause44.png; sourceTree = SOURCE_ROOT; };
+		2E3F25C61A25701A00F49267 /* media23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = media23.png; path = images/media23.png; sourceTree = SOURCE_ROOT; };
 		2E3F6B271957DE6500EE95B1 /* UniversalWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniversalWebViewViewController.h; sourceTree = "<group>"; };
 		2E3F6B281957DE6500EE95B1 /* UniversalWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniversalWebViewViewController.m; sourceTree = "<group>"; };
 		2E3F6B291957DE6500EE95B1 /* UniversalWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UniversalWebViewViewController.xib; sourceTree = "<group>"; };
@@ -186,7 +192,6 @@
 		2E52E3E71948AE0E00B46786 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2E52E3E91948AE0E00B46786 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2E52E3EF1948AE0F00B46786 /* NorthwoodCoCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NorthwoodCoCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E52E3F01948AE0F00B46786 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2E52E3F81948AE0F00B46786 /* NorthwoodCoCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NorthwoodCoCTests-Info.plist"; sourceTree = "<group>"; };
 		2E52E3FA1948AE0F00B46786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E52E3FC1948AE0F00B46786 /* NorthwoodAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NorthwoodAppTests.m; sourceTree = "<group>"; };
@@ -284,11 +289,13 @@
 		2E789E0C195127040061423E /* PrayerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayerListTableViewCell.xib; sourceTree = "<group>"; };
 		2E789E10195130B70061423E /* PrayerList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerList.h; sourceTree = "<group>"; };
 		2E789E11195130B70061423E /* PrayerList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerList.m; sourceTree = "<group>"; };
+		2E7F0DDF19FADCDF001595E0 /* cogwheel22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cogwheel22.png; path = images/cogwheel22.png; sourceTree = SOURCE_ROOT; };
+		2E7F0DE019FADCDF001595E0 /* cogwheel22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cogwheel22@2x.png"; path = "images/cogwheel22@2x.png"; sourceTree = SOURCE_ROOT; };
 		2E8536CD19540D1900C8864E /* LogginginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogginginViewController.h; sourceTree = "<group>"; };
 		2E8536CE19540D1900C8864E /* LogginginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogginginViewController.m; sourceTree = "<group>"; };
 		2E8536CF19540D1900C8864E /* LogginginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogginginViewController.xib; sourceTree = "<group>"; };
-		2E945BC119F69ADB00A135FA /* cogwheel22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cogwheel22.png; path = images/cogwheel22.png; sourceTree = SOURCE_ROOT; };
-		2E945BC219F69ADB00A135FA /* cogwheel22@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cogwheel22@2x.png"; path = "images/cogwheel22@2x.png"; sourceTree = SOURCE_ROOT; };
+		2E8B4A821A2F504C00B43E9A /* SermonYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SermonYear.h; sourceTree = "<group>"; };
+		2E8B4A831A2F504C00B43E9A /* SermonYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SermonYear.m; sourceTree = "<group>"; };
 		2E945BC519F69B3800A135FA /* SettingsNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsNavigationViewController.h; sourceTree = "<group>"; };
 		2E945BC619F69B3800A135FA /* SettingsNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsNavigationViewController.m; sourceTree = "<group>"; };
 		2E9B626E19F4700A00AD351B /* SlidingMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenuController.h; sourceTree = "<group>"; };
@@ -308,14 +315,17 @@
 		2E9CD7261956437400822E1D /* Directory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Directory.h; sourceTree = "<group>"; };
 		2E9CD7271956437400822E1D /* Directory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Directory.m; sourceTree = "<group>"; };
 		2E9EFB5C196B4F4C003E7468 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2EA0F8EE1A3E431700A7AE20 /* PDFCleaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFCleaner.h; sourceTree = "<group>"; };
+		2EA0F8EF1A3E431700A7AE20 /* PDFCleaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFCleaner.m; sourceTree = "<group>"; };
 		2EA33E451955FA4D004E222D /* NorthwoodCoC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NorthwoodCoC.entitlements; sourceTree = "<group>"; };
 		2EA4F34F19A4E07C001E1261 /* list26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list26.png; path = images/list26.png; sourceTree = SOURCE_ROOT; };
 		2EA4F35019A4E07C001E1261 /* list26@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list26@2x.png"; path = "images/list26@2x.png"; sourceTree = SOURCE_ROOT; };
+		2EABE9111A243A8100C20922 /* AudioPlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerTableViewCell.h; sourceTree = "<group>"; };
+		2EABE9121A243A8100C20922 /* AudioPlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerTableViewCell.m; sourceTree = "<group>"; };
+		2EABE9131A243A8100C20922 /* AudioPlayerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPlayerTableViewCell.xib; sourceTree = "<group>"; };
 		2EBC92671951F8A600758A1E /* BulletinTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinTableViewCell.h; sourceTree = "<group>"; };
 		2EBC92681951F8A600758A1E /* BulletinTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletinTableViewCell.m; sourceTree = "<group>"; };
 		2EBC92691951F8A600758A1E /* BulletinTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BulletinTableViewCell.xib; sourceTree = "<group>"; };
-		3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		AED5A75DB11B4E9AA554DEBD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +343,6 @@
 				2E3472331953B7B700AC769B /* Social.framework in Frameworks */,
 				2E52E3DC1948AE0E00B46786 /* UIKit.framework in Frameworks */,
 				2E52E3D81948AE0E00B46786 /* Foundation.framework in Frameworks */,
-				EFDFFA9483094805BBD28312 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +350,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E52E3F11948AE0F00B46786 /* XCTest.framework in Frameworks */,
 				2E52E3F31948AE0F00B46786 /* UIKit.framework in Frameworks */,
 				2E52E3F21948AE0F00B46786 /* Foundation.framework in Frameworks */,
 			);
@@ -418,6 +426,7 @@
 				2E4B16AC19521D3A00641710 /* Duty Roster Cell */,
 				2E9CD7191956213B00822E1D /* Directory Cell */,
 				2E6CD0C019568BDA007B7BF8 /* Contact Us Cell */,
+				2EABE9161A243A8600C20922 /* Audio Player Cell */,
 			);
 			name = "Cell Views";
 			sourceTree = "<group>";
@@ -426,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				2E4B16A31952099400641710 /* Tweet */,
+				2E8B4A851A2F505800B43E9A /* Sermon Year */,
 				2E4B16A21952098C00641710 /* Sermon */,
 				2E4B16A41952099C00641710 /* Bulletin */,
 				2E4B16A5195209A300641710 /* Prayer List */,
@@ -544,7 +554,6 @@
 				2E52E3F61948AE0F00B46786 /* NorthwoodAppTests */,
 				2E52E3D61948AE0E00B46786 /* Frameworks */,
 				2E52E3D51948AE0E00B46786 /* Products */,
-				3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -573,8 +582,6 @@
 				2E52E3D71948AE0E00B46786 /* Foundation.framework */,
 				2E52E3D91948AE0E00B46786 /* CoreGraphics.framework */,
 				2E52E3DB1948AE0E00B46786 /* UIKit.framework */,
-				2E52E3F01948AE0F00B46786 /* XCTest.framework */,
-				AED5A75DB11B4E9AA554DEBD /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -584,9 +591,7 @@
 			children = (
 				2E52E3E61948AE0E00B46786 /* AppDelegate.h */,
 				2E52E3E71948AE0E00B46786 /* AppDelegate.m */,
-				2E9B626E19F4700A00AD351B /* SlidingMenuController.h */,
-				2E9B626F19F4700A00AD351B /* SlidingMenuController.m */,
-				2E9B627019F4700A00AD351B /* SlidingMenuController.xib */,
+				2E8414331A284E8A0039B94F /* SlidingMenu */,
 				2E4B16A11952094100641710 /* Models */,
 				2E41833C1950A78C006D52EC /* Cell Views */,
 				2E52E4301948BD9800B46786 /* Controllers */,
@@ -594,6 +599,7 @@
 				2E4F92AE194B65B300BC23F2 /* TFHpple */,
 				2E632D6C19758DAE006EA4C4 /* Network Status */,
 				2E722F541978E3A9006EB580 /* File Downloader */,
+				2EA0F8F11A3E431F00A7AE20 /* PDF Cleaner */,
 				2E52E3DE1948AE0E00B46786 /* Supporting Files */,
 				2E52E3E91948AE0E00B46786 /* Images.xcassets */,
 			);
@@ -669,8 +675,10 @@
 		2E52E4471948DCF800B46786 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				2E945BC119F69ADB00A135FA /* cogwheel22.png */,
-				2E945BC219F69ADB00A135FA /* cogwheel22@2x.png */,
+				2E3F25C61A25701A00F49267 /* media23.png */,
+				2E3F25C41A25700200F49267 /* pause44.png */,
+				2E7F0DDF19FADCDF001595E0 /* cogwheel22.png */,
+				2E7F0DE019FADCDF001595E0 /* cogwheel22@2x.png */,
 				2EA4F34F19A4E07C001E1261 /* list26.png */,
 				2EA4F35019A4E07C001E1261 /* list26@2x.png */,
 				2E5D4AB01985A21E004FC91B /* crowd@2x.png */,
@@ -870,6 +878,16 @@
 			name = "Prayer List Cell";
 			sourceTree = "<group>";
 		};
+		2E8414331A284E8A0039B94F /* SlidingMenu */ = {
+			isa = PBXGroup;
+			children = (
+				2E9B626E19F4700A00AD351B /* SlidingMenuController.h */,
+				2E9B626F19F4700A00AD351B /* SlidingMenuController.m */,
+				2E9B627019F4700A00AD351B /* SlidingMenuController.xib */,
+			);
+			name = SlidingMenu;
+			sourceTree = "<group>";
+		};
 		2E8536D219540D1C00C8864E /* login view */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,6 +896,15 @@
 				2E8536CF19540D1900C8864E /* LogginginViewController.xib */,
 			);
 			name = "login view";
+			sourceTree = "<group>";
+		};
+		2E8B4A851A2F505800B43E9A /* Sermon Year */ = {
+			isa = PBXGroup;
+			children = (
+				2E8B4A821A2F504C00B43E9A /* SermonYear.h */,
+				2E8B4A831A2F504C00B43E9A /* SermonYear.m */,
+			);
+			name = "Sermon Year";
 			sourceTree = "<group>";
 		};
 		2E945BC819F69B3D00A135FA /* Settings */ = {
@@ -928,6 +955,25 @@
 			name = "Contact us";
 			sourceTree = "<group>";
 		};
+		2EA0F8F11A3E431F00A7AE20 /* PDF Cleaner */ = {
+			isa = PBXGroup;
+			children = (
+				2EA0F8EE1A3E431700A7AE20 /* PDFCleaner.h */,
+				2EA0F8EF1A3E431700A7AE20 /* PDFCleaner.m */,
+			);
+			name = "PDF Cleaner";
+			sourceTree = "<group>";
+		};
+		2EABE9161A243A8600C20922 /* Audio Player Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2EABE9111A243A8100C20922 /* AudioPlayerTableViewCell.h */,
+				2EABE9121A243A8100C20922 /* AudioPlayerTableViewCell.m */,
+				2EABE9131A243A8100C20922 /* AudioPlayerTableViewCell.xib */,
+			);
+			name = "Audio Player Cell";
+			sourceTree = "<group>";
+		};
 		2EBC926C1951F92700758A1E /* Bulletin Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -945,11 +991,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E52E4001948AE0F00B46786 /* Build configuration list for PBXNativeTarget "NorthwoodCoC" */;
 			buildPhases = (
-				37F06747676A40C7980B312B /* Check Pods Manifest.lock */,
 				2E52E3D01948AE0E00B46786 /* Sources */,
 				2E52E3D11948AE0E00B46786 /* Frameworks */,
 				2E52E3D21948AE0E00B46786 /* Resources */,
-				1EC676FB78F04424ABFA5C94 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1038,11 +1082,13 @@
 				2E5D4AB51985A21E004FC91B /* crowd@2x.png in Resources */,
 				2E5D4AA619859FB6004FC91B /* phone329.png in Resources */,
 				2E41833B1950A77F006D52EC /* SermonsTableViewCell.xib in Resources */,
+				2E3F25C51A25700200F49267 /* pause44.png in Resources */,
 				2E52E3EA1948AE0E00B46786 /* Images.xcassets in Resources */,
 				2E5D4AA319859FB6004FC91B /* Northwood_splash4.png in Resources */,
 				2E5D4AAA19859FB6004FC91B /* Twitter_filled.png in Resources */,
 				2E205E9C194B8DD90092C8BF /* SermonsViewController.xib in Resources */,
 				2E5D4AB71985A21E004FC91B /* multiple25@2x.png in Resources */,
+				2E3F25C71A25701A00F49267 /* media23.png in Resources */,
 				2E5D4A9419859FB6004FC91B /* 07bible.jpg in Resources */,
 				2E4B16AB19521D3500641710 /* DutyRosterTableViewCell.xib in Resources */,
 				2EA4F35219A4E07C001E1261 /* list26@2x.png in Resources */,
@@ -1053,13 +1099,14 @@
 				2E1D6E70194F79A400819888 /* Sermons2010ViewController.xib in Resources */,
 				2EA4F35119A4E07C001E1261 /* list26.png in Resources */,
 				2E5D4A9C19859FB6004FC91B /* multiple25BIG.png in Resources */,
-				2E945BC319F69ADB00A135FA /* cogwheel22.png in Resources */,
+				2E7F0DE119FADCDF001595E0 /* cogwheel22.png in Resources */,
 				2E5D4AB91985A21E004FC91B /* read2@2x.png in Resources */,
 				2E5D4AAB19859FB6004FC91B /* Twitter_filled@2x.png in Resources */,
 				2E52E5701959F95100CC0BD4 /* BigTweetViewController.xib in Resources */,
 				2E5D4AAF1985A1D4004FC91B /* home65BIG.png in Resources */,
+				2EABE9151A243A8100C20922 /* AudioPlayerTableViewCell.xib in Resources */,
 				2E5D4AA019859FB6004FC91B /* icon_120.png in Resources */,
-				2E945BC419F69ADB00A135FA /* cogwheel22@2x.png in Resources */,
+				2E7F0DE219FADCDF001595E0 /* cogwheel22@2x.png in Resources */,
 				2E4A739D194F446900A17188 /* NewsLoggedinViewController.xib in Resources */,
 				2E5D4AA219859FB6004FC91B /* Northwood_splash35.png in Resources */,
 				2E5D4AAC19859FB6004FC91B /* Twitter.png in Resources */,
@@ -1096,39 +1143,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1EC676FB78F04424ABFA5C94 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		37F06747676A40C7980B312B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		2E52E3D01948AE0E00B46786 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1136,11 +1150,13 @@
 			files = (
 				2E4B16AF19521D5100641710 /* DutyRoster.m in Sources */,
 				2E52E3E81948AE0E00B46786 /* AppDelegate.m in Sources */,
+				2E8B4A841A2F504C00B43E9A /* SermonYear.m in Sources */,
 				2E4F92B6194B65B300BC23F2 /* TFHppleElement.m in Sources */,
 				2E9B627119F4700A00AD351B /* SlidingMenuController.m in Sources */,
 				2E7021CA197ECC260037CBE5 /* TabBarController.m in Sources */,
 				2E9CD72519562C0C00822E1D /* ContactUsNavigationViewController.m in Sources */,
 				2E6CD0B919568BA3007B7BF8 /* ContactUs.m in Sources */,
+				2EABE9141A243A8100C20922 /* AudioPlayerTableViewCell.m in Sources */,
 				2E52E44B1948E19A00B46786 /* SettingsViewController.m in Sources */,
 				2E52E3E41948AE0E00B46786 /* main.m in Sources */,
 				2E722F501978C6FA006EB580 /* Reachability.m in Sources */,
@@ -1151,6 +1167,7 @@
 				2E52E56F1959F95100CC0BD4 /* BigTweetViewController.m in Sources */,
 				2E9CD7281956437400822E1D /* Directory.m in Sources */,
 				2E4F92B7194B65B300BC23F2 /* XPathQuery.m in Sources */,
+				2EA0F8F01A3E431700A7AE20 /* PDFCleaner.m in Sources */,
 				2E5B18F01962588300E96F61 /* MailRequestViewController.m in Sources */,
 				2E4B16B91952274000641710 /* Tweet.m in Sources */,
 				2E722F531978E3A4006EB580 /* FileDownloader.m in Sources */,
@@ -1254,7 +1271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1286,7 +1303,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1294,21 +1311,14 @@
 		};
 		2E52E4011948AE0F00B46786 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/Colours\"",
-					"\"${PODS_ROOT}/Headers/DateTools\"",
-					"\"${PODS_ROOT}/Headers/MYBlurIntroductionView\"",
-					"\"${PODS_ROOT}/Headers/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/iOSWebserviceTemplate\"",
-					"$(SDKROOT)/usr/include/libxml2",
-				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";
@@ -1328,21 +1338,14 @@
 		};
 		2E52E4021948AE0F00B46786 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B854335ABDC48468C1EC1D7 /* Pods.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NorthwoodApp/NorthwoodCoC-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/Colours\"",
-					"\"${PODS_ROOT}/Headers/DateTools\"",
-					"\"${PODS_ROOT}/Headers/MYBlurIntroductionView\"",
-					"\"${PODS_ROOT}/Headers/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/iOSWebserviceTemplate\"",
-					"$(SDKROOT)/usr/include/libxml2",
-				);
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "NorthwoodApp/NorthwoodCoC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = "";

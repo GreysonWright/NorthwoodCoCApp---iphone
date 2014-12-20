@@ -27,6 +27,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	self.versionNumber = @"1.2";
+	
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	// Override point for customization after application launch.
 	self.window.backgroundColor = [UIColor yellowColor];
@@ -83,6 +85,14 @@
 		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notFirstLaunch"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 		NSLog(@"first launch");
+	}
+	
+	if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"versionNumber"] isEqual:self.versionNumber]) {
+		NSLog(@"version %@ != %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"versionNumber"], self.versionNumber);
+		[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"loggedIn"];
+		[[NSUserDefaults standardUserDefaults] setValue:self.versionNumber forKey:@"versionNumber"];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+		NSLog(@"version %@ != %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"versionNumber"], self.versionNumber);
 	}
 	
 	if([SettingsViewController pushSwitchIsOn]) //shouldve used nsuserdefaults now that i think about it
